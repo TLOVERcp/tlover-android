@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="63dp"
+        android:layout_height="57dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="163dp"
+        app:srcCompat="@drawable/title_bi" />
+
+    //수많은 코코부스 폰트중 어떤건지...?
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="242dp"
+        android:text="TLOVER"
+        android:textSize="26sp"
+        android:textColor="#3B7CFC"
+        android:fontFamily="@font/cocogoose"
+        />
+
+    <EditText
+        android:id="@+id/Sample1"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="281dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="아이디"
+        android:fontFamily="@font/cocogoose"
+        android:inputType="textPersonName"
+        android:textColorHint="#ADB5BD"
+        android:maxLength="18"/>
+
+    <EditText
+        android:id="@+id/Sample2"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="200dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="비밀번호"
+        android:fontFamily="@font/cocogoose"
+        android:inputType="textPassword"
+        android:textColorHint="#ADB5BD"
+        android:maxLength="20"/>
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="290dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="88dp"
+        android:text="로그인 하기"
+        android:fontFamily="@font/cocogoose"
+        android:background="@drawable/sign_up"
+        android:textColor="#ADB5BD"/>
+
+</RelativeLayout>

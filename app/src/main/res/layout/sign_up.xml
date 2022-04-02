@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="63dp"
+        android:layout_height="57dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="163dp"
+        app:srcCompat="@drawable/title_bi" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="242dp"
+        android:text="TLOVER"
+        android:textSize="26sp"
+        android:textColor="#3B7CFC"
+        android:fontFamily="@font/cocogoose"
+        />
+
+    <EditText
+        android:id="@+id/Sample1"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="281dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:fontFamily="@font/cocogoose"
+        android:hint="아이디"
+        android:inputType="textPersonName"
+        android:maxLength="18"
+        android:textColorHint="#ADB5BD" />
+
+    <EditText
+        android:id="@+id/Sample2"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="200dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:fontFamily="@font/cocogoose"
+        android:hint="비밀번호"
+        android:inputType="textPassword"
+        android:textColorHint="#ADB5BD"
+        android:maxLength="20"/>
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="290dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="88dp"
+        android:text="회원가입 하기"
+        android:fontFamily="@font/cocogoose"
+        android:background="@drawable/sign_up"
+        android:textColor="#ADB5BD"/>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="63dp"
+        android:layout_marginLeft="63dp"
+        android:fontFamily="@font/cocogoose"
+        android:layout_marginBottom="266dp"
+        android:text="6~18자 (영 소문자, 숫자만 가능)"
+        android:textColor="#ADB5BD"/>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:fontFamily="@font/cocogoose"
+        android:layout_marginStart="63dp"
+        android:layout_marginLeft="63dp"
+        android:layout_marginBottom="184dp"
+        android:text="8~20자 (영 대 소문자,숫자,특수문자 필수)"
+        android:textColor="#ADB5BD"/>
+
+</RelativeLayout>

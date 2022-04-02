@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="63dp"
+        android:layout_height="57dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="163dp"
+        app:srcCompat="@drawable/title_bi" />
+
+    //수많은 코코부스 폰트중 어떤건지...?
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="242dp"
+        android:fontFamily="@font/cocogoose"
+        android:text="TLOVER"
+        android:textColor="#3B7CFC"
+        android:textSize="26sp" />
+
+    //kakao 버튼
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="249dp"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="304dp"
+        android:text="카카오 로그인"
+        android:paddingLeft="20dp"
+        android:fontFamily="@font/notosans"
+        android:textSize="14dp"
+        android:drawableLeft="@drawable/kakao_login_small_logo"
+        android:background="@drawable/kakao_btn_background"
+        />
+
+    //네이버
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="249dp"
+        android:text="네이버 로그인"
+        android:paddingLeft="20dp"
+        android:textColor="#FFFFFF"
+        android:drawableLeft="@drawable/naver_small_logo"
+        android:layout_height="48dp"
+        android:fontFamily="@font/notosans"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="176dp"
+        android:background="@drawable/naver_btn_background" />
+
+    //google
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="249dp"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="240dp"
+        android:background="@drawable/google_btn_background"
+        android:drawableLeft="@drawable/btn_google_light_normal"
+        android:fontFamily="@font/notosans"
+
+        android:paddingLeft="20dp"
+        android:text="Google 계정으로 로그인"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="84dp"
+        android:layout_marginLeft="62dp"
+        android:layout_marginBottom="127dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/notosans"
+        android:text="회원가입" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="127dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/notosans"
+        android:text="아이디 로그인" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="78dp"
+        android:layout_marginRight="78dp"
+        android:layout_marginBottom="127dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/notosans"
+        android:text="문의하기" />
+
+
+</RelativeLayout>
