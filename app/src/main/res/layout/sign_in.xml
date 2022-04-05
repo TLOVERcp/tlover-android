@@ -64,9 +64,9 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="88dp"
-        android:text="로그인 하기"
-        android:fontFamily="@font/cocogoose"
         android:background="@drawable/sign_up"
-        android:textColor="#ADB5BD"/>
+        android:fontFamily="@font/cocogoose"
+        android:text="로그인 하기"
+        android:textColor="#ADB5BD" />
 
 </RelativeLayout>
