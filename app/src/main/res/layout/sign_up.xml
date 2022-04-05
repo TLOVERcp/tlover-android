@@ -78,10 +78,10 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="63dp"
         android:layout_marginLeft="63dp"
-        android:fontFamily="@font/cocogoose"
         android:layout_marginBottom="266dp"
+        android:fontFamily="@font/cocogoose"
         android:text="6~18자 (영 소문자, 숫자만 가능)"
-        android:textColor="#ADB5BD"/>
+        android:textColor="#ADB5BD" />
 
     <TextView
         android:id="@+id/textView6"

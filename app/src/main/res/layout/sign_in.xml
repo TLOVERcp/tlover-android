@@ -14,6 +14,7 @@
         app:srcCompat="@drawable/title_bi" />
 
     //수많은 코코부스 폰트중 어떤건지...?
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -21,11 +22,10 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="242dp"
-        android:text="TLOVER"
-        android:textSize="26sp"
-        android:textColor="#3B7CFC"
         android:fontFamily="@font/cocogoose"
-        />
+        android:text="TLOVER"
+        android:textColor="#3B7CFC"
+        android:textSize="26sp" />
 
     <EditText
         android:id="@+id/Sample1"
@@ -36,11 +36,11 @@
         android:layout_marginBottom="281dp"
         android:layout_weight="1"
         android:ems="10"
-        android:hint="아이디"
         android:fontFamily="@font/cocogoose"
+        android:hint="아이디"
         android:inputType="textPersonName"
-        android:textColorHint="#ADB5BD"
-        android:maxLength="18"/>
+        android:maxLength="18"
+        android:textColorHint="#ADB5BD" />
 
     <EditText
         android:id="@+id/Sample2"
@@ -51,11 +51,11 @@
         android:layout_marginBottom="200dp"
         android:layout_weight="1"
         android:ems="10"
-        android:hint="비밀번호"
         android:fontFamily="@font/cocogoose"
+        android:hint="비밀번호"
         android:inputType="textPassword"
-        android:textColorHint="#ADB5BD"
-        android:maxLength="20"/>
+        android:maxLength="20"
+        android:textColorHint="#ADB5BD" />
 
     <Button
         android:id="@+id/button4"
@@ -64,9 +64,9 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="88dp"
-        android:text="로그인 하기"
-        android:fontFamily="@font/cocogoose"
         android:background="@drawable/sign_up"
-        android:textColor="#ADB5BD"/>
+        android:fontFamily="@font/cocogoose"
+        android:text="로그인 하기"
+        android:textColor="#ADB5BD" />
 
 </RelativeLayout>
