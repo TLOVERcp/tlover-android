@@ -39,13 +39,12 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="304dp"
-        android:text="카카오 로그인"
-        android:paddingLeft="20dp"
-        android:fontFamily="@font/notosans"
-        android:textSize="14dp"
-        android:drawableLeft="@drawable/kakao_login_small_logo"
         android:background="@drawable/kakao_btn_background"
-        />
+        android:drawableLeft="@drawable/kakao_login_small_logo"
+        android:fontFamily="@font/notosans"
+        android:paddingLeft="20dp"
+        android:text="카카오 로그인"
+        android:textSize="14dp" />
 
     //네이버
 

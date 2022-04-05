@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="104dp"
+        android:fontFamily="@font/notosans"
+        android:text="계정 만들기"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="161dp"
+        android:fontFamily="@font/notosans"
+        android:text="아이디"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="371dp"
+        android:fontFamily="@font/notosans"
+        android:text="비밀번호 확인"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="476dp"
+        android:fontFamily="@font/notosans"
+        android:text="닉네임"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="266dp"
+        android:fontFamily="@font/notosans"
+        android:text="비밀번호"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="290dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="654dp"
+        android:background="@drawable/confirm_btn_background"
+        android:fontFamily="@font/notosans"
+        android:text="확인"
+        android:textColor="#ADB5BD"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="244dp"
+        android:layout_height="44dp"
+        android:background="@drawable/input_place_background"
+        android:ems="10"
+        android:fontFamily="@font/notosans"
+        android:hint="6~18자(영소문자,숫자만 가능)"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@id/textView10"
+        app:layout_constraintTop_toBottomOf="@id/textView10" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="328dp"
+        android:layout_height="44dp"
+        android:background="@drawable/input_place_background"
+        android:ems="10"
+        android:fontFamily="@font/notosans"
+        android:hint="8~20자 (영 대·소문자, 숫자, 특수문자 필수) "
+        android:inputType="textPassword"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@id/textView14"
+        app:layout_constraintTop_toBottomOf="@id/textView14" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword2"
+        android:layout_width="328dp"
+        android:layout_height="44dp"
+        android:background="@drawable/input_place_background"
+        android:ems="10"
+        android:fontFamily="@font/notosans"
+        android:hint="비밀번호를 한 번 더 입력하세요."
+        android:inputType="textPassword"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@id/textView12"
+        app:layout_constraintTop_toBottomOf="@id/textView12" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="244dp"
+        android:layout_height="44dp"
+        android:background="@drawable/input_place_background"
+        android:ems="10"
+        android:fontFamily="@font/notosans"
+        android:hint="사용할 닉네임을 입력하세요."
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@id/textView13"
+        app:layout_constraintTop_toBottomOf="@id/textView13" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="72dp"
+        android:layout_height="44dp"
+        android:layout_marginLeft="12dp"
+        android:background="@drawable/confirm_repetition_btn_background"
+        android:fontFamily="@font/notosans"
+        android:text="중복확인"
+        android:textColor="#495057"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toRightOf="@id/editTextTextPersonName"
+        app:layout_constraintTop_toTopOf="@id/editTextTextPersonName" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="72dp"
+        android:layout_height="44dp"
+        android:layout_marginLeft="12dp"
+        android:background="@drawable/confirm_repetition_btn_background"
+        android:fontFamily="@font/notosans"
+        android:text="중복확인"
+        android:textColor="#495057"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toRightOf="@id/editTextTextPersonName2"
+        app:layout_constraintTop_toTopOf="@id/editTextTextPersonName2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
