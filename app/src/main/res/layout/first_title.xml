@@ -34,11 +34,11 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="249dp"
-        android:layout_height="48dp"
+        android:layout_width="250dp"
+        android:layout_height="46dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="304dp"
+        android:layout_marginBottom="306dp"
         android:background="@drawable/kakao_btn_background"
         android:drawableLeft="@drawable/kakao_login_small_logo"
         android:fontFamily="@font/notosans"
@@ -50,27 +50,27 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="249dp"
-        android:text="네이버 로그인"
-        android:paddingLeft="20dp"
-        android:textColor="#FFFFFF"
-        android:drawableLeft="@drawable/naver_small_logo"
-        android:layout_height="48dp"
-        android:fontFamily="@font/notosans"
+        android:layout_width="250dp"
+        android:layout_height="46dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="176dp"
-        android:background="@drawable/naver_btn_background" />
+        android:layout_marginBottom="178dp"
+        android:background="@drawable/naver_btn_background"
+        android:drawableLeft="@drawable/naver_small_logo"
+        android:fontFamily="@font/notosans"
+        android:paddingLeft="20dp"
+        android:text="네이버 로그인"
+        android:textColor="#FFFFFF" />
 
     //google
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="249dp"
-        android:layout_height="48dp"
+        android:layout_width="250dp"
+        android:layout_height="46dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="240dp"
+        android:layout_marginBottom="242dp"
         android:background="@drawable/google_btn_background"
         android:drawableLeft="@drawable/btn_google_light_normal"
         android:fontFamily="@font/notosans"
