@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/create_account_main_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -14,39 +14,56 @@
         android:layout_marginTop="104dp"
         android:fontFamily="@font/notosans"
         android:text="계정 만들기"
+        android:textColor="#1D1D20"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/create_account_id_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="161dp"
+        android:layout_marginTop="160dp"
         android:fontFamily="@font/notosans"
         android:text="아이디"
+        android:textColor="#3F3F45"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/create_account_passwordcheck_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="371dp"
+        android:layout_marginTop="370dp"
         android:fontFamily="@font/notosans"
         android:text="비밀번호 확인"
+        android:textColor="#3F3F45"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/create_account_password_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="265dp"
+        android:fontFamily="@font/notosans"
+        android:text="비밀번호"
+        android:textColor="#3F3F45"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/create_account_nickname_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -54,25 +71,13 @@
         android:layout_marginTop="476dp"
         android:fontFamily="@font/notosans"
         android:text="닉네임"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="266dp"
-        android:fontFamily="@font/notosans"
-        android:text="비밀번호"
+        android:textColor="#3F3F45"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/create_account_confirm_button"
         android:layout_width="290dp"
         android:layout_height="46dp"
         android:layout_marginTop="654dp"
@@ -87,81 +92,138 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/create_account_id_edittext"
         android:layout_width="244dp"
         android:layout_height="44dp"
         android:background="@drawable/input_place_background"
+        android:drawableRight="@drawable/check_mark"
         android:ems="10"
         android:fontFamily="@font/notosans"
         android:hint="6~18자(영소문자,숫자만 가능)"
         android:inputType="textPersonName"
+        android:textColor="#6E6E76"
         android:textSize="14sp"
-        app:layout_constraintLeft_toLeftOf="@id/textView10"
-        app:layout_constraintTop_toBottomOf="@id/textView10" />
+        app:layout_constraintLeft_toLeftOf="@id/create_account_id_text"
+        app:layout_constraintTop_toBottomOf="@id/create_account_id_text" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/create_account_password_edittext"
         android:layout_width="328dp"
         android:layout_height="44dp"
         android:background="@drawable/input_place_background"
+        android:drawableRight="@drawable/check_mark"
         android:ems="10"
         android:fontFamily="@font/notosans"
         android:hint="8~20자 (영 대·소문자, 숫자, 특수문자 필수) "
         android:inputType="textPassword"
+        android:textColor="#6E6E76"
         android:textSize="14sp"
-        app:layout_constraintLeft_toLeftOf="@id/textView14"
-        app:layout_constraintTop_toBottomOf="@id/textView14" />
+        app:layout_constraintLeft_toLeftOf="@id/create_account_password_text"
+        app:layout_constraintTop_toBottomOf="@id/create_account_password_text" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/create_account_passwordcheck_edittext"
         android:layout_width="328dp"
         android:layout_height="44dp"
         android:background="@drawable/input_place_background"
+        android:drawableRight="@drawable/check_mark"
         android:ems="10"
         android:fontFamily="@font/notosans"
         android:hint="비밀번호를 한 번 더 입력하세요."
         android:inputType="textPassword"
+        android:textColor="#6E6E76"
         android:textSize="14sp"
-        app:layout_constraintLeft_toLeftOf="@id/textView12"
-        app:layout_constraintTop_toBottomOf="@id/textView12" />
+        app:layout_constraintLeft_toLeftOf="@id/create_account_passwordcheck_text"
+        app:layout_constraintTop_toBottomOf="@id/create_account_passwordcheck_text" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/create_account_nickname_edittext"
         android:layout_width="244dp"
         android:layout_height="44dp"
         android:background="@drawable/input_place_background"
+        android:drawableRight="@drawable/check_mark"
         android:ems="10"
         android:fontFamily="@font/notosans"
         android:hint="사용할 닉네임을 입력하세요."
         android:inputType="textPersonName"
+        android:textColor="#6E6E76"
         android:textSize="14sp"
-        app:layout_constraintLeft_toLeftOf="@id/textView13"
-        app:layout_constraintTop_toBottomOf="@id/textView13" />
+        app:layout_constraintLeft_toLeftOf="@id/create_account_nickname_text"
+        app:layout_constraintTop_toBottomOf="@id/create_account_nickname_text" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/create_account_check_repetition_button"
         android:layout_width="72dp"
         android:layout_height="44dp"
         android:layout_marginLeft="12dp"
         android:background="@drawable/confirm_repetition_btn_background"
         android:fontFamily="@font/notosans"
         android:text="중복확인"
-        android:textColor="#495057"
+        android:textColor="#3F3F45"
         android:textSize="12sp"
-        app:layout_constraintLeft_toRightOf="@id/editTextTextPersonName"
-        app:layout_constraintTop_toTopOf="@id/editTextTextPersonName" />
+        app:layout_constraintLeft_toRightOf="@id/create_account_id_edittext"
+        app:layout_constraintTop_toTopOf="@id/create_account_id_edittext" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/create_account_check_repetition_button_nickname"
         android:layout_width="72dp"
         android:layout_height="44dp"
         android:layout_marginLeft="12dp"
         android:background="@drawable/confirm_repetition_btn_background"
         android:fontFamily="@font/notosans"
         android:text="중복확인"
-        android:textColor="#495057"
+        android:textColor="#3F3F45"
         android:textSize="12sp"
-        app:layout_constraintLeft_toRightOf="@id/editTextTextPersonName2"
-        app:layout_constraintTop_toTopOf="@id/editTextTextPersonName2" />
+        app:layout_constraintLeft_toRightOf="@id/create_account_nickname_edittext"
+        app:layout_constraintTop_toTopOf="@id/create_account_nickname_edittext" />
+
+    <TextView
+        android:id="@+id/create_account_id_warning_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:fontFamily="@font/notosans"
+        android:text="1"
+        android:textColor="#F92636"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/create_account_password_text"
+        app:layout_constraintLeft_toLeftOf="@id/create_account_id_edittext"
+        app:layout_constraintTop_toBottomOf="@id/create_account_id_edittext" />
+
+    <TextView
+        android:id="@+id/create_account_password_warning_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:fontFamily="@font/notosans"
+        android:text="2"
+        android:textColor="#F92636"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@id/create_account_password_edittext"
+        app:layout_constraintTop_toBottomOf="@id/create_account_password_edittext" />
+
+    <TextView
+        android:id="@+id/create_account_password_check_warning_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:fontFamily="@font/notosans"
+        android:text="3"
+        android:textColor="#F92636"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@id/create_account_passwordcheck_edittext"
+        app:layout_constraintTop_toBottomOf="@id/create_account_passwordcheck_edittext" />
+
+    <TextView
+        android:id="@+id/create_account_nickname_warning_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:fontFamily="@font/notosans"
+        android:text="4"
+        android:textColor="#F92636"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@id/create_account_nickname_edittext"
+        app:layout_constraintTop_toBottomOf="@id/create_account_nickname_edittext" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
