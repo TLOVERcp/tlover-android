@@ -9,38 +9,39 @@
     tools:context=".SignUpingActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="409dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginBottom="101dp"
-        android:background="#FFFFFF"
+        android:id="@+id/signuping_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="287dp"
+        android:background="#ffffff"
         android:elevation="20dp"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        android:fontFamily="@font/notosans"
+        android:paddingLeft="72dp"
+        app:collapseIcon="@drawable/back_btn"
+        app:layout_constraintBottom_toTopOf="@+id/signuping_identrequest"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="회원가입"
+        app:titleTextColor="#000000" />
+
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/signuping_persident"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
         android:layout_marginBottom="604dp"
         android:fontFamily="@font/notosans"
         android:text="휴대폰 본인인증"
         android:textColor="#000000"
         android:textSize="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/Sample1"
+        android:id="@+id/signuping_pnum"
         android:layout_width="379dp"
         android:layout_height="41dp"
         android:layout_alignParentBottom="true"
@@ -58,35 +59,43 @@
         android:textColorHint="#ADB5BD"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar" />
+        app:layout_constraintTop_toTopOf="@+id/signuping_toolbar"
+        app:navigationIcon="@drawable/back_btn" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/signuping_pnum_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginBottom="555dp"
         android:fontFamily="@font/notosans"
         android:text="휴대폰번호"
         android:textColor="#495057"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/Sample1"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintStart_toStartOf="@+id/signuping_pnum"
+        app:layout_constraintTop_toBottomOf="@+id/signuping_toolbar"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="289dp"
-        android:layout_height="45dp"
+        android:id="@+id/signuping_identrequest"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="61dp"
+        android:layout_marginLeft="61dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginRight="61dp"
+        android:layout_marginBottom="343dp"
+        android:background="@drawable/certification_requ"
         android:text="인증 요청"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="343dp"
         android:textColor="#ADB5BD"
         android:textSize="14dp"
-        android:background="@drawable/certification_requ"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signuping_toolbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

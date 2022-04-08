@@ -16,15 +16,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".MainActivity">
-        </activity>
         <activity android:name=".FirstTitleActivity">
         </activity>
         <activity android:name=".SignUpingActivity">
         </activity>
+        <activity android:name=".MainActivity">
+        </activity>
+
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
+
 
 </manifest>

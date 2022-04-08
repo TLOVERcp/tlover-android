@@ -8,7 +8,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/first_title_logo"
         android:layout_width="63dp"
         android:layout_height="57dp"
         android:layout_alignParentTop="true"
@@ -16,10 +16,8 @@
         android:layout_marginTop="163dp"
         app:srcCompat="@drawable/title_bi" />
 
-    //수많은 코코부스 폰트중 어떤건지...?
-
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/text_tlover"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -30,10 +28,9 @@
         android:textColor="#3B7CFC"
         android:textSize="26sp" />
 
-    //kakao 버튼
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/kakao_login_btn"
         android:layout_width="250dp"
         android:layout_height="46dp"
         android:layout_alignParentBottom="true"
@@ -46,10 +43,9 @@
         android:text="카카오 로그인"
         android:textSize="14dp" />
 
-    //네이버
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/naver_login_btn"
         android:layout_width="250dp"
         android:layout_height="46dp"
         android:layout_alignParentBottom="true"
@@ -62,10 +58,9 @@
         android:text="네이버 로그인"
         android:textColor="#FFFFFF" />
 
-    //google
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/google_login_btn"
         android:layout_width="250dp"
         android:layout_height="46dp"
         android:layout_alignParentBottom="true"
@@ -80,7 +75,7 @@
         android:textSize="14dp" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/text_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -95,7 +90,7 @@
         android:text="회원가입" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/text_signin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -107,7 +102,7 @@
         android:text="아이디 로그인" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/text_quest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
