@@ -16,8 +16,6 @@
         android:layout_marginTop="163dp"
         app:srcCompat="@drawable/title_bi" />
 
-    //수많은 코코부스 폰트중 어떤건지...?
-
     <TextView
         android:id="@+id/text_tlover"
         android:layout_width="wrap_content"
@@ -30,7 +28,6 @@
         android:textColor="#3B7CFC"
         android:textSize="26sp" />
 
-    //kakao 버튼
 
     <Button
         android:id="@+id/kakao_login_btn"
@@ -46,7 +43,6 @@
         android:text="카카오 로그인"
         android:textSize="14dp" />
 
-    //네이버
 
     <Button
         android:id="@+id/naver_login_btn"
@@ -62,7 +58,6 @@
         android:text="네이버 로그인"
         android:textColor="#FFFFFF" />
 
-    //google
 
     <Button
         android:id="@+id/google_login_btn"
