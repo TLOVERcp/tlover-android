@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/signup_logo"
         android:layout_width="63dp"
         android:layout_height="57dp"
         android:layout_alignParentTop="true"
@@ -15,7 +15,7 @@
 
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/signup_tlover"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -28,7 +28,7 @@
         />
 
     <EditText
-        android:id="@+id/Sample1"
+        android:id="@+id/signup_id"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -43,7 +43,7 @@
         android:textColorHint="#ADB5BD" />
 
     <EditText
-        android:id="@+id/Sample2"
+        android:id="@+id/signup_pw"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -58,7 +58,7 @@
         android:maxLength="20"/>
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/signup_signup_btn"
         android:layout_width="290dp"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
@@ -70,7 +70,7 @@
         android:textColor="#ADB5BD"/>
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/signup_not1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -84,7 +84,7 @@
         android:textColor="#ADB5BD" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/signup_not2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"

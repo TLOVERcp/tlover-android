@@ -9,7 +9,7 @@
     tools:context=".SignUpingActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/signuping_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="287dp"
@@ -18,7 +18,7 @@
         android:fontFamily="@font/notosans"
         android:paddingLeft="72dp"
         app:collapseIcon="@drawable/back_btn"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintBottom_toTopOf="@+id/signuping_identrequest"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -27,7 +27,7 @@
 
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/signuping_persident"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -41,7 +41,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/Sample1"
+        android:id="@+id/signuping_pnum"
         android:layout_width="379dp"
         android:layout_height="41dp"
         android:layout_alignParentBottom="true"
@@ -59,11 +59,11 @@
         android:textColorHint="#ADB5BD"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="@+id/signuping_toolbar"
         app:navigationIcon="@drawable/back_btn" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/signuping_pnum_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -74,12 +74,12 @@
         android:textColor="#495057"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/Sample1"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="@+id/signuping_pnum"
+        app:layout_constraintTop_toBottomOf="@+id/signuping_toolbar"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/signuping_identrequest"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_alignParentBottom="true"
@@ -96,7 +96,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/signuping_toolbar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
