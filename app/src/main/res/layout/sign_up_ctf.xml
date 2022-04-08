@@ -9,6 +9,7 @@
     android:orientation="vertical"
     tools:context=".SignUpingActivity">
 
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -17,15 +18,15 @@
         android:background="#ffffff"
         android:elevation="20dp"
         android:fontFamily="@font/notosans"
-        android:paddingLeft="72dp"
+        android:paddingLeft="15dp"
         app:collapseIcon="@drawable/back_btn"
         app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:title="회원가입"
         app:titleTextColor="#000000" />
-
 
     <TextView
         android:id="@+id/textView9"
