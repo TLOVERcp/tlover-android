@@ -27,7 +27,8 @@
         android:gravity="center"
         android:text="비밀번호가 일치하지 않습니다."
         android:textAlignment="center"
-        android:textColor="#F92636" />
+        android:textColor="#F92636"
+        android:visibility="gone" />
 
     <ImageView
         android:id="@+id/signin_logo"
@@ -113,7 +114,8 @@
         android:gravity="center"
         android:text="해당 아이디를 찾을 수 없습니다."
         android:textAlignment="center"
-        android:textColor="#F92636" />
+        android:textColor="#F92636"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/signin_id_up"
