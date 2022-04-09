@@ -27,6 +27,50 @@ class CreateAccountActivity : AppCompatActivity() {
             binding.createAccountNicknameWarningTextview.visibility = View.VISIBLE
             binding.createAccountNicknameCheckimage.visibility = View.VISIBLE
         }
+        //아이디 edittext
+        binding.createAccountIdEdittext.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if(binding.createAccountIdEdittext.text.toString() != "") {
+                    binding.createAccountCheckRepetitionButton.setBackgroundResource(R.drawable.confirm_repetition_btn_background_clicked)
+                    binding.createAccountCheckRepetitionButton.setTextColor(Color.WHITE)
+                }
+                else {
+                    binding.createAccountCheckRepetitionButton.setBackgroundResource(R.drawable.confirm_repetition_btn_background)
+                    binding.createAccountCheckRepetitionButton.setTextColor(Color.parseColor("#3F3F45"))
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+
+        })
+        //nickname eidttext
+        binding.createAccountNicknameEdittext.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if(binding.createAccountNicknameEdittext.text.toString() != "") {
+                    binding.createAccountCheckRepetitionButtonNickname.setBackgroundResource(R.drawable.confirm_repetition_btn_background_clicked)
+                    binding.createAccountCheckRepetitionButtonNickname.setTextColor(Color.WHITE)
+                }
+                else {
+                    binding.createAccountCheckRepetitionButtonNickname.setBackgroundResource(R.drawable.confirm_repetition_btn_background)
+                    binding.createAccountCheckRepetitionButtonNickname.setTextColor(Color.parseColor("#3F3F45"))
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+
+        })
 
     }
 

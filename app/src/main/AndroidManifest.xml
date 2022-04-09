@@ -25,6 +25,9 @@
         <activity android:name=".CreateAccountActivity">
 
         </activity>
+        <activity android:name=".SigninActivity">
+
+        </activity>
 
     </application>
 
