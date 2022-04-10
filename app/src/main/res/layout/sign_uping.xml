@@ -8,7 +8,6 @@
     android:orientation="vertical"
     tools:context=".SignUpingActivity">
 
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/signuping_toolbar"
         android:layout_width="match_parent"
@@ -62,8 +61,7 @@
         android:textColorHint="#ADB5BD"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/signuping_toolbar"
-        app:navigationIcon="@drawable/back_btn" />
+        app:layout_constraintTop_toTopOf="@+id/signuping_toolbar" />
 
     <TextView
         android:id="@+id/signuping_pnum_up"
@@ -116,8 +114,7 @@
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/back_btn" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button5"
@@ -125,7 +122,6 @@
         android:layout_height="46dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="392dp"
