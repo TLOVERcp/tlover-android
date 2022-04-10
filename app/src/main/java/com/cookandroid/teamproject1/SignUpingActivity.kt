@@ -2,7 +2,10 @@ package com.cookandroid.teamproject1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.Menu
+import android.view.View
 import androidx.appcompat.app.ActionBar
 import kotlinx.android.synthetic.main.sign_uping.*
 
@@ -13,11 +16,14 @@ class SignUpingActivity : AppCompatActivity() {
         setContentView(R.layout.sign_uping)
 
 
-        setSupportActionBar(toolbar)//커스텀한 툴바 액션바로 use
+        setSupportActionBar(signuping_toolbar)//커스텀한 툴바 액션바로 use
         supportActionBar!!.setDisplayShowTitleEnabled(false)
         //액션바에 표시되는 제목의 표시유무 결정 false로 해야 툴바 이름 화면에 보임
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)  // 왼쪽 버튼 사용 여부 true
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.back_btn)
+
+
+
 
     }
 
@@ -31,5 +37,7 @@ class SignUpingActivity : AppCompatActivity() {
         onBackPressed()
         return true
     }
+
+
 
 }
