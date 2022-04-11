@@ -1,34 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    //수많은 코코부스 폰트중 어떤건지...?
 
     <TextView
         android:id="@+id/signin_pw_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginBottom="247dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginBottom="8dp"
         android:text="비밀번호"
         android:textColor="#3F3F45"
-        android:textSize="12dp" />
+        android:textSize="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/signin_pw"
+        app:layout_constraintStart_toStartOf="@+id/signin_pw"
+        app:layout_constraintTop_toBottomOf="@+id/signin_findid" />
 
     <TextView
         android:id="@+id/signin_pwnot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginBottom="179dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="21dp"
         android:gravity="center"
         android:text="비밀번호가 일치하지 않습니다."
         android:textAlignment="center"
         android:textColor="#F92636"
-        android:visibility="gone" />
+        app:layout_constraintBottom_toTopOf="@+id/signin_login_btn"
+        app:layout_constraintStart_toStartOf="@+id/signin_pw"
+        app:layout_constraintTop_toBottomOf="@+id/signin_pw" />
 
     <ImageView
         android:id="@+id/signin_logo"
@@ -37,9 +48,13 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="163dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/signin_tlover"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/title_bi" />
 
-    //수많은 코코부스 폰트중 어떤건지...?
 
     <TextView
         android:id="@+id/signin_tlover"
@@ -47,22 +62,28 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="242dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="21dp"
         android:fontFamily="@font/cocogoose"
         android:text="TLOVER"
         android:textColor="#3B7CFC"
-        android:textSize="26sp" />
+        android:textSize="26sp"
+        app:layout_constraintBottom_toTopOf="@+id/signin_id_up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signin_logo" />
 
     <EditText
         android:id="@+id/signin_id"
-        android:layout_width="328dp"
-        android:layout_height="44dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="49dp"
-        android:layout_marginBottom="319dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginLeft="41dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginRight="41dp"
+        android:layout_marginBottom="3dp"
         android:layout_weight="1"
         android:background="@drawable/phone_requ"
         android:ems="10"
@@ -71,15 +92,23 @@
         android:inputType="textPersonName"
         android:maxLength="18"
         android:paddingLeft="12dp"
-        android:textColorHint="#ADB5BD" />
+        android:textColorHint="#ADB5BD"
+        app:layout_constraintBottom_toTopOf="@+id/signin_findid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signin_id_up" />
 
     <EditText
         android:id="@+id/signin_pw"
-        android:layout_width="328dp"
-        android:layout_height="44dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="200dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginLeft="41dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginRight="41dp"
+        android:layout_marginBottom="7dp"
         android:layout_weight="1"
         android:background="@drawable/phone_requ"
         android:ems="10"
@@ -88,19 +117,32 @@
         android:inputType="textPassword"
         android:maxLength="20"
         android:paddingLeft="12dp"
-        android:textColorHint="#ADB5BD" />
+        android:textColorHint="#ADB5BD"
+        app:layout_constraintBottom_toTopOf="@+id/signin_pwnot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signin_pw_up" />
 
     <Button
         android:id="@+id/signin_login_btn"
-        android:layout_width="290dp"
-        android:layout_height="60dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="88dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="176dp"
         android:background="@drawable/sign_up"
         android:fontFamily="@font/cocogoose"
         android:text="로그인 하기"
-        android:textColor="#ADB5BD" />
+        android:textColor="#ADB5BD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signin_pwnot" />
 
     <TextView
         android:id="@+id/signin_findid"
@@ -108,25 +150,31 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
 
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginBottom="296dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="13dp"
         android:gravity="center"
         android:text="해당 아이디를 찾을 수 없습니다."
         android:textAlignment="center"
         android:textColor="#F92636"
-        android:visibility="gone" />
+        app:layout_constraintBottom_toTopOf="@+id/signin_pw_up"
+        app:layout_constraintStart_toStartOf="@+id/signin_id"
+        app:layout_constraintTop_toBottomOf="@+id/signin_id" />
 
     <TextView
         android:id="@+id/signin_id_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginBottom="367dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginBottom="8dp"
         android:text="아이디"
         android:textColor="#3F3F45"
-        android:textSize="12dp" />
+        android:textSize="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/signin_id"
+        app:layout_constraintStart_toStartOf="@+id/signin_id"
+        app:layout_constraintTop_toBottomOf="@+id/signin_tlover" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

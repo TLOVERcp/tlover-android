@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.cookandroid.teamproject1.databinding.SignInBinding
 
 
-class SigninActivity : AppCompatActivity() {
+class SignInActivity : AppCompatActivity() {
 
     var isIdEntered : Boolean = false
     var isPasswordEntered : Boolean = false
@@ -18,6 +18,7 @@ class SigninActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = SignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         //id edittext 비어있는 경우 체크
         binding.signinId.addTextChangedListener(object : TextWatcher{
