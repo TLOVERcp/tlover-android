@@ -7,8 +7,6 @@
     android:orientation="vertical"
     >
 
-    //수많은 코코부스 폰트중 어떤건지...?
-
     <TextView
         android:id="@+id/signin_pw_up"
         android:layout_width="wrap_content"
@@ -149,7 +147,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-
         android:layout_marginStart="3dp"
         android:layout_marginLeft="3dp"
         android:layout_marginTop="4dp"
