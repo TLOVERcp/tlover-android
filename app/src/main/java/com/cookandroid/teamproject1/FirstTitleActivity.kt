@@ -3,9 +3,7 @@ package com.cookandroid.teamproject1
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.cookandroid.teamproject1.databinding.CreateAccountBinding
 import com.cookandroid.teamproject1.databinding.FirstTitleBinding
-import com.cookandroid.teamproject1.databinding.SignInBinding
 
 class FirstTitleActivity : AppCompatActivity() {
 
@@ -20,7 +18,7 @@ class FirstTitleActivity : AppCompatActivity() {
         }
 
         binding.textSignin.setOnClickListener {
-            startActivity(Intent(this,SigninActivity::class.java))
+            startActivity(Intent(this,SignInActivity::class.java))
         }
 
 
