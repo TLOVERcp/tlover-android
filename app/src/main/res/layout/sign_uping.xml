@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".SignUpingActivity">
-
+    tools:context="com.cookandroid.teamproject1.SignUpingActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/signuping_toolbar"
@@ -62,8 +61,7 @@
         android:textColorHint="#ADB5BD"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/signuping_toolbar"
-        app:navigationIcon="@drawable/back_btn" />
+        app:layout_constraintTop_toTopOf="@+id/signuping_toolbar" />
 
     <TextView
         android:id="@+id/signuping_pnum_up"
@@ -80,7 +78,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/sign_up_ctf_ctfnumber"
+        android:id="@+id/sign_uping_ctfnumber"
         android:layout_width="47dp"
         android:layout_height="33dp"
         android:layout_marginStart="20dp"
@@ -90,12 +88,12 @@
         android:text="인증번호"
         android:textColor="#3F3F45"
         android:textSize="12dp"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/ctf_Sample1"
+        android:id="@+id/sign_text_ctf"
         android:layout_width="285dp"
         android:layout_height="41dp"
         android:layout_alignParentBottom="true"
@@ -116,16 +114,14 @@
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/back_btn" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btn_confirm"
         android:layout_width="287dp"
         android:layout_height="46dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="392dp"
@@ -134,12 +130,13 @@
         android:text="확인"
         android:textColor="#ADB5BD"
         android:textSize="14dp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
 
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btn_transport"
         android:layout_width="80dp"
         android:layout_height="41dp"
         android:layout_alignParentBottom="true"
@@ -155,7 +152,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/sign_up_ctf_msgctf"
+        android:id="@+id/sign_up_msgctf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -169,10 +166,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.028"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ctf_Sample1" />
+        app:layout_constraintTop_toBottomOf="@+id/sign_text_ctf" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="252dp"
@@ -181,6 +178,24 @@
         android:text="Timer"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_ctf"
+        android:layout_width="287dp"
+        android:layout_height="46dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="290dp"
+        android:background="@drawable/certification_requ"
+        android:fontFamily="@font/notosans"
+        android:text="인증하기"
+        android:textColor="#ADB5BD"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="parent"
+
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
