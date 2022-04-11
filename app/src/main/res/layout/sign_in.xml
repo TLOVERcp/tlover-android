@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SignInActivity">
+    >
 
     //수많은 코코부스 폰트중 어떤건지...?
 
