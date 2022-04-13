@@ -86,18 +86,18 @@
         android:layout_height="46dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="472dp"
         android:background="@drawable/google_btn_background"
         android:drawableLeft="@drawable/btn_google_light_normal"
         android:fontFamily="@font/roboto"
-        android:layout_marginTop="472dp"
         android:paddingLeft="20dp"
         android:text="Google 계정으로 로그인"
+        android:textAllCaps="false"
         android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.627" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/text_signup"
