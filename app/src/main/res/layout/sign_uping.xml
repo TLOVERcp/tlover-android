@@ -62,7 +62,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/sign_uping_ctfnumber"
+        android:id="@+id/signuping_ctfnumber"
         android:layout_width="47dp"
         android:layout_height="33dp"
         android:layout_marginStart="20dp"
