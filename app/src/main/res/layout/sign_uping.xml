@@ -4,26 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFCF6"
     android:gravity="center"
     android:orientation="vertical"
     tools:context="com.cookandroid.teamproject1.SignUpingActivity">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/signuping_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="287dp"
-        android:background="#ffffff"
-        android:elevation="20dp"
-        android:fontFamily="@font/notosans"
-        android:paddingLeft="72dp"
-        app:collapseIcon="@drawable/back_btn"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="회원가입"
-        app:titleTextColor="#000000" />
 
 
     <TextView
@@ -46,8 +30,8 @@
         android:layout_height="41dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="184dp"
         android:layout_weight="1"
         android:background="@drawable/phone_requ"
@@ -61,7 +45,7 @@
         android:textColorHint="#ADB5BD"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/signuping_toolbar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/signuping_pnum_up"
@@ -69,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="155dp"
+        android:layout_marginTop="160dp"
         android:fontFamily="@font/notosans"
         android:text="휴대폰번호"
         android:textColor="#495057"
@@ -191,11 +175,35 @@
         android:layout_marginTop="290dp"
         android:background="@drawable/certification_requ"
         android:fontFamily="@font/notosans"
-        android:text="인증하기"
-        android:textColor="#ADB5BD"
+        android:text="확인"
+        android:textColor="#6E6E76"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="parent"
 
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="176dp"
+        android:layout_marginLeft="176dp"
+        android:layout_marginTop="44dp"
+        android:text="회원가입"
+        android:textColor="#2E2E33"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="19dp"
+        android:layout_height="17dp"
+        android:layout_marginLeft="18.5dp"
+        android:layout_marginTop="43.5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

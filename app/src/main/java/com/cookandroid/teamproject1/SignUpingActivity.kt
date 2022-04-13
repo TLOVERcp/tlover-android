@@ -10,7 +10,6 @@ import android.view.View
 import androidx.appcompat.app.ActionBar
 import com.cookandroid.teamproject1.databinding.SignInBinding
 import com.cookandroid.teamproject1.databinding.SignUpBinding
-import kotlinx.android.synthetic.main.sign_uping.*
 import com.cookandroid.teamproject1.databinding.SignUpingBinding
 
 class SignUpingActivity : AppCompatActivity() {

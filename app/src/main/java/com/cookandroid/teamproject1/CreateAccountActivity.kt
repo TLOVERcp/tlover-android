@@ -7,7 +7,6 @@ import android.text.TextWatcher
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.cookandroid.teamproject1.databinding.CreateAccountBinding
-import kotlinx.android.synthetic.main.create_account.*
 import java.util.regex.Pattern
 
 class CreateAccountActivity : AppCompatActivity() {
