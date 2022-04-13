@@ -92,6 +92,7 @@
         android:layout_marginTop="472dp"
         android:paddingLeft="20dp"
         android:text="Google 계정으로 로그인"
+        android:textAllCaps="false"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
