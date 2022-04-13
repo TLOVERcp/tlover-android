@@ -18,6 +18,8 @@ class CreateAccountActivity : AppCompatActivity() {
         binding = CreateAccountBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         //아이디 중복확인 버튼
         binding.createAccountCheckRepetitionButton.setOnClickListener {
             binding.createAccountIdWarningTextview.visibility = View.VISIBLE
@@ -39,10 +41,12 @@ class CreateAccountActivity : AppCompatActivity() {
                 if(binding.createAccountIdEdittext.text.toString() != "") {
                     binding.createAccountCheckRepetitionButton.setBackgroundResource(R.drawable.confirm_repetition_btn_background_clicked)
                     binding.createAccountCheckRepetitionButton.setTextColor(Color.WHITE)
+                    binding.createAccountCheckRepetitionButton.isEnabled = true
                 }
                 else {
                     binding.createAccountCheckRepetitionButton.setBackgroundResource(R.drawable.confirm_repetition_btn_background)
                     binding.createAccountCheckRepetitionButton.setTextColor(Color.parseColor("#3F3F45"))
+                    binding.createAccountCheckRepetitionButton.isEnabled = false
                 }
             }
 
@@ -61,10 +65,12 @@ class CreateAccountActivity : AppCompatActivity() {
                 if(binding.createAccountNicknameEdittext.text.toString() != "") {
                     binding.createAccountCheckRepetitionButtonNickname.setBackgroundResource(R.drawable.confirm_repetition_btn_background_clicked)
                     binding.createAccountCheckRepetitionButtonNickname.setTextColor(Color.WHITE)
+                    binding.createAccountCheckRepetitionButtonNickname.isEnabled = true
                 }
                 else {
                     binding.createAccountCheckRepetitionButtonNickname.setBackgroundResource(R.drawable.confirm_repetition_btn_background)
                     binding.createAccountCheckRepetitionButtonNickname.setTextColor(Color.parseColor("#3F3F45"))
+                    binding.createAccountCheckRepetitionButtonNickname.isEnabled = false
                 }
             }
 

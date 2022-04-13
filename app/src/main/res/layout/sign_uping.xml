@@ -8,23 +8,6 @@
     android:orientation="vertical"
     tools:context="com.cookandroid.teamproject1.SignUpingActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/signuping_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="287dp"
-        android:background="#ffffff"
-        android:elevation="20dp"
-        android:fontFamily="@font/notosans"
-        android:paddingLeft="72dp"
-        app:collapseIcon="@drawable/back_btn"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="회원가입"
-        app:titleTextColor="#000000" />
-
 
     <TextView
         android:id="@+id/signuping_persident"
@@ -61,7 +44,7 @@
         android:textColorHint="#ADB5BD"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/signuping_toolbar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/signuping_pnum_up"
@@ -126,13 +109,14 @@
         android:layout_marginLeft="60dp"
         android:layout_marginTop="392dp"
         android:background="@drawable/certification_requ"
+        android:enabled="false"
         android:fontFamily="@font/notosans"
         android:text="확인"
         android:textColor="#ADB5BD"
         android:textSize="14dp"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
 
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -188,14 +172,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="288dp"
         android:background="@drawable/certification_requ"
+        android:enabled="false"
         android:fontFamily="@font/notosans"
         android:text="인증하기"
         android:textColor="#ADB5BD"
+
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
