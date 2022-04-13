@@ -20,6 +20,7 @@ class SignInActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+
         //id edittext 비어있는 경우 체크
         binding.signinId.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {

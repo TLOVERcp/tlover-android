@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:title="홈"
+        android:icon="@drawable/bottom_nav_home_selector"
+        />
+    <item
+        android:id="@+id/searchFragment"
+        android:title="검색"
+        android:icon="@drawable/search_logo"
+        />
+    <item
+        android:id="@+id/diaryFragment"
+        android:title="다이어리"
+        android:icon="@drawable/diary_logo"
+        />
+    <item
+        android:id="@+id/myInfoFragment"
+        android:title="내프로필"
+        android:icon="@drawable/my_info_logo"
+        />
+</menu>

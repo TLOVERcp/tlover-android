@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFCF6"
     android:gravity="center"
     tools:context=".FirstTitleActivity">
 
@@ -29,10 +30,9 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="242dp"
-        android:layout_marginBottom="264dp"
         android:fontFamily="@font/cocogoose"
         android:text="TLOVER"
-        android:textColor="#3B7CFC"
+        android:textColor="#6BBFEE"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,8 +42,10 @@
         android:id="@+id/kakao_login_btn"
         android:layout_width="250dp"
         android:layout_height="46dp"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
 
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="408dp"
         android:layout_marginBottom="139dp"
         android:background="@drawable/kakao_btn_background"
@@ -52,10 +54,8 @@
         android:paddingLeft="20dp"
         android:text="카카오 로그인"
         android:textSize="14dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.283" />
@@ -86,17 +86,18 @@
         android:layout_height="46dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="472dp"
         android:background="@drawable/google_btn_background"
         android:drawableLeft="@drawable/btn_google_light_normal"
         android:fontFamily="@font/roboto"
-        android:layout_marginTop="472dp"
         android:paddingLeft="20dp"
         android:text="Google 계정으로 로그인"
+        android:textAllCaps="false"
         android:textSize="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0.627" />
 
     <Button
@@ -121,18 +122,18 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="614dp"
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
-        android:layout_marginTop="614dp"
         android:background="#00ff0000"
         android:clickable="true"
         android:focusable="true"
         android:fontFamily="@font/notosans"
         android:text="아이디 로그인"
 
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/text_signup"
-        app:layout_constraintRight_toLeftOf="@id/text_quest"/>
+        app:layout_constraintRight_toLeftOf="@id/text_quest"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/text_quest"
@@ -141,9 +142,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
+        android:background="#00ff0000"
         android:clickable="true"
         android:focusable="true"
-        android:background="#00ff0000"
         android:fontFamily="@font/notosans"
         android:text="문의하기"
         app:layout_constraintBaseline_toBaselineOf="@+id/text_signin"

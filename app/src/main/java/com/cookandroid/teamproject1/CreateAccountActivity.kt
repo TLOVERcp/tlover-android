@@ -4,10 +4,10 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.content.Intent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.cookandroid.teamproject1.databinding.CreateAccountBinding
-import kotlinx.android.synthetic.main.create_account.*
 import java.util.regex.Pattern
 
 class CreateAccountActivity : AppCompatActivity() {
@@ -17,6 +17,8 @@ class CreateAccountActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = CreateAccountBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
 
         //아이디 중복확인 버튼
         binding.createAccountCheckRepetitionButton.setOnClickListener {
@@ -39,10 +41,12 @@ class CreateAccountActivity : AppCompatActivity() {
                 if(binding.createAccountIdEdittext.text.toString() != "") {
                     binding.createAccountCheckRepetitionButton.setBackgroundResource(R.drawable.confirm_repetition_btn_background_clicked)
                     binding.createAccountCheckRepetitionButton.setTextColor(Color.WHITE)
+                    binding.createAccountCheckRepetitionButton.isEnabled = true
                 }
                 else {
                     binding.createAccountCheckRepetitionButton.setBackgroundResource(R.drawable.confirm_repetition_btn_background)
                     binding.createAccountCheckRepetitionButton.setTextColor(Color.parseColor("#3F3F45"))
+                    binding.createAccountCheckRepetitionButton.isEnabled = false
                 }
             }
 
@@ -61,10 +65,12 @@ class CreateAccountActivity : AppCompatActivity() {
                 if(binding.createAccountNicknameEdittext.text.toString() != "") {
                     binding.createAccountCheckRepetitionButtonNickname.setBackgroundResource(R.drawable.confirm_repetition_btn_background_clicked)
                     binding.createAccountCheckRepetitionButtonNickname.setTextColor(Color.WHITE)
+                    binding.createAccountCheckRepetitionButtonNickname.isEnabled = true
                 }
                 else {
                     binding.createAccountCheckRepetitionButtonNickname.setBackgroundResource(R.drawable.confirm_repetition_btn_background)
                     binding.createAccountCheckRepetitionButtonNickname.setTextColor(Color.parseColor("#3F3F45"))
+                    binding.createAccountCheckRepetitionButtonNickname.isEnabled = false
                 }
             }
 
@@ -129,6 +135,10 @@ class CreateAccountActivity : AppCompatActivity() {
             }
         })
 
+        //회원가입 완료시 홈액티비티로 이동
+        binding.createAccountConfirmButton.setOnClickListener{
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
     }
 
 

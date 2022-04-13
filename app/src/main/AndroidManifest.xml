@@ -26,6 +26,11 @@
         </activity>
         <activity android:name=".SignInActivity">
         </activity>
+        <activity android:name=".SelectDestActivity">
+        </activity>
+
+        <activity android:name=".HomeActivity">
+        </activity>
 
     </application>
 
