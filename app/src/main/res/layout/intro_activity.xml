@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3B7CFC"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.cookandroid.teamproject1.IntroActivity"
+    android:background="#6BBFEE"
    >
 
 
@@ -18,7 +18,7 @@
         android:layout_marginTop="293dp"
         android:layout_weight="1"
 
-        app:srcCompat="@drawable/tlover_blue" />
+        app:srcCompat="@drawable/bi_white_logo" />
 
     <TextView
         android:id="@+id/splash_tlover"
