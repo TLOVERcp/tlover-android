@@ -90,6 +90,7 @@ class CreateAccountActivity : AppCompatActivity() {
                 if (Pattern.matches("^(?=.*\\d)(?=.*[~`!@#$%\\^&*()-])(?=.*[a-zA-Z]).{8,20}$", binding.createAccountPasswordEdittext.text.toString())) {
                     binding.createAccountConfirmButton.isEnabled = true
                     binding.createAccountPasswordCheckimage.visibility = View.VISIBLE  //조건 맞으면 체크이미지 활성화
+                    binding.createAccountPasswordCheckimage.bringToFront()
                     binding.createAccountPasswordWarningTextview.visibility = View.GONE //맞으면 경고메세지 지워짐  밑의 경우도 마찬가지
                 }
                 else{
