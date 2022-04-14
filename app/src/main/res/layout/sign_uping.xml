@@ -9,36 +9,12 @@
     android:orientation="vertical"
     tools:context="com.cookandroid.teamproject1.SignUpingActivity">
 
-    <ImageView
-        android:id="@+id/sign_uping_back_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="43dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/back_btn" />
-
-    <TextView
-        android:id="@+id/sign_uping_join_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:textFontWeight="700"
-        android:fontFamily="@font/notosans"
-        android:text="회원가입"
-        android:textColor="#2E2E33"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/signuping_persident"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="43dp"
         android:fontFamily="@font/notosans"
         android:textFontWeight="700"
@@ -74,7 +50,7 @@
         android:id="@+id/signuping_pnum_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/notosans"
         android:text="휴대폰번호"
@@ -87,7 +63,7 @@
         android:id="@+id/signuping_ctfnumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="38dp"
         android:fontFamily="@font/notosans"
         android:text="인증번호"
@@ -118,8 +94,8 @@
         android:visibility="invisible"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signuping_ctfnumber"
-        app:layout_constraintRight_toLeftOf="@id/btn_transport"/>
-
+        app:layout_constraintRight_toLeftOf="@id/btn_transport"
+        />
     <Button
         android:id="@+id/btn_transport"
         android:layout_width="72dp"
@@ -152,13 +128,15 @@
         android:textSize="14dp"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_msgctf"/>
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_msgctf"
+        />
+
 
     <TextView
         android:id="@+id/sign_up_msgctf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="4dp"
         android:fontFamily="@font/notosans"
         android:text="인증번호가 일치하지 않습니다."
@@ -175,7 +153,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
         android:layout_marginBottom="13dp"
         android:text="Timer"
         android:visibility="invisible"
@@ -198,7 +176,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signuping_pnum" />
 
+    <ImageView
+        android:id="@+id/sign_uping_back_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="43dp"
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/back_btn" />
 
-
+    <TextView
+        android:id="@+id/sign_uping_join_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textFontWeight="700"
+        android:fontFamily="@font/notosans"
+        android:text="회원가입"
+        android:textColor="#2E2E33"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
