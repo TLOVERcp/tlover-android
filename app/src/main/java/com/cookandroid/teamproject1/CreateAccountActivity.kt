@@ -28,6 +28,7 @@ class CreateAccountActivity : AppCompatActivity() {
 
         //아이디 중복확인 버튼
         binding.createAccountCheckRepetitionButton.setOnClickListener {
+            binding.createAccountIdCheckimage.bringToFront()
             binding.createAccountIdWarningTextview.visibility = View.VISIBLE
             binding.createAccountIdCheckimage.visibility = View.VISIBLE
             isId = true
@@ -39,6 +40,7 @@ class CreateAccountActivity : AppCompatActivity() {
         binding.createAccountCheckRepetitionButtonNickname.setOnClickListener {
             binding.createAccountNicknameWarningTextview.visibility = View.VISIBLE
             binding.createAccountNicknameCheckimage.visibility = View.VISIBLE
+            binding.createAccountNicknameCheckimage.bringToFront()
             isNickname = true
             changeConfirmButtonColor()
         }
@@ -140,6 +142,7 @@ class CreateAccountActivity : AppCompatActivity() {
                     if(binding.createAccountPasswordcheckEdittext.text.toString() == binding.createAccountPasswordEdittext.text.toString()) {
 
                         binding.createAccountPasswordcheckCheckimage.visibility = View.VISIBLE
+                        binding.createAccountPasswordcheckCheckimage.bringToFront()
                         binding.createAccountPasswordCheckWarningTextview.visibility = View.GONE
                         isPasswordCheck2 = true
                         changeConfirmButtonColor()

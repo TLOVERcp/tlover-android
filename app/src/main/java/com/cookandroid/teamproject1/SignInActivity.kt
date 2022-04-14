@@ -71,7 +71,7 @@ class SignInActivity : AppCompatActivity() {
 
         })
         //뒤로가기 버튼
-        binding.signInBackbtn.setOnClickListener {
+        binding.signInBackImg.setOnClickListener {
             finish()
         }
 

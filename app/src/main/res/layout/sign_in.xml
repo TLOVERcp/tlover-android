@@ -16,13 +16,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="38dp"
         android:text="비밀번호"
         android:fontFamily="@font/notosans"
         android:textColor="#3F3F45"
         android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signin_findid"
+        app:layout_constraintTop_toBottomOf="@id/signin_id"
         android:layout_marginLeft="20dp"
         />
 
@@ -81,7 +81,7 @@
         android:inputType="textPersonName"
         android:maxLength="18"
         android:paddingLeft="12dp"
-        android:paddingVertical="12dp"
+        android:paddingVertical="6dp"
         android:textColorHint="#ADB5BD"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,7 +96,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="6dp"
         android:paddingLeft="12dp"
-        android:paddingVertical="12dp"
+        android:paddingVertical="6dp"
         android:layout_weight="1"
         android:background="@drawable/phone_requ"
         android:ems="10"
@@ -114,7 +114,7 @@
         android:id="@+id/signin_login_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="59dp"
         android:background="@drawable/sign_up"
         android:enabled="false"
         android:fontFamily="@font/cocogoose"
@@ -123,7 +123,7 @@
         android:layout_marginHorizontal="36dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signin_pwnot"/>
+        app:layout_constraintTop_toBottomOf="@+id/signin_pw"/>
 
     <TextView
         android:id="@+id/signin_findid"
