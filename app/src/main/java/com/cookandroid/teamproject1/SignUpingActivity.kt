@@ -44,6 +44,7 @@ class SignUpingActivity : AppCompatActivity() {
                     sbinding.btnCtf.setBackgroundResource(R.drawable.confirm_btn_background)
                     sbinding.btnCtf.setTextColor(Color.parseColor("#ADB5BD"))
                 }
+
             }
 
             override fun afterTextChanged(p0: Editable?) {
@@ -57,7 +58,7 @@ class SignUpingActivity : AppCompatActivity() {
             sbinding.btnConfirm.visibility= View.VISIBLE
             sbinding.btnTransport.visibility = View.VISIBLE
             sbinding.signTextCtf.visibility = View.VISIBLE
-            sbinding.signUpingCtfnumber.visibility = View.VISIBLE
+            sbinding.signupingCtfnumber.visibility = View.VISIBLE
             sbinding.textTimer.visibility = View.VISIBLE
         }
 
@@ -68,6 +69,12 @@ class SignUpingActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if(sbinding.signTextCtf.text.toString() != "") {
+                    sbinding.btnTransport.setBackgroundResource(R.drawable.confirm_repetition_btn_background_clicked)
+                    sbinding.btnTransport.setTextColor(Color.WHITE)
+                }
+
+
                 if(Pattern.matches("^\\d{4}\$", sbinding.signTextCtf.text.toString())) {
                     sbinding.signUpMsgctf.visibility = View.VISIBLE
                     sbinding.btnConfirm.isEnabled = true
@@ -86,5 +93,36 @@ class SignUpingActivity : AppCompatActivity() {
             }
 
         })
+
+        //전화번호 텍스트 필드 포커스된 경우
+        sbinding.signupingPnum.setOnFocusChangeListener (object : View.OnFocusChangeListener {
+            override fun onFocusChange(p0: View?, p1: Boolean) {
+                if (p1) {
+                    sbinding.signupingPnum.setBackgroundResource(R.drawable.phone_requ_selected)
+                }
+                else {
+                    sbinding.signupingPnum.setBackgroundResource(R.drawable.phone_requ)
+                }
+            }
+
+        })
+
+        //인증번호 텍스트 필드 포커스된 경우
+        sbinding.signTextCtf.setOnFocusChangeListener (object : View.OnFocusChangeListener {
+            override fun onFocusChange(p0: View?, p1: Boolean) {
+                if (p1) {
+                    sbinding.signTextCtf.setBackgroundResource(R.drawable.phone_requ_selected)
+                }
+                else {
+                    sbinding.signTextCtf.setBackgroundResource(R.drawable.phone_requ)
+                }
+            }
+
+        })
+
+        //뒤로가기 버튼
+        sbinding.signUpingBackImg.setOnClickListener {
+            finish()
+        }
     }
 }

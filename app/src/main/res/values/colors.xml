@@ -5,4 +5,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="Grayscale">#FAFAFA</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="confirmButtonColor">#6BBFEE</color>
 </resources>

@@ -204,8 +204,9 @@
         android:layout_height="17dp"
         android:layout_marginLeft="18.5dp"
         android:layout_marginTop="43.5dp"
+        android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back_btn" />
+        android:src="@drawable/back_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

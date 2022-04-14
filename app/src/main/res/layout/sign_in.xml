@@ -37,6 +37,7 @@
         android:text="비밀번호가 일치하지 않습니다."
         android:textAlignment="center"
         android:textColor="#F92636"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -82,12 +83,13 @@
         android:layout_weight="1"
         android:background="@drawable/phone_requ"
         android:ems="10"
-        android:fontFamily="@font/cocogoose"
+        android:fontFamily="@font/notosans"
         android:hint="아이디"
         android:inputType="textPersonName"
         android:maxLength="18"
         android:paddingLeft="12dp"
         android:textColorHint="#ADB5BD"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -103,12 +105,13 @@
         android:layout_weight="1"
         android:background="@drawable/phone_requ"
         android:ems="10"
-        android:fontFamily="@font/cocogoose"
+        android:fontFamily="@font/notosans"
         android:hint="비밀번호"
         android:inputType="textPassword"
         android:maxLength="20"
         android:paddingLeft="12dp"
         android:textColorHint="#ADB5BD"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -122,6 +125,7 @@
         android:layout_marginLeft="60dp"
         android:layout_marginTop="525dp"
         android:background="@drawable/sign_up"
+        android:enabled="false"
         android:fontFamily="@font/cocogoose"
         android:text="로그인 하기"
         android:textColor="#6E6E76"
@@ -141,6 +145,7 @@
         android:text="해당 아이디를 찾을 수 없습니다."
         android:textAlignment="center"
         android:textColor="#F92636"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -158,25 +163,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/sign_in_maintext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="176dp"
         android:layout_marginLeft="176dp"
         android:layout_marginTop="44dp"
-        android:text="회원가입"
+        android:text="로그인"
         android:textColor="#2E2E33"
         android:textSize="17dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/sign_in_backbtn"
         android:layout_width="19dp"
         android:layout_height="17dp"
         android:layout_marginLeft="18.5dp"
         android:layout_marginTop="43.5dp"
+        android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back_btn" />
