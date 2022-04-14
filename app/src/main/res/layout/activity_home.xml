@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity"
     android:orientation="vertical"
-
     >
 
 <!--    프래그먼트 들이 보여질 컨테이너뷰-->
@@ -19,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/my_bottom_nav"
         app:navGraph="@navigation/nav_graph"
         />
 

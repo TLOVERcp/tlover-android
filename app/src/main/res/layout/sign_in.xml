@@ -16,41 +16,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="398dp"
+        android:layout_marginTop="38dp"
         android:text="비밀번호"
+        android:fontFamily="@font/notosans"
         android:textColor="#3F3F45"
         android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/signin_id"
+        android:layout_marginLeft="20dp"
+        />
 
     <TextView
         android:id="@+id/signin_pwnot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="470dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="4dp"
         android:gravity="center"
         android:text="비밀번호가 일치하지 않습니다."
         android:textAlignment="center"
         android:textColor="#F92636"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/signin_pw"/>
 
     <ImageView
         android:id="@+id/signin_logo"
-        android:layout_width="63dp"
-        android:layout_height="57dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="172dp"
-        android:layout_marginLeft="172dp"
-        android:layout_marginTop="163dp"
+        android:layout_marginTop="103dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sign_in_join_title"
+        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/title_bi" />
 
 
@@ -58,127 +58,126 @@
         android:id="@+id/signin_tlover"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="148dp"
-        android:layout_marginLeft="148dp"
-        android:layout_marginTop="242dp"
+        android:layout_marginTop="22dp"
         android:fontFamily="@font/cocogoose"
         android:text="TLOVER"
         android:textColor="#3B7CFC"
         android:textSize="26sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signin_logo"/>
 
     <EditText
         android:id="@+id/signin_id"
-        android:layout_width="328dp"
-        android:layout_height="44dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="328dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="6dp"
         android:layout_weight="1"
         android:background="@drawable/phone_requ"
         android:ems="10"
-        android:fontFamily="@font/cocogoose"
+        android:fontFamily="@font/notosans"
         android:hint="아이디"
         android:inputType="textPersonName"
         android:maxLength="18"
         android:paddingLeft="12dp"
+        android:paddingVertical="6dp"
         android:textColorHint="#ADB5BD"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/signin_id_up" />
 
     <EditText
         android:id="@+id/signin_pw"
-        android:layout_width="328dp"
-        android:layout_height="44dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="422dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="6dp"
+        android:paddingLeft="12dp"
+        android:paddingVertical="6dp"
         android:layout_weight="1"
         android:background="@drawable/phone_requ"
         android:ems="10"
-        android:fontFamily="@font/cocogoose"
-        android:hint="비밀번호"
+        android:fontFamily="@font/notosans"
+        android:hint="비밀번호를 입력하세요"
         android:inputType="textPassword"
         android:maxLength="20"
-        android:paddingLeft="12dp"
         android:textColorHint="#ADB5BD"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signin_pw_up"/>
 
     <Button
         android:id="@+id/signin_login_btn"
-        android:layout_width="287dp"
-        android:layout_height="46dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="525dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="59dp"
         android:background="@drawable/sign_up"
+        android:enabled="false"
         android:fontFamily="@font/cocogoose"
         android:text="로그인 하기"
         android:textColor="#6E6E76"
+        android:layout_marginHorizontal="36dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signin_pw"/>
 
     <TextView
         android:id="@+id/signin_findid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="375dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
         android:gravity="center"
         android:text="해당 아이디를 찾을 수 없습니다."
         android:textAlignment="center"
         android:textColor="#F92636"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/signin_id"/>
 
     <TextView
         android:id="@+id/signin_id_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="293dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/notosans"
         android:text="아이디"
         android:textColor="#3F3F45"
         android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/signin_tlover" />
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/sign_in_join_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="176dp"
-        android:layout_marginLeft="176dp"
-        android:layout_marginTop="44dp"
-        android:text="회원가입"
+        android:layout_marginTop="30dp"
+        android:textFontWeight="700"
+        android:fontFamily="@font/notosans"
+        android:text="로그인"
         android:textColor="#2E2E33"
-        android:textSize="17dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="19dp"
-        android:layout_height="17dp"
-        android:layout_marginLeft="18.5dp"
-        android:layout_marginTop="43.5dp"
+        android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back_btn" />
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/sign_in_back_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18.5dp"
+        android:layout_marginTop="43.5dp"
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/back_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

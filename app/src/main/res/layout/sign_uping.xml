@@ -14,27 +14,27 @@
         android:id="@+id/signuping_persident"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="43dp"
         android:fontFamily="@font/notosans"
+        android:textFontWeight="700"
         android:text="휴대폰 본인인증"
         android:textColor="#000000"
-        android:textSize="22dp"
+        android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/sign_uping_back_img"/>
 
     <EditText
         android:id="@+id/signuping_pnum"
-        android:layout_width="379dp"
-        android:layout_height="41dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="1dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="184dp"
-        android:layout_weight="1"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="6dp"
         android:background="@drawable/phone_requ"
+        android:fontFamily="@font/notosans"
         android:ems="10"
         android:focusable="true"
         android:focusableInTouchMode="true"
@@ -45,70 +45,82 @@
         android:textColorHint="#ADB5BD"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/signuping_pnum_up"/>
 
     <TextView
         android:id="@+id/signuping_pnum_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/notosans"
         android:text="휴대폰번호"
         android:textColor="#495057"
         android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/signuping_persident"/>
 
     <TextView
         android:id="@+id/signuping_ctfnumber"
-        android:layout_width="47dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="252dp"
+        android:layout_marginTop="38dp"
         android:fontFamily="@font/notosans"
         android:text="인증번호"
         android:textColor="#3F3F45"
-        android:textSize="12dp"
+        android:textSize="12sp"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/signuping_pnum"/>
+
 
     <EditText
         android:id="@+id/sign_text_ctf"
-        android:layout_width="285dp"
-        android:layout_height="41dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="16dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="288dp"
-        android:layout_weight="1"
+        android:layout_marginTop="4dp"
         android:background="@drawable/phone_requ"
         android:ems="10"
         android:fontFamily="@font/notosans"
         android:hint="인증번호를 입력하세요."
         android:inputType="textPersonName"
         android:maxLength="18"
+        android:paddingVertical="1dp"
         android:paddingLeft="12dp"
         android:textColorHint="#ADB5BD"
         android:textSize="14dp"
+        android:layout_marginRight="12dp"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signuping_ctfnumber"
+        app:layout_constraintRight_toLeftOf="@id/btn_transport"
+        />
+    <Button
+        android:id="@+id/btn_transport"
+        android:layout_width="72dp"
+        android:layout_height="44dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/confirm_repetition_btn_background"
+        android:enabled="false"
+        android:fontFamily="@font/notosans"
+        android:text="재전송"
+        android:visibility="invisible"
+        android:textColor="#3F3F45"
+        android:textSize="12sp"
+        app:layout_constraintTop_toTopOf="@+id/sign_text_ctf"
+        app:layout_constraintRight_toRightOf="parent"/>
 
     <Button
         android:id="@+id/btn_confirm"
-        android:layout_width="287dp"
-        android:layout_height="46dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="392dp"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="35dp"
         android:background="@drawable/certification_requ"
         android:enabled="false"
         android:fontFamily="@font/notosans"
@@ -117,32 +129,16 @@
         android:textSize="14dp"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_msgctf"
+        />
 
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_transport"
-        android:layout_width="80dp"
-        android:layout_height="41dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="312dp"
-        android:layout_marginLeft="312dp"
-        android:layout_marginTop="288dp"
-        android:background="@drawable/phone_requ"
-        android:text="재전송"
-        android:textColor="#3F3F45"
-        android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/sign_up_msgctf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/notosans"
         android:text="인증번호가 일치하지 않습니다."
         android:textColor="#F92636"
@@ -157,55 +153,54 @@
         android:id="@+id/textTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="252dp"
-        android:layout_marginLeft="252dp"
-        android:layout_marginTop="296dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="13dp"
         android:text="Timer"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/sign_text_ctf"
+        app:layout_constraintEnd_toEndOf="@+id/sign_text_ctf"
+        app:layout_constraintTop_toTopOf="@+id/sign_text_ctf" />
 
     <Button
         android:id="@+id/btn_ctf"
-        android:layout_width="287dp"
-        android:layout_height="46dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="290dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="58dp"
         android:background="@drawable/certification_requ"
         android:enabled="false"
         android:fontFamily="@font/notosans"
-        android:text="인증하기"
+        android:text="확인"
         android:textColor="#ADB5BD"
-        android:textSize="14dp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signuping_pnum" />
 
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/sign_uping_back_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="43dp"
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/back_btn" />
 
     <TextView
         android:id="@+id/sign_uping_join_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="176dp"
-        android:layout_marginLeft="176dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="30dp"
+        android:textFontWeight="700"
+        android:fontFamily="@font/notosans"
         android:text="회원가입"
         android:textColor="#2E2E33"
-        android:textSize="17dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/sign_uping_back_img"
-        android:layout_width="19dp"
-        android:layout_height="17dp"
-        android:layout_marginLeft="18.5dp"
-        android:layout_marginTop="43.5dp"
+        android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back_btn" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
