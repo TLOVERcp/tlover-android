@@ -121,7 +121,7 @@
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="525dp"
-        android:background="@drawable/sign_up"
+        android:background="@drawable/certification_requ"
         android:fontFamily="@font/cocogoose"
         android:text="로그인 하기"
         android:textColor="#6E6E76"

@@ -57,7 +57,7 @@ class SignUpingActivity : AppCompatActivity() {
             sbinding.btnConfirm.visibility= View.VISIBLE
             sbinding.btnTransport.visibility = View.VISIBLE
             sbinding.signTextCtf.visibility = View.VISIBLE
-            sbinding.signUpingCtfnumber.visibility = View.VISIBLE
+            sbinding.signupingCtfnumber.visibility = View.VISIBLE
             sbinding.textTimer.visibility = View.VISIBLE
         }
 
