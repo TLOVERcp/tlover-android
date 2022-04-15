@@ -46,8 +46,7 @@
 
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="408dp"
-        android:layout_marginBottom="139dp"
+        android:layout_marginTop="404dp"
         android:background="@drawable/kakao_btn_background"
         android:drawableLeft="@drawable/kakao_login_small_logo"
         android:fontFamily="@font/notosans"
@@ -57,8 +56,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.283" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/naver_login_btn"
