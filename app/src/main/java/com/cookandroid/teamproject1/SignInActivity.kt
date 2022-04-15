@@ -1,5 +1,6 @@
 package com.cookandroid.teamproject1
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
@@ -72,7 +73,7 @@ class SignInActivity : AppCompatActivity() {
         })
         //뒤로가기 버튼
         binding.signInBackImg.setOnClickListener {
-            finish()
+            startActivity(Intent(this,FirstTitleActivity::class.java))
         }
 
         //아이디 텍스트 필드 포커스된 경우

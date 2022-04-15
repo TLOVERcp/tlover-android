@@ -11,7 +11,7 @@
         android:layout_marginStart="143dp"
         android:layout_marginLeft="143dp"
         android:layout_marginTop="229dp"
-        android:background="@color/Grayscale"
+        android:background="@color/grayscale"
         android:text="dest"
         android:textColor="#6E6E76"
         app:layout_constraintStart_toStartOf="parent"

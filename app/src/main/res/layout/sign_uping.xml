@@ -42,7 +42,7 @@
         android:inputType="textPersonName"
         android:maxLength="18"
         android:paddingLeft="12dp"
-        android:textColorHint="#ADB5BD"
+        android:textColorHint="@color/join_text_gray_color"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signuping_pnum_up"/>
@@ -89,7 +89,7 @@
         android:maxLength="18"
         android:paddingVertical="1dp"
         android:paddingLeft="12dp"
-        android:textColorHint="#ADB5BD"
+        android:textColorHint="@color/join_text_gray_color"
         android:textSize="14dp"
         android:layout_marginRight="12dp"
         android:visibility="invisible"
@@ -97,21 +97,21 @@
         app:layout_constraintTop_toBottomOf="@id/signuping_ctfnumber"
         app:layout_constraintRight_toLeftOf="@id/btn_transport"
         />
+
     <Button
         android:id="@+id/btn_transport"
         android:layout_width="72dp"
         android:layout_height="44dp"
-        android:layout_marginLeft="12dp"
         android:layout_marginRight="16dp"
         android:background="@drawable/confirm_repetition_btn_background"
         android:enabled="false"
         android:fontFamily="@font/notosans"
         android:text="재전송"
-        android:visibility="invisible"
-        android:textColor="#3F3F45"
+        android:textColor="#6E6E76"
         android:textSize="12sp"
-        app:layout_constraintTop_toTopOf="@+id/sign_text_ctf"
-        app:layout_constraintRight_toRightOf="parent"/>
+        android:visibility="invisible"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sign_text_ctf" />
 
     <Button
         android:id="@+id/btn_confirm"
@@ -125,7 +125,7 @@
         android:enabled="false"
         android:fontFamily="@font/notosans"
         android:text="확인"
-        android:textColor="#ADB5BD"
+        android:textColor="#6E6E76"
         android:textSize="14dp"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
@@ -172,7 +172,7 @@
         android:enabled="false"
         android:fontFamily="@font/notosans"
         android:text="확인"
-        android:textColor="#ADB5BD"
+        android:textColor="#6E6E76"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signuping_pnum" />
