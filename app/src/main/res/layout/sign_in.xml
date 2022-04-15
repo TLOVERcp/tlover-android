@@ -115,7 +115,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="59dp"
-        android:background="@drawable/sign_up"
+        android:background="@drawable/certification_requ"
         android:enabled="false"
         android:fontFamily="@font/cocogoose"
         android:text="로그인 하기"
