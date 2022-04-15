@@ -11,8 +11,8 @@
 
     <ImageView
         android:id="@+id/first_title_logo"
-        android:layout_width="63dp"
-        android:layout_height="57dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="163dp"
@@ -29,24 +29,24 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="242dp"
+        android:layout_marginTop="22dp"
         android:fontFamily="@font/cocogoose"
         android:text="TLOVER"
         android:textColor="#6BBFEE"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/first_title_logo"/>
 
     <Button
         android:id="@+id/kakao_login_btn"
         android:layout_width="250dp"
         android:layout_height="46dp"
         android:layout_alignParentTop="true"
-
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="404dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginBottom="139dp"
         android:background="@drawable/kakao_btn_background"
         android:drawableLeft="@drawable/kakao_login_small_logo"
         android:fontFamily="@font/notosans"
@@ -56,7 +56,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/text_tlover"
+        app:layout_constraintVertical_bias="0.283" />
 
     <Button
         android:id="@+id/naver_login_btn"
@@ -64,7 +65,7 @@
         android:layout_height="46dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="536dp"
+        android:layout_marginTop="18dp"
         android:background="@drawable/naver_btn_background"
         android:drawableLeft="@drawable/naver_small_logo"
         android:fontFamily="@font/notosans"
@@ -74,7 +75,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/google_login_btn"
 
         />
 
@@ -84,7 +85,7 @@
         android:layout_height="46dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="472dp"
+        android:layout_marginTop="18dp"
         android:background="@drawable/google_btn_background"
         android:drawableLeft="@drawable/btn_google_light_normal"
         android:fontFamily="@font/roboto"
@@ -95,7 +96,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/kakao_login_btn"
         app:layout_constraintVertical_bias="0.627" />
 
     <Button
@@ -106,12 +107,13 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:background="#00ff0000"
+        android:layout_marginStart="60dp"
         android:clickable="true"
         android:focusable="true"
         android:fontFamily="@font/notosans"
         android:text="회원가입"
         app:layout_constraintBaseline_toBaselineOf="@+id/text_signin"
-        app:layout_constraintStart_toStartOf="@+id/naver_login_btn" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
 
@@ -120,7 +122,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="614dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
         android:background="#00ff0000"
@@ -131,7 +133,7 @@
 
         app:layout_constraintLeft_toRightOf="@+id/text_signup"
         app:layout_constraintRight_toLeftOf="@id/text_quest"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/naver_login_btn"/>
 
     <Button
         android:id="@+id/text_quest"
@@ -145,8 +147,9 @@
         android:focusable="true"
         android:fontFamily="@font/notosans"
         android:text="문의하기"
+        android:layout_marginEnd="60dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/text_signin"
-        app:layout_constraintEnd_toEndOf="@+id/naver_login_btn" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
