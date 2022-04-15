@@ -222,7 +222,7 @@ class CreateAccountActivity : AppCompatActivity() {
         })
 
         binding.createAccountBackImg.setOnClickListener {
-            finish()
+            startActivity(Intent(this,SignUpingActivity::class.java))
         }
 
     }

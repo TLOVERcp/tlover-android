@@ -97,21 +97,21 @@
         app:layout_constraintTop_toBottomOf="@id/signuping_ctfnumber"
         app:layout_constraintRight_toLeftOf="@id/btn_transport"
         />
+
     <Button
         android:id="@+id/btn_transport"
         android:layout_width="72dp"
         android:layout_height="44dp"
-        android:layout_marginLeft="12dp"
         android:layout_marginRight="16dp"
         android:background="@drawable/confirm_repetition_btn_background"
         android:enabled="false"
         android:fontFamily="@font/notosans"
         android:text="재전송"
-        android:visibility="invisible"
         android:textColor="#3F3F45"
         android:textSize="12sp"
-        app:layout_constraintTop_toTopOf="@+id/sign_text_ctf"
-        app:layout_constraintRight_toRightOf="parent"/>
+        android:visibility="invisible"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sign_text_ctf" />
 
     <Button
         android:id="@+id/btn_confirm"
