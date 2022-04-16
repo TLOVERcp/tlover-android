@@ -2,14 +2,15 @@ package com.cookandroid.teamproject1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.ArrayAdapter
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cookandroid.teamproject1.databinding.SelectDestBinding
 
 class SelectDestActivity : AppCompatActivity() {
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var customAdapter: CustomAdapter
+    private var dataList = mutableListOf<DataModel>()
 
     lateinit var binding: SelectDestBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,35 +18,33 @@ class SelectDestActivity : AppCompatActivity() {
         binding = SelectDestBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val gridView = binding.selectDestGrid
-//        var adapter = CustomAdapter()
+        recyclerView = binding.selectDestGrid
+        recyclerView.layoutManager = GridLayoutManager(applicationContext, 3)
+        customAdapter = CustomAdapter(applicationContext)
+        recyclerView.adapter = customAdapter
 
-        gridView.adapter
+        dataList.add(DataModel("서울"))
+        dataList.add(DataModel("제주도"))
+        dataList.add(DataModel("경기도"))
+        dataList.add(DataModel("충청북도"))
+        dataList.add(DataModel("충청남도"))
+        dataList.add(DataModel("인천"))
+        dataList.add(DataModel("경상북도"))
+        dataList.add(DataModel("경상남도"))
+        dataList.add(DataModel("강원도"))
+        dataList.add(DataModel("전라북도"))
+        dataList.add(DataModel("전라남도"))
+        dataList.add(DataModel("기타"))
+
+        customAdapter.setDataList(dataList)
+
+        binding.selectDestBtnConfirm.setOnClickListener{
+
+        }
+
+
 
     }
 }
 
-//class CustomAdapter : RecyclerView.Adapter<Holder>() {
-//
-//    var listData = arrayListOf("서울", "제주도", "경기도", "충청북도", "충청남도", "인천", "경상북도", "경상남도", "강원도", "전라북도", "전라남도", "기타")
-//
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-//        val view = LayoutInflater.from(parent.context).inflate(R.layout.grid_list, parent, false)
-//        return Holder(view)
-//    }
-//
-//    override fun onBindViewHolder(holder: Holder, position: Int) {
-//        val data = listData.get(position)
-//
-//    }
-//
-//    override fun getItemCount(): Int {
-//       return  listData.size
-//    }
-//
-//
-//}
-////
-//class Holder(itemView: View) : RecyclerView.ViewHolder(itemView){
-//
-//}
+
