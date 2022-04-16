@@ -156,6 +156,4 @@ class SignUpingActivity : AppCompatActivity() {
             t2.duration = Toast.LENGTH_SHORT
         }
     }
-
-
 }
