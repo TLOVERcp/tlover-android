@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 
 import android.text.Editable
 import android.text.TextWatcher
@@ -17,10 +18,25 @@ import android.widget.Toast
 import com.cookandroid.teamproject1.databinding.SignUpingBinding
 import java.util.regex.Pattern
 import kotlin.concurrent.timer
+import kotlin.math.roundToInt
 
 class SignUpingActivity : AppCompatActivity() {
 
+    var isTime : Boolean = false
+    var isquoteNum: Boolean = false
+
     lateinit var sbinding: SignUpingBinding
+    private val mCountDown: CountDownTimer = object : CountDownTimer(180000,500) {
+        override fun onTick(p0: Long) {
+            sbinding.textTimer.text = "${(p0 / (1000 * 60) % 60).toString()+":"+((p0 / 1000) % 60).toString()}"
+            isTime = true
+        }
+
+        override fun onFinish() {
+            isTime = false
+        }
+
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         sbinding = SignUpingBinding.inflate(layoutInflater)
         setContentView(sbinding.root)
@@ -45,7 +61,7 @@ class SignUpingActivity : AppCompatActivity() {
                     sbinding.btnCtf.setTextColor(Color.WHITE)
                 }
                 else {
-                    sbinding.btnCtf.setBackgroundResource(R.drawable.confirm_btn_background)
+                    sbinding.btnCtf.setBackgroundResource(R.drawable.certification_requ)
                     sbinding.btnCtf.setTextColor(Color.parseColor("#ADB5BD"))
                 }
 
@@ -64,6 +80,7 @@ class SignUpingActivity : AppCompatActivity() {
             sbinding.signTextCtf.visibility = View.VISIBLE
             sbinding.signupingCtfnumber.visibility = View.VISIBLE
             sbinding.textTimer.visibility = View.VISIBLE
+            mCountDown.start()
 
             val toastView = layoutInflater.inflate(R.layout.custom_toast,null)
 
@@ -94,14 +111,12 @@ class SignUpingActivity : AppCompatActivity() {
 
                 if(Pattern.matches("^\\d{4}\$", sbinding.signTextCtf.text.toString())) {
                     sbinding.signUpMsgctf.visibility = View.VISIBLE
-                    sbinding.btnConfirm.isEnabled = true
-                    sbinding.btnConfirm.setBackgroundResource(R.drawable.confirm_btn_background_clicked)
-                    sbinding.btnConfirm.setTextColor(Color.WHITE)
+                    isquoteNum = true
+                    changeConfirmButton()
                 }
                 else {
-                    sbinding.btnConfirm.isEnabled = false
-                    sbinding.btnConfirm.setBackgroundResource(R.drawable.confirm_btn_background)
-                    sbinding.btnConfirm.setTextColor(Color.parseColor("#ADB5BD"))
+                    isquoteNum= false
+                    changeConfirmButton()
                 }
             }
 
@@ -144,6 +159,7 @@ class SignUpingActivity : AppCompatActivity() {
 
         //재전송 버튼
         sbinding.btnTransport.setOnClickListener {
+            mCountDown.start()
             val toastView = layoutInflater.inflate(R.layout.custom_toast,null)
 
             toastView.run {
@@ -156,6 +172,17 @@ class SignUpingActivity : AppCompatActivity() {
             t2.duration = Toast.LENGTH_SHORT
         }
     }
-
+        private fun changeConfirmButton() {
+            if(isTime && isquoteNum) {
+                sbinding.btnConfirm.isEnabled = true
+                sbinding.btnConfirm.setBackgroundResource(R.drawable.confirm_btn_background_clicked)
+                sbinding.btnConfirm.setTextColor(Color.WHITE)
+            }
+            else {
+                sbinding.btnConfirm.isEnabled = false
+                sbinding.btnConfirm.setBackgroundResource(R.drawable.certification_requ)
+                sbinding.btnConfirm.setTextColor(Color.parseColor("#ADB5BD"))
+            }
+        }
 
 }
