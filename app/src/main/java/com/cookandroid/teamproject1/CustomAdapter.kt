@@ -30,10 +30,10 @@ class CustomAdapter(var context : Context) : RecyclerView.Adapter<CustomAdapter.
         var data = dataList[position]
         holder.btn.text = data.title
 
-        holder.itemView.setOnClickListener{
+        holder.btn.setOnClickListener{
             holder.btn.setBackgroundResource(R.drawable.select_click)
             holder.btn.setTextColor(Color.parseColor("#FFFFFF"))
-            
+
         }
     }
 
