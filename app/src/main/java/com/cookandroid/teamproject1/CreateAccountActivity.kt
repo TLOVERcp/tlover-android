@@ -234,7 +234,7 @@ class CreateAccountActivity : AppCompatActivity() {
             binding.createAccountConfirmButton.isEnabled = true
         }
         else {
-            binding.createAccountConfirmButton.setBackgroundResource(R.drawable.confirm_btn_background)
+            binding.createAccountConfirmButton.setBackgroundResource(R.drawable.certification_requ)
             binding.createAccountConfirmButton.setTextColor(Color.parseColor("#6E6E76"))
             binding.createAccountConfirmButton.isEnabled = false
         }

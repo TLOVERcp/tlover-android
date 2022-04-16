@@ -110,7 +110,7 @@ class SignInActivity : AppCompatActivity() {
             binding.signinLoginBtn.isEnabled = true
         }
         else {
-            binding.signinLoginBtn.setBackgroundResource(R.drawable.confirm_btn_background)
+            binding.signinLoginBtn.setBackgroundResource(R.drawable.certification_requ)
             binding.signinLoginBtn.setTextColor(Color.parseColor("#6E6E76"))
             binding.signinLoginBtn.isEnabled = false
         }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFCF6"
+    android:background="@color/tlover_background_color"
     android:gravity="center"
     android:orientation="vertical"
     tools:context="com.cookandroid.teamproject1.SignUpingActivity">
@@ -43,7 +43,7 @@
         android:maxLength="18"
         android:paddingLeft="12dp"
         android:textColorHint="@color/join_text_gray_color"
-        android:textSize="14dp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signuping_pnum_up"/>
 
@@ -55,8 +55,8 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/notosans"
         android:text="휴대폰번호"
-        android:textColor="#495057"
-        android:textSize="12dp"
+        android:textColor="#3F3F45"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signuping_persident"/>
 
@@ -90,7 +90,7 @@
         android:paddingVertical="1dp"
         android:paddingLeft="12dp"
         android:textColorHint="@color/join_text_gray_color"
-        android:textSize="14dp"
+        android:textSize="14sp"
         android:layout_marginRight="12dp"
         android:visibility="invisible"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -156,7 +156,10 @@
         android:layout_marginTop="14dp"
         android:layout_marginRight="12dp"
         android:layout_marginBottom="13dp"
+        android:fontFamily="@font/notosans"
         android:text="Timer"
+        android:textColor="#4EACE1"
+        android:textSize="12sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/sign_text_ctf"
         app:layout_constraintEnd_toEndOf="@+id/sign_text_ctf"
