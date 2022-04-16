@@ -16,7 +16,9 @@
                 android:width="1dp">
 
             </stroke>
+            <corners
+                android:radius="4dp"/>
         </shape>
     </item>
-    <corners android:radius="4px"></corners>
+
 </layer-list>
