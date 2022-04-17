@@ -6,11 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.cookandroid.teamproject1.databinding.SelectDestBinding
 
 class CustomAdapter(var context : Context) : RecyclerView.Adapter<CustomAdapter.Holder>() {
 
     var dataList = emptyList<DataModel>()
+    private var selectdata = mutableListOf<DataModel>()
+    var count : Int =0
 
     internal fun setDataList(dataList : List<DataModel>){
         this.dataList = dataList
@@ -30,15 +34,30 @@ class CustomAdapter(var context : Context) : RecyclerView.Adapter<CustomAdapter.
         var data = dataList[position]
         holder.btn.text = data.title
 
-        holder.itemView.setOnClickListener{
+        holder.btn.setOnClickListener{
+//            if(holder.btn.textColors == Color.parseColor("#FFFFFF")){
+//
+//            }
+            count++
+            if(count==3){
+            }
+            if (selectdata.size>=3){
+                Toast.makeText(this.context, data.title, Toast.LENGTH_SHORT).show()
+//                selectdata.removeAt(0)
+
+//                holder.btn.isClickable = false
+//                holder.btn.isEnabled = false
+                return@setOnClickListener
+            }
+
             holder.btn.setBackgroundResource(R.drawable.select_click)
             holder.btn.setTextColor(Color.parseColor("#FFFFFF"))
-            
+            selectdata.add(DataModel(data.title))
         }
     }
 
     override fun getItemCount(): Int {
-       return  dataList.size
+        return  dataList.size
     }
 
 

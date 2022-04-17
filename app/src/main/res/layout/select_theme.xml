@@ -10,18 +10,31 @@
     tools:context="com.cookandroid.teamproject1.SelectThemeActivity">
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/signuping_toolbar"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/sign_uping_back_img"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#FFFCF6"
-        android:elevation="20dp"
-        android:fontFamily="@font/notosans"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="43dp"
+        android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="회원가입"
-        app:titleTextColor="#000000" />
+        android:src="@drawable/back_btn" />
+
+    <TextView
+        android:id="@+id/sign_uping_join_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textFontWeight="700"
+        android:fontFamily="@font/notosans"
+        android:text="회원가입"
+        android:textColor="#2E2E33"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/select_theme_main_text"
@@ -54,9 +67,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/select_theme_grid"
-        android:layout_width="373dp"
-        android:layout_height="420dp"
-        android:layout_marginLeft="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="@+id/select_theme_main_text"
@@ -72,10 +85,10 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        android:background="@drawable/certification_select"
+        android:background="@drawable/certification_requ"
         android:fontFamily="@font/notosans"
         android:text="확인"
-        android:textColor="#ADB5BD"
+        android:textColor="#6E6E76"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
