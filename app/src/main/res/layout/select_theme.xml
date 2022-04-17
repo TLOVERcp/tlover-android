@@ -10,18 +10,31 @@
     tools:context="com.cookandroid.teamproject1.SelectThemeActivity">
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/signuping_toolbar"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/sign_uping_back_img"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#FFFCF6"
-        android:elevation="20dp"
-        android:fontFamily="@font/notosans"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="43dp"
+        android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="회원가입"
-        app:titleTextColor="#000000" />
+        android:src="@drawable/back_btn" />
+
+    <TextView
+        android:id="@+id/sign_uping_join_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textFontWeight="700"
+        android:fontFamily="@font/notosans"
+        android:text="회원가입"
+        android:textColor="#2E2E33"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/select_theme_main_text"

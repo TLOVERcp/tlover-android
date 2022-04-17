@@ -1,5 +1,6 @@
 package com.cookandroid.teamproject1
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
@@ -39,7 +40,7 @@ class SelectDestActivity : AppCompatActivity() {
         customAdapter.setDataList(dataList)
 
         binding.selectDestBtnConfirm.setOnClickListener{
-
+            startActivity(Intent(this, SelectThemeActivity::class.java))
         }
 
 
