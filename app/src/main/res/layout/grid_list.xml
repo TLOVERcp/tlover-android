@@ -13,6 +13,7 @@
         android:layout_height="90dp"
         android:background="@drawable/select_dest_grid"
         android:text="dest"
+        android:fontFamily="@font/notosans"
         android:textColor="#6E6E76"
         android:textSize="15sp" />
 
