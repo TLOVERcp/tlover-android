@@ -1,5 +1,7 @@
 package com.cookandroid.teamproject1
 
+import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
@@ -39,7 +41,7 @@ class SelectThemeActivity : AppCompatActivity() {
         customAdapter.setDataList(dataList)
 
         binding.selectThemeBtnConfirm.setOnClickListener{
-
+            startActivity(Intent(this,HomeActivity::class.java))
         }
 
 

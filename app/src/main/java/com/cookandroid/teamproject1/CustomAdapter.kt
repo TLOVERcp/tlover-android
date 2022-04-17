@@ -57,7 +57,7 @@ class CustomAdapter(var context : Context) : RecyclerView.Adapter<CustomAdapter.
     }
 
     override fun getItemCount(): Int {
-       return  dataList.size
+        return  dataList.size
     }
 
 
