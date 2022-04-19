@@ -40,6 +40,7 @@ class CustomAdapter(var context : Context) : RecyclerView.Adapter<CustomAdapter.
 //            }
             count++
             if(count==3){
+
             }
             if (selectdata.size>=3){
                 Toast.makeText(this.context, data.title, Toast.LENGTH_SHORT).show()

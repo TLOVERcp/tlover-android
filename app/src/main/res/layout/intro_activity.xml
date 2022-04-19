@@ -11,8 +11,8 @@
 
     <ImageView
         android:id="@+id/splash_logo"
-        android:layout_width="96dp"
-        android:layout_height="87dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="293dp"
         app:srcCompat="@drawable/bi_white_logo"
         app:layout_constraintTop_toTopOf="parent"
