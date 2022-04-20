@@ -100,6 +100,14 @@ class SignInActivity : AppCompatActivity() {
             }
 
         })
+        //로그인 버튼 클릭 시
+        binding.signinLoginBtn.setOnClickListener {
+            val inputId = binding.signinId.text.toString()
+            val inputPassword = binding.signinPw.text.toString()
+
+            //api 연결
+
+        }
     }
     //로그인 버튼 색 바꾸는 함수
     fun changeConfirmButtonColor() {
