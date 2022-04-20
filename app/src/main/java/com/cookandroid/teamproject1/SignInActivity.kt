@@ -10,10 +10,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.cookandroid.teamproject1.databinding.SignInBinding
 
 
+
 class SignInActivity : AppCompatActivity() {
 
-    var isIdEntered : Boolean = false
-    var isPasswordEntered : Boolean = false
+    var isIdEntered: Boolean = false
+    var isPasswordEntered: Boolean = false
 
     lateinit var binding: SignInBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,21 +24,20 @@ class SignInActivity : AppCompatActivity() {
 
 
         //id edittext 비어있는 경우 체크
-        binding.signinId.addTextChangedListener(object : TextWatcher{
+        binding.signinId.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if(binding.signinId.text.toString() != "") {
+                if (binding.signinId.text.toString() != "") {
                     isIdEntered = true
                     changeConfirmButtonColor()
-                    binding.signinFindid.visibility=View.VISIBLE
-                }
-                else {
+                    binding.signinFindid.visibility = View.VISIBLE
+                } else {
                     isIdEntered = false
                     changeConfirmButtonColor()
-                    binding.signinFindid.visibility=View.GONE
+                    binding.signinFindid.visibility = View.GONE
                 }
             }
 
@@ -47,21 +47,20 @@ class SignInActivity : AppCompatActivity() {
 
         })
         //비밀번호 edittext 비어있는 경우 체크
-        binding.signinPw.addTextChangedListener(object : TextWatcher{
+        binding.signinPw.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if(binding.signinPw.text.toString() != "") {
+                if (binding.signinPw.text.toString() != "") {
                     isPasswordEntered = true
                     changeConfirmButtonColor()
-                    binding.signinPwnot.visibility=View.VISIBLE
-                }
-                else {
+                    binding.signinPwnot.visibility = View.VISIBLE
+                } else {
                     isPasswordEntered = false
                     changeConfirmButtonColor()
-                    binding.signinPwnot.visibility=View.GONE
+                    binding.signinPwnot.visibility = View.GONE
                 }
             }
 
@@ -72,16 +71,15 @@ class SignInActivity : AppCompatActivity() {
         })
         //뒤로가기 버튼
         binding.signInBackImg.setOnClickListener {
-            startActivity(Intent(this,FirstTitleActivity::class.java))
+            startActivity(Intent(this, FirstTitleActivity::class.java))
         }
 
         //아이디 텍스트 필드 포커스된 경우
-        binding.signinId.setOnFocusChangeListener (object : View.OnFocusChangeListener {
+        binding.signinId.setOnFocusChangeListener(object : View.OnFocusChangeListener {
             override fun onFocusChange(p0: View?, p1: Boolean) {
                 if (p1) {
                     binding.signinId.setBackgroundResource(R.drawable.phone_requ_selected)
-                }
-                else {
+                } else {
                     binding.signinId.setBackgroundResource(R.drawable.phone_requ)
                 }
             }
@@ -89,25 +87,19 @@ class SignInActivity : AppCompatActivity() {
         })
 
         //비밀번호 텍스트 필드 포커스된 경우
-        binding.signinPw.setOnFocusChangeListener (object : View.OnFocusChangeListener {
+        binding.signinPw.setOnFocusChangeListener(object : View.OnFocusChangeListener {
             override fun onFocusChange(p0: View?, p1: Boolean) {
                 if (p1) {
                     binding.signinPw.setBackgroundResource(R.drawable.phone_requ_selected)
-                }
-                else {
+                } else {
                     binding.signinPw.setBackgroundResource(R.drawable.phone_requ)
                 }
             }
 
         })
-        //로그인 버튼 클릭 시
-        binding.signinLoginBtn.setOnClickListener {
-            val inputId = binding.signinId.text.toString()
-            val inputPassword = binding.signinPw.text.toString()
 
-            //api 연결
 
-        }
+
     }
     //로그인 버튼 색 바꾸는 함수
     fun changeConfirmButtonColor() {
@@ -115,13 +107,11 @@ class SignInActivity : AppCompatActivity() {
             binding.signinLoginBtn.setBackgroundResource(R.drawable.confirm_btn_background_clicked)
             binding.signinLoginBtn.setTextColor(Color.WHITE)
             binding.signinLoginBtn.isEnabled = true
-        }
-        else {
+        } else {
             binding.signinLoginBtn.setBackgroundResource(R.drawable.certification_requ)
             binding.signinLoginBtn.setTextColor(Color.parseColor("#6E6E76"))
             binding.signinLoginBtn.isEnabled = false
         }
     }
-
-
 }
+
