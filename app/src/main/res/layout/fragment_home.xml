@@ -17,7 +17,7 @@
         android:textColor="#2E2E33"
         android:textSize="20sp"
         android:layout_marginTop="39dp"
-        android:fontFamily="@font/cocogoose"
+        android:fontFamily="@font/cocogooseprolighttrial"
         android:layout_marginLeft="16dp"
         app:layout_constraintTop_toTopOf ="parent"
         app:layout_constraintLeft_toLeftOf="parent" />

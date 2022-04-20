@@ -46,6 +46,10 @@ class SelectThemeActivity : AppCompatActivity() {
 
 
     }
+    fun changeConfirmButton() {
+        binding.selectThemeBtnConfirm.setBackgroundResource(R.drawable.confirm_btn_background_clicked)
+        binding.selectThemeBtnConfirm.setTextColor(Color.WHITE)
+    }
 }
 
 
