@@ -1,10 +1,10 @@
 package com.cookandroid.teamproject1
 
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.cookandroid.teamproject1.databinding.FirstTitleBinding
+import com.cookandroid.teamproject1.id.SignInActivity
 
 class FirstTitleActivity : AppCompatActivity() {
 
@@ -21,7 +21,7 @@ class FirstTitleActivity : AppCompatActivity() {
         }
 
         binding.textSignin.setOnClickListener {
-            startActivity(Intent(this,SignInActivity::class.java))
+            startActivity(Intent(this, SignInActivity::class.java))
         }
 //임시로 여행지 선택창 걸어놓음 0416 김도영
         binding.textQuest.setOnClickListener {

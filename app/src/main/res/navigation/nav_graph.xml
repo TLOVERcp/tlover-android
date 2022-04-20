@@ -10,9 +10,6 @@
         android:name="com.cookandroid.teamproject1.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_diaryFragment"
-            app:destination="@id/diaryFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
