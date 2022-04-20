@@ -166,7 +166,7 @@ class CreateAccountActivity : AppCompatActivity() {
 
         //회원가입 완료시 홈액티비티로 이동
         binding.createAccountConfirmButton.setOnClickListener{
-            startActivity(Intent(this, HomeActivity::class.java))
+            startActivity(Intent(this, SelectDestActivity::class.java))
         }
 
         //아이디 텍스트 필드 포커스된 경우

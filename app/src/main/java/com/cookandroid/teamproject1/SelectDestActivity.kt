@@ -1,6 +1,7 @@
 package com.cookandroid.teamproject1
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
@@ -42,9 +43,11 @@ class SelectDestActivity : AppCompatActivity() {
         binding.selectDestBtnConfirm.setOnClickListener{
             startActivity(Intent(this, SelectThemeActivity::class.java))
         }
+    }
 
-
-
+    fun changeConfirmButton() {
+        binding.selectDestBtnConfirm.setBackgroundResource(R.drawable.confirm_btn_background_clicked)
+        binding.selectDestBtnConfirm.setTextColor(Color.WHITE)
     }
 }
 

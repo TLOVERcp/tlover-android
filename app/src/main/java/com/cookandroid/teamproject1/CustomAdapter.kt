@@ -1,5 +1,6 @@
 package com.cookandroid.teamproject1
 
+import android.app.Activity
 import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -8,9 +9,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.cookandroid.teamproject1.databinding.SelectDestBinding
 
-class CustomAdapter(var context : Context) : RecyclerView.Adapter<CustomAdapter.Holder>() {
+class CustomAdapter(var context: Context) : RecyclerView.Adapter<CustomAdapter.Holder>() {
 
     var dataList = emptyList<DataModel>()
     private var selectdata = mutableListOf<DataModel>()
@@ -38,8 +38,11 @@ class CustomAdapter(var context : Context) : RecyclerView.Adapter<CustomAdapter.
 //            if(holder.btn.textColors == Color.parseColor("#FFFFFF")){
 //
 //            }
+//            println(holder.btn.background)
+
             count++
             if(count==3){
+
             }
             if (selectdata.size>=3){
                 Toast.makeText(this.context, data.title, Toast.LENGTH_SHORT).show()
@@ -57,7 +60,7 @@ class CustomAdapter(var context : Context) : RecyclerView.Adapter<CustomAdapter.
     }
 
     override fun getItemCount(): Int {
-       return  dataList.size
+        return  dataList.size
     }
 
 

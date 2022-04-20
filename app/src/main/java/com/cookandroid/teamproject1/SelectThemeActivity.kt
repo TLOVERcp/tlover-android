@@ -1,5 +1,7 @@
 package com.cookandroid.teamproject1
 
+import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
@@ -39,10 +41,14 @@ class SelectThemeActivity : AppCompatActivity() {
         customAdapter.setDataList(dataList)
 
         binding.selectThemeBtnConfirm.setOnClickListener{
-
+            startActivity(Intent(this,HomeActivity::class.java))
         }
 
 
+    }
+    fun changeConfirmButton() {
+        binding.selectThemeBtnConfirm.setBackgroundResource(R.drawable.confirm_btn_background_clicked)
+        binding.selectThemeBtnConfirm.setTextColor(Color.WHITE)
     }
 }
 
