@@ -6,7 +6,7 @@
     android:background="#FFFCF6"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.cookandroid.teamproject1.SignInActivity"
+    tools:context="com.cookandroid.teamproject1.id.SignInActivity"
     >
 
 
