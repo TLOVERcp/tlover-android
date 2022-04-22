@@ -1,6 +1,5 @@
-package com.cookandroid.teamproject1
+package com.cookandroid.teamproject1.id.view
 
-import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -9,21 +8,28 @@ import android.os.CountDownTimer
 
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.Menu
 import android.view.View
 import android.widget.Toast
+import com.cookandroid.teamproject1.FirstTitleActivity
+import com.cookandroid.teamproject1.R
 
 import com.cookandroid.teamproject1.databinding.SignUpingBinding
+import com.cookandroid.teamproject1.id.model.RequestSMSData
+import com.cookandroid.teamproject1.id.model.ResponseSMSData
+import com.cookandroid.teamproject1.util.ServiceCreator
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.regex.Pattern
-import kotlin.concurrent.timer
-import kotlin.math.roundToInt
 
 class SignUpingActivity : AppCompatActivity() {
 
     var isTime : Boolean = false
     var isquoteNum: Boolean = false
+
+    lateinit var certificationCode: String
 
     lateinit var sbinding: SignUpingBinding
     private val mCountDown: CountDownTimer = object : CountDownTimer(180000,500) {
@@ -45,7 +51,13 @@ class SignUpingActivity : AppCompatActivity() {
 
 
         sbinding.btnConfirm.setOnClickListener {
-            startActivity(Intent(this,CreateAccountActivity::class.java))
+            if(sbinding.signTextCtf.text.toString()==certificationCode && sbinding.signTextCtf.text.length==5){
+                startActivity(Intent(this, CreateAccountActivity::class.java))
+            }
+            else{
+                sbinding.signUpMsgctf.visibility = View.VISIBLE
+            }
+
         }
 
         //전화번호 입력확인
@@ -73,6 +85,10 @@ class SignUpingActivity : AppCompatActivity() {
 
         })
         //확인 버튼 클릭시 새로운 필드와 버튼 출력
+        /**
+         * SMS문자인증 api 연결
+         * 작성자 : 윤성식
+         */
         sbinding.btnCtf.setOnClickListener{
             sbinding.btnCtf.visibility=View.INVISIBLE
             sbinding.btnConfirm.visibility= View.VISIBLE
@@ -93,6 +109,28 @@ class SignUpingActivity : AppCompatActivity() {
             t2.setGravity(Gravity.BOTTOM,0,0)
             t2.duration = Toast.LENGTH_SHORT
 
+            val requestSMSData = RequestSMSData(
+                phoneNum = sbinding.signupingPnum.text.toString()
+            )
+
+            val call: Call<ResponseSMSData> = ServiceCreator.smsService.postSendSMS(requestSMSData)
+
+            call.enqueue(object: Callback<ResponseSMSData>{
+                override fun onResponse(
+                    call: Call<ResponseSMSData>,
+                    response: Response<ResponseSMSData>
+                ) {
+                    if(response.code()==200){
+                        certificationCode = response.body()?.certifyvalue.toString()
+                        println(certificationCode)
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseSMSData>, t: Throwable) {
+                    Log.e("sms_server_test", "fail")
+                }
+
+            })
         }
 
         //인증번호 입력 필드(버튼 색 변경 및 경고 메세지 출력)
@@ -109,8 +147,8 @@ class SignUpingActivity : AppCompatActivity() {
                 }
 
 
-                if(Pattern.matches("^\\d{4}\$", sbinding.signTextCtf.text.toString())) {
-                    sbinding.signUpMsgctf.visibility = View.VISIBLE
+                if(Pattern.matches("^\\d{5}\$", sbinding.signTextCtf.text.toString())) {
+//                    sbinding.signUpMsgctf.visibility = View.VISIBLE
                     isquoteNum = true
                     changeConfirmButton()
                 }
@@ -154,7 +192,7 @@ class SignUpingActivity : AppCompatActivity() {
 
         //뒤로가기 버튼
         sbinding.signUpingBackImg.setOnClickListener {
-            startActivity(Intent(this,FirstTitleActivity::class.java))
+            startActivity(Intent(this, FirstTitleActivity::class.java))
         }
 
         //재전송 버튼

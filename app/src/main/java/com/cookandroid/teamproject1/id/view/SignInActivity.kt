@@ -1,4 +1,4 @@
-package com.cookandroid.teamproject1.id
+package com.cookandroid.teamproject1.id.view
 
 import android.content.Intent
 import android.graphics.Color
@@ -10,6 +10,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.cookandroid.teamproject1.*
 import com.cookandroid.teamproject1.databinding.SignInBinding
+import com.cookandroid.teamproject1.id.model.RequestLoginData
+import com.cookandroid.teamproject1.id.model.ResponseLoginData
 import com.cookandroid.teamproject1.util.ServiceCreator
 import com.cookandroid.teamproject1.util.TloverApplication
 import retrofit2.Call
@@ -39,7 +41,7 @@ class SignInActivity : AppCompatActivity() {
                 if(binding.signinId.text.toString() != "") {
                     isIdEntered = true
                     changeConfirmButtonColor()
-                    binding.signinFindid.visibility=View.VISIBLE
+//                    binding.signinFindid.visibility=View.VISIBLE
                 }
                 else {
                     isIdEntered = false
@@ -63,7 +65,7 @@ class SignInActivity : AppCompatActivity() {
                 if(binding.signinPw.text.toString() != "") {
                     isPasswordEntered = true
                     changeConfirmButtonColor()
-                    binding.signinPwnot.visibility=View.VISIBLE
+//                    binding.signinPwnot.visibility=View.VISIBLE
                 }
                 else {
                     isPasswordEntered = false
@@ -128,16 +130,19 @@ class SignInActivity : AppCompatActivity() {
                     response: Response<ResponseLoginData>
                 ) {
                     if(response.code() == 200){
-                        TloverApplication.prefs.setString("jwt", response.body()?.result?.jwt.toString())
-                        TloverApplication.prefs.setString("message", response.body()?.result?.message.toString())
-                        TloverApplication.prefs.setString("refreshToken", response.body()?.result?.refreshToken.toString())
+                        TloverApplication.prefs.setString("jwt", response.body()?.jwt.toString())
+                        TloverApplication.prefs.setString("message", response.body()?.message.toString())
+                        TloverApplication.prefs.setString("refreshToken", response.body()?.refreshToken.toString())
+                        TloverApplication.prefs.setString("userNickname", response.body()?.userNickname.toString())
+//                        println(TloverApplication.prefs.getString("userNickname", "null"))
                         TloverApplication.prefs.setUserId(inputId)
                         TloverApplication.prefs.setUserPW(inputPassword)
-
+//                        println(response.body()?.jwt)
                         startActivity(intent)
                     }
                     else{
-                        println("qq")
+                        binding.signinFindid.visibility=View.VISIBLE
+                        binding.signinPwnot.visibility=View.VISIBLE
                     }
                 }
 
@@ -150,6 +155,7 @@ class SignInActivity : AppCompatActivity() {
 
         }
     }
+
     //로그인 버튼 색 바꾸는 함수
     fun changeConfirmButtonColor() {
         if (isIdEntered && isPasswordEntered) {
