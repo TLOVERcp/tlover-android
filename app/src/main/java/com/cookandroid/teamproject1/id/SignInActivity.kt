@@ -8,8 +8,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.cookandroid.teamproject1.FirstTitleActivity
-import com.cookandroid.teamproject1.R
+import com.cookandroid.teamproject1.*
 import com.cookandroid.teamproject1.databinding.SignInBinding
 import com.cookandroid.teamproject1.util.ServiceCreator
 import com.cookandroid.teamproject1.util.TloverApplication
@@ -28,6 +27,7 @@ class SignInActivity : AppCompatActivity() {
         binding = SignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val intent = Intent(this, HomeActivity::class.java)
 
         //id edittext 비어있는 경우 체크
         binding.signinId.addTextChangedListener(object : TextWatcher{
@@ -134,6 +134,7 @@ class SignInActivity : AppCompatActivity() {
                         TloverApplication.prefs.setUserId(inputId)
                         TloverApplication.prefs.setUserPW(inputPassword)
 
+                        startActivity(intent)
                     }
                     else{
                         println("qq")
