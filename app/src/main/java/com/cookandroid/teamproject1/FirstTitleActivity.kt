@@ -4,7 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.cookandroid.teamproject1.databinding.FirstTitleBinding
-import com.cookandroid.teamproject1.id.SignInActivity
+import com.cookandroid.teamproject1.id.view.SignInActivity
+import com.cookandroid.teamproject1.id.view.SignUpingActivity
 
 class FirstTitleActivity : AppCompatActivity() {
 
@@ -17,7 +18,7 @@ class FirstTitleActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.textSignup.setOnClickListener {
-            startActivity(Intent(this,SignUpingActivity::class.java))
+            startActivity(Intent(this, SignUpingActivity::class.java))
         }
 
         binding.textSignin.setOnClickListener {

@@ -1,4 +1,4 @@
-package com.cookandroid.teamproject1.id
+package com.cookandroid.teamproject1.id.model
 
 import com.google.gson.annotations.SerializedName
 

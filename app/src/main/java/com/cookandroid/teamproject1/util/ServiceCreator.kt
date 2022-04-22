@@ -1,6 +1,8 @@
 package com.cookandroid.teamproject1.util
 
-import com.cookandroid.teamproject1.id.SignInService
+import com.cookandroid.teamproject1.id.model.SMSService
+import com.cookandroid.teamproject1.id.model.SignInService
+import com.cookandroid.teamproject1.id.model.UserIdCheckService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -26,5 +28,6 @@ object ServiceCreator {
         .build()
 
     val signInService : SignInService = retrofit.create(SignInService::class.java)
-
+    val userIdCheckService : UserIdCheckService = retrofit.create(UserIdCheckService::class.java)
+    val smsService : SMSService = retrofit.create(SMSService::class.java)
 }

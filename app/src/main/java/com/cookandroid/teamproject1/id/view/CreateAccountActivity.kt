@@ -1,13 +1,22 @@
-package com.cookandroid.teamproject1
+package com.cookandroid.teamproject1.id.view
 
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.content.Intent
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.cookandroid.teamproject1.R
+import com.cookandroid.teamproject1.SelectDestActivity
 import com.cookandroid.teamproject1.databinding.CreateAccountBinding
+import com.cookandroid.teamproject1.id.model.RequestIdCheckData
+import com.cookandroid.teamproject1.id.model.ResponseIdCheckData
+import com.cookandroid.teamproject1.util.ServiceCreator
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.regex.Pattern
 
 class CreateAccountActivity : AppCompatActivity() {
@@ -27,12 +36,44 @@ class CreateAccountActivity : AppCompatActivity() {
 
 
         //아이디 중복확인 버튼
+        /**
+         * 아이디 중복확인 서버 연결
+         * 작성자 : 윤성식
+         */
         binding.createAccountCheckRepetitionButton.setOnClickListener {
-            binding.createAccountIdCheckimage.bringToFront()
-            binding.createAccountIdWarningTextview.visibility = View.VISIBLE
-            binding.createAccountIdCheckimage.visibility = View.VISIBLE
-            isId = true
+//            binding.createAccountIdCheckimage.bringToFront()
+//            binding.createAccountIdWarningTextview.visibility = View.VISIBLE
+//            binding.createAccountIdCheckimage.visibility = View.VISIBLE
+//            isId = true
             changeConfirmButtonColor()
+
+            val inputId = binding.createAccountIdEdittext.text.toString()
+            val requestIdCheckData = RequestIdCheckData(
+                userId = inputId
+            )
+
+            val call: Call<ResponseIdCheckData> = ServiceCreator.userIdCheckService.IdCheck(requestIdCheckData)
+
+            call.enqueue(object: Callback<ResponseIdCheckData>{
+                override fun onResponse(
+                    call: Call<ResponseIdCheckData>,
+                    response: Response<ResponseIdCheckData>
+                ) {
+                    if(response.code() == 200){
+                        binding.createAccountIdCheckimage.visibility = View.VISIBLE
+                        binding.createAccountIdCheckimage.bringToFront()
+                        binding.createAccountIdWarningTextview.visibility = View.INVISIBLE
+                        isId = true
+                    }
+                    else{
+                        binding.createAccountIdWarningTextview.visibility = View.VISIBLE
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseIdCheckData>, t: Throwable) {
+                    Log.e("idcheck_server_test", "fail")
+                }
+            })
 
         }
 
@@ -43,6 +84,7 @@ class CreateAccountActivity : AppCompatActivity() {
             binding.createAccountNicknameCheckimage.bringToFront()
             isNickname = true
             changeConfirmButtonColor()
+
         }
         //아이디 edittext
         binding.createAccountIdEdittext.addTextChangedListener(object : TextWatcher {
@@ -222,7 +264,7 @@ class CreateAccountActivity : AppCompatActivity() {
         })
 
         binding.createAccountBackImg.setOnClickListener {
-            startActivity(Intent(this,SignUpingActivity::class.java))
+            startActivity(Intent(this, SignUpingActivity::class.java))
         }
 
     }

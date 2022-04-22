@@ -2,7 +2,7 @@ package com.cookandroid.teamproject1.util
 
 import android.app.Application
 import android.content.Context
-import com.cookandroid.teamproject1.id.Prefs
+import com.cookandroid.teamproject1.id.viewmodel.Prefs
 
 class TloverApplication : Application(){
     companion object{

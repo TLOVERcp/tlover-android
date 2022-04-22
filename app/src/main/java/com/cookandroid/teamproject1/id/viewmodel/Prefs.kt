@@ -1,4 +1,4 @@
-package com.cookandroid.teamproject1.id
+package com.cookandroid.teamproject1.id.viewmodel
 
 import android.content.Context
 import android.content.SharedPreferences
