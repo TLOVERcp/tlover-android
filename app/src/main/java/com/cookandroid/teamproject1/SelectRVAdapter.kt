@@ -8,16 +8,15 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.cookandroid.teamproject1.databinding.SelectDestBinding
 
-class CustomAdapter(var context : Context) : RecyclerView.Adapter<CustomAdapter.Holder>() {
+class SelectRVAdapter(var context : Context) : RecyclerView.Adapter<SelectRVAdapter.Holder>() {
 
-    var dataList = emptyList<DataModel>()
-    private var selectdata = mutableListOf<DataModel>()
+    var dataList = emptyList<SelectDataModel>()
+    private var selectdata = mutableListOf<SelectDataModel>()
     var count : Int =0
 
-    internal fun setDataList(dataList : List<DataModel>){
-        this.dataList = dataList
+    internal fun setDataList(selectDataList : List<SelectDataModel>){
+        this.dataList = selectDataList
         notifyDataSetChanged()
     }
 
@@ -26,7 +25,7 @@ class CustomAdapter(var context : Context) : RecyclerView.Adapter<CustomAdapter.
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.grid_list, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_select, parent, false)
         return Holder(view)
     }
 
@@ -52,7 +51,7 @@ class CustomAdapter(var context : Context) : RecyclerView.Adapter<CustomAdapter.
 
             holder.btn.setBackgroundResource(R.drawable.select_click)
             holder.btn.setTextColor(Color.parseColor("#FFFFFF"))
-            selectdata.add(DataModel(data.title))
+            selectdata.add(SelectDataModel(data.title))
         }
     }
 
