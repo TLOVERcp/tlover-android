@@ -39,9 +39,11 @@
         </activity>
         <activity android:name=".SelectDestActivity">
         </activity>
-        <activity android:name=".SelectThemeActivity">
+        <activity android:name=".id.view.SelectThemeActivity">
         </activity>
         <activity android:name=".HomeActivity">
+        </activity>
+        <activity android:name=".LoginSuccessActivity">
         </activity>
 
     </application>

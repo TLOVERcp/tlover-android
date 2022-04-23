@@ -1,4 +1,4 @@
-package com.cookandroid.teamproject1
+package com.cookandroid.teamproject1.id.view
 
 import android.content.Intent
 import android.graphics.Color
@@ -6,6 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.cookandroid.teamproject1.CustomAdapter
+import com.cookandroid.teamproject1.DataModel
+import com.cookandroid.teamproject1.FirstTitleActivity
+import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.SelectThemeBinding
 
 class SelectThemeActivity : AppCompatActivity() {
@@ -41,7 +45,7 @@ class SelectThemeActivity : AppCompatActivity() {
         customAdapter.setDataList(dataList)
 
         binding.selectThemeBtnConfirm.setOnClickListener{
-            startActivity(Intent(this,HomeActivity::class.java))
+            startActivity(Intent(this, FirstTitleActivity::class.java))
         }
 
 

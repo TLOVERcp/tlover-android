@@ -17,6 +17,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ResponseSMSData(
     val code: Int,
+
     @SerializedName("message")
     val message : String,
     @SerializedName("value")

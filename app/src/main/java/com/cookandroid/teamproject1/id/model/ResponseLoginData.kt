@@ -22,6 +22,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ResponseLoginData(
     val code: Int,
+
     @SerializedName("accessJwt")
     val jwt : String,
     @SerializedName("message")
