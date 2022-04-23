@@ -38,6 +38,10 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
             <ImageView
                 android:id="@+id/fragment_home_alarm_img"
                 android:layout_width="wrap_content"
@@ -48,6 +52,19 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginRight="23dp" />
 
+<!--               <TextView-->
+<!--                    android:layout_width="144dp"-->
+<!--                    android:layout_height="58dp"-->
+<!--                    android:textSize="20sp"-->
+<!--                    android:text="트러버님,          지금 떠나볼까요?"-->
+<!--                    app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent">-->
+
+<!--                </TextView>-->
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageView
@@ -55,6 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="112dp"
                 android:layout_marginTop="16dp"
+                android:scaleType="fitXY"
                 android:src="@drawable/img_home_introduce"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -256,7 +274,7 @@
             app:layout_constraintTop_toBottomOf="@+id/fragment_home_title_hot_nav"
             tools:listitem="@layout/item_home_random" />
 
-    </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
