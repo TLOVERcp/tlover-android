@@ -12,12 +12,14 @@ import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.cookandroid.teamproject1.FirstTitleActivity
 import com.cookandroid.teamproject1.R
 
 import com.cookandroid.teamproject1.databinding.SignUpingBinding
 import com.cookandroid.teamproject1.id.model.RequestSMSData
 import com.cookandroid.teamproject1.id.model.ResponseSMSData
+import com.cookandroid.teamproject1.id.viewmodel.SignUpViewModel
 import com.cookandroid.teamproject1.util.ServiceCreator
 import retrofit2.Call
 import retrofit2.Callback
@@ -28,10 +30,12 @@ class SignUpingActivity : AppCompatActivity() {
 
     var isTime : Boolean = false
     var isquoteNum: Boolean = false
+    private lateinit var sharedViewModel : SignUpViewModel
 
     lateinit var certificationCode: String
 
     lateinit var sbinding: SignUpingBinding
+
     private val mCountDown: CountDownTimer = object : CountDownTimer(180000,500) {
         override fun onTick(p0: Long) {
             sbinding.textTimer.text = "${(p0 / (1000 * 60) % 60).toString()+":"+((p0 / 1000) % 60).toString()}"
@@ -48,10 +52,11 @@ class SignUpingActivity : AppCompatActivity() {
         setContentView(sbinding.root)
 
         super.onCreate(savedInstanceState)
-
+        sharedViewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
 
         sbinding.btnConfirm.setOnClickListener {
             if(sbinding.signTextCtf.text.toString()==certificationCode && sbinding.signTextCtf.text.length==5){
+                sharedViewModel.updateInputPhone(sbinding.signupingPnum.text.toString())
                 startActivity(Intent(this, CreateAccountActivity::class.java))
             }
             else{
@@ -122,7 +127,8 @@ class SignUpingActivity : AppCompatActivity() {
                 ) {
                     if(response.code()==200){
                         certificationCode = response.body()?.certifyvalue.toString()
-                        println(certificationCode)
+//                        println(certificationCode)
+//                        println(sharedViewModel.currentInputPhone.toString())
                     }
                 }
 
@@ -222,5 +228,7 @@ class SignUpingActivity : AppCompatActivity() {
 //                sbinding.btnConfirm.setTextColor(Color.parseColor("#ADB5BD"))
             }
         }
+
+
 
 }

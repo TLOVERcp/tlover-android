@@ -3,7 +3,7 @@ package com.cookandroid.teamproject1.id.model
 import com.google.gson.annotations.SerializedName
 
 /**
- * 아이디중복체크에 대한 결과
+ * 닉네임중복체크에 대한 결과
  */
 //data class ResponseIdCheckData(
 //    val code: Int,
@@ -15,7 +15,7 @@ import com.google.gson.annotations.SerializedName
 //    )
 //}
 
-data class ResponseIdCheckData(
+data class ResponseNicknameCheckData(
     val code: Int,
 
     @SerializedName("message")

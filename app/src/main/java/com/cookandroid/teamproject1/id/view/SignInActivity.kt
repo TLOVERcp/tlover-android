@@ -29,7 +29,7 @@ class SignInActivity : AppCompatActivity() {
         binding = SignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val intent = Intent(this, HomeActivity::class.java)
+        val intent = Intent(this, LoginSuccessActivity::class.java)
 
         //id edittext 비어있는 경우 체크
         binding.signinId.addTextChangedListener(object : TextWatcher{

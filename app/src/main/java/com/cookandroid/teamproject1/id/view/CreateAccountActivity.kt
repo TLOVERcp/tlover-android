@@ -1,5 +1,6 @@
 package com.cookandroid.teamproject1.id.view
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
@@ -8,11 +9,15 @@ import android.content.Intent
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.SelectDestActivity
 import com.cookandroid.teamproject1.databinding.CreateAccountBinding
 import com.cookandroid.teamproject1.id.model.RequestIdCheckData
+import com.cookandroid.teamproject1.id.model.RequestNicknameCheckData
 import com.cookandroid.teamproject1.id.model.ResponseIdCheckData
+import com.cookandroid.teamproject1.id.model.ResponseNicknameCheckData
+import com.cookandroid.teamproject1.id.viewmodel.SignUpViewModel
 import com.cookandroid.teamproject1.util.ServiceCreator
 import retrofit2.Call
 import retrofit2.Callback
@@ -27,11 +32,17 @@ class CreateAccountActivity : AppCompatActivity() {
     var isPasswordCheck2 : Boolean = false
     var isNickname : Boolean = false
 
+    private lateinit var sharedViewModel : SignUpViewModel
+
     lateinit var binding: CreateAccountBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        sharedViewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
+
         binding = CreateAccountBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
 
 
@@ -45,7 +56,6 @@ class CreateAccountActivity : AppCompatActivity() {
 //            binding.createAccountIdWarningTextview.visibility = View.VISIBLE
 //            binding.createAccountIdCheckimage.visibility = View.VISIBLE
 //            isId = true
-            changeConfirmButtonColor()
 
             val inputId = binding.createAccountIdEdittext.text.toString()
             val requestIdCheckData = RequestIdCheckData(
@@ -64,6 +74,7 @@ class CreateAccountActivity : AppCompatActivity() {
                         binding.createAccountIdCheckimage.bringToFront()
                         binding.createAccountIdWarningTextview.visibility = View.INVISIBLE
                         isId = true
+                        changeConfirmButtonColor()
                     }
                     else{
                         binding.createAccountIdWarningTextview.visibility = View.VISIBLE
@@ -79,11 +90,39 @@ class CreateAccountActivity : AppCompatActivity() {
 
         //닉네임 중복확인 버튼
         binding.createAccountCheckRepetitionButtonNickname.setOnClickListener {
-            binding.createAccountNicknameWarningTextview.visibility = View.VISIBLE
-            binding.createAccountNicknameCheckimage.visibility = View.VISIBLE
-            binding.createAccountNicknameCheckimage.bringToFront()
-            isNickname = true
-            changeConfirmButtonColor()
+//            binding.createAccountNicknameWarningTextview.visibility = View.VISIBLE
+//            binding.createAccountNicknameCheckimage.visibility = View.VISIBLE
+//            binding.createAccountNicknameCheckimage.bringToFront()
+//            isNickname = true
+            val inputNickname = binding.createAccountNicknameEdittext.text.toString()
+            val requestNicknameCheckData = RequestNicknameCheckData(
+                userNickname = inputNickname
+            )
+
+            val call: Call<ResponseNicknameCheckData> = ServiceCreator.userNicknameCheckService.NicknameCheck(requestNicknameCheckData)
+
+            call.enqueue(object: Callback<ResponseNicknameCheckData>{
+                override fun onResponse(
+                    call: Call<ResponseNicknameCheckData>,
+                    response: Response<ResponseNicknameCheckData>
+                ) {
+                    if(response.code() == 200){
+                        binding.createAccountNicknameCheckimage.visibility = View.VISIBLE
+                        binding.createAccountNicknameCheckimage.bringToFront()
+                        binding.createAccountNicknameWarningTextview.visibility = View.INVISIBLE
+                        isNickname = true
+                        changeConfirmButtonColor()
+                    }
+                    else{
+                        binding.createAccountNicknameWarningTextview.visibility = View.VISIBLE
+                    }
+                }
+
+
+                override fun onFailure(call: Call<ResponseNicknameCheckData>, t: Throwable) {
+                    Log.e("nickname's_server_test", "fail")
+                }
+            })
 
         }
         //아이디 edittext
@@ -206,8 +245,12 @@ class CreateAccountActivity : AppCompatActivity() {
             }
         })
 
-        //회원가입 완료시 홈액티비티로 이동
+        //회원가입 완료시 다음 지역선택액티비티로 이동
         binding.createAccountConfirmButton.setOnClickListener{
+            sharedViewModel.updateInputId(binding.createAccountIdEdittext.text.toString())
+            sharedViewModel.updateInputPw(binding.createAccountPasswordEdittext.text.toString())
+            sharedViewModel.updateInputNickname(binding.createAccountNicknameEdittext.text.toString())
+//            println(sharedViewModel.getA())
             startActivity(Intent(this, SelectDestActivity::class.java))
         }
 
