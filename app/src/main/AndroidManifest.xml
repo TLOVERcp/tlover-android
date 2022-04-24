@@ -29,19 +29,21 @@
         </activity>
         <activity android:name=".FirstTitleActivity">
         </activity>
-        <activity android:name=".SignUpingActivity">
+        <activity android:name=".id.view.SignUpingActivity">
         </activity>
         <activity android:name=".MainActivity">
         </activity>
-        <activity android:name=".CreateAccountActivity">
+        <activity android:name=".id.view.CreateAccountActivity">
         </activity>
-        <activity android:name=".id.SignInActivity">
+        <activity android:name=".id.view.SignInActivity">
         </activity>
-        <activity android:name=".SelectDestActivity">
+        <activity android:name=".id.view.SelectDestActivity">
         </activity>
-        <activity android:name=".SelectThemeActivity">
+        <activity android:name=".id.view.SelectThemeActivity">
         </activity>
         <activity android:name=".HomeActivity">
+        </activity>
+        <activity android:name=".LoginSuccessActivity">
         </activity>
 
     </application>
