@@ -1,14 +1,22 @@
-package com.cookandroid.teamproject1
+package com.cookandroid.teamproject1.id.view
 
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.cookandroid.teamproject1.*
 import com.cookandroid.teamproject1.databinding.SignInBinding
-
+import com.cookandroid.teamproject1.id.model.RequestLoginData
+import com.cookandroid.teamproject1.id.model.ResponseLoginData
+import com.cookandroid.teamproject1.util.ServiceCreator
+import com.cookandroid.teamproject1.util.TloverApplication
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SignInActivity : AppCompatActivity() {
 
@@ -21,6 +29,7 @@ class SignInActivity : AppCompatActivity() {
         binding = SignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val intent = Intent(this, LoginSuccessActivity::class.java)
 
         //id edittext 비어있는 경우 체크
         binding.signinId.addTextChangedListener(object : TextWatcher{
@@ -32,7 +41,7 @@ class SignInActivity : AppCompatActivity() {
                 if(binding.signinId.text.toString() != "") {
                     isIdEntered = true
                     changeConfirmButtonColor()
-                    binding.signinFindid.visibility=View.VISIBLE
+//                    binding.signinFindid.visibility=View.VISIBLE
                 }
                 else {
                     isIdEntered = false
@@ -56,7 +65,7 @@ class SignInActivity : AppCompatActivity() {
                 if(binding.signinPw.text.toString() != "") {
                     isPasswordEntered = true
                     changeConfirmButtonColor()
-                    binding.signinPwnot.visibility=View.VISIBLE
+//                    binding.signinPwnot.visibility=View.VISIBLE
                 }
                 else {
                     isPasswordEntered = false
@@ -72,7 +81,7 @@ class SignInActivity : AppCompatActivity() {
         })
         //뒤로가기 버튼
         binding.signInBackImg.setOnClickListener {
-            startActivity(Intent(this,FirstTitleActivity::class.java))
+            startActivity(Intent(this, FirstTitleActivity::class.java))
         }
 
         //아이디 텍스트 필드 포커스된 경우
@@ -100,7 +109,53 @@ class SignInActivity : AppCompatActivity() {
             }
 
         })
+        //로그인 버튼 클릭 시
+        /**
+         * 작성자 : 윤성식, 이충환
+         * 로그인 버튼 클릭 시 코드 반환 및 로그인 여부 반환
+         */
+        binding.signinLoginBtn.setOnClickListener {
+            val inputId = binding.signinId.text.toString()
+            val inputPassword = binding.signinPw.text.toString()
+
+            val requestLoginData = RequestLoginData(
+                userId = inputId,
+                userPw = inputPassword,
+            )
+            val call: Call<ResponseLoginData> = ServiceCreator.signInService.postLogin(requestLoginData)
+
+            call.enqueue(object : Callback<ResponseLoginData>{
+                override fun onResponse(
+                    call: Call<ResponseLoginData>,
+                    response: Response<ResponseLoginData>
+                ) {
+                    if(response.code() == 200){
+                        TloverApplication.prefs.setString("jwt", response.body()?.jwt.toString())
+                        TloverApplication.prefs.setString("message", response.body()?.message.toString())
+                        TloverApplication.prefs.setString("refreshToken", response.body()?.refreshToken.toString())
+                        TloverApplication.prefs.setString("userNickname", response.body()?.userNickname.toString())
+//
+                        TloverApplication.prefs.setUserId(inputId)
+                        TloverApplication.prefs.setUserPW(inputPassword)
+//                        println(response.body()?.jwt)
+                        startActivity(intent)
+                    }
+                    else{
+                        binding.signinFindid.visibility=View.VISIBLE
+                        binding.signinPwnot.visibility=View.VISIBLE
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseLoginData>, t: Throwable) {
+                    Log.e("login_server_test", "fail")
+                }
+            })
+
+
+
+        }
     }
+
     //로그인 버튼 색 바꾸는 함수
     fun changeConfirmButtonColor() {
         if (isIdEntered && isPasswordEntered) {
@@ -113,7 +168,10 @@ class SignInActivity : AppCompatActivity() {
             binding.signinLoginBtn.setTextColor(Color.parseColor("#6E6E76"))
             binding.signinLoginBtn.isEnabled = false
         }
+
+
     }
+
 
 
 }

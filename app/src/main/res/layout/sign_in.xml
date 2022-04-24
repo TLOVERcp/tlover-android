@@ -6,7 +6,8 @@
     android:background="#FFFCF6"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.cookandroid.teamproject1.SignInActivity"
+    android:id="@+id/first_title_main"
+    tools:context="com.cookandroid.teamproject1.id.view.SignInActivity"
     >
 
 
@@ -181,6 +182,6 @@
         android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/back_btn" />
+        android:src="@drawable/ic_back_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

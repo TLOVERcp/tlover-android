@@ -1,10 +1,12 @@
 package com.cookandroid.teamproject1
 
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.cookandroid.teamproject1.databinding.FirstTitleBinding
+import com.cookandroid.teamproject1.id.view.SelectDestActivity
+import com.cookandroid.teamproject1.id.view.SignInActivity
+import com.cookandroid.teamproject1.id.view.SignUpingActivity
 
 class FirstTitleActivity : AppCompatActivity() {
 
@@ -17,15 +19,15 @@ class FirstTitleActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.textSignup.setOnClickListener {
-            startActivity(Intent(this,SignUpingActivity::class.java))
+            startActivity(Intent(this, SignUpingActivity::class.java))
         }
 
         binding.textSignin.setOnClickListener {
-            startActivity(Intent(this,SignInActivity::class.java))
+            startActivity(Intent(this, SignInActivity::class.java))
         }
 //임시로 여행지 선택창 걸어놓음 0416 김도영
         binding.textQuest.setOnClickListener {
-            startActivity(Intent(this,SelectDestActivity::class.java))
+            startActivity(Intent(this, SelectDestActivity::class.java))
         }
 
     }

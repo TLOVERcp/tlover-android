@@ -1,10 +1,14 @@
-package com.cookandroid.teamproject1
+package com.cookandroid.teamproject1.id.view
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.cookandroid.teamproject1.CustomAdapter
+import com.cookandroid.teamproject1.DataModel
+import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.SelectDestBinding
 
 class SelectDestActivity : AppCompatActivity() {
@@ -42,9 +46,11 @@ class SelectDestActivity : AppCompatActivity() {
         binding.selectDestBtnConfirm.setOnClickListener{
             startActivity(Intent(this, SelectThemeActivity::class.java))
         }
+    }
 
-
-
+    fun changeConfirmButton() {
+        binding.selectDestBtnConfirm.setBackgroundResource(R.drawable.confirm_btn_background_clicked)
+        binding.selectDestBtnConfirm.setTextColor(Color.WHITE)
     }
 }
 
