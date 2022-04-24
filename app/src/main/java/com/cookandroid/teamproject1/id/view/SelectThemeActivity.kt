@@ -8,8 +8,8 @@ import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.cookandroid.teamproject1.CustomAdapter
-import com.cookandroid.teamproject1.DataModel
+import com.cookandroid.teamproject1.SelectRVAdapter
+import com.cookandroid.teamproject1.SelectDataModel
 import com.cookandroid.teamproject1.FirstTitleActivity
 import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.CreateAccountBinding
