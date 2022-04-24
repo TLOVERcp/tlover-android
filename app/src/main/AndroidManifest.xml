@@ -37,7 +37,7 @@
         </activity>
         <activity android:name=".id.view.SignInActivity">
         </activity>
-        <activity android:name=".SelectDestActivity">
+        <activity android:name=".id.view.SelectDestActivity">
         </activity>
         <activity android:name=".id.view.SelectThemeActivity">
         </activity>

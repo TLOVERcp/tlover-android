@@ -4,13 +4,18 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cookandroid.teamproject1.CustomAdapter
 import com.cookandroid.teamproject1.DataModel
 import com.cookandroid.teamproject1.FirstTitleActivity
 import com.cookandroid.teamproject1.R
+import com.cookandroid.teamproject1.databinding.CreateAccountBinding
 import com.cookandroid.teamproject1.databinding.SelectThemeBinding
+import com.cookandroid.teamproject1.id.model.RequestUserData
+import com.cookandroid.teamproject1.id.viewmodel.SignUpViewModel
 
 class SelectThemeActivity : AppCompatActivity() {
 
@@ -18,9 +23,14 @@ class SelectThemeActivity : AppCompatActivity() {
     private lateinit var customAdapter: CustomAdapter
     private var dataList = mutableListOf<DataModel>()
 
+    private lateinit var sharedViewModel : SignUpViewModel
+
     lateinit var binding: SelectThemeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
+        sharedViewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
         binding = SelectThemeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -45,6 +55,20 @@ class SelectThemeActivity : AppCompatActivity() {
         customAdapter.setDataList(dataList)
 
         binding.selectThemeBtnConfirm.setOnClickListener{
+            val requestUserData = RequestUserData(
+                userId = "",
+                userPw = "",
+                userNickname = "",
+                userPhone = "",
+                userReg = "인천",
+                userThemaName = "",
+            )
+
+//            requestUserData.userId = sharedViewModel.getA().toString()
+
+//            println(sharedViewModel.getA())
+//            println("gg")
+
             startActivity(Intent(this, FirstTitleActivity::class.java))
         }
 
@@ -54,6 +78,7 @@ class SelectThemeActivity : AppCompatActivity() {
         binding.selectThemeBtnConfirm.setBackgroundResource(R.drawable.confirm_btn_background_clicked)
         binding.selectThemeBtnConfirm.setTextColor(Color.WHITE)
     }
+
 }
 
 

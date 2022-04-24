@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.cookandroid.teamproject1.databinding.FirstTitleBinding
+import com.cookandroid.teamproject1.id.view.SelectDestActivity
 import com.cookandroid.teamproject1.id.view.SignInActivity
 import com.cookandroid.teamproject1.id.view.SignUpingActivity
 
@@ -26,7 +27,7 @@ class FirstTitleActivity : AppCompatActivity() {
         }
 //임시로 여행지 선택창 걸어놓음 0416 김도영
         binding.textQuest.setOnClickListener {
-            startActivity(Intent(this,SelectDestActivity::class.java))
+            startActivity(Intent(this, SelectDestActivity::class.java))
         }
 
     }

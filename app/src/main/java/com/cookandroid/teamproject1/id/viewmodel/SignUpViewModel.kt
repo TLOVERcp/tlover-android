@@ -32,9 +32,12 @@ class SignUpViewModel : ViewModel() {
         _currentInputId.value = input
     }
 
-//    fun getA(): String? {
-//        return _currentInputNickname.value
-//    }
+    fun getA(): String? {
+        return _currentInputId.value
+    }
+    fun getb(): String? {
+        return _currentInputPhone.value
+    }
     fun updateInputPw(input: String){
         _currentInputPw.value = input
     }

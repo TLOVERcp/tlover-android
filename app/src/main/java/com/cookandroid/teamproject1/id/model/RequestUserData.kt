@@ -8,15 +8,15 @@ import com.google.gson.annotations.SerializedName
  */
 data class RequestUserData(
     @SerializedName("loginId")
-    var userId : String,
+    var userId: String,
     @SerializedName("password")
-    var userPw : String,
+    var userPw: String,
     @SerializedName("userNickName")
-    var userNickname : String,
+    var userNickname: String,
     @SerializedName("userPhoneNum")
-    var userPhone : String,
+    var userPhone: String,
     @SerializedName("userRegions")
-    var userReg : String,
+    var userReg: String,
     @SerializedName("userThemaName")
-    var userThemaName : String,
+    var userThemaName: String
 )
