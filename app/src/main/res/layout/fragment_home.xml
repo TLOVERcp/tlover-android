@@ -67,16 +67,75 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ImageView
-                android:id="@+id/fragment_home_main_img"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="112dp"
-                android:layout_marginTop="16dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/img_home_introduce"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_home_tlover_tv" />
+                android:layout_height="match_parent">
+
+
+                 <ImageView
+                    android:id="@+id/fragment_home_main_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="112dp"
+                    android:layout_marginTop="16dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_home_introduce_1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_home_tlover_tv" />
+
+                <ImageView
+                    android:id="@+id/fragment_home_main_paper"
+                    android:src="@drawable/img_home_introduce_paper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|top"
+                    android:width="344dp"
+                    android:height="112dp"
+                    />
+
+
+
+
+
+                <Button
+                    android:id="@+id/fragment_home_main_first_btn"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="270dp"
+                    android:layout_marginTop="42dp"
+                    android:width="36dp"
+                    android:height="36dp"
+                    android:background="@drawable/coral_ellipse_btn"
+                    android:drawableLeft="@drawable/white_stroke_vector"
+                    android:paddingLeft="15dp"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+                    />
+
+                <TextView
+                    android:id="@+id/fragment_home_main_first_txt"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#3EACE1"
+                    android:fontFamily="@font/notoserifkr_regular"
+                    android:textSize="20dp"
+                    android:text="트러버님, 안녕하세요!" />
+
+                <TextView
+                    android:id="@+id/fragment_home_main_second_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="68dp"
+                    android:fontFamily="@font/notosans"
+                    android:text="어디로 떠나볼까요?"
+                    android:textColor="#3F3F45"
+                    android:textSize="16dp" />
+
+
+
+            </FrameLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -273,6 +332,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragment_home_title_hot_nav"
             tools:listitem="@layout/item_home_random" />
+
+
 
         </LinearLayout>
     </ScrollView>
