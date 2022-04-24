@@ -134,7 +134,7 @@ class SignInActivity : AppCompatActivity() {
                         TloverApplication.prefs.setString("message", response.body()?.message.toString())
                         TloverApplication.prefs.setString("refreshToken", response.body()?.refreshToken.toString())
                         TloverApplication.prefs.setString("userNickname", response.body()?.userNickname.toString())
-//                        println(TloverApplication.prefs.getString("userNickname", "null"))
+//
                         TloverApplication.prefs.setUserId(inputId)
                         TloverApplication.prefs.setUserPW(inputPassword)
 //                        println(response.body()?.jwt)

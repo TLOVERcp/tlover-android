@@ -1,6 +1,5 @@
 package com.cookandroid.teamproject1.id.view
 
-import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
@@ -11,7 +10,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.cookandroid.teamproject1.R
-import com.cookandroid.teamproject1.SelectDestActivity
 import com.cookandroid.teamproject1.databinding.CreateAccountBinding
 import com.cookandroid.teamproject1.id.model.RequestIdCheckData
 import com.cookandroid.teamproject1.id.model.RequestNicknameCheckData
@@ -33,6 +31,7 @@ class CreateAccountActivity : AppCompatActivity() {
     var isNickname : Boolean = false
 
     private lateinit var sharedViewModel : SignUpViewModel
+//    private val sharedViewModel : SignUpViewModel by activityViewModels()
 
     lateinit var binding: CreateAccountBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -117,7 +116,6 @@ class CreateAccountActivity : AppCompatActivity() {
                         binding.createAccountNicknameWarningTextview.visibility = View.VISIBLE
                     }
                 }
-
 
                 override fun onFailure(call: Call<ResponseNicknameCheckData>, t: Throwable) {
                     Log.e("nickname's_server_test", "fail")
@@ -250,7 +248,8 @@ class CreateAccountActivity : AppCompatActivity() {
             sharedViewModel.updateInputId(binding.createAccountIdEdittext.text.toString())
             sharedViewModel.updateInputPw(binding.createAccountPasswordEdittext.text.toString())
             sharedViewModel.updateInputNickname(binding.createAccountNicknameEdittext.text.toString())
-//            println(sharedViewModel.getA())
+            println(sharedViewModel.getA())
+            println(sharedViewModel.getb())
             startActivity(Intent(this, SelectDestActivity::class.java))
         }
 

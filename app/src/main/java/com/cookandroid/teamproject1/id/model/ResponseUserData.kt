@@ -11,7 +11,5 @@ data class ResponseUserData(
     val code: Int,
 
     @SerializedName("message")
-    val message : String,
-    @SerializedName("value")
-    val certifyvalue : String
+    val message : String
 )
