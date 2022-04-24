@@ -30,7 +30,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="39dp"
-                    android:fontFamily="@font/cocogoose"
+                    android:fontFamily="@font/cocogooseprolighttrial"
                     android:text="TLOVER"
                     android:textColor="#2E2E33"
                     android:textSize="20sp"
@@ -89,8 +89,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|top"
-                    android:width="344dp"
-                    android:height="112dp"
                     />
 
 
