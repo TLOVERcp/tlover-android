@@ -24,59 +24,116 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/fragment_home_tlover_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="39dp"
-                android:fontFamily="@font/cocogoose"
-                android:text="TLOVER"
-                android:textColor="#2E2E33"
-                android:textSize="20sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/fragment_home_tlover_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="39dp"
+                    android:fontFamily="@font/cocogooseprolighttrial"
+                    android:text="TLOVER"
+                    android:textColor="#2E2E33"
+                    android:textSize="20sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/fragment_home_alarm_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="42dp"
+                        android:src="@drawable/ic_alram_svg"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginRight="23dp" />
+
+                    <!--               <TextView-->
+                    <!--                    android:layout_width="144dp"-->
+                    <!--                    android:layout_height="58dp"-->
+                    <!--                    android:textSize="20sp"-->
+                    <!--                    android:text="트러버님,          지금 떠나볼까요?"-->
+                    <!--                    app:layout_constraintLeft_toLeftOf="parent"-->
+                    <!--                    app:layout_constraintTop_toTopOf="parent">-->
+
+                    <!--                </TextView>-->
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/fragment_home_alarm_img"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="42dp"
-                android:src="@drawable/ic_alram_svg"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginRight="23dp" />
 
-<!--               <TextView-->
-<!--                    android:layout_width="144dp"-->
-<!--                    android:layout_height="58dp"-->
-<!--                    android:textSize="20sp"-->
-<!--                    android:text="트러버님,          지금 떠나볼까요?"-->
-<!--                    app:layout_constraintLeft_toLeftOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent">-->
+                <ImageView
+                    android:id="@+id/fragment_home_main_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="112dp"
+                    android:layout_marginTop="16dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_home_introduce_1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_home_tlover_tv" />
 
-<!--                </TextView>-->
+                <ImageView
+                    android:id="@+id/fragment_home_main_paper"
+                    android:src="@drawable/img_home_introduce_paper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|top"
+                    />
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ImageView
-                android:id="@+id/fragment_home_main_img"
-                android:layout_width="match_parent"
-                android:layout_height="112dp"
-                android:layout_marginTop="16dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/img_home_introduce"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_home_tlover_tv" />
+
+                <Button
+                    android:id="@+id/fragment_home_main_first_btn"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="270dp"
+                    android:layout_marginTop="42dp"
+                    android:width="36dp"
+                    android:height="36dp"
+                    android:background="@drawable/coral_ellipse_btn"
+                    android:drawableLeft="@drawable/white_stroke_vector"
+                    android:paddingLeft="15dp"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+                    />
+
+                <TextView
+                    android:id="@+id/fragment_home_main_first_txt"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#3EACE1"
+                    android:fontFamily="@font/notoserifkr_regular"
+                    android:textSize="20dp"
+                    android:text="트러버님, 안녕하세요!" />
+
+                <TextView
+                    android:id="@+id/fragment_home_main_second_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="68dp"
+                    android:fontFamily="@font/notosans"
+                    android:text="어디로 떠나볼까요?"
+                    android:textColor="#3F3F45"
+                    android:textSize="16dp" />
+
+
+
+            </FrameLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -84,31 +141,31 @@
                 android:layout_marginTop="16dp"
                 >
 
-            <TextView
-                android:id="@+id/fragment_home_title_random"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:fontFamily="@font/notosans"
-                android:text="뜬금 없는 여행 추천 🎁"
-                android:textColor="#2E2E33"
-                android:textSize="16sp"
-                app:layout_constraintLeft_toLeftOf="@id/fragment_home_tlover_tv"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_home_main_img" />
+                <TextView
+                    android:id="@+id/fragment_home_title_random"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="@font/notosans"
+                    android:text="뜬금 없는 여행 추천 🎁"
+                    android:textColor="#2E2E33"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="@id/fragment_home_tlover_tv"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_home_main_img" />
 
-            <ImageView
-                android:id="@+id/fragment_home_title_random_nav"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="23dp"
-                android:layout_marginRight="23dp"
-                android:src="@drawable/ic_nav_right"
-                app:layout_constraintBottom_toBottomOf="@+id/fragment_home_title_random"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintRight_toRightOf="@+id/fragment_home_alarm_img"
-                app:layout_constraintTop_toTopOf="@+id/fragment_home_title_random" />
+                <ImageView
+                    android:id="@+id/fragment_home_title_random_nav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="23dp"
+                    android:layout_marginRight="23dp"
+                    android:src="@drawable/ic_nav_right"
+                    app:layout_constraintBottom_toBottomOf="@+id/fragment_home_title_random"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintRight_toRightOf="@+id/fragment_home_alarm_img"
+                    app:layout_constraintTop_toTopOf="@+id/fragment_home_title_random" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -132,31 +189,31 @@
                 android:layout_marginTop="26dp"
                 >
 
-            <TextView
-                android:id="@+id/fragment_home_title_same"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:fontFamily="@font/notosans"
-                android:text="나와 여행 취향이 닮은 사람들 📔"
-                android:textColor="#2E2E33"
-                android:textSize="16sp"
-                app:layout_constraintLeft_toLeftOf="@id/fragment_home_tlover_tv"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_home_title_random_rv" />
+                <TextView
+                    android:id="@+id/fragment_home_title_same"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="@font/notosans"
+                    android:text="나와 여행 취향이 닮은 사람들 📔"
+                    android:textColor="#2E2E33"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="@id/fragment_home_tlover_tv"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_home_title_random_rv" />
 
-            <ImageView
-                android:id="@+id/fragment_home_title_same_nav"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="23dp"
-                android:layout_marginRight="23dp"
-                android:src="@drawable/ic_nav_right"
-                app:layout_constraintBottom_toBottomOf="@+id/fragment_home_title_same"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintRight_toRightOf="@+id/fragment_home_alarm_img"
-                app:layout_constraintTop_toTopOf="@+id/fragment_home_title_same" />
+                <ImageView
+                    android:id="@+id/fragment_home_title_same_nav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="23dp"
+                    android:layout_marginRight="23dp"
+                    android:src="@drawable/ic_nav_right"
+                    app:layout_constraintBottom_toBottomOf="@+id/fragment_home_title_same"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintRight_toRightOf="@+id/fragment_home_alarm_img"
+                    app:layout_constraintTop_toTopOf="@+id/fragment_home_title_same" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -181,32 +238,32 @@
                 android:layout_marginTop="26dp"
                 >
 
-            <TextView
-                android:id="@+id/fragment_home_title_hot"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/notosans"
-                android:text="지금 핫한 여행지 ❤️‍🔥"
-                android:textColor="#2E2E33"
-                android:textSize="16sp"
-                app:layout_constraintLeft_toLeftOf="@id/fragment_home_tlover_tv"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_home_title_same_rv" />
+                <TextView
+                    android:id="@+id/fragment_home_title_hot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/notosans"
+                    android:text="지금 핫한 여행지 ❤️‍🔥"
+                    android:textColor="#2E2E33"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="@id/fragment_home_tlover_tv"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_home_title_same_rv" />
 
-            <ImageView
-                android:id="@+id/fragment_home_title_hot_nav"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="23dp"
-                android:layout_marginRight="23dp"
-                android:src="@drawable/ic_nav_right"
-                app:layout_constraintBottom_toBottomOf="@+id/fragment_home_title_hot"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintRight_toRightOf="@+id/fragment_home_alarm_img"
-                app:layout_constraintTop_toTopOf="@+id/fragment_home_title_hot" />
+                <ImageView
+                    android:id="@+id/fragment_home_title_hot_nav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="23dp"
+                    android:layout_marginRight="23dp"
+                    android:src="@drawable/ic_nav_right"
+                    app:layout_constraintBottom_toBottomOf="@+id/fragment_home_title_hot"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintRight_toRightOf="@+id/fragment_home_alarm_img"
+                    app:layout_constraintTop_toTopOf="@+id/fragment_home_title_hot" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -225,54 +282,56 @@
                 tools:listitem="@layout/item_home_random" />
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="26dp"
-            >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="26dp"
+                >
 
-            <TextView
-                android:id="@+id/fragment_home_title_recent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                <TextView
+                    android:id="@+id/fragment_home_title_recent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/notosans"
+                    android:text="꽃이 만개한 요즘, 갈 만한 여행지"
+                    android:textColor="#2E2E33"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="@id/fragment_home_tlover_tv"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_home_title_hot_rv" />
+
+                <ImageView
+                    android:id="@+id/fragment_home_title_recent_nav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="23dp"
+                    android:layout_marginRight="23dp"
+                    android:src="@drawable/ic_nav_right"
+                    app:layout_constraintBottom_toBottomOf="@+id/fragment_home_title_recent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintRight_toRightOf="@+id/fragment_home_alarm_img"
+                    app:layout_constraintTop_toTopOf="@+id/fragment_home_title_recent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fragment_home_title_recent_rv"
+                android:layout_width="match_parent"
+                android:layout_height="133dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/notosans"
-                android:text="꽃이 만개한 요즘, 갈 만한 여행지"
-                android:textColor="#2E2E33"
-                android:textSize="16sp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toLeftOf="@id/fragment_home_tlover_tv"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_home_title_hot_rv" />
-
-            <ImageView
-                android:id="@+id/fragment_home_title_recent_nav"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="23dp"
-                android:layout_marginRight="23dp"
-                android:src="@drawable/ic_nav_right"
-                app:layout_constraintBottom_toBottomOf="@+id/fragment_home_title_recent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintRight_toRightOf="@+id/fragment_home_alarm_img"
-                app:layout_constraintTop_toTopOf="@+id/fragment_home_title_recent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintTop_toBottomOf="@+id/fragment_home_title_hot_nav"
+                tools:listitem="@layout/item_home_random" />
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/fragment_home_title_recent_rv"
-            android:layout_width="match_parent"
-            android:layout_height="133dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toLeftOf="@id/fragment_home_tlover_tv"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fragment_home_title_hot_nav"
-            tools:listitem="@layout/item_home_random" />
 
         </LinearLayout>
     </ScrollView>

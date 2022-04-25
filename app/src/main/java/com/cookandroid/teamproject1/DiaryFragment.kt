@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import com.cookandroid.teamproject1.databinding.FragmentDiaryBinding
 import com.cookandroid.teamproject1.databinding.FragmentHomeBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
 class DiaryFragment : Fragment() {
-    private var mBinding : FragmentDiaryBinding?= null
+    private var binding : FragmentDiaryBinding?= null
+    private var information = arrayListOf("리스트", "지도")
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -18,13 +21,18 @@ class DiaryFragment : Fragment() {
     ): View? {
         val binding = FragmentDiaryBinding.inflate(inflater, container, false)
 
-        mBinding = binding
+        val diaryAdapter = DiaryVPAdapter(this)
+        binding.diaryContentVp.adapter = diaryAdapter
+        TabLayoutMediator(binding.diaryContentTb, binding.diaryContentVp){
+            tab, position ->
+            tab.text = information[position]
+        }.attach()
 
-        return mBinding?.root
+        return binding.root
     }
 
     override fun onDestroyView() {
-        mBinding = null
+        binding = null
         super.onDestroyView()
     }
 }

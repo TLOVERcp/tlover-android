@@ -7,7 +7,7 @@
     android:background="@color/tlover_background_color"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context="com.cookandroid.teamproject1.SignUpingActivity">
+    tools:context="com.cookandroid.teamproject1.id.view.SignUpingActivity">
 
 
     <TextView
@@ -189,7 +189,7 @@
         android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/back_btn" />
+        android:src="@drawable/ic_back_button" />
 
     <TextView
         android:id="@+id/sign_uping_join_title"

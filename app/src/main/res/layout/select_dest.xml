@@ -7,7 +7,7 @@
     android:background="#FFFCF6"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context="com.cookandroid.teamproject1.SelectDestActivity">
+    tools:context="com.cookandroid.teamproject1.id.view.SelectDestActivity">
 
 
     <ImageView
@@ -19,7 +19,7 @@
         android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/back_btn" />
+        android:src="@drawable/ic_back_button" />
 
     <TextView
         android:id="@+id/sign_uping_join_title"
