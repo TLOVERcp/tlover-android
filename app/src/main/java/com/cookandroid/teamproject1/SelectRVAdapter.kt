@@ -34,25 +34,32 @@ class SelectRVAdapter(var context : Context) : RecyclerView.Adapter<SelectRVAdap
         holder.btn.text = data.title
 
         holder.btn.setOnClickListener{
-//            if(holder.btn.textColors == Color.parseColor("#FFFFFF")){
-//
-//            }
-            count++
-            if(count==3){
+            for (i in 0 until selectdata.size){
+                if (selectdata[i].title== holder.btn.text){
+                    selectdata.removeAt(i)
+                    Toast.makeText(this.context, selectdata[0].title, Toast.LENGTH_SHORT).show()
+                    holder.btn.setBackgroundResource(R.drawable.select_dest_grid)
+                    holder.btn.setTextColor(Color.parseColor("#6E6E76"))
+                    return@setOnClickListener
+                }
             }
+//            count++
+//            if(count==3){
+//            }
             if (selectdata.size>=3){
                 Toast.makeText(this.context, data.title, Toast.LENGTH_SHORT).show()
-//                selectdata.removeAt(0)
-
-//                holder.btn.isClickable = false
-//                holder.btn.isEnabled = false
                 return@setOnClickListener
             }
 
             holder.btn.setBackgroundResource(R.drawable.select_click)
             holder.btn.setTextColor(Color.parseColor("#FFFFFF"))
             selectdata.add(SelectDataModel(data.title))
+
         }
+    }
+
+    fun getSelectData(): MutableList<SelectDataModel> {
+        return selectdata
     }
 
     override fun getItemCount(): Int {

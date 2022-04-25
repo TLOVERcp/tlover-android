@@ -20,7 +20,7 @@
         android:usesCleartextTraffic="true"
 
         android:theme="@style/AppTheme">
-        <activity android:name=".IntroActivity" android:exported="true">
+        <activity android:name=".id.view.IntroActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,7 +43,7 @@
         </activity>
         <activity android:name=".HomeActivity">
         </activity>
-        <activity android:name=".LoginSuccessActivity">
+        <activity android:name=".id.view.LoginSuccessActivity">
         </activity>
 
     </application>

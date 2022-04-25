@@ -22,6 +22,7 @@ class SelectThemeActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var selectRVAdapter: SelectRVAdapter
     private var dataList = mutableListOf<SelectDataModel>()
+    private var selectdata = mutableListOf<SelectDataModel>()
 
     private lateinit var sharedViewModel : SignUpViewModel
 
@@ -53,6 +54,8 @@ class SelectThemeActivity : AppCompatActivity() {
         dataList.add(SelectDataModel("유적지"))
 
         selectRVAdapter.setDataList(dataList)
+
+
 
         binding.selectThemeBtnConfirm.setOnClickListener{
             val requestUserData = RequestUserData(

@@ -4,6 +4,8 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cookandroid.teamproject1.SelectRVAdapter
@@ -16,6 +18,7 @@ class SelectDestActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var selectRVAdapter: SelectRVAdapter
     private var dataList = mutableListOf<SelectDataModel>()
+    private var selectdata = mutableListOf<SelectDataModel>()
 
     lateinit var binding: SelectDestBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,7 +47,14 @@ class SelectDestActivity : AppCompatActivity() {
         selectRVAdapter.setDataList(dataList)
 
         binding.selectDestBtnConfirm.setOnClickListener{
-            startActivity(Intent(this, SelectThemeActivity::class.java))
+            selectdata = selectRVAdapter.getSelectData()
+            for (i in 0 until selectdata.size) {
+                Log.i("string", selectdata[i].title)
+
+            }
+
+
+//            startActivity(Intent(this, SelectThemeActivity::class.java))
         }
     }
 

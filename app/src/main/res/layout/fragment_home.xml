@@ -118,7 +118,7 @@
                     android:textColor="#3EACE1"
                     android:fontFamily="@font/notoserifkr_regular"
                     android:textSize="20dp"
-                    android:text="트러버님, 안녕하세요!" />
+                    android:text="%s님, 안녕하세요!" />
 
                 <TextView
                     android:id="@+id/fragment_home_main_second_txt"
