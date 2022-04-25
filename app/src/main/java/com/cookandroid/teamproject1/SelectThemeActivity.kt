@@ -11,6 +11,7 @@ class SelectThemeActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var selectRVAdapter: SelectRVAdapter
     private var dataList = mutableListOf<SelectDataModel>()
+    private var selectdata = mutableListOf<SelectDataModel>()
 
     lateinit var binding: SelectThemeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +38,8 @@ class SelectThemeActivity : AppCompatActivity() {
         dataList.add(SelectDataModel("유적지"))
 
         selectRVAdapter.setDataList(dataList)
+
+
 
         binding.selectThemeBtnConfirm.setOnClickListener{
 
