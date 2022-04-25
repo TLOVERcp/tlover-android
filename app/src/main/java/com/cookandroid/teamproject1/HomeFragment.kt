@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cookandroid.teamproject1.databinding.FragmentHomeBinding
+import com.cookandroid.teamproject1.util.TloverApplication
 
 class HomeFragment : Fragment(){
 
@@ -16,6 +17,7 @@ class HomeFragment : Fragment(){
     private var dataList = ArrayList<HomeDataModel>()
 
     override fun onCreateView(
+
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -23,8 +25,9 @@ class HomeFragment : Fragment(){
         val binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         mBinding = binding
-
+//        mbinding.Fragment.text = getString(R.string.home_user_hi).format(InfraApplication.prefs.getString("userNickName", "null"))
         // RVAdapter
+        mBinding!!.fragmentHomeMainFirstTxt.text = "%s님, 안녕하세요!".format(TloverApplication.prefs.getString("userNickname", "null"))
 
         dataList.apply{
             add(HomeDataModel("절경이네요 장관이고요", R.drawable.img1_item_home_random))
