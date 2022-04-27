@@ -37,7 +37,7 @@ class SelectRVAdapter(var context : Context) : RecyclerView.Adapter<SelectRVAdap
             for (i in 0 until selectdata.size){
                 if (selectdata[i].title== holder.btn.text){
                     selectdata.removeAt(i)
-                    Toast.makeText(this.context, selectdata[0].title, Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this.context, selectdata[0].title, Toast.LENGTH_SHORT).show()
                     holder.btn.setBackgroundResource(R.drawable.select_dest_grid)
                     holder.btn.setTextColor(Color.parseColor("#6E6E76"))
                     return@setOnClickListener

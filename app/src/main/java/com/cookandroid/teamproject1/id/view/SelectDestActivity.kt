@@ -8,9 +8,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.cookandroid.teamproject1.SelectRVAdapter
-import com.cookandroid.teamproject1.SelectDataModel
-import com.cookandroid.teamproject1.R
+import com.cookandroid.teamproject1.*
 import com.cookandroid.teamproject1.databinding.SelectDestBinding
 
 class SelectDestActivity : AppCompatActivity() {
@@ -19,6 +17,8 @@ class SelectDestActivity : AppCompatActivity() {
     private lateinit var selectRVAdapter: SelectRVAdapter
     private var dataList = mutableListOf<SelectDataModel>()
     private var selectdata = mutableListOf<SelectDataModel>()
+
+    private val selectDestArray : ArrayList<String> = arrayListOf()
 
     lateinit var binding: SelectDestBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,13 +48,33 @@ class SelectDestActivity : AppCompatActivity() {
 
         binding.selectDestBtnConfirm.setOnClickListener{
             selectdata = selectRVAdapter.getSelectData()
+//            for (i in 0 until selectdata.size) {
+//                Log.i("string", selectdata[i].title)
+//            }
             for (i in 0 until selectdata.size) {
-                Log.i("string", selectdata[i].title)
-
+                selectDestArray.add(selectdata[i].title)
+                Log.i("string", selectDestArray[i])
+//                Log.i("string", selectdata[i].title)
             }
 
-
+            val data = intent.getSerializableExtra("createAccountKey") as CreateAccountData
+            val selectDestData = SelectDestData(
+                data.idText, data.pwText,
+                data.nicknameText, data.pNumText, selectDestArray)
 //            startActivity(Intent(this, SelectThemeActivity::class.java))
+//            Log.i("pNumText", data.pNumText)
+//            Log.i("idText", data.idText)
+//            Log.i("pwText", data.pwText)
+//            Log.i("nicknameText", data.nicknameText)
+//            Log.i("dest", selectDestArray.toString())
+
+
+
+
+            val intent =Intent(this, SelectThemeActivity::class.java)
+            intent.putExtra("selectDestKey", selectDestData)
+            startActivity(intent)
+
         }
     }
 
