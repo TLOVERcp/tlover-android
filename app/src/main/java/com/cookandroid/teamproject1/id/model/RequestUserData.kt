@@ -16,7 +16,7 @@ data class RequestUserData(
     @SerializedName("userPhoneNum")
     var userPhone: String,
     @SerializedName("userRegions")
-    var userReg: String,
+    var userReg: ArrayList<String>,
     @SerializedName("userThemaName")
-    var userThemaName: String
+    var userThemaName: ArrayList<String>
 )
