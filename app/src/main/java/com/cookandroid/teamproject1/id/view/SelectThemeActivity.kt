@@ -4,18 +4,20 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
+import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.cookandroid.teamproject1.SelectRVAdapter
-import com.cookandroid.teamproject1.SelectDataModel
-import com.cookandroid.teamproject1.FirstTitleActivity
-import com.cookandroid.teamproject1.R
-import com.cookandroid.teamproject1.databinding.CreateAccountBinding
+import com.cookandroid.teamproject1.*
 import com.cookandroid.teamproject1.databinding.SelectThemeBinding
 import com.cookandroid.teamproject1.id.model.RequestUserData
+import com.cookandroid.teamproject1.id.model.ResponseUserData
 import com.cookandroid.teamproject1.id.viewmodel.SignUpViewModel
+import com.cookandroid.teamproject1.util.ServiceCreator
+import com.cookandroid.teamproject1.util.TloverApplication
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SelectThemeActivity : AppCompatActivity() {
 
@@ -24,7 +26,9 @@ class SelectThemeActivity : AppCompatActivity() {
     private var dataList = mutableListOf<SelectDataModel>()
     private var selectdata = mutableListOf<SelectDataModel>()
 
-    private lateinit var sharedViewModel : SignUpViewModel
+    private val selectThemeArray : ArrayList<String> = arrayListOf()
+
+    private lateinit var sharedViewModel: SignUpViewModel
 
     lateinit var binding: SelectThemeBinding
 
@@ -55,31 +59,73 @@ class SelectThemeActivity : AppCompatActivity() {
 
         selectRVAdapter.setDataList(dataList)
 
+        binding.selectThemeBtnConfirm.setOnClickListener {
 
+            selectdata = selectRVAdapter.getSelectData()
+            for (i in 0 until selectdata.size) {
+                selectThemeArray.add(selectdata[i].title)
+//                Log.i("string", selectdata[i].title)
+            }
 
-        binding.selectThemeBtnConfirm.setOnClickListener{
+            val data = intent.getSerializableExtra("selectDestKey") as SelectDestData
+//            val selectThemeData = SelectThemeData(
+//                data.idText,
+//                data.pwText,
+//                data.nicknameText,
+//                data.pNumText,
+//                data.destArray,
+//                selectThemeArray
+//            )
+//            startActivity(Intent(this, SelectThemeActivity::class.java))
+            val intent = Intent(this, FirstTitleActivity::class.java)
+//            intent.putExtra("selectThemeKey", selectThemeData)
+
             val requestUserData = RequestUserData(
-                userId = "",
-                userPw = "",
-                userNickname = "",
-                userPhone = "",
-                userReg = "인천",
-                userThemaName = "",
+                data.idText,
+                data.pwText,
+                data.nicknameText,
+                data.pNumText,
+                data.destArray,
+                selectThemeArray
             )
+
+            val call: Call<ResponseUserData> = ServiceCreator.signUpService.postSignUp(requestUserData)
+
+            call.enqueue(object: Callback<ResponseUserData> {
+                override fun onResponse(
+                    call: Call<ResponseUserData>,
+                    response: Response<ResponseUserData>
+                ) {
+                    if(response.code() == 200){
+                        Log.e("signup_server_test", "200")
+                        TloverApplication.prefs.setString("message", response.body()?.message.toString())
+                    }
+                    else{
+                        Log.e("signup_server_test", "responseFail")
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseUserData>, t: Throwable) {
+                    Log.e("signup_server_test", "fail")
+                }
+            })
 
 //            requestUserData.userId = sharedViewModel.getA().toString()
 
 //            println(sharedViewModel.getA())
 //            println("gg")
 
-            startActivity(Intent(this, FirstTitleActivity::class.java))
+            startActivity(intent)
+
         }
 
 
-    }
-    fun changeConfirmButton() {
-        binding.selectThemeBtnConfirm.setBackgroundResource(R.drawable.confirm_btn_background_clicked)
-        binding.selectThemeBtnConfirm.setTextColor(Color.WHITE)
+
+        fun changeConfirmButton() {
+            binding.selectThemeBtnConfirm.setBackgroundResource(R.drawable.confirm_btn_background_clicked)
+            binding.selectThemeBtnConfirm.setTextColor(Color.WHITE)
+        }
+
     }
 
 }

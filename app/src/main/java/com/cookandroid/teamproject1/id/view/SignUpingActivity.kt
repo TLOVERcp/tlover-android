@@ -26,6 +26,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.util.regex.Pattern
 
+
 class SignUpingActivity : AppCompatActivity() {
 
     var isTime : Boolean = false
@@ -56,8 +57,11 @@ class SignUpingActivity : AppCompatActivity() {
 
         sbinding.btnConfirm.setOnClickListener {
             if(sbinding.signTextCtf.text.toString()==certificationCode && sbinding.signTextCtf.text.length==5){
-                sharedViewModel.updateInputPhone(sbinding.signupingPnum.text.toString())
-                startActivity(Intent(this, CreateAccountActivity::class.java))
+//                sharedViewModel.updateInputPhone(sbinding.signupingPnum.text.toString())
+                // 고객 핸드폰 번호
+                val intent = Intent(this, CreateAccountActivity::class.java)
+                intent.putExtra("pnum", sbinding.signupingPnum.text.toString())
+                startActivity(intent)
             }
             else{
                 sbinding.signUpMsgctf.visibility = View.VISIBLE

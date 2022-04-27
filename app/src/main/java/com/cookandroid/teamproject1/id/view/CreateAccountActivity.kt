@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.cookandroid.teamproject1.CreateAccountData
 import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.CreateAccountBinding
 import com.cookandroid.teamproject1.id.model.RequestIdCheckData
@@ -20,6 +21,7 @@ import com.cookandroid.teamproject1.util.ServiceCreator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.Serializable
 import java.util.regex.Pattern
 
 class CreateAccountActivity : AppCompatActivity() {
@@ -41,9 +43,6 @@ class CreateAccountActivity : AppCompatActivity() {
 
         binding = CreateAccountBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-
 
         //아이디 중복확인 버튼
         /**
@@ -245,12 +244,18 @@ class CreateAccountActivity : AppCompatActivity() {
 
         //회원가입 완료시 다음 지역선택액티비티로 이동
         binding.createAccountConfirmButton.setOnClickListener{
-            sharedViewModel.updateInputId(binding.createAccountIdEdittext.text.toString())
-            sharedViewModel.updateInputPw(binding.createAccountPasswordEdittext.text.toString())
-            sharedViewModel.updateInputNickname(binding.createAccountNicknameEdittext.text.toString())
-            println(sharedViewModel.getA())
-            println(sharedViewModel.getb())
-            startActivity(Intent(this, SelectDestActivity::class.java))
+//            sharedViewModel.updateInputId(binding.createAccountIdEdittext.text.toString())
+//            sharedViewModel.updateInputPw(binding.createAccountPasswordEdittext.text.toString())
+//            sharedViewModel.updateInputNickname(binding.createAccountNicknameEdittext.text.toString())
+//            println(sharedViewModel.getA())
+//            println(sharedViewModel.getb())
+            var pnum: String = intent.getStringExtra("pnum").toString()
+            val createAccountData = CreateAccountData(binding.createAccountIdEdittext.text.toString(),
+                binding.createAccountPasswordEdittext.text.toString(), binding.createAccountNicknameEdittext.text.toString(),
+            pnum)
+            val intent =Intent(this, SelectDestActivity::class.java)
+            intent.putExtra("createAccountKey", createAccountData)
+            startActivity(intent)
         }
 
         //아이디 텍스트 필드 포커스된 경우
