@@ -15,7 +15,6 @@ class SignUpViewModel : ViewModel() {
     companion object{
         const val TAG: String = "로그"
     }
-
     private val _currentInputId = MutableLiveData<String>("")
     val currentInputId: LiveData<String> = _currentInputId
 

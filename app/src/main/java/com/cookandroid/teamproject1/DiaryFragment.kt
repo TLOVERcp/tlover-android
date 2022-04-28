@@ -12,7 +12,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class DiaryFragment : Fragment() {
     private var binding : FragmentDiaryBinding?= null
-    private var information = arrayListOf("리스트", "지도")
+    private var information = arrayListOf("여행 계획", "라이브러리")
 
     override fun onCreateView(
         inflater: LayoutInflater,
