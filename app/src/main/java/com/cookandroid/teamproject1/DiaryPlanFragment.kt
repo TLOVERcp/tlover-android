@@ -5,17 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.cookandroid.teamproject1.databinding.FragmentDiaryMapBinding
+import com.cookandroid.teamproject1.databinding.FragmentDiaryPlanBinding
 
-class DiaryMapFragment : Fragment(){
-    lateinit var binding: FragmentDiaryMapBinding
+class DiaryPlanFragment : Fragment() {
+    lateinit var binding : FragmentDiaryPlanBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentDiaryMapBinding.inflate(inflater, container, false)
+        binding = FragmentDiaryPlanBinding.inflate(inflater, container, false)
         return binding.root
     }
 }

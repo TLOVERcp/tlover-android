@@ -10,8 +10,8 @@ class DiaryVPAdapter(fragment : Fragment) : FragmentStateAdapter(fragment){
 
     override fun createFragment(position: Int): Fragment {
         return when(position){
-            0 -> DiaryListFragment()
-            else -> DiaryMapFragment()
+            0 -> DiaryPlanFragment()
+            else -> DiaryLibraryFragment()
         }
     }
 
