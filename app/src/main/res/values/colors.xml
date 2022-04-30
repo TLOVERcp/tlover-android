@@ -9,4 +9,5 @@
     <color name="tlover_main_color">#6BBFEE</color>
     <color name="join_text_gray_color">#6E6E76</color>
     <color name="tlover_background_color">#FFFCF6</color>
+    <color name="signuping_confbtn_textcolor">#6E6E76</color>
 </resources>
