@@ -81,7 +81,7 @@ class SignInActivity : AppCompatActivity() {
         })
         //뒤로가기 버튼
         binding.signInBackImg.setOnClickListener {
-            startActivity(Intent(this, FirstTitleActivity::class.java))
+            startActivity(Intent(this,FirstTitleActivity::class.java))
         }
 
         //아이디 텍스트 필드 포커스된 경우
