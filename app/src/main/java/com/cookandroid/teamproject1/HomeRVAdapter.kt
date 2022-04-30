@@ -10,8 +10,11 @@ class HomeRVAdapter(private val randomList: ArrayList<HomeDataModel>) :RecyclerV
 
     class Holder(val binding : ItemHomeRandomBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(random: HomeDataModel){
-            binding.itemHomeRandomTxt.text = random.title
+            binding.itemHomeRandomImgTitle.setText(random.title)
             binding.itemHomeRandomImg.setImageResource(random.image!!)
+            binding.itemHomeRandomImgDate.setText(random.date)
+            binding.itemHomeRandomImgNickname.setText(random.nickname)
+            binding.itemHomeRandomImgLocation.setText(random.location)
         }
     }
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): HomeRVAdapter.Holder {

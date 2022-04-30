@@ -79,7 +79,7 @@ class SignUpingActivity : AppCompatActivity() {
                 }
                 else {
                     sbinding.btnCtf.setBackgroundResource(R.drawable.certification_requ)
-//                    sbinding.btnCtf.setTextColor(Color.parseColor("#6E6E76"))
+                    sbinding.btnCtf.setTextColor(Color.parseColor("#6E6E76"))
                 }
 
             }
@@ -225,7 +225,7 @@ class SignUpingActivity : AppCompatActivity() {
             else {
                 sbinding.btnConfirm.isEnabled = false
                 sbinding.btnConfirm.setBackgroundResource(R.drawable.certification_requ)
-//                sbinding.btnConfirm.setTextColor(Color.parseColor("#ADB5BD"))
+                sbinding.btnConfirm.setTextColor(Color.parseColor("#6E6E76"))
             }
         }
 
