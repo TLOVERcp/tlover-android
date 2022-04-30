@@ -17,7 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="112dp"
             android:scaleType="fitXY"
-            android:src="@drawable/img1_item_home_random" />
+            android:src="@drawable/img1_item_home_random"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/item_home_random_img_nickname"
