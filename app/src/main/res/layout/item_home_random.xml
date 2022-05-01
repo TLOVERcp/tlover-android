@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="154dp"
     android:layout_height="112dp"
+    app:cardBackgroundColor="@color/tlover_background_color"
     app:cardElevation="0dp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
@@ -17,7 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="112dp"
             android:scaleType="fitXY"
-            android:src="@drawable/img1_item_home_random" />
+            android:src="@drawable/img1_item_home_random"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/item_home_random_img_nickname"
