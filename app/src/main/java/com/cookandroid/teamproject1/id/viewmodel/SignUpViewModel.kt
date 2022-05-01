@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
  *  회원가입과 관련한 LiveData를 다루는 ViewModel 페이지
  *  작성자 : 윤성식
  *  SharedLiveData를 통한 뷰간 데이터 전달
+ *  현재 사용 안함. 나중에 ViewModel을 사용할 때 참고자료로 사용할 예정
  */
 
 class SignUpViewModel : ViewModel() {

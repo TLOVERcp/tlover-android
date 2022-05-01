@@ -95,7 +95,7 @@ class SignUpingActivity : AppCompatActivity() {
         })
         //확인 버튼 클릭시 새로운 필드와 버튼 출력
         /**
-         * SMS문자인증 api 연결
+         * SMS문자인증 api 서버 연결
          * 작성자 : 윤성식
          */
         sbinding.btnCtf.setOnClickListener{
