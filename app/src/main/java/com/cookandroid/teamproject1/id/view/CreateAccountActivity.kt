@@ -9,7 +9,6 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.cookandroid.teamproject1.CreateAccountData
 import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.CreateAccountBinding
 import com.cookandroid.teamproject1.id.model.RequestIdCheckData
@@ -21,7 +20,6 @@ import com.cookandroid.teamproject1.util.ServiceCreator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.Serializable
 import java.util.regex.Pattern
 
 class CreateAccountActivity : AppCompatActivity() {
