@@ -80,6 +80,11 @@ class SelectThemeActivity : AppCompatActivity() {
             val intent = Intent(this, FirstTitleActivity::class.java)
 //            intent.putExtra("selectThemeKey", selectThemeData)
 
+            /**
+             * 작성자: 원도혜
+             * signUpService 회원가입 API 연결
+             */
+
             val requestUserData = RequestUserData(
                 data.idText,
                 data.pwText,

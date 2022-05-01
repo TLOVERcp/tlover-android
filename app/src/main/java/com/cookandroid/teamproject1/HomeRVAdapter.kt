@@ -21,7 +21,6 @@ class HomeRVAdapter(private val randomList: ArrayList<HomeDataModel>) :RecyclerV
 
     override fun onBindViewHolder(holder: HomeRVAdapter.Holder, position: Int) {
         holder.bind(randomList[position])
-
     }
 
     override fun getItemCount(): Int {
