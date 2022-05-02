@@ -5,6 +5,8 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cookandroid.teamproject1.*
@@ -62,14 +64,25 @@ class SelectDestActivity : AppCompatActivity() {
 
         binding.selectDestBtnConfirm.setOnClickListener{
 //            count = selectRVAdapter.getCountData()
-//
-//
 //            Log.i("string", count.toString())
 
             selectdata = selectRVAdapter.getSelectData()
 //            for (i in 0 until selectdata.size) {
 //                Log.i("string", selectdata[i].title)
 //            }
+            if (selectdata.size==0){
+                val toastView = layoutInflater.inflate(R.layout.custom_select_toast,null)
+                toastView.run {
+
+                }
+                val t2 = Toast(this)
+                t2.view = toastView
+                t2.show()
+                t2.setGravity(Gravity.BOTTOM,0,0)
+                t2.duration = Toast.LENGTH_SHORT
+
+                return@setOnClickListener
+            }
             for (i in 0 until selectdata.size) {
                 selectDestArray.add(selectdata[i].title)
                 Log.i("string", selectDestArray[i])
@@ -86,9 +99,6 @@ class SelectDestActivity : AppCompatActivity() {
 //            Log.i("pwText", data.pwText)
 //            Log.i("nicknameText", data.nicknameText)
 //            Log.i("dest", selectDestArray.toString())
-
-
-
 
             val intent =Intent(this, SelectThemeActivity::class.java)
             intent.putExtra("selectDestKey", selectDestData)
