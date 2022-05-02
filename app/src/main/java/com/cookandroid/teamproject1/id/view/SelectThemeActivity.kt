@@ -5,6 +5,8 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -65,6 +67,21 @@ class SelectThemeActivity : AppCompatActivity() {
         binding.selectThemeBtnConfirm.setOnClickListener {
 
             selectdata = selectRVAdapter.getSelectData()
+
+            if (selectdata.size==0){
+                val toastView = layoutInflater.inflate(R.layout.custom_select_toast,null)
+                toastView.run {
+
+                }
+                val t2 = Toast(this)
+                t2.view = toastView
+                t2.show()
+                t2.setGravity(Gravity.BOTTOM,0,0)
+                t2.duration = Toast.LENGTH_SHORT
+
+                return@setOnClickListener
+            }
+
             for (i in 0 until selectdata.size) {
                 selectThemeArray.add(selectdata[i].title)
 //                Log.i("string", selectdata[i].title)

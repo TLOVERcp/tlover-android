@@ -17,7 +17,6 @@ class SelectRVAdapter(var context : Context) : RecyclerView.Adapter<SelectRVAdap
     private var selectdata = mutableListOf<SelectDataModel>()
     var count : Int =0
 
-    private lateinit var selectDestActivity: SelectDestActivity
 
 
     internal fun setDataList(selectDataList : List<SelectDataModel>){
@@ -39,22 +38,32 @@ class SelectRVAdapter(var context : Context) : RecyclerView.Adapter<SelectRVAdap
         holder.btn.text = data.title
 
         holder.btn.setOnClickListener{
+            count += 1
             for (i in 0 until selectdata.size){
                 if (selectdata[i].title== holder.btn.text){
                     selectdata.removeAt(i)
 //                    Toast.makeText(this.context, selectdata[0].title, Toast.LENGTH_SHORT).show()
                     holder.btn.setBackgroundResource(R.drawable.select_dest_grid)
                     holder.btn.setTextColor(Color.parseColor("#6E6E76"))
+                    count -= 1
                     return@setOnClickListener
                 }
             }
-            count += 1
+
+            if (selectdata.size>=3){
+//                Toast.makeText(this.context, data.title, Toast.LENGTH_SHORT).show()
+                count -= 1
+                return@setOnClickListener
+            }
+
+            // 3개 클릭시 원하는 경우
             if (count==3){
 //                selectDestActivity.changeConfirmButton()
             }
-            if (selectdata.size>=3){
-//                Toast.makeText(this.context, data.title, Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+
+            if (count==1){
+            }else{
+
             }
 
             holder.btn.setBackgroundResource(R.drawable.select_click)
