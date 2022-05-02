@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bottom_nav_background"
         app:menu="@menu/bottom_nav_menu"
-        app:labelVisibilityMode="labeled"
+        app:labelVisibilityMode="unlabeled"
         app:itemTextColor="@drawable/btm_color_selector"
         app:itemIconTint="@drawable/btm_color_selector"
         app:layout_constraintLeft_toLeftOf="parent"
