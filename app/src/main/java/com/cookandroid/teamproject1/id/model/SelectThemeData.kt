@@ -1,4 +1,4 @@
-package com.cookandroid.teamproject1
+package com.cookandroid.teamproject1.id.model
 
 import java.io.Serializable
 

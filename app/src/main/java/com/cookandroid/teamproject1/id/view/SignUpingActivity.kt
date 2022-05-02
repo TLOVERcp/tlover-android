@@ -218,6 +218,30 @@ class SignUpingActivity : AppCompatActivity() {
             t2.show()
             t2.setGravity(Gravity.BOTTOM,0,0)
             t2.duration = Toast.LENGTH_SHORT
+
+            val requestSMSData = RequestSMSData(
+                phoneNum = sbinding.signupingPnum.text.toString()
+            )
+
+            val call: Call<ResponseSMSData> = ServiceCreator.smsService.postSendSMS(requestSMSData)
+
+            call.enqueue(object: Callback<ResponseSMSData>{
+                override fun onResponse(
+                    call: Call<ResponseSMSData>,
+                    response: Response<ResponseSMSData>
+                ) {
+                    if(response.code()==200){
+                        certificationCode = response.body()?.certifyvalue.toString()
+//                        println(certificationCode)
+//                        println(sharedViewModel.currentInputPhone.toString())
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseSMSData>, t: Throwable) {
+                    Log.e("sms_server_test", "fail")
+                }
+
+            })
         }
     }
         private fun changeConfirmButton() {
