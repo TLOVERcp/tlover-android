@@ -7,7 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/tlover_background_color"
     android:id="@+id/homeFragment"
-    tools:context="com.cookandroid.teamproject1.HomeFragment">
+    tools:context="com.cookandroid.teamproject1.home.view.HomeFragment">
 
     <ScrollView
         android:layout_width="match_parent"
