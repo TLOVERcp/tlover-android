@@ -1,4 +1,4 @@
-package com.cookandroid.teamproject1
+package com.cookandroid.teamproject1.home.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.FragmentHomeBinding
+import com.cookandroid.teamproject1.home.model.HomeDataModel
+import com.cookandroid.teamproject1.home.view.adapter.HomeRVAdapter
 import com.cookandroid.teamproject1.util.TloverApplication
 
 class HomeFragment : Fragment(){

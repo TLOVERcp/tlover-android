@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.cookandroid.teamproject1.HomeFragment"
+        android:name="com.cookandroid.teamproject1.home.view.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
     </fragment>
