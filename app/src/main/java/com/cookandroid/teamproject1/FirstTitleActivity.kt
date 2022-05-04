@@ -4,9 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.cookandroid.teamproject1.databinding.FirstTitleBinding
-import com.cookandroid.teamproject1.id.view.SelectDestActivity
-import com.cookandroid.teamproject1.id.view.SignInActivity
-import com.cookandroid.teamproject1.id.view.SignUpingActivity
+import com.cookandroid.teamproject1.id.view.activity.SelectDestActivity
+import com.cookandroid.teamproject1.id.view.activity.SignInActivity
+import com.cookandroid.teamproject1.id.view.activity.SignUpingActivity
 
 class FirstTitleActivity : AppCompatActivity() {
 
@@ -25,7 +25,7 @@ class FirstTitleActivity : AppCompatActivity() {
         binding.textSignin.setOnClickListener {
             startActivity(Intent(this, SignInActivity::class.java))
         }
-//임시로 여행지 선택창 걸어놓음 0416 김도영
+        //임시로 여행지 선택창 걸어놓음 0416 김도영
         binding.textQuest.setOnClickListener {
             startActivity(Intent(this, SelectDestActivity::class.java))
         }

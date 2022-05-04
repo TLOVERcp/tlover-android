@@ -20,7 +20,7 @@
         android:usesCleartextTraffic="true"
 
         android:theme="@style/AppTheme">
-        <activity android:name=".id.view.IntroActivity" android:exported="true">
+        <activity android:name=".id.view.activity.IntroActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,21 +29,21 @@
         </activity>
         <activity android:name=".FirstTitleActivity">
         </activity>
-        <activity android:name=".id.view.SignUpingActivity">
+        <activity android:name=".id.view.activity.SignUpingActivity">
         </activity>
         <activity android:name=".MainActivity">
         </activity>
-        <activity android:name=".id.view.CreateAccountActivity">
+        <activity android:name=".id.view.activity.CreateAccountActivity">
         </activity>
-        <activity android:name=".id.view.SignInActivity">
+        <activity android:name=".id.view.activity.SignInActivity">
         </activity>
-        <activity android:name=".id.view.SelectDestActivity">
+        <activity android:name=".id.view.activity.SelectDestActivity">
         </activity>
-        <activity android:name=".id.view.SelectThemeActivity">
+        <activity android:name=".id.view.activity.SelectThemeActivity">
         </activity>
         <activity android:name=".HomeActivity">
         </activity>
-        <activity android:name=".id.view.LoginSuccessActivity">
+        <activity android:name=".id.view.activity.LoginSuccessActivity">
         </activity>
 
     </application>

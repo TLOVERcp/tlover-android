@@ -9,7 +9,6 @@ import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.id.model.SelectDataModel
-import com.cookandroid.teamproject1.id.view.SelectDestActivity
 
 class SelectRVAdapter(var context : Context) : RecyclerView.Adapter<SelectRVAdapter.Holder>() {
 
