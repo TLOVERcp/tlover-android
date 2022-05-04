@@ -1,4 +1,4 @@
-package com.cookandroid.teamproject1.home.view
+package com.cookandroid.teamproject1.home.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

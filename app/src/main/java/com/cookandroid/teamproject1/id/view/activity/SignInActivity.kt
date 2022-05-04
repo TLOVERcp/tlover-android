@@ -1,4 +1,4 @@
-package com.cookandroid.teamproject1.id.view
+package com.cookandroid.teamproject1.id.view.activity
 
 import android.content.Intent
 import android.graphics.Color

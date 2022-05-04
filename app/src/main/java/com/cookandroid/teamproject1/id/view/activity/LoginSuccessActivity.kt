@@ -1,25 +1,25 @@
-package com.cookandroid.teamproject1.id.view
-
+package com.cookandroid.teamproject1.id.view.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Handler
 import android.os.Bundle
-import com.cookandroid.teamproject1.FirstTitleActivity
+import android.os.Looper
+import com.cookandroid.teamproject1.HomeActivity
 import com.cookandroid.teamproject1.R
 
-class IntroActivity : AppCompatActivity() {
+class LoginSuccessActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.intro_activity)
+        setContentView(R.layout.activity_login_success)
         //xml 소스 연결
 
-      var handler=Handler()
+      var handler = Handler(Looper.getMainLooper())
+
         handler.postDelayed({
-            var intent=Intent(this, FirstTitleActivity::class.java)
-            startActivity(intent)// 다음 화면으로 넘어가기
-        },2000)//2초뒤 실행
+            startActivity(Intent(this, HomeActivity::class.java))
+        },1000)
     }
 
     override fun onPause() {

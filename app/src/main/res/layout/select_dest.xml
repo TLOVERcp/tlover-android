@@ -7,7 +7,7 @@
     android:background="#FFFCF6"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context="com.cookandroid.teamproject1.id.view.SelectDestActivity">
+    tools:context="com.cookandroid.teamproject1.id.view.activity.SelectDestActivity">
 
 
     <ImageView
