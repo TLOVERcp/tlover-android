@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment
 import com.cookandroid.teamproject1.databinding.FragmentHomeBinding
 import com.cookandroid.teamproject1.databinding.FragmentMyInfoBinding
 
+/**
+ * 내정보화면
+ */
 class MyInfoFragment : Fragment(){
 
     private var mBinding : FragmentMyInfoBinding?= null
