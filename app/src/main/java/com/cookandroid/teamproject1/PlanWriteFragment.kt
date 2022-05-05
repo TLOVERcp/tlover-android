@@ -20,7 +20,7 @@ class PlanWriteFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentPlanWriteBinding.inflate(inflater, container, false)
-        binding.fragmentHomeMainFirstBtn.bringToFront()
+
         return binding.root
     }
 
