@@ -8,6 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cookandroid.teamproject1.databinding.FragmentDiaryPlanBinding
 
+/**
+ * diary plan view
+ * 다이어리 계획 모음
+ */
 class DiaryPlanFragment : Fragment() {
 
     private var mBinding : FragmentDiaryPlanBinding?=null

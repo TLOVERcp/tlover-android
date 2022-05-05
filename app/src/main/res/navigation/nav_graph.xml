@@ -10,6 +10,9 @@
         android:name="com.cookandroid.teamproject1.home.view.fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_planWriteFragment"
+            app:destination="@id/planWriteFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -26,4 +29,9 @@
         android:name="com.cookandroid.teamproject1.MyInfoFragment"
         android:label="fragment_my_info"
         tools:layout="@layout/fragment_my_info" />
+    <fragment
+        android:id="@+id/planWriteFragment"
+        android:name="com.cookandroid.teamproject1.PlanWriteFragment"
+        android:label="fragment_plan_write"
+        tools:layout="@layout/fragment_plan_write" />
 </navigation>

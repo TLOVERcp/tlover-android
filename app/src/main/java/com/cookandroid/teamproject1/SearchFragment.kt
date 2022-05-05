@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment
 import com.cookandroid.teamproject1.databinding.FragmentHomeBinding
 import com.cookandroid.teamproject1.databinding.FragmentSearchBinding
 
+/**
+ * 검색화면
+ */
 class SearchFragment : Fragment(){
 
     private var mBinding : FragmentSearchBinding?= null

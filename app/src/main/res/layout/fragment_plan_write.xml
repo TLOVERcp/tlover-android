@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/tlover_background_color"
+    tools:context=".PlanWriteFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="-127dp"
+        tools:layout_editor_absoluteY="42dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <TextView
+                    android:id="@+id/fragment_home_tlover_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/notoserifkr_regular"
+                    android:text="TLOVER"
+                    android:textColor="#2E2E33"
+                    android:textSize="20sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/fragment_home_alarm_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="42dp"
+                    android:src="@drawable/ic_alram_svg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginRight="23dp" />
+
+                <View
+                    android:id="@+id/fragment_home_background_v"
+                    android:layout_width="wrap_content"
+                    android:layout_height="119dp"
+                    android:background="#F2EFE9"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_home_tlover_tv"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/fragment_home_background_front_v"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_rectangle"
+                    app:layout_constraintBottom_toBottomOf="@id/fragment_home_background_v"
+                    app:layout_constraintTop_toTopOf="@id/fragment_home_background_v"
+                    app:layout_constraintVertical_bias="0.478"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="0dp" />
+
+                <TextView
+                    android:id="@+id/fragment_home_main_first_txt"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="23dp"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#3EACE1"
+                    android:fontFamily="@font/notoserifkr_regular"
+                    android:textSize="20dp"
+                    android:text="%s님, 안녕하세요!"
+                    app:layout_constraintTop_toTopOf="@+id/fragment_home_background_front_v"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <android.widget.Button
+                    android:id="@+id/fragment_home_main_first_btn"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="270dp"
+                    android:layout_marginTop="50dp"
+                    android:width="36dp"
+                    android:height="36dp"
+                    android:background="@drawable/coral_ellipse_btn"
+                    android:drawableLeft="@drawable/white_stroke_vector"
+                    android:paddingLeft="15dp"
+                    app:layout_constraintLeft_toRightOf="@id/fragment_home_main_first_txt"
+                    tools:ignore="MissingConstraints" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--            <FrameLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent">-->
+
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/fragment_home_main_img"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="112dp"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:scaleType="fitXY"-->
+<!--                    android:src="@drawable/img_home_introduce_1"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/fragment_home_tlover_tv" />-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/fragment_home_main_paper"-->
+<!--                    android:src="@drawable/img_home_introduce_paper"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="left|top"-->
+<!--                    />-->
+
+
+<!--                <TextView-->
+<!--                    android:id="@+id/fragment_home_main_first_txt"-->
+<!--                    android:layout_marginLeft="16dp"-->
+<!--                    android:layout_marginTop="28dp"-->
+<!--                    android:layout_width="240dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textColor="#3EACE1"-->
+<!--                    android:fontFamily="@font/notoserifkr_regular"-->
+<!--                    android:textSize="20dp"-->
+<!--                    android:text="%s님, 안녕하세요!" />-->
+
+<!--                <Button-->
+<!--                    android:id="@+id/fragment_home_main_first_btn"-->
+<!--                    android:layout_width="36dp"-->
+<!--                    android:layout_height="36dp"-->
+<!--                    android:layout_marginLeft="270dp"-->
+<!--                    android:layout_marginTop="50dp"-->
+<!--                    android:width="36dp"-->
+<!--                    android:height="36dp"-->
+<!--                    android:background="@drawable/coral_ellipse_btn"-->
+<!--                    android:drawableLeft="@drawable/white_stroke_vector"-->
+<!--                    android:paddingLeft="15dp"-->
+<!--                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/fragment_home_main_second_txt"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="16dp"-->
+<!--                    android:layout_marginTop="68dp"-->
+<!--                    android:fontFamily="@font/notosans"-->
+<!--                    android:text="어디로 떠나볼까요?"-->
+<!--                    android:textColor="#3F3F45"-->
+<!--                    android:textSize="16dp" />-->
+
+
+
+<!--            </FrameLayout>-->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+
+                >
+
+                <TextView
+                    android:id="@+id/fragment_home_title_random"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="@font/notosans"
+                    android:text="나와 여행 취향이 닮은 사람들"
+                    android:textColor="#2E2E33"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="@id/fragment_home_tlover_tv"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_home_main_img" />
+
+                <ImageView
+                    android:id="@+id/fragment_home_title_random_nav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="23dp"
+                    android:layout_marginRight="23dp"
+                    android:src="@drawable/ic_nav_right"
+                    app:layout_constraintBottom_toBottomOf="@+id/fragment_home_title_random"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintRight_toRightOf="@+id/fragment_home_alarm_img"
+                    app:layout_constraintTop_toTopOf="@+id/fragment_home_title_random" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/fragment_home_title_random_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="133dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_home_title_random_nav"
+                    tools:listitem="@layout/item_home_random" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

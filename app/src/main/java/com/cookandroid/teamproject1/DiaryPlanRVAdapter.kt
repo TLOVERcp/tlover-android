@@ -6,6 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.cookandroid.teamproject1.databinding.ItemHomeDiaryBinding
 
+/**
+ * diary plan RecyclerView Adapter
+ */
 class DiaryPlanRVAdapter(private val diaryplanList: ArrayList<DiaryPlanDataModel>) :RecyclerView.Adapter<DiaryPlanRVAdapter.Holder>(){
 
     class Holder(val binding : ItemHomeDiaryBinding) : RecyclerView.ViewHolder(binding.root){

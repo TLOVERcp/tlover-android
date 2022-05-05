@@ -3,6 +3,9 @@ package com.cookandroid.teamproject1
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
+/**
+ * diary ViewPager2 adapter
+ */
 class DiaryVPAdapter(fragment : Fragment) : FragmentStateAdapter(fragment){
     override fun getItemCount(): Int {
         return 2

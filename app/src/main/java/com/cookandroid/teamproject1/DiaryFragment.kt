@@ -10,6 +10,10 @@ import com.cookandroid.teamproject1.databinding.FragmentDiaryBinding
 import com.cookandroid.teamproject1.databinding.FragmentHomeBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
+/**
+ * diary view
+ * plan or library view
+ */
 class DiaryFragment : Fragment() {
     private var binding : FragmentDiaryBinding?= null
     private var information = arrayListOf("여행 계획", "라이브러리")
