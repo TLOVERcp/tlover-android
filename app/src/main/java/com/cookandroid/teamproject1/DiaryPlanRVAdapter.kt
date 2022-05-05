@@ -11,13 +11,11 @@ class DiaryPlanRVAdapter(private val diaryplanList: ArrayList<DiaryPlanDataModel
     class Holder(val binding : ItemHomeDiaryBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(random: DiaryPlanDataModel){
             binding.itemHomeDiaryTitle.setText(random.title)
-            binding.itemHomeDiaryYeartext.setText(random.yearnum)
-            binding.itemHomeDiaryDaytextNum.setText(random.daynum)
+            binding.itemHomeDiaryDayOfTravel.setText(random.daynum)
             binding.itemHomeDiaryCalanderText.setText(random.s_date)
             binding.itemHomeDiaryLocationText.setText(random.location)
             binding.itemHomeDiaryCoinText.setText(random.price)
-            binding.itemHomeDiaryBedText.setText(random.accommodation)
-            binding.itemHomeDiaryContentText.setText(random.content)
+
         }
     }
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): Holder {

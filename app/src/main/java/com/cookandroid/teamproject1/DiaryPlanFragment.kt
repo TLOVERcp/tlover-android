@@ -21,12 +21,12 @@ class DiaryPlanFragment : Fragment() {
         val binding = FragmentDiaryPlanBinding.inflate(inflater, container, false)
         mBinding = binding
         dataList.apply{
-            add(DiaryPlanDataModel("title1", "1","29","2022.02.06","Pyeongtaek","10209","17855 bijeon","비전동 투어 우와우와"))
-            add(DiaryPlanDataModel("title2", "1","26","2022.02.09","Seoul","30206","17811 Namgajwa","서대문구 짱짱"))
-            add(DiaryPlanDataModel("title3", "1","58","2022.05.08","Jeju","60508","17822 Aewol","제주 애월 꺄악"))
-            add(DiaryPlanDataModel("title1", "1","29","2022.02.06","Pyeongtaek","10209","17855 bijeon","비전동 투어 우와우와"))
-            add(DiaryPlanDataModel("title2", "1","26","2022.02.09","Seoul","30206","17811 Namgajwa","서대문구 짱짱"))
-            add(DiaryPlanDataModel("title3", "1","58","2022.05.08","Jeju","60508","17822 Aewol","제주 애월 꺄악"))
+            add(DiaryPlanDataModel("Travel1","여행 36일차","2021.04.25~","Brooklyn","100,000"))
+            add(DiaryPlanDataModel("Travel2","여행 91일차","2021.09.01~","Seoul","200,000"))
+            add(DiaryPlanDataModel("Travel1","여행 36일차","2021.04.25~","Brooklyn","100,000"))
+            add(DiaryPlanDataModel("Travel2","여행 91일차","2021.09.01~","Seoul","200,000"))
+            add(DiaryPlanDataModel("Travel1","여행 36일차","2021.04.25~","Brooklyn","100,000"))
+            add(DiaryPlanDataModel("Travel2","여행 91일차","2021.09.01~","Seoul","200,000"))
 
         }
 
