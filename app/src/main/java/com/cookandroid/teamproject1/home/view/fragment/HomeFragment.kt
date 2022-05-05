@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.FragmentHomeBinding
 import com.cookandroid.teamproject1.home.model.HomeDataModel
+import com.cookandroid.teamproject1.home.model.HomeHotRecommendDataModel
+import com.cookandroid.teamproject1.home.view.adapter.HomeHotRecommendRVAdapter
 import com.cookandroid.teamproject1.home.view.adapter.HomeRVAdapter
 import com.cookandroid.teamproject1.util.TloverApplication
 
@@ -17,6 +19,7 @@ class HomeFragment : Fragment(){
 
     private var mBinding : FragmentHomeBinding?= null
     private var dataList = ArrayList<HomeDataModel>()
+    private var dataListSecond = ArrayList<HomeHotRecommendDataModel>()
 
     override fun onCreateView(
 
@@ -41,11 +44,24 @@ class HomeFragment : Fragment(){
 
         }
 
+        dataListSecond.apply {
+            add(HomeHotRecommendDataModel("제목1",R.drawable.img2_item_home_random,"2022.05.04","187","Brooklyn"))
+            add(HomeHotRecommendDataModel("제목2",R.drawable.img1_item_home_random,"2022.09.01","91","London"))
+            add(HomeHotRecommendDataModel("제목1",R.drawable.img2_item_home_random,"2022.05.04","187","Brooklyn"))
+            add(HomeHotRecommendDataModel("제목2",R.drawable.img1_item_home_random,"2022.09.01","91","London"))
+            add(HomeHotRecommendDataModel("제목1",R.drawable.img2_item_home_random,"2022.05.04","187","Brooklyn"))
+            add(HomeHotRecommendDataModel("제목2",R.drawable.img1_item_home_random,"2022.09.01","91","London"))
+
+        }
+
         val homeRVAdapter = HomeRVAdapter(dataList)
+        val homeHotRecommendRVAdapter = HomeHotRecommendRVAdapter(dataListSecond)
         binding.fragmentHomeTitleRandomRv.adapter = homeRVAdapter
         binding.fragmentHomeTitleRandomRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-
+        binding.fragmentHomeTitleSameRv.adapter = homeHotRecommendRVAdapter
+        binding.fragmentHomeTitleSameRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
         return mBinding?.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
