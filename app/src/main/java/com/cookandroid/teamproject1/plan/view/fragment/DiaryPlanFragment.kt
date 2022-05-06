@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cookandroid.teamproject1.databinding.FragmentDiaryPlanBinding
-import com.cookandroid.teamproject1.id.model.ResponseDiaryData
+import com.cookandroid.teamproject1.plan.model.ResponseDiaryData
 import com.cookandroid.teamproject1.plan.view.adapter.DiaryPlanRVAdapter
 import com.cookandroid.teamproject1.plan.model.DiaryPlanDataModel
 import com.cookandroid.teamproject1.util.ServiceCreator
@@ -47,7 +47,7 @@ class DiaryPlanFragment : Fragment() {
 //        val diaryPlanRVAdapter=DiaryPlanRVAdapter(dataList)
 
 
-        val call: Call<ResponseDiaryData> = ServiceCreator.diaryService.getDiary(
+        val call: Call<ResponseDiaryData> = ServiceCreator.planService.getDiary(
             TloverApplication.prefs.getString("jwt", "null"),
             TloverApplication.prefs.getString("refreshToken", "null").toInt()
             )

@@ -11,9 +11,14 @@ import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.FragmentHomeBinding
 import com.cookandroid.teamproject1.home.model.HomeDataModel
 import com.cookandroid.teamproject1.home.model.HomeHotRecommendDataModel
+import com.cookandroid.teamproject1.home.model.ResponseAllDiaryData
 import com.cookandroid.teamproject1.home.view.adapter.HomeHotRecommendRVAdapter
 import com.cookandroid.teamproject1.home.view.adapter.HomeRVAdapter
+import com.cookandroid.teamproject1.util.ServiceCreator
 import com.cookandroid.teamproject1.util.TloverApplication
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HomeFragment : Fragment(){
 
@@ -54,6 +59,8 @@ class HomeFragment : Fragment(){
 
         }
 
+
+
         val homeRVAdapter = HomeRVAdapter(dataList)
         val homeHotRecommendRVAdapter = HomeHotRecommendRVAdapter(dataListSecond)
         binding.fragmentHomeTitleRandomRv.adapter = homeRVAdapter
@@ -65,6 +72,26 @@ class HomeFragment : Fragment(){
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val call: Call<ResponseAllDiaryData> = ServiceCreator.diaryService.getDiary(
+            TloverApplication.prefs.getString("jwt", "null"),
+            TloverApplication.prefs.getString("refreshToken", "null").toInt()
+        )
+
+        call.enqueue(object: Callback<ResponseAllDiaryData> {
+            override fun onResponse(
+                call: Call<ResponseAllDiaryData>,
+                response: Response<ResponseAllDiaryData>
+            ) {
+                if(response.code() == 200){
+                    println("gg")
+                }
+            }
+            override fun onFailure(call: Call<ResponseAllDiaryData>, t: Throwable) {
+            }
+
+        })
+
+
         mBinding?.fragmentHomePlanBt?.setOnClickListener(){
             //nav_graph 에서 프래그먼트 이동할 것을 이어준 후 이렇게 적어주면 프래그먼트간 이동 끝
             it.findNavController().navigate(R.id.action_homeFragment_to_planWriteFragment)
