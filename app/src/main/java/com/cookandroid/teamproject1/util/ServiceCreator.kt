@@ -1,5 +1,6 @@
 package com.cookandroid.teamproject1.util
 
+import com.cookandroid.teamproject1.home.model.DiaryService
 import com.cookandroid.teamproject1.plan.model.PlanService
 import com.cookandroid.teamproject1.id.model.*
 import okhttp3.OkHttpClient
