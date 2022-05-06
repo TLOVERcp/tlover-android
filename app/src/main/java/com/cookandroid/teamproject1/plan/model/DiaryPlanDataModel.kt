@@ -1,4 +1,4 @@
-package com.cookandroid.teamproject1
+package com.cookandroid.teamproject1.plan.model
 
 /**
  * diary plan RecyclerView data model
@@ -8,5 +8,5 @@ data class DiaryPlanDataModel(
     var daynum: String? ="",
     var s_date: String? ="",
     var location: String? ="",
-    var price: String? =""
+    var expense: String? =""
 )

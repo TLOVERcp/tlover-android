@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/tlover_background_color"
-    tools:context="com.cookandroid.teamproject1.DiaryPlanFragment">
+    tools:context="com.cookandroid.teamproject1.plan.view.fragment.DiaryPlanFragment">
 
 
         <androidx.recyclerview.widget.RecyclerView
