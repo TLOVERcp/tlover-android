@@ -1,4 +1,4 @@
-package com.cookandroid.teamproject1.id.view
+package com.cookandroid.teamproject1.id.view.activity
 
 import android.graphics.Color
 import android.os.Bundle
@@ -11,10 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.CreateAccountBinding
-import com.cookandroid.teamproject1.id.model.RequestIdCheckData
-import com.cookandroid.teamproject1.id.model.RequestNicknameCheckData
-import com.cookandroid.teamproject1.id.model.ResponseIdCheckData
-import com.cookandroid.teamproject1.id.model.ResponseNicknameCheckData
+import com.cookandroid.teamproject1.id.model.*
 import com.cookandroid.teamproject1.id.viewmodel.SignUpViewModel
 import com.cookandroid.teamproject1.util.ServiceCreator
 import retrofit2.Call

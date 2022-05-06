@@ -1,4 +1,4 @@
-package com.cookandroid.teamproject1
+package com.cookandroid.teamproject1.plan.view.fragment
 
 import android.os.Bundle
 import android.util.Log
@@ -9,12 +9,18 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cookandroid.teamproject1.databinding.FragmentDiaryPlanBinding
 import com.cookandroid.teamproject1.id.model.ResponseDiaryData
+import com.cookandroid.teamproject1.plan.view.adapter.DiaryPlanRVAdapter
+import com.cookandroid.teamproject1.plan.model.DiaryPlanDataModel
 import com.cookandroid.teamproject1.util.ServiceCreator
 import com.cookandroid.teamproject1.util.TloverApplication
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+/**
+ * diary plan view
+ * 다이어리 계획 모음
+ */
 class DiaryPlanFragment : Fragment() {
 
     private var mBinding : FragmentDiaryPlanBinding?=null
@@ -97,6 +103,20 @@ class DiaryPlanFragment : Fragment() {
             }
 
         })
+
+//        dataList.apply{
+//            add(DiaryPlanDataModel("Travel1","여행 36일차","2021.04.25~","Brooklyn","100,000"))
+//            add(DiaryPlanDataModel("Travel2","여행 91일차","2021.09.01~","Seoul","200,000"))
+//            add(DiaryPlanDataModel("Travel1","여행 36일차","2021.04.25~","Brooklyn","100,000"))
+//            add(DiaryPlanDataModel("Travel2","여행 91일차","2021.09.01~","Seoul","200,000"))
+//            add(DiaryPlanDataModel("Travel1","여행 36일차","2021.04.25~","Brooklyn","100,000"))
+//            add(DiaryPlanDataModel("Travel2","여행 91일차","2021.09.01~","Seoul","200,000"))
+//
+//        }
+
+        val diaryPlanRVAdapter= DiaryPlanRVAdapter(dataList)
+        binding.fragmentDiaryPlanRandomRv.adapter = diaryPlanRVAdapter
+        binding.fragmentDiaryPlanRandomRv.layoutManager = LinearLayoutManager(context)
 
         return mBinding?.root
     }

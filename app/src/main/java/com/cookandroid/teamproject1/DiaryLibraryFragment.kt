@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.cookandroid.teamproject1.databinding.FragmentDiaryLibraryBinding
 
-
+/**
+ * diary library view
+ * 여행 계획, 다이어리 모두 작성한 것들 모음 화면
+ */
 class DiaryLibraryFragment : Fragment(){
     lateinit var binding: FragmentDiaryLibraryBinding
 

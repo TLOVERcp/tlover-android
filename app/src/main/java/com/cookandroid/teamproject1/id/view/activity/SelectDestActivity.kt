@@ -1,4 +1,4 @@
-package com.cookandroid.teamproject1.id.view
+package com.cookandroid.teamproject1.id.view.activity
 
 import android.content.Intent
 import android.graphics.Color
@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cookandroid.teamproject1.*
 import com.cookandroid.teamproject1.databinding.SelectDestBinding
+import com.cookandroid.teamproject1.id.model.CreateAccountData
 import com.cookandroid.teamproject1.id.model.SelectDataModel
 import com.cookandroid.teamproject1.id.model.SelectDestData
 import com.cookandroid.teamproject1.id.view.adapter.SelectRVAdapter

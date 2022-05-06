@@ -1,10 +1,11 @@
-package com.cookandroid.teamproject1
+package com.cookandroid.teamproject1.plan.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 
 import androidx.recyclerview.widget.RecyclerView
 import com.cookandroid.teamproject1.databinding.ItemHomeDiaryBinding
+import com.cookandroid.teamproject1.plan.model.DiaryPlanDataModel
 
 class DiaryPlanRVAdapter(private var diaryplanList: ArrayList<DiaryPlanDataModel>) :RecyclerView.Adapter<DiaryPlanRVAdapter.Holder>(){
 
@@ -17,13 +18,10 @@ class DiaryPlanRVAdapter(private var diaryplanList: ArrayList<DiaryPlanDataModel
     class Holder(val binding : ItemHomeDiaryBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(random: DiaryPlanDataModel){
             binding.itemHomeDiaryTitle.setText(random.title)
-            binding.itemHomeDiaryYeartext.setText(random.yearnum)
-            binding.itemHomeDiaryDaytextNum.setText(random.daynum)
+            binding.itemHomeDiaryDayOfTravel.setText(random.daynum)
             binding.itemHomeDiaryCalanderText.setText(random.s_date)
             binding.itemHomeDiaryLocationText.setText(random.location)
             binding.itemHomeDiaryCoinText.setText(random.price)
-            binding.itemHomeDiaryBedText.setText(random.accommodation)
-            binding.itemHomeDiaryContentText.setText(random.content)
         }
     }
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): Holder {
