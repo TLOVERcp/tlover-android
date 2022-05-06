@@ -8,5 +8,5 @@ data class DiaryPlanDataModel(
     var daynum: String? ="",
     var s_date: String? ="",
     var location: String? ="",
-    var price: String? =""
+    var expense: String? =""
 )

@@ -10,9 +10,10 @@ import retrofit2.http.Header
  */
 
 interface PlanService {
-    @GET("/api/v1/diaries/get-diary")
-    fun getDiary(
+    @GET("/api/v1/plans/plan-list?")
+    fun getDiaryPlan(
         @Header("X-ACCESS-TOKEN") jwt: String,
-        @Header("X-REFRESH-TOKEN") refreshToken: Int,
-    ) : Call<ResponseDiaryData>
+        @Header("X-REFRESH-TOKEN") refreshToken: Int
+//        @Query("Status") status: String
+    ) : Call<ResponseDiaryPlanData>
 }
