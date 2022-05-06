@@ -6,7 +6,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.cookandroid.teamproject1.databinding.ItemHomeDiaryBinding
 
-class DiaryPlanRVAdapter(private val diaryplanList: ArrayList<DiaryPlanDataModel>) :RecyclerView.Adapter<DiaryPlanRVAdapter.Holder>(){
+class DiaryPlanRVAdapter(private var diaryplanList: ArrayList<DiaryPlanDataModel>) :RecyclerView.Adapter<DiaryPlanRVAdapter.Holder>(){
+
+
+//    internal fun setDataList(selectDataList : ArrayList<DiaryPlanDataModel>){
+//        this.diaryplanList = selectDataList
+//        notifyDataSetChanged()
+//    }
 
     class Holder(val binding : ItemHomeDiaryBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(random: DiaryPlanDataModel){

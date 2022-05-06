@@ -17,7 +17,7 @@ class IntroActivity : AppCompatActivity() {
 
       var handler=Handler()
         handler.postDelayed({
-            var intent=Intent(this, SelectDestActivity::class.java)
+            var intent=Intent(this, FirstTitleActivity::class.java)
             startActivity(intent)// 다음 화면으로 넘어가기
         },2000)//2초뒤 실행
     }
