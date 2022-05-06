@@ -33,7 +33,7 @@ object ServiceCreator {
     val userNicknameCheckService : UserNicknameCheckService = retrofit.create(UserNicknameCheckService::class.java)
     val smsService : SMSService = retrofit.create(SMSService::class.java)
     val myFileService: MyFileService = retrofit.create(MyFileService::class.java)
-    val diaryService : PlanService = retrofit.create(PlanService::class.java)
+    val planService : PlanService = retrofit.create(PlanService::class.java)
 
 
 }

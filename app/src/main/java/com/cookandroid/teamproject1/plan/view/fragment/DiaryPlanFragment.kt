@@ -6,11 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.cookandroid.teamproject1.databinding.FragmentDiaryPlanBinding
-import com.cookandroid.teamproject1.id.model.ResponseDiaryData
-import com.cookandroid.teamproject1.plan.view.adapter.DiaryPlanRVAdapter
+import com.cookandroid.teamproject1.plan.model.ResponseDiaryPlanData
 import com.cookandroid.teamproject1.plan.model.DiaryPlanDataModel
+import com.cookandroid.teamproject1.plan.view.adapter.DiaryPlanRVAdapter
 import com.cookandroid.teamproject1.util.ServiceCreator
 import com.cookandroid.teamproject1.util.TloverApplication
 import retrofit2.Call
@@ -25,6 +24,7 @@ class DiaryPlanFragment : Fragment() {
 
     private var mBinding : FragmentDiaryPlanBinding?=null
     private var dataList = ArrayList<DiaryPlanDataModel>()
+    private var diaryPlanRVAdapter = DiaryPlanRVAdapter()
 
 
     override fun onCreateView(
@@ -47,76 +47,66 @@ class DiaryPlanFragment : Fragment() {
 //        val diaryPlanRVAdapter=DiaryPlanRVAdapter(dataList)
 
 
-        val call: Call<ResponseDiaryData> = ServiceCreator.diaryService.getDiary(
+
+        mBinding?.fragmentDiaryPlanRandomRv?.adapter = diaryPlanRVAdapter
+
+        val call: Call<ResponseDiaryPlanData> = ServiceCreator.planService.getDiaryPlan(
             TloverApplication.prefs.getString("jwt", "null"),
             TloverApplication.prefs.getString("refreshToken", "null").toInt()
-            )
+
+        )
 
 
-        call.enqueue(object: Callback<ResponseDiaryData> {
+        call.enqueue(object: Callback<ResponseDiaryPlanData> {
             override fun onResponse(
-                call: Call<ResponseDiaryData>,
-                response: Response<ResponseDiaryData>
+                call: Call<ResponseDiaryPlanData>,
+                responsePlan: Response<ResponseDiaryPlanData>
             ) {
 
-                    if (response.code()==200){
-                       Log.e("response", "200success")
 
+                if (responsePlan.code() == 200){
+                    Log.e("response", "200success")
+                    val body = responsePlan.body()
+                    if (body != null) {
+                        Log.e("response", "notnull")
+                        val data = body.data
+                        println(data)
+                        diaryPlanRVAdapter.diaryPlanList = data
                     }
+                    diaryPlanRVAdapter.notifyDataSetChanged()
+                }
 
-//                if(response.isSuccessful){
-//                    val body = response.body()
-//                    if(body!=null){
-//                        when(body.code){
-//                            200 -> {
-//                                Log.i("response", "200")
-//                                val data = body.result
-//                                if(data!=null){
-//                                    dataList.apply {
-//                                        add(
-//                                            DiaryPlanDataModel(
-//                                                body.result[0].title,
-//                                                "1",
-//                                                body.result[0].writeDate,
-//                                                body.result[0].startDate,
-//                                                body.result[0].publicStatus,
-//                                                body.result[0].view,
-//                                                body.result[0].context,
-//
-//                                                )
-//                                        )
-//                                    }
-//
-//                                }
-//                                val diaryPlanRVAdapter=DiaryPlanRVAdapter(dataList)
-//                                binding.fragmentDiaryPlanRandomRv.layoutManager = LinearLayoutManager(context)
-//                                diaryPlanRVAdapter.notifyDataSetChanged()
-//                            }
-//                        }
-//                    }
-//                }
+                //                                    dataList.apply {
+                //                                        add(
+                //                                            DiaryPlanDataModel(
+                //                                                body.result[0].title,
+                //                                                "1",
+                //                                                body.result[0].writeDate,
+                //                                                body.result[0].startDate,
+                //                                                body.result[0].publicStatus,
+                //                                                body.result[0].view,
+                //                                                body.result[0].context,
+                //
+                //                                                )
+                //                                        )
+                //                                    }
+                //
+                //                                }
+                //                                val diaryPlanRVAdapter=DiaryPlanRVAdapter(dataList)
+                //                                binding.fragmentDiaryPlanRandomRv.layoutManager = LinearLayoutManager(context)
+                //                                diaryPlanRVAdapter.notifyDataSetChanged()
+                //                            }
+                //                        }
+                //                    }
+                //                }
             }
 
-            override fun onFailure(call: Call<ResponseDiaryData>, t: Throwable) {
+            override fun onFailure(call: Call<ResponseDiaryPlanData>, t: Throwable) {
                 Log.e("response", "fail")
 
             }
 
         })
-
-//        dataList.apply{
-//            add(DiaryPlanDataModel("Travel1","여행 36일차","2021.04.25~","Brooklyn","100,000"))
-//            add(DiaryPlanDataModel("Travel2","여행 91일차","2021.09.01~","Seoul","200,000"))
-//            add(DiaryPlanDataModel("Travel1","여행 36일차","2021.04.25~","Brooklyn","100,000"))
-//            add(DiaryPlanDataModel("Travel2","여행 91일차","2021.09.01~","Seoul","200,000"))
-//            add(DiaryPlanDataModel("Travel1","여행 36일차","2021.04.25~","Brooklyn","100,000"))
-//            add(DiaryPlanDataModel("Travel2","여행 91일차","2021.09.01~","Seoul","200,000"))
-//
-//        }
-
-        val diaryPlanRVAdapter= DiaryPlanRVAdapter(dataList)
-        binding.fragmentDiaryPlanRandomRv.adapter = diaryPlanRVAdapter
-        binding.fragmentDiaryPlanRandomRv.layoutManager = LinearLayoutManager(context)
 
         return mBinding?.root
     }
