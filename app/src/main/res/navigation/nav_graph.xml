@@ -23,7 +23,11 @@
         android:id="@+id/diaryFragment"
         android:name="com.cookandroid.teamproject1.DiaryFragment"
         android:label="fragment_diary"
-        tools:layout="@layout/fragment_diary" />
+        tools:layout="@layout/fragment_diary" >
+        <action
+            android:id="@+id/action_diaryFragment_to_planWriteFragment"
+            app:destination="@id/planWriteFragment" />
+    </fragment>
     <fragment
         android:id="@+id/myInfoFragment"
         android:name="com.cookandroid.teamproject1.MyInfoFragment"

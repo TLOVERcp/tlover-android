@@ -9,7 +9,22 @@ import com.google.gson.annotations.SerializedName
  */
 data class ResponseAllDiaryData(
     val code: Int,
-
-    @SerializedName("message")
-    val message : String
+    val data: ArrayList<Result>
 )
+{
+    data class Result(
+        @SerializedName("diaryId")
+        val id: Int,
+        @SerializedName("diaryTitle")
+        val diaryTitle: String,
+        @SerializedName("startDate")
+        val startDate: String,
+        @SerializedName("regionName")
+        val diaryRegion: ArrayList<String>,
+        @SerializedName("image")
+        val image: ArrayList<String>,
+        @SerializedName("userNickName")
+        val userNickname: String
+    )
+
+}

@@ -57,5 +57,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <android.widget.Button
+        android:id="@+id/fragment_plan_new_write_b"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:background="@drawable/botton_shape_plan_new_write"
+        android:drawableLeft="@drawable/ic_new_plan_pen"
+        android:paddingLeft="19dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="26dp"
+        android:layout_marginRight="26dp"
+    />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
