@@ -31,7 +31,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
-
+    //데이터 바인딩 사용
     dataBinding {
         enabled = true
     }
@@ -68,5 +68,9 @@ dependencies {
 
     // http 로그 확인
     implementation('com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.6')
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.13.1'
+    kapt 'com.github.bumptech.glide:compiler:4.13.1'
 }
 

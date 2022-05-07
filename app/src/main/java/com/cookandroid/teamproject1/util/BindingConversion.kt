@@ -1,97 +1,19 @@
 package com.cookandroid.teamproject1.util
 
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
+
+/**
+ * data binding 사용
+ * + 홈 api 홈 화면 여행 취향 다이어리 목록 사진 연동 : 윤성식 0508
+ */
 object BindingConversions {
 
-
-//    @JvmStatic
-//    @BindingAdapter("startDate", "endDate")
-//    fun makingTerm(textView: TextView, startDate: String?, endDate: String?) {
-//        val startYear = startDate?.substring(0 until 4)?.toInt()
-//        val startMonth = startDate?.substring(5 until 7)?.toInt()
-//        val startDay = startDate?.substring(8 until 10)?.toInt()
-//        val endYear = endDate?.substring(0 until 4)?.toInt()
-//        val endMonth = endDate?.substring(5 until 7)?.toInt()
-//        val endDay = endDate?.substring(8 until 10)?.toInt()
-//        textView.text =
-//            "${startYear}년 ${startMonth}월 ${startDay}일-${endYear}년 ${endMonth}월 ${endDay}일"
-//    }
-
+    @JvmStatic
+    @BindingAdapter("loadImg")
+    fun loadImg(imageView: ImageView, url: String){
+        Glide.with(imageView.context).load("https://d1mwr8154tagzz.cloudfront.net/$url")
+            .into(imageView)
+    }
 }
-//
-//    @JvmStatic
-//    @BindingAdapter("loadCircleImg")
-//    fun loadCircleImg(imageView: ImageView, url: String?){
-//        Glide.with(imageView.context).load(url)
-//            .circleCrop()
-//            .error(R.drawable.ic_infra_logo)
-//            .into(imageView)
-//    }
-//
-//    @JvmStatic
-//    @BindingAdapter("getStringFromInt")
-//    fun getStringFromInt(textView: TextView, num: Int){
-//        textView.text = num.toString()
-//    }
-//
-//    @JvmStatic
-//    @BindingAdapter("isEmptyHashTag")
-//    fun isEmptyHashTag(textView: TextView, hashtag: String?){
-//        if(hashtag==null){
-//            textView.isGone = true
-//        }
-//        else{
-//            textView.text = hashtag
-//        }
-//    }
-//
-//    @JvmStatic
-//    @BindingAdapter("isScrap")
-//    fun isScrap(imageView: ImageView, scrap: Int){
-//        if(scrap==1){
-//            imageView.setImageResource(R.drawable.ic_bookmark_yellow)
-//        }
-//    }
-//
-//    @JvmStatic
-//    @BindingAdapter("deadline")
-//    fun setDeadlineText(textView: TextView, comment: String?){
-//        textView.text = comment
-//        when(comment){
-//            "마감" -> textView.setTextColor(Color.parseColor("#8F8F8F"))
-//            "마감임박" -> textView.setTextColor(Color.parseColor("#9277F8"))
-//            "모집중" -> textView.setTextColor(Color.parseColor("#4B8EFF"))
-//        }
-//    }
-//
-//    @JvmStatic
-//    @BindingAdapter("endRecruitDate", "status")
-//    fun setEndRecruitText(textView: TextView, endRecruitDate: String?, status: String?){
-//        val year = endRecruitDate?.substring(0,4)?.toInt()
-//        val month = endRecruitDate?.substring(5,7)?.toInt()
-//        val day = endRecruitDate?.substring(8,10)?.toInt()
-//        textView.text = "${year}년 ${month}월 ${day}일까지 모집"
-//        when(status){
-//            "마감" -> textView.setTextColor(Color.parseColor("#8F8F8F"))
-//            "마감임박" -> textView.setTextColor(Color.parseColor("#9277F8"))
-//            "모집중" -> textView.setTextColor(Color.parseColor("#4B8EFF"))
-//        }
-//    }
-//
-//    @JvmStatic
-//    @BindingAdapter("intToString")
-//    fun intToString(textView: TextView, number: Int){
-//        textView.text = number.toString()
-//    }
-//
-//    @JvmStatic
-//    @BindingAdapter("nowRecruit", "totalRecruit")
-//    fun setRecruitText(textView: TextView, nowRecruit: Int, totalRecruit: Int){
-//        textView.text = "${nowRecruit}/${totalRecruit}명"
-//    }
-//
-//    @JvmStatic
-//    @BindingAdapter("nowRecruitString", "totalRecruitString")
-//    fun setRecruitTextString(textView: TextView, nowRecruit: String?, totalRecruit: String?){
-//        textView.text = "${nowRecruit}/${totalRecruit}명"
-//    }
-//}

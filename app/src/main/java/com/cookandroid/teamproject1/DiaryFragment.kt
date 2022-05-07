@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.cookandroid.teamproject1.databinding.FragmentDiaryBinding
 import com.cookandroid.teamproject1.databinding.FragmentHomeBinding
 import com.google.android.material.tabs.TabLayoutMediator
@@ -15,7 +16,7 @@ import com.google.android.material.tabs.TabLayoutMediator
  * plan or library view
  */
 class DiaryFragment : Fragment() {
-    private var binding : FragmentDiaryBinding?= null
+    private var mBinding : FragmentDiaryBinding?= null
     private var information = arrayListOf("여행 계획", "라이브러리")
 
     override fun onCreateView(
@@ -24,6 +25,7 @@ class DiaryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentDiaryBinding.inflate(inflater, container, false)
+        mBinding = binding
 
         val diaryAdapter = DiaryVPAdapter(this)
         binding.diaryContentVp.adapter = diaryAdapter
@@ -35,8 +37,16 @@ class DiaryFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        //새로운 게획 작성 버튼을 클릭할 때 planWriteFragment로 이동
+        mBinding?.fragmentPlanNewWriteB?.setOnClickListener(){
+            it.findNavController().navigate(R.id.action_diaryFragment_to_planWriteFragment)
+        }
+        super.onViewCreated(view, savedInstanceState)
+    }
+
     override fun onDestroyView() {
-        binding = null
+        mBinding = null
         super.onDestroyView()
     }
 }
