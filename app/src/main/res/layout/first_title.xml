@@ -9,19 +9,22 @@
     tools:context=".FirstTitleActivity">
 
 
-    <ImageView
-        android:id="@+id/first_title_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="163dp"
-        app:layout_constraintBottom_toTopOf="@+id/text_tlover"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/title_bi" />
+
+
+        <ImageView
+            android:id="@+id/first_title_logo"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="163dp"
+            app:layout_constraintBottom_toTopOf="@+id/text_tlover"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/tlover_nblogo" />
+
 
     <TextView
         android:id="@+id/text_tlover"
@@ -29,14 +32,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
-        android:fontFamily="@font/cocogoose"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/notoserifkr_regular"
         android:text="TLOVER"
         android:textColor="#6BBFEE"
-        android:textSize="26sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/first_title_logo"/>
+        app:layout_constraintTop_toBottomOf="@id/first_title_logo" />
 
     <Button
         android:id="@+id/kakao_login_btn"

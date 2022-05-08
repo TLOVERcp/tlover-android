@@ -108,6 +108,7 @@ class DiaryPlanFragment : Fragment() {
 
         })
 
+
         return mBinding?.root
     }
 

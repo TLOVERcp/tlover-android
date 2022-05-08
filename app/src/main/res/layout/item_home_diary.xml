@@ -32,17 +32,43 @@
                 app:srcCompat="@drawable/diary_rectangle" />
 
             <TextView
-                android:id="@+id/item_home_diary_day_of_travel"
+                android:id="@+id/item_home_diary_travel_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="14dp"
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/notosans"
-                android:text="여행 %s일차"
+                android:text="여행 "
                 android:textColor="#3EACE1"
                 android:textSize="12sp"
                 app:layout_constraintLeft_toRightOf="@id/item_home_diary_rectangle_image"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+            android:id="@+id/item_home_diary_day_of_travel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:fontFamily="@font/notosans"
+            android:text="@{Long.toString(diaryItem.day)}"
+                android:textColor="#3EACE1"
+                android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/item_home_diary_travel_text"
+            app:layout_constraintLeft_toRightOf="@+id/item_home_diary_travel_text"
+            app:layout_constraintTop_toTopOf="@+id/item_home_diary_travel_text" />
+
+            <TextView
+                android:id="@+id/item_home_diary_day_of_travel_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:fontFamily="@font/notosans"
+                android:text="일차"
+                android:textColor="#3EACE1"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/item_home_diary_day_of_travel"
+                app:layout_constraintLeft_toRightOf="@+id/item_home_diary_day_of_travel"
+                app:layout_constraintTop_toTopOf="@+id/item_home_diary_day_of_travel" />
 
             <TextView
                 android:id="@+id/item_home_diary_title"
