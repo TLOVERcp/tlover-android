@@ -36,5 +36,4 @@ object ServiceCreator {
     val myFileService: MyFileService = retrofit.create(MyFileService::class.java)
     val planService : PlanService = retrofit.create(PlanService::class.java)
     val diaryService : DiaryService = retrofit.create(DiaryService::class.java)
-
 }
