@@ -30,6 +30,7 @@
         android:fontFamily="@font/notoserifkr_regular"
         android:text="TLOVER"
         android:textColor="#ffffff"
+        android:textFontWeight="700"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="@id/splash_logo"
         app:layout_constraintStart_toStartOf="@id/splash_logo"
