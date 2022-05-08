@@ -59,7 +59,7 @@
         android:id="@+id/signin_tlover"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="6dp"
         android:fontFamily="@font/notoserifkr_regular"
         android:text="TLOVER"
         android:textColor="@color/tlover_main_color"
