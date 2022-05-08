@@ -25,8 +25,8 @@ data class ResponseDiaryPlanData (
         @SerializedName("expense")
         val expense: Long
     )
-
 }
+
 
 
 
