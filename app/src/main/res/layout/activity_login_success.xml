@@ -5,16 +5,16 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.cookandroid.teamproject1.id.view.activity.LoginSuccessActivity"
-    android:background="#6BBFEE"
+    android:background="#E5E5E5"
     >
 
 
     <ImageView
         android:id="@+id/splash_logo"
-        android:layout_width="wrap_content"
+        android:layout_width="96dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="293dp"
-        app:srcCompat="@drawable/bi_white_logo"
+        app:srcCompat="@drawable/tlover_nblogo"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,14 +26,13 @@
         android:id="@+id/splash_tlover"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:fontFamily="@font/cocogoose"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/notoserifkr_regular"
         android:text="TLOVER"
-        android:textColor="#ffffff"
+        android:textColor="#6BBFEE"
         android:textSize="26sp"
-        app:layout_constraintTop_toBottomOf="@id/splash_logo"
-        app:layout_constraintStart_toStartOf="@id/splash_logo"
         app:layout_constraintEnd_toEndOf="@id/splash_logo"
-        />
+        app:layout_constraintStart_toStartOf="@id/splash_logo"
+        app:layout_constraintTop_toBottomOf="@id/splash_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
