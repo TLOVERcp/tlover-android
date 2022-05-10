@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
     android:id="@+id/diaryFragment"
-    tools:context="com.cookandroid.teamproject1.DiaryFragment"
+    tools:context="com.cookandroid.teamproject1.diary.view.fragment.DiaryFragment"
     >
 
     <TextView

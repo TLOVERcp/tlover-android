@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/tlover_background_color"
-    tools:context=".PlanWriteFragment">
+    tools:context=".plan.view.fragment.PlanWriteFragment">
 
     <View
         android:id="@+id/fragment_plan_write_high_v"
