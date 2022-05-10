@@ -21,13 +21,12 @@ class DiaryPlanRVAdapter (): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     override fun getItemCount(): Int = diaryPlanList.size
 
+
     inner class ViewHolder(
         private val binding: ItemHomeDiaryBinding
     ): RecyclerView.ViewHolder(binding.root){
         fun onBind(diaryPlanProject: ResponseDiaryPlanData.Result){
             binding.diaryItem = diaryPlanProject
-
-
         }
     }
 
