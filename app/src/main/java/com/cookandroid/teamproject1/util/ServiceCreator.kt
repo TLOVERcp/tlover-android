@@ -1,6 +1,6 @@
 package com.cookandroid.teamproject1.util
 
-import com.cookandroid.teamproject1.home.model.DiaryService
+import com.cookandroid.teamproject1.home.model.HomeDiaryService
 import com.cookandroid.teamproject1.plan.model.PlanService
 import com.cookandroid.teamproject1.id.model.*
 import okhttp3.OkHttpClient
@@ -35,5 +35,5 @@ object ServiceCreator {
     val smsService : SMSService = retrofit.create(SMSService::class.java)
     val myFileService: MyFileService = retrofit.create(MyFileService::class.java)
     val planService : PlanService = retrofit.create(PlanService::class.java)
-    val diaryService : DiaryService = retrofit.create(DiaryService::class.java)
+    val homeDiaryService : HomeDiaryService = retrofit.create(HomeDiaryService::class.java)
 }

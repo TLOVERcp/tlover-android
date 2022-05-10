@@ -43,7 +43,7 @@ class HomeFragment : Fragment(){
 //        mbinding.Fragment.text = getString(R.string.home_user_hi).format(InfraApplication.prefs.getString("userNickName", "null"))
         // RVAdapter
         mBinding!!.fragmentHomeMainFirstTxt.text = "%s님, 안녕하세요!".format(TloverApplication.prefs.getString("userNickname", "null"))
-
+//        리사이클러뷰 부분
 //        dataList.apply{
 //            add(HomeDataModel("title1", R.drawable.img1_item_home_random,"2022.04.28","Peter","Queens"))
 //            add(HomeDataModel("title2", R.drawable.img2_item_home_random,"2022.06.03","Tony","NewYork"))
@@ -70,7 +70,7 @@ class HomeFragment : Fragment(){
          */
         mBinding?.fragmentHomeTitleRandomRv?.adapter = homeRVAdapter
 
-        val call: Call<ResponseAllDiaryData> = ServiceCreator.diaryService.getDiary(
+        val call: Call<ResponseAllDiaryData> = ServiceCreator.homeDiaryService.getDiary(
             TloverApplication.prefs.getString("jwt", "null"),
             TloverApplication.prefs.getString("refreshToken", "null").toInt()
         )
@@ -112,25 +112,6 @@ class HomeFragment : Fragment(){
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        val call: Call<ResponseAllDiaryData> = ServiceCreator.diaryService.getDiary(
-//            TloverApplication.prefs.getString("jwt", "null"),
-//            TloverApplication.prefs.getString("refreshToken", "null").toInt()
-//        )
-//
-//        call.enqueue(object: Callback<ResponseAllDiaryData> {
-//            override fun onResponse(
-//                call: Call<ResponseAllDiaryData>,
-//                response: Response<ResponseAllDiaryData>
-//            ) {
-//                if(response.code() == 200){
-//                    println("gg")
-//                }
-//            }
-//            override fun onFailure(call: Call<ResponseAllDiaryData>, t: Throwable) {
-//            }
-//
-//        })
-//
         /**
          * 핫한 여행지 추천 조회
          * 0509
@@ -140,7 +121,7 @@ class HomeFragment : Fragment(){
          */
         mBinding?.fragmentHomeTitleSameRv?.adapter = homeHotRecommendRVAdapter
 
-        val call: Call<ResponseHotDiaryData> = ServiceCreator.diaryService.getHotDiary(
+        val call: Call<ResponseHotDiaryData> = ServiceCreator.homeDiaryService.getHotDiary(
             TloverApplication.prefs.getString("jwt", "null"),
             TloverApplication.prefs.getString("refreshToken", "null").toInt()
         )

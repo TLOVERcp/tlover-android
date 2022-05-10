@@ -16,4 +16,5 @@ object BindingConversions {
         Glide.with(imageView.context).load("https://d1mwr8154tagzz.cloudfront.net/$url")
             .into(imageView)
     }
+
 }

@@ -1,14 +1,14 @@
-package com.cookandroid.teamproject1
+package com.cookandroid.teamproject1.diary.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.FragmentDiaryBinding
-import com.cookandroid.teamproject1.databinding.FragmentHomeBinding
+import com.cookandroid.teamproject1.diary.view.adapter.DiaryVPAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
 /**

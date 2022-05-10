@@ -33,6 +33,7 @@
                     android:layout_marginTop="25dp"
                     android:fontFamily="@font/notoserifkr_regular"
                     android:text="TLOVER"
+                    android:textFontWeight="700"
                     android:textColor="#2E2E33"
                     android:textSize="20sp"
                     app:layout_constraintLeft_toLeftOf="parent"
