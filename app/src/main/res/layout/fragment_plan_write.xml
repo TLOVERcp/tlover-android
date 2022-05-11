@@ -213,6 +213,29 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fragment_plan_write_title_edittext" />
 
+    <View
+        android:id="@+id/fragment_plan_write_low_v"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/fragment_plan_write_save_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="35dp"
+        android:background="@drawable/certification_requ"
+        android:enabled="false"
+        android:fontFamily="@font/notosans"
+        android:text="저장하기"
+        android:textColor="#6E6E76"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/fragment_plan_write_low_v"
+        app:layout_constraintTop_toTopOf="@id/fragment_plan_write_low_v"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

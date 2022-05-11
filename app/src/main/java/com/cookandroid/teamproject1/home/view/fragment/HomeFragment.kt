@@ -92,41 +92,21 @@ class HomeFragment : Fragment(){
                     homeRVAdapter.notifyDataSetChanged()
                 }
             }
-
             override fun onFailure(call: Call<ResponseAllDiaryData>, t: Throwable) {
                 Log.e("response", "fail")
             }
-
         })
-
-
-//        val homeRVAdapter = HomeRVAdapter(dataList)
-//        binding.fragmentHomeTitleRandomRv.adapter = homeRVAdapter
-        binding.fragmentHomeTitleRandomRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-
-
-//        binding.fragmentHomeTitleSameRv.adapter = homeHotRecommendRVAdapter
-
-        return mBinding?.root
-
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         /**
          * 핫한 여행지 추천 조회
          * 0509
-         * 작성자 : 윤성식
-         * 위에서 call을 두번하니까 에러가 발생해서 밑에 onViewCreated 를 만들어 여기서 api연결함
-         * 해결방법 찾아야함
+         * 작성자 : 윤성식 , 마무리~~!!
          */
         mBinding?.fragmentHomeTitleSameRv?.adapter = homeHotRecommendRVAdapter
-
-        val call: Call<ResponseHotDiaryData> = ServiceCreator.homeDiaryService.getHotDiary(
+        val callHot: Call<ResponseHotDiaryData> = ServiceCreator.homeDiaryService.getHotDiary(
             TloverApplication.prefs.getString("jwt", "null"),
             TloverApplication.prefs.getString("refreshToken", "null").toInt()
         )
-
-        call.enqueue(object: Callback<ResponseHotDiaryData>{
+        callHot.enqueue(object: Callback<ResponseHotDiaryData>{
             override fun onResponse(
                 call: Call<ResponseHotDiaryData>,
                 response: Response<ResponseHotDiaryData>
@@ -147,9 +127,21 @@ class HomeFragment : Fragment(){
             override fun onFailure(call: Call<ResponseHotDiaryData>, t: Throwable) {
                 TODO("Not yet implemented")
             }
-
         })
+
         mBinding?.fragmentHomeTitleSameRv?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+//        val homeRVAdapter = HomeRVAdapter(dataList)
+//        binding.fragmentHomeTitleRandomRv.adapter = homeRVAdapter
+        binding.fragmentHomeTitleRandomRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+
+
+//        binding.fragmentHomeTitleSameRv.adapter = homeHotRecommendRVAdapter
+
+        return mBinding?.root
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         mBinding?.fragmentHomePlanBt?.setOnClickListener(){
             //nav_graph 에서 프래그먼트 이동할 것을 이어준 후 이렇게 적어주면 프래그먼트간 이동 끝
