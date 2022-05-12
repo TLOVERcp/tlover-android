@@ -48,8 +48,6 @@ object BindingConversion {
     fun setTitle(textView: TextView, title: String?){
         if (title.equals("-1")){
             textView.isGone = true
-//            textView.isInvisible = true
-
         }else{
             textView.text = "여행 "+title+"일차"
         }
