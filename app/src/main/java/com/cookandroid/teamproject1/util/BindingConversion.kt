@@ -1,6 +1,7 @@
 package com.cookandroid.teamproject1.util
 
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 
@@ -17,4 +18,9 @@ object BindingConversions {
             .into(imageView)
     }
 
+    @JvmStatic
+    @BindingAdapter("getToString")
+    fun getToString(textView: TextView, num: Int){
+        textView.text = num.toString()
+    }
 }
