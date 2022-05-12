@@ -1,15 +1,15 @@
-package com.cookandroid.teamproject1
+package com.cookandroid.teamproject1.diary.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.FragmentDiaryBinding
-import com.cookandroid.teamproject1.databinding.FragmentHomeBinding
 import com.cookandroid.teamproject1.databinding.ItemHomeDiaryBinding
+import com.cookandroid.teamproject1.diary.view.adapter.DiaryVPAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
 /**
@@ -18,7 +18,7 @@ import com.google.android.material.tabs.TabLayoutMediator
  */
 class DiaryFragment : Fragment() {
     private var mBinding : FragmentDiaryBinding?= null
-    private var iBinding : ItemHomeDiaryBinding? = null
+//    private var iBinding : ItemHomeDiaryBinding? = null
     private var information = arrayListOf("여행 계획", "라이브러리")
 
     override fun onCreateView(
@@ -37,7 +37,7 @@ class DiaryFragment : Fragment() {
         }.attach()
 
         mBinding?.fragmentDiaryChangeTv?.setOnClickListener(){
-            iBinding?.checkBox?.visibility =View.VISIBLE
+//            iBinding?.checkBox?.visibility =View.VISIBLE
         }
 
         return binding.root
