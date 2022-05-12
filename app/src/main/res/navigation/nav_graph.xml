@@ -66,6 +66,9 @@
         <argument
             android:name="planId"
             app:argType="long"/>
+        <action
+            android:id="@+id/action_planViewFragment_to_diaryFragment"
+            app:destination="@id/diaryFragment" />
     </fragment>
 
     <fragment
