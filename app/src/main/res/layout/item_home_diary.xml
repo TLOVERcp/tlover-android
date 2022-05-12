@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
         <variable
             name="diaryItem"
             type="com.cookandroid.teamproject1.plan.model.ResponseDiaryPlanData.Result" />
+
     </data>
 
     <androidx.cardview.widget.CardView
@@ -18,14 +20,15 @@
         <androidx.constraintlayout.widget.ConstraintLayout
 
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
 
             <ImageView
                 android:id="@+id/item_home_diary_rectangle_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="14dp"
                 setImg="@{Long.toString(diaryItem.day)}"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -89,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="7dp"
                 android:fontFamily="@font/notosans"
-                android:text="@{diaryItem.planStartDate}"
+                setCalendarStart="@{diaryItem.planStartDate}"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@id/item_home_diary_calander"
                 app:layout_constraintLeft_toRightOf="@id/item_home_diary_calander"
@@ -101,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
                 android:fontFamily="@font/notosans"
-                android:text="-"
+                android:text=" - "
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/item_home_diary_scalander_text"
                 app:layout_constraintLeft_toRightOf="@+id/item_home_diary_scalander_text"
@@ -113,7 +116,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
                 android:fontFamily="@font/notosans"
-                android:text="@{diaryItem.planEndDate}"
+                setCalendarEnd="@{diaryItem.planEndDate}"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/item_home_diary_calander_text"
                 app:layout_constraintLeft_toRightOf="@+id/item_home_diary_calander_text"

@@ -49,10 +49,9 @@ class DiaryPlanFragment : Fragment() {
 
 
                 if (responsePlan.code() == 200){
-                    Log.e("response", "200success")
+//                    Log.e("response", "200success")
                     val body = responsePlan.body()
                     if (body != null) {
-                        Log.e("response", "notnull")
                         val data = body.data
                         println(data)
                         diaryPlanRVAdapter.diaryPlanList = data

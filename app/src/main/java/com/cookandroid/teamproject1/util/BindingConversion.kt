@@ -32,6 +32,18 @@ object BindingConversion {
     }
 
     @JvmStatic
+    @BindingAdapter("setCalendarStart")
+    fun setCalendarStart(textView: TextView, sCalendar: String){
+        textView.text = sCalendar.substring(0, 10)
+    }
+
+    @JvmStatic
+    @BindingAdapter("setCalendarEnd")
+    fun setCalendarEnd(textView: TextView, eCalendar: String){
+        textView.text = eCalendar.substring(0, 10)
+    }
+
+    @JvmStatic
     @BindingAdapter("setTitle")
     fun setTitle(textView: TextView, title: String?){
         if (title.equals("-1")){
