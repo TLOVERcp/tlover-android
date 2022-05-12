@@ -5,6 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 
@@ -59,5 +60,11 @@ object BindingConversion {
     @BindingAdapter("setRegion")
     fun setRegion(textView: TextView, region: String){
         textView.text = region.substring(1, region.length-1)
+    }
+
+    @JvmStatic
+    @BindingAdapter("getToString")
+    fun getToString(textView: TextView, num: Int){
+        textView.text = num.toString()
     }
 }

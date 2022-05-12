@@ -2,6 +2,9 @@ package com.cookandroid.teamproject1.plan.model
 
 import com.google.gson.annotations.SerializedName
 
+/**
+ * plan 목록 조회 데이터
+ */
 data class ResponseDiaryPlanData (
     val code: Int,
     val data: ArrayList<Result>
@@ -25,8 +28,8 @@ data class ResponseDiaryPlanData (
         @SerializedName("expense")
         val expense: Long
     )
-
 }
+
 
 
 

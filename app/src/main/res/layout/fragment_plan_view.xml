@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        <variable
+            name="planDetailView"
+            type="com.cookandroid.teamproject1.plan.model.ResponsePlanViewData.Result"/>
+    </data>
+    
+<androidx.constraintlayout.widget.ConstraintLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tlover_background_color"
+    tools:context=".plan.view.fragment.PlanViewFragment">
+
+        <View
+            android:id="@+id/fragment_plan_view_high_v"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/sign_uping_back_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:clickable="true"
+            android:src="@drawable/ic_back_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fragment_plan_view_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/notosans"
+            android:text="여행 계획"
+            android:textColor="#1D1D20"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fragment_plan_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{planDetailView.planTitle}"
+            android:fontFamily="@font/notosans"
+            android:textFontWeight="700"
+            android:textSize="22sp"
+            android:textColor="#1D1D20"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_plan_view_high_v"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            />
+        
+        <TextView
+            android:id="@+id/fragment_plan_view_date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="날짜 :"
+            android:textSize="14sp"
+            android:fontFamily="@font/notosans"
+            android:textColor="#52525A"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toBottomOf="@id/fragment_plan_title_tv"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/fragment_plan_view_start_date_v_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{planDetailView.planStartDate}"
+            android:textSize="14sp"
+            android:fontFamily="@font/notosans"
+            android:textColor="#52525A"
+            android:layout_marginStart="5dp"
+            app:layout_constraintTop_toBottomOf="@id/fragment_plan_title_tv"
+            app:layout_constraintStart_toEndOf="@+id/fragment_plan_view_date_tv"/>
+
+        <TextView
+            android:id="@+id/fragment_plan_view_start_end_date_v_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="~"
+            android:textSize="14sp"
+            android:fontFamily="@font/notosans"
+            android:textColor="#52525A"
+            android:layout_marginStart="5dp"
+            app:layout_constraintTop_toBottomOf="@id/fragment_plan_title_tv"
+            app:layout_constraintStart_toEndOf="@+id/fragment_plan_view_start_date_v_tv"/>
+
+        <TextView
+            android:id="@+id/fragment_plan_view_end_date_v_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{planDetailView.planEndDate}"
+            android:textSize="14sp"
+            android:fontFamily="@font/notosans"
+            android:textColor="#52525A"
+            android:layout_marginStart="5dp"
+            app:layout_constraintTop_toBottomOf="@id/fragment_plan_title_tv"
+            app:layout_constraintStart_toEndOf="@+id/fragment_plan_view_start_end_date_v_tv"/>
+
+        <TextView
+            android:id="@+id/fragment_plan_view_region_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="지역 :"
+            android:textSize="14sp"
+            android:fontFamily="@font/notosans"
+            android:textColor="#52525A"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toBottomOf="@id/fragment_plan_view_date_tv"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/fragment_plan_view_region_v_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{planDetailView.regionName.toString()}"
+            android:textSize="14sp"
+            android:fontFamily="@font/notosans"
+            android:textColor="#52525A"
+            android:layout_marginStart="5dp"
+            app:layout_constraintTop_toBottomOf="@id/fragment_plan_view_date_tv"
+            app:layout_constraintStart_toEndOf="@+id/fragment_plan_view_region_tv"/>
+
+        <TextView
+            android:id="@+id/fragment_plan_view_money_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="경비 :"
+            android:textSize="14sp"
+            android:fontFamily="@font/notosans"
+            android:textColor="#52525A"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_plan_view_region_tv"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/fragment_plan_view_money_v_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Long.toString(planDetailView.expense)}"
+            android:textSize="14sp"
+            android:fontFamily="@font/notosans"
+            android:textColor="#52525A"
+            android:layout_marginStart="5dp"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_plan_view_region_v_tv"
+            app:layout_constraintStart_toEndOf="@+id/fragment_plan_view_money_tv"/>
+
+        <TextView
+            android:id="@+id/fragment_plan_view_main_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{planDetailView.planContext}"
+            android:textSize="14sp"
+            android:fontFamily="@font/notosans"
+            android:textColor="#1D1D20"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_plan_view_money_v_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <View
+            android:id="@+id/fragment_plan_view_gray_middle_v"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="#D4D4D8"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_plan_view_main_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/fragment_plan_view_friend_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_friend_add"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="18dp"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_plan_view_gray_middle_v"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/fragment_plan_view_friend_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="공유된 친구"
+            android:textSize="14sp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/notosans"
+            android:textColor="#52525A"
+            android:layout_marginStart="7dp"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_plan_view_gray_middle_v"
+            app:layout_constraintStart_toEndOf="@+id/fragment_plan_view_friend_iv"/>
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:id="@+id/fragment_plan_view_new_friend_layout"
+           android:layout_width="32dp"
+           android:layout_height="32dp"
+           android:layout_marginTop="10dp"
+           android:layout_marginStart="16dp"
+           app:layout_constraintTop_toBottomOf="@id/fragment_plan_view_friend_tv"
+           app:layout_constraintStart_toStartOf="parent"
+           android:background="@drawable/botton_shape_friend_invite">
+
+       <TextView
+           android:id="@+id/fragment_plan_view_new_plus_tv"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="+"
+           android:textColor="#2E2E33"
+           android:fontFamily="@font/notosans"
+           android:textSize="12sp"
+           app:layout_constraintStart_toStartOf="@id/fragment_plan_view_new_friend_layout"
+           app:layout_constraintEnd_toEndOf="@id/fragment_plan_view_new_friend_layout"
+           app:layout_constraintBottom_toBottomOf="@+id/fragment_plan_view_new_friend_bt"
+           app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_new_friend_bt"
+           />
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+        <View
+            android:id="@+id/fragment_plan_view_low_v"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <Button
+            android:id="@+id/fragment_plan_diary_write_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="35dp"
+            android:background="@drawable/certification_requ"
+            android:enabled="false"
+            android:fontFamily="@font/notosans"
+            android:text="일기 작성하기"
+            android:textColor="#6E6E76"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/fragment_plan_view_low_v"
+            app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v"
+            />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
