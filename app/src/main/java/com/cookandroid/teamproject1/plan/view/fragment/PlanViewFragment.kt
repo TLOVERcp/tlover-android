@@ -34,9 +34,8 @@ class PlanViewFragment : Fragment(){
         val binding = FragmentPlanViewBinding.inflate(inflater, container, false)
         mBinding = binding
 
-        mBinding?.fragmentPlanViewNewFriendLayout?.setOnClickListener{
 
-        }
+        //뒤로가기버튼
         mBinding?.signUpingBackImg?.setOnClickListener{
             it.findNavController().navigate(R.id.action_planViewFragment_to_diaryFragment)
         }
@@ -52,6 +51,13 @@ class PlanViewFragment : Fragment(){
         val args : PlanViewFragmentArgs by navArgs()
         val planId = args.planId
         Log.d(TAG, "onViewCreated: $planId")
+
+        //공유할 사람 초대하는 프래그먼트로 이동
+        //planId 를 전달해야함. -> 프래그먼트 이동시 다시 x버튼을 클릭 했을 때 이 화면으로 돌아와야하기 떄문에 planId를 계속 전달해야함
+        mBinding?.fragmentPlanViewNewFriendLayout?.setOnClickListener{
+            val action = PlanViewFragmentDirections.actionPlanViewFragmentToPlanFriendInviteFragment(planId)
+            it.findNavController().navigate(action)
+        }
 
         val call: Call<ResponsePlanViewData> = ServiceCreator.planService.getDiaryPlanView(
             TloverApplication.prefs.getString("jwt", "null"),

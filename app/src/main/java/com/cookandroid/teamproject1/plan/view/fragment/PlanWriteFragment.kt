@@ -1,6 +1,7 @@
 package com.cookandroid.teamproject1.plan.view.fragment
 
 import android.os.Bundle
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import com.cookandroid.teamproject1.databinding.FragmentPlanWriteBinding
  */
 class PlanWriteFragment : Fragment(){
     private var mBinding: FragmentPlanWriteBinding?=null
+    private var inputText = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,6 +31,5 @@ class PlanWriteFragment : Fragment(){
         mBinding?.signUpingBackImg?.setOnClickListener(){
             it.findNavController().navigate(R.id.action_planWriteFragment_to_homeFragment)
         }
-
     }
 }

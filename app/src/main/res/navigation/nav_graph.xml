@@ -69,6 +69,9 @@
         <action
             android:id="@+id/action_planViewFragment_to_diaryFragment"
             app:destination="@id/diaryFragment" />
+        <action
+            android:id="@+id/action_planViewFragment_to_planFriendInviteFragment"
+            app:destination="@id/planFriendInviteFragment" />
     </fragment>
 
     <fragment
@@ -76,5 +79,17 @@
         android:name="com.cookandroid.teamproject1.plan.view.fragment.DiaryPlanFragment"
         android:label="fragment_diary_plan"
         tools:layout="@layout/fragment_diary_plan" />
+    <fragment
+        android:id="@+id/planFriendInviteFragment"
+        android:name="com.cookandroid.teamproject1.plan.view.fragment.PlanFriendInviteFragment"
+        android:label="fragment_plan_friend_invite"
+        tools:layout="@layout/fragment_plan_friend_invite" >
+        <action
+            android:id="@+id/action_planFriendInviteFragment_to_planViewFragment"
+            app:destination="@id/planViewFragment" />
+        <argument
+            android:name="planId"
+            app:argType="long"/>
+    </fragment>
 
 </navigation>
