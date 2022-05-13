@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".plan.view.fragment.PlanFriendInviteFragment">
+
+    <ImageView
+        android:id="@+id/fragment_plan_friend_x_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_friend_x_button"
+        android:layout_marginTop="21dp"
+        android:layout_marginRight="21dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/fragment_plan_friend_search_et"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/phone_requ"
+        android:ems="10"
+        android:fontFamily="@font/notosans"
+        android:hint="공유할 사람 찾기"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/join_text_gray_color"
+        android:paddingVertical="3dp"
+        android:paddingLeft="48dp"
+        android:textSize="14sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/fragment_plan_friend_search_bt"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_plan_friend_x_iv" />
+
+    <ImageView
+        android:id="@+id/fragment_plan_friend_search_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_search_ic"
+        android:layout_marginLeft="14dp"
+        app:layout_constraintTop_toTopOf="@id/fragment_plan_friend_search_et"
+        app:layout_constraintBottom_toBottomOf="@id/fragment_plan_friend_search_et"
+        app:layout_constraintLeft_toLeftOf="@id/fragment_plan_friend_search_et"/>
+
+    <Button
+        android:id="@+id/fragment_plan_friend_search_bt"
+        android:layout_width="72dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/confirm_repetition_btn_background"
+        android:enabled="false"
+        android:fontFamily="@font/notosans"
+        android:text="검색"
+        android:textColor="@color/join_text_gray_color"
+        android:textSize="12sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/fragment_plan_friend_search_et"
+        app:layout_constraintTop_toBottomOf="@id/fragment_plan_friend_x_iv" />
+
+    <View
+        android:id="@+id/fragment_plan_friend_middle_v"
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:background="#F4F4F4"
+        android:layout_marginTop="18dp"
+        app:layout_constraintTop_toBottomOf="@id/fragment_plan_friend_search_bt"/>
+
+    <ImageView
+        android:id="@+id/fragment_plan_friend_ic_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_friend_main"
+        android:layout_marginTop="36dp"
+        android:layout_marginLeft="31dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_plan_friend_search_et"/>
+
+    <TextView
+        android:id="@+id/fragment_plan_friend_id_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tlover1234"
+        android:fontFamily="@font/notosans"
+        android:textColor="#1D1D20"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="27dp"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toRightOf="@id/fragment_plan_friend_ic_iv"
+        app:layout_constraintTop_toBottomOf="@id/fragment_plan_friend_search_et"
+        />
+
+    <View
+        android:id="@+id/fragment_plan_friend_under_v"
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:background="#D4D4D8"
+        android:layout_marginTop="14dp"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_plan_friend_id_tv"/>
+
+
+
+
+
+    <Button
+        android:id="@+id/fragment_plan_friend_finish_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="35dp"
+        android:background="@drawable/certification_requ"
+        android:enabled="false"
+        android:layout_marginBottom="70dp"
+        android:fontFamily="@font/notosans"
+        android:text="선택하기"
+        android:textColor="#6E6E76"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
