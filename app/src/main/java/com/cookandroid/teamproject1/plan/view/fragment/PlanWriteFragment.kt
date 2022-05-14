@@ -1,5 +1,4 @@
-package com.cookandroid.teamproject1
-
+package com.cookandroid.teamproject1.plan.view.fragment
 import android.os.Bundle
 import android.util.Log
 import android.text.TextWatcher
@@ -40,7 +39,7 @@ class PlanWriteFragment : Fragment(){
         }
 
 
-        binding.fragmentPlanWriteCalendarImg.setOnClickListener {
+        mBinding?.fragmentPlanWriteCalendarImg?.setOnClickListener {
 
 
             val cal = Calendar.getInstance()
@@ -49,7 +48,7 @@ class PlanWriteFragment : Fragment(){
             val day = cal.get(Calendar.DAY_OF_MONTH)
 
             val datePickerDialog = DatePickerDialog(requireActivity(), DatePickerDialog.OnDateSetListener { view, myear, mmonth, mdayOfMonth ->
-                binding.fragmentPlanWriteDateEt.setText(""+ mdayOfMonth +"/"+ mmonth+ "/"+ myear)
+                mBinding?.fragmentPlanWriteDateEt?.setText(""+ mdayOfMonth +"/"+ mmonth+ "/"+ myear)
             }, year, month, day)
             datePickerDialog.show()
         }
