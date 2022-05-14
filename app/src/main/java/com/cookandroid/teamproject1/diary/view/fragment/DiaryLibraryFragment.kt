@@ -1,4 +1,4 @@
-package com.cookandroid.teamproject1
+package com.cookandroid.teamproject1.diary.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

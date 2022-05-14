@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.cookandroid.teamproject1.id.view.activity.LoginSuccessActivity"
-    android:background="#E5E5E5"
+    android:background="@color/tlover_background_color"
     >
 
 
     <ImageView
         android:id="@+id/splash_logo"
-        android:layout_width="96dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="293dp"
         app:srcCompat="@drawable/tlover_nblogo"
@@ -29,6 +29,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/notoserifkr_regular"
         android:text="TLOVER"
+        android:textFontWeight="700"
         android:textColor="#6BBFEE"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="@id/splash_logo"
