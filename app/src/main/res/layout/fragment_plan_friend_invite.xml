@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="planGetUser"
+            type="com.cookandroid.teamproject1.plan.model.ResponsePlanUserData.Result"/>
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".plan.view.fragment.PlanFriendInviteFragment">
 
     <ImageView
@@ -77,6 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_friend_main"
+        android:visibility="gone"
         android:layout_marginTop="36dp"
         android:layout_marginLeft="31dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -86,7 +96,7 @@
         android:id="@+id/fragment_plan_friend_id_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="tlover1234"
+        android:text="@{planGetUser.userNickName}"
         android:fontFamily="@font/notosans"
         android:textColor="#1D1D20"
         android:layout_marginLeft="11dp"
@@ -124,3 +134,4 @@
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

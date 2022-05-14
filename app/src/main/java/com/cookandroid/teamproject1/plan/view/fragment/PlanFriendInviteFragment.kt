@@ -4,14 +4,24 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.FragmentPlanFriendInviteBinding
+import com.cookandroid.teamproject1.plan.model.RequestAuthUserData
+import com.cookandroid.teamproject1.plan.model.ResponseAuthUserData
+import com.cookandroid.teamproject1.plan.model.ResponsePlanUserData
+import com.cookandroid.teamproject1.util.ServiceCreator
+import com.cookandroid.teamproject1.util.TloverApplication
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 /**
  * plan 친구 초대 프래그먼트
@@ -61,9 +71,101 @@ class PlanFriendInviteFragment : Fragment() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
-
             }
-
         })
+
+        /**
+         * 0514 사용자 검색 조회 api 연동
+         * 작성자 : 윤성식
+         */
+        mBinding?.fragmentPlanFriendSearchBt?.setOnClickListener{
+            val call: Call<ResponsePlanUserData> = ServiceCreator.planService.getPlanUser(
+                TloverApplication.prefs.getString("jwt", "null"),
+                TloverApplication.prefs.getString("refreshToken", "null").toInt(),
+                mBinding?.fragmentPlanFriendSearchEt?.text.toString()
+            )
+
+            call.enqueue(object: Callback<ResponsePlanUserData>{
+                override fun onResponse(
+                    call: Call<ResponsePlanUserData>,
+                    response: Response<ResponsePlanUserData>
+                ) {
+                    if(response.code() == 200){
+                        Log.e("reponse", "200!!~~~!!")
+                        //조회 성공은 했지만 본인 닉네임을 입력했을 경우
+                        if(TloverApplication.prefs.getString("userNickname", "null") == mBinding?.fragmentPlanFriendSearchEt?.text.toString()){
+                            mBinding?.fragmentPlanFriendIcIv?.visibility = View.GONE
+                            mBinding?.fragmentPlanFriendIdTv?.visibility = View.GONE
+                            mBinding?.fragmentPlanFriendFinishBt?.setBackgroundResource(R.drawable.certification_requ)
+                            mBinding?.fragmentPlanFriendFinishBt?.setTextColor(Color.parseColor("#6E6E76"))
+                            mBinding?.fragmentPlanFriendFinishBt?.isEnabled = false
+                            Toast.makeText(requireActivity(), "본인 닉네임 입니다.", Toast.LENGTH_SHORT).show()
+                        }
+                        else {
+                            mBinding?.planGetUser = response.body()?.data
+                            mBinding?.fragmentPlanFriendIcIv?.visibility = View.VISIBLE
+                            mBinding?.fragmentPlanFriendIdTv?.visibility = View.VISIBLE
+                            mBinding?.fragmentPlanFriendFinishBt?.setBackgroundResource(R.drawable.confirm_btn_background_clicked)
+                            mBinding?.fragmentPlanFriendFinishBt?.setTextColor(Color.WHITE)
+                            mBinding?.fragmentPlanFriendFinishBt?.isEnabled = true
+                        }
+                    }
+                    else if(response.code() == 404){
+                        mBinding?.fragmentPlanFriendIcIv?.visibility = View.GONE
+                        mBinding?.fragmentPlanFriendIdTv?.visibility = View.GONE
+                        mBinding?.fragmentPlanFriendFinishBt?.setBackgroundResource(R.drawable.certification_requ)
+                        mBinding?.fragmentPlanFriendFinishBt?.setTextColor(Color.parseColor("#6E6E76"))
+                        mBinding?.fragmentPlanFriendFinishBt?.isEnabled = false
+                        Toast.makeText(requireActivity(), "유저닉네임을 다시 입력해 주세요.", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponsePlanUserData>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+
+            })
+        }
+
+        /**
+         * 0514 사용자 권한 요청 api 연결
+         * 작성자 : 윤성식
+         */
+        mBinding?.fragmentPlanFriendFinishBt?.setOnClickListener{
+            val requestAuthUserData = RequestAuthUserData(
+                userNickname = mBinding?.fragmentPlanFriendSearchEt?.text.toString()
+            )
+
+            val call: Call<ResponseAuthUserData> = ServiceCreator.planService.postAuthUser(
+                TloverApplication.prefs.getString("jwt", "null"),
+                TloverApplication.prefs.getString("refreshToken", "null").toInt(),
+                planId.toInt(),
+                requestAuthUserData
+            )
+
+            call.enqueue(object: Callback<ResponseAuthUserData>{
+                override fun onResponse(
+                    call: Call<ResponseAuthUserData>,
+                    response: Response<ResponseAuthUserData>
+                ) {
+                    if(response.code()==200){
+                        Toast.makeText(requireActivity(), response.message(), Toast.LENGTH_SHORT).show()
+                        //다시 해당 플랜 프래그먼트로 이동
+                        val action = PlanFriendInviteFragmentDirections.actionPlanFriendInviteFragmentToPlanViewFragment(planId)
+                        it.findNavController().navigate(action)
+                    }
+                    else if(response.code()==400){
+                        Toast.makeText(requireActivity(), "해당 유저에게 이미 계획 공유 요청중입니다.", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseAuthUserData>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+
+            })
+        }
+
+
     }
 }

@@ -1,15 +1,14 @@
 package com.cookandroid.teamproject1.plan.model
 
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 /**
  * 작성자 : 원도혜
  * Plan api 연동
  * +플랜 상세 조회 api 연동 : 윤성식
+ * +계획에서 사용자 권한 추가 api 연동 : 윤성식
+ * +계획 권한 공유 요청 보내기 api 연동 : 윤성식
  */
 
 interface PlanService {
@@ -29,4 +28,21 @@ interface PlanService {
         @Path("planId") planId : Int
 //        @Query("Status") status: String
     ) : Call<ResponsePlanViewData>
+
+    //사용자 검색조회
+    @GET("/api/v1/search/get-user?")
+    fun getPlanUser(
+        @Header("X-ACCESS-TOKEN") jwt: String,
+        @Header("X-REFRESH-TOKEN") refreshToken: Int,
+        @Query("keyword") keyword : String
+    ) : Call<ResponsePlanUserData>
+
+    //계획 권한 공유 요청 보내기
+    @POST("/api/v1/authority-plans/share-plan/{planId}")
+    fun postAuthUser(
+        @Header("X-ACCESS-TOKEN") jwt: String,
+        @Header("X-REFRESH-TOKEN") refreshToken: Int,
+        @Path("planId") planId : Int,
+        @Body body : RequestAuthUserData
+    ) : Call<ResponseAuthUserData>
 }
