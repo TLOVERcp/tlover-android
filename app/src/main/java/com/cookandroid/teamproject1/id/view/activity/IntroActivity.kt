@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Handler
 import android.os.Bundle
 import com.cookandroid.teamproject1.FirstTitleActivity
+import com.cookandroid.teamproject1.PlanWriteFragment
 import com.cookandroid.teamproject1.R
+import com.cookandroid.teamproject1.plan.view.fragment.DiaryPlanFragment
 
 class IntroActivity : AppCompatActivity() {
 
