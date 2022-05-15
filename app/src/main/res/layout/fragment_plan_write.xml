@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/tlover_background_color"
     tools:context=".plan.view.fragment.PlanWriteFragment">
 
@@ -62,7 +62,7 @@
         android:ems="10"
         android:fontFamily="@font/notosans"
         android:hint="여행 기간을 선택하세요."
-        android:inputType="textPassword"
+        android:inputType="text"
         android:paddingVertical="3dp"
         android:paddingLeft="48dp"
         android:textColorHint="@color/join_text_gray_color"
@@ -76,6 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="14dp"
+        android:clickable="true"
         android:src="@drawable/ic_plan_date"
         app:layout_constraintBottom_toBottomOf="@id/fragment_plan_write_date_et"
         app:layout_constraintLeft_toLeftOf="@id/fragment_plan_write_date_et"

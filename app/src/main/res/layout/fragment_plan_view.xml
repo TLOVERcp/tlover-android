@@ -239,7 +239,6 @@
 
 
 
-
         <View
             android:id="@+id/fragment_plan_view_low_v"
             android:layout_width="match_parent"
