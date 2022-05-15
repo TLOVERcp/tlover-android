@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 
 import androidx.recyclerview.widget.RecyclerView
+import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.ItemHomeRandomBinding
 import com.cookandroid.teamproject1.home.model.HomeDataModel
 import com.cookandroid.teamproject1.home.model.ResponseAllDiaryData
@@ -18,6 +19,7 @@ import com.cookandroid.teamproject1.home.view.fragment.HomeFragmentDirections
 class HomeRVAdapter() :RecyclerView.Adapter<HomeRVAdapter.Holder>(){
 
     var preferDiaryList = mutableListOf<ResponseAllDiaryData.Result>()
+
 
     inner class Holder(val binding : ItemHomeRandomBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(preferDiary: ResponseAllDiaryData.Result){
