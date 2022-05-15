@@ -34,10 +34,13 @@ class DiaryPlanFragment : Fragment() {
         mBinding = binding
         mBinding?.fragmentDiaryPlanRandomRv?.adapter = diaryPlanRVAdapter
 
+
+        /**
+         * 다이어리 계획 목록 조회 api 연결
+         */
         val call: Call<ResponseDiaryPlanData> = ServiceCreator.planService.getDiaryPlan(
             TloverApplication.prefs.getString("jwt", "null"),
             TloverApplication.prefs.getString("refreshToken", "null").toInt()
-
         )
 
 
