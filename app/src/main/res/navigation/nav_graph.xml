@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_diaryViewFragment"
             app:destination="@id/diaryViewFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_planAuthListFragment"
+            app:destination="@id/planAuthListFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -69,6 +72,9 @@
         <action
             android:id="@+id/action_planViewFragment_to_diaryFragment"
             app:destination="@id/diaryFragment" />
+        <action
+            android:id="@+id/action_planViewFragment_to_planFriendInviteFragment"
+            app:destination="@id/planFriendInviteFragment" />
     </fragment>
 
     <fragment
@@ -76,5 +82,26 @@
         android:name="com.cookandroid.teamproject1.plan.view.fragment.DiaryPlanFragment"
         android:label="fragment_diary_plan"
         tools:layout="@layout/fragment_diary_plan" />
+    <fragment
+        android:id="@+id/planFriendInviteFragment"
+        android:name="com.cookandroid.teamproject1.plan.view.fragment.PlanFriendInviteFragment"
+        android:label="fragment_plan_friend_invite"
+        tools:layout="@layout/fragment_plan_friend_invite" >
+        <action
+            android:id="@+id/action_planFriendInviteFragment_to_planViewFragment"
+            app:destination="@id/planViewFragment" />
+        <argument
+            android:name="planId"
+            app:argType="long"/>
+    </fragment>
+    <fragment
+        android:id="@+id/planAuthListFragment"
+        android:name="com.cookandroid.teamproject1.plan.view.fragment.PlanAuthListFragment"
+        android:label="fragment_plan_auth_list"
+        tools:layout="@layout/fragment_plan_auth_list" >
+        <action
+            android:id="@+id/action_planAuthListFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
 </navigation>
