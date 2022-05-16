@@ -48,7 +48,7 @@ class PlanWriteFragment : Fragment(){
             val month = cal.get(Calendar.MONTH)
             val day = cal.get(Calendar.DAY_OF_MONTH)
 
-            val datePickerDialog = DatePickerDialog(requireActivity(), DatePickerDialog.OnDateSetListener { view, myear, month, mdayOfMonth ->
+            val datePickerDialog = DatePickerDialog(requireActivity(),DatePickerDialog.OnDateSetListener { view, myear, month, mdayOfMonth ->
                 val mmonth2 = month+1
                 mBinding?.fragmentPlanWriteDateEt?.setText(""+ mdayOfMonth +"/"+ mmonth2+ "/"+ myear)
                 mBinding?.fragmentPlanWriteDateEt?.setTextColor(Color.BLACK)
