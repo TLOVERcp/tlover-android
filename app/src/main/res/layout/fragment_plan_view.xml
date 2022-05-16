@@ -151,7 +151,7 @@
             android:id="@+id/fragment_plan_view_money_v_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{Long.toString(planDetailView.expense)}"
+            android:text="@{Integer.toString(planDetailView.expense)}"
             android:textSize="14sp"
             android:fontFamily="@font/notosans"
             android:textColor="#52525A"
