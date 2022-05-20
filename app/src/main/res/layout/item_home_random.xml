@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="8dp"
                 android:fontFamily="@font/notosans"
-                android:text="@{preferDiaryItem.startDate}"
+                setCalendarStart="@{preferDiaryItem.startDate}"
                 android:textColor="@color/white"
                 android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="@id/item_home_random_img_location"

@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
             android:fontFamily="@font/notosans"
-            android:text="@{hotDiaryItem.diaryWriteDate}"
+            setCalendarStart="@{hotDiaryItem.diaryWriteDate}"
             android:textColor="@color/white"
             android:textSize="10sp"
             app:layout_constraintRight_toRightOf="parent"

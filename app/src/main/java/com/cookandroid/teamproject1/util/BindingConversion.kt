@@ -38,6 +38,12 @@ object BindingConversion {
     }
 
     @JvmStatic
+    @BindingAdapter("setCalendarPlan")
+    fun setCalendarPlan(textView: TextView, sCalendar: String){
+        textView.text = sCalendar.substring(0, 10)
+    }
+
+    @JvmStatic
     @BindingAdapter("setCalendarEnd")
     fun setCalendarEnd(textView: TextView, eCalendar: String){
         textView.text = eCalendar.substring(0, 10)
@@ -48,8 +54,6 @@ object BindingConversion {
     fun setTitle(textView: TextView, title: String?){
         if (title.equals("-1")){
             textView.isGone = true
-//            textView.isInvisible = true
-
         }else{
             textView.text = "여행 "+title+"일차"
         }
