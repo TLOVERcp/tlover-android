@@ -52,6 +52,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/fragment_plan_write_high_v">
 
+
             <LinearLayout
                 android:id="@+id/fragment_plan_write_date_ly"
                 android:layout_width="match_parent"
