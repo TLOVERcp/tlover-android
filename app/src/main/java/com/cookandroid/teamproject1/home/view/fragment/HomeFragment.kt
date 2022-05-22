@@ -131,6 +131,7 @@ class HomeFragment : Fragment(){
         })
 
 //        mBinding?.fragmentHomeTitleSameRv?.layoutManager = GridLayoutManager(context, 3) testtest
+        //test commit
         mBinding?.fragmentHomeTitleSameRv?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
 //        val homeRVAdapter = HomeRVAdapter(dataList)
 //        binding.fragmentHomeTitleRandomRv.adapter = homeRVAdapter
