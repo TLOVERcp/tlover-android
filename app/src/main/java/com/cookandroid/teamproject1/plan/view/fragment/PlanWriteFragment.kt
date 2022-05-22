@@ -10,9 +10,7 @@ import androidx.navigation.findNavController
 import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.FragmentPlanWriteBinding
 import android.app.DatePickerDialog
-
 import android.graphics.Color
-
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 import com.google.android.material.datepicker.MaterialDatePicker
@@ -47,11 +45,10 @@ class PlanWriteFragment : Fragment(){
 
             val cal = Calendar.getInstance()
             val year = cal.get(Calendar.YEAR)
-
             val month = cal.get(Calendar.MONTH)
             val day = cal.get(Calendar.DAY_OF_MONTH)
 
-            val datePickerDialog = DatePickerDialog(requireActivity(), DatePickerDialog.OnDateSetListener { view, myear, month, mdayOfMonth ->
+            val datePickerDialog = DatePickerDialog(requireActivity(),DatePickerDialog.OnDateSetListener { view, myear, month, mdayOfMonth ->
                 val mmonth2 = month+1
                 mBinding?.fragmentPlanWriteDateEt?.setText(""+ mdayOfMonth +"/"+ mmonth2+ "/"+ myear)
                 mBinding?.fragmentPlanWriteDateEt?.setTextColor(Color.BLACK)
@@ -73,17 +70,5 @@ class PlanWriteFragment : Fragment(){
             }, year, month, day)
             datePickerDialog.show()
         }
-
-            val month = cal.get(Calendar.MONTH)+1
-            val day = cal.get(Calendar.DAY_OF_MONTH)
-
-            val datePickerDialog = DatePickerDialog(requireActivity(), DatePickerDialog.OnDateSetListener { view, myear, mmonth, mdayOfMonth ->
-                mBinding?.fragmentPlanWriteDateEt?.setText(""+ mdayOfMonth +"/"+ mmonth+ "/"+ myear)
-            }, year, month, day)
-            datePickerDialog.show()
-        }
-
-
-
     }
 }
