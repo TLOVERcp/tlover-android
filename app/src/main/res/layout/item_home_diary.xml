@@ -126,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="7dp"
                 android:fontFamily="@font/notosans"
-                setRegion="@{diaryItem.regionName.toString()}"
+                android:text="@{diaryItem.regionDetail}"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@id/item_home_diary_location"
                 app:layout_constraintLeft_toRightOf="@id/item_home_diary_location"

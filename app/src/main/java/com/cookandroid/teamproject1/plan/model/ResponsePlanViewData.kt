@@ -30,8 +30,8 @@ data class ResponsePlanViewData (
         val planTitle: String,
         @SerializedName("planWriteDate")
         val planWriteDate: String,
-        @SerializedName("regionName")
-        val regionName: ArrayList<String>,
+        @SerializedName("regionDetail")
+        val regionDetail: String,
         @SerializedName("users")
         val users: ArrayList<String>
     )

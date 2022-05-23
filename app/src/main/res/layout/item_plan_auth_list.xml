@@ -9,6 +9,7 @@
     </data>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/item_plan_auth_cv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/tlover_background_color"
@@ -46,14 +47,16 @@
 
             <Button
                 android:id="@+id/item_auth_accept_bt"
-                android:layout_width="wrap_content"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:text="수락"
-                app:layout_constraintLeft_toRightOf="@id/item_auth_nickname_tv"
-                android:layout_marginLeft="15dp"
-                tools:ignore="MissingConstraints" />
-
-
+                android:layout_marginRight="15dp"
+                android:background="@drawable/confirm_repetition_btn_background"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:ignore="NotSibling"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

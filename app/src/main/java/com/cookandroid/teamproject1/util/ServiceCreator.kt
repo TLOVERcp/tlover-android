@@ -14,9 +14,8 @@ import okhttp3.logging.HttpLoggingInterceptor
  * +signup 추가완료
  */
 object ServiceCreator {
-    private const val BASE_URL = "http://52.78.245.11:8080"
-    // localhost
 
+    private const val BASE_URL = "http://52.78.245.11:8080"
 
     private val interceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 

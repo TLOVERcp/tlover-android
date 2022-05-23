@@ -6,18 +6,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.cookandroid.teamproject1.SearchFragment"
     android:id="@+id/searchFragment"
-    android:background="@color/colorAccent">
+    android:background="@color/tlover_background_color">
+
+    <View
+        android:id="@+id/fragment_search_high_v"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/fragment_search_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintTop_toTopOf ="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/notosans"
+        android:textFontWeight="700"
+        android:text="검색"
+        android:textColor="#1D1D20"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/fragment_search_edittext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="24dp"
+        android:fontFamily="@font/notosans"
+        android:hint="보고싶은 다이러리를 검색해보세요."
+        android:textColor="#6E6E76"
+        android:textSize="16sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_search_title_tv" />
+
+    <ImageView
+        android:id="@+id/fragmet_search_ic_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_search_ic"
+        app:layout_constraintRight_toRightOf="@id/fragment_search_edittext"
+        app:layout_constraintBottom_toBottomOf="@id/fragment_search_edittext"
+        app:layout_constraintTop_toTopOf="@id/fragment_search_edittext"
+        android:layout_marginRight="10dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_search_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="21dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_search_edittext"/>
+
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
