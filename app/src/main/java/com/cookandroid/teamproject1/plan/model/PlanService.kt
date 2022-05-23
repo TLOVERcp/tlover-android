@@ -11,6 +11,7 @@ import retrofit2.http.*
  * +계획 권한 공유 요청 보내기 api 연동 : 윤성식
  * +계획 권한 요청 받은 목록 조회 api 연동 : 윤성식
  * +계획 권환 요청 수락 api 연동 : 윤성식
+ * +계획 권한 요청 거절 api 연동 : 윤성식
  */
 
 interface PlanService {
