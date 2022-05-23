@@ -1,26 +1,277 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tlover_background_color"
     tools:context=".diary.view.fragment.DiaryViewFragment">
 
-    <ScrollView
+    <View
+        android:id="@+id/fragment_plan_view_high_v"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="56dp"
+        android:background="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/sign_uping_back_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="376dp"
+        android:layout_marginTop="21dp"
+        android:clickable="true"
+        android:src="@drawable/diary_x_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/fragment_diary_write_sv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_plan_view_high_v">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="다이어리 상세 페이지"
-            android:textSize="50sp"/>
+            app:layout_constraintTop_toBottomOf="@+id/fragment_plan_view_high_v">
+
+            <LinearLayout
+                android:id="@+id/fragment_diary_write_date_ly"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_date_tv">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="270dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:src="@drawable/img2_item_home_random"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_plan_view_high_v" />
 
 
-    </ScrollView>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/fragment_plan_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/notosans"
+                android:text="💚제목제목❤"
+                android:textColor="#1D1D20"
+                android:textFontWeight="700"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_diary_write_date_ly" />
+
+            <TextView
+                android:id="@+id/fragment_plan_view_date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/notosans"
+                android:text="날짜 :"
+                android:textColor="#52525A"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_plan_title_tv" />
+
+            <TextView
+                android:id="@+id/fragment_plan_view_start_date_v_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/notosans"
+                android:text="2022.05.06."
+                android:textColor="#52525A"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/fragment_plan_view_date_tv"
+                app:layout_constraintTop_toBottomOf="@id/fragment_plan_title_tv" />
+
+
+            <TextView
+                android:id="@+id/fragment_plan_view_region_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/notosans"
+                android:text="지역 :"
+                android:textColor="#52525A"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_plan_view_date_tv" />
+
+            <TextView
+                android:id="@+id/fragment_plan_view_region_v_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/notosans"
+                android:text="속초"
+                android:textColor="#52525A"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/fragment_plan_view_region_tv"
+                app:layout_constraintTop_toBottomOf="@id/fragment_plan_view_date_tv" />
+
+            <TextView
+                android:id="@+id/fragment_plan_view_money_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/notosans"
+                android:text="경비 :"
+                android:textColor="#52525A"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_plan_view_region_tv" />
+
+            <TextView
+                android:id="@+id/fragment_plan_view_money_v_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/notosans"
+                android:text="50,000"
+                android:textColor="#52525A"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/fragment_plan_view_money_tv"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_plan_view_region_v_tv" />
+
+            <TextView
+                android:id="@+id/fragment_plan_view_theme_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/notosans"
+                android:text="테마 :"
+                android:textColor="#52525A"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_plan_view_money_tv" />
+
+            <TextView
+                android:id="@+id/fragment_plan_view_theme_v_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/notosans"
+                android:text="맛집투어"
+                android:textColor="#52525A"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/fragment_plan_view_theme_tv"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_plan_view_money_v_tv" />
+
+            <EditText
+                android:id="@+id/fragment_plan_view_main_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/plan_write_text"
+                android:fontFamily="@font/notosans"
+                android:gravity="start"
+                android:hint="Test"
+                android:inputType="textMultiLine"
+                android:lines="15"
+                android:paddingVertical="3dp"
+                android:paddingLeft="24dp"
+                android:scrollbars="vertical"
+                android:text="꺄아아아아아아악"
+                android:textColor="#1D1D20"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_plan_view_theme_v_tv" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:id="@+id/fragment_plan_view_low_v"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/fragment_plan_diary_write_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/notosans"
+        android:text="일기장 전체보기"
+        android:textColor="#52525A"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/fragment_diary_write_sv"
+        app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v" />
+
+    <ImageView
+        android:id="@+id/item_search_view_scrap_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="298dp"
+        android:layout_marginTop="19dp"
+        app:srcCompat="@drawable/diary_search_scrap"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/fragment_diary_write_sv"
+        app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v" />
+
+    <TextView
+        android:id="@+id/fragment_plan_diary_write"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="254dp"
+        android:layout_marginTop="19dp"
+        android:fontFamily="@font/notoserifkr_regular"
+        android:text="100"
+        android:textColor="#1D1D20"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/fragment_diary_write_sv"
+        app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v" />
+
+    <ImageView
+        android:id="@+id/item_search_view_heart_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="228dp"
+        android:layout_marginTop="19dp"
+        app:srcCompat="@drawable/diary_search_heart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/fragment_diary_write_sv"
+        app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v" />
+
+    <TextView
+        android:id="@+id/fragment_plan_diary_write_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="321dp"
+        android:layout_marginTop="19dp"
+        android:fontFamily="@font/notoserifkr_regular"
+        android:text="100"
+        android:textColor="#1D1D20"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/fragment_diary_write_sv"
+        app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
