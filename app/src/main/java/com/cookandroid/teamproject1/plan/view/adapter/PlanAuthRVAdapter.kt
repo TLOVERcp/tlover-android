@@ -69,6 +69,32 @@ class PlanAuthRVAdapter (): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
             }
 
+            /**
+             * 0523 계획 권한 요청 받은 목록에서 거절버튼을 클릭했을 때 api (거절 api)
+             * 작성자 : 윤성식
+             */
+            binding.itemAuthRejectBt.setOnClickListener{
+                val call: Call<ResponseAcceptAuthData> = ServiceCreator.planService.rejectPlanAuth(
+                    TloverApplication.prefs.getString("jwt", "null"),
+                    TloverApplication.prefs.getString("refreshToken", "null").toInt(),
+                    planAuthDataList.authorityPlanId
+                )
+                call.enqueue(object: Callback<ResponseAcceptAuthData> {
+                    override fun onResponse(
+                        call: Call<ResponseAcceptAuthData>,
+                        response: Response<ResponseAcceptAuthData>
+                    ) {
+                        if(response.code() == 200){
+                            Log.e("거절하기", "200!!~~~")
+                        }
+                    }
+
+                    override fun onFailure(call: Call<ResponseAcceptAuthData>, t: Throwable) {
+                        Log.d(SignUpViewModel.TAG, "onFailure: $t")
+                    }
+                })
+            }
+
         }
     }
 

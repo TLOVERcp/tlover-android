@@ -22,9 +22,13 @@
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.cookandroid.teamproject1.SearchFragment"
+        android:name="com.cookandroid.teamproject1.search.view.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_diaryViewFragment"
+            app:destination="@id/diaryViewFragment" />
+    </fragment>
     <fragment
         android:id="@+id/diaryFragment"
         android:name="com.cookandroid.teamproject1.diary.view.fragment.DiaryFragment"

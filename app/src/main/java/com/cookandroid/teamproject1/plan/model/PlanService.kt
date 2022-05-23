@@ -63,5 +63,11 @@ interface PlanService {
         @Path("authorityPlanId") authorityPlanId : Int
     ) : Call<ResponseAcceptAuthData>
 
-    //계획 권한 요청 거절 api 연동 예정
+    //계획 권한 요청 거절
+    @POST("/api/v1/authority-plans/reject-authority-plan/{authorityPlanId}")
+    fun rejectPlanAuth(
+        @Header("X-ACCESS-TOKEN") jwt: String,
+        @Header("X-REFRESH-TOKEN") refreshToken: Int,
+        @Path("authorityPlanId") authorityPlanId : Int
+    ) : Call<ResponseAcceptAuthData> //계획 수락 api랑 동일한 Response사용
 }
