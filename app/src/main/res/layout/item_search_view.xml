@@ -4,9 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="328dp"
-        android:layout_height="152dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/white"
+        android:layout_marginHorizontal="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -134,7 +135,7 @@
             android:layout_marginTop="98dp"
             android:layout_marginLeft="12dp"
             android:fontFamily="@font/notosans"
-            android:text="한강공원 여의나루 망원 뚝섬 짱짱짱!!!>_<"
+            android:text="한강공원 여의나루 망원 뚝섬 짱짱짱"
             android:textColor="#1D1D20"
             android:textSize="12sp" />
 

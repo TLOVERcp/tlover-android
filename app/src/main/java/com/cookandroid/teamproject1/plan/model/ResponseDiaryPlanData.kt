@@ -23,8 +23,8 @@ data class ResponseDiaryPlanData (
         val planEndDate: String,
         @SerializedName("day")
         val day: Long,
-        @SerializedName("regionName")
-        val regionName: ArrayList<String>,
+        @SerializedName("regionDetail")
+        val regionDetail: String,
         @SerializedName("expense")
         val expense: Long
     )
