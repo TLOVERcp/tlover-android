@@ -3,6 +3,7 @@ package com.cookandroid.teamproject1.util
 import com.cookandroid.teamproject1.home.model.HomeDiaryService
 import com.cookandroid.teamproject1.plan.model.PlanService
 import com.cookandroid.teamproject1.id.model.*
+import com.cookandroid.teamproject1.search.model.SearchService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -37,4 +38,5 @@ object ServiceCreator {
     val myFileService: MyFileService = retrofit.create(MyFileService::class.java)
     val planService : PlanService = retrofit.create(PlanService::class.java)
     val homeDiaryService : HomeDiaryService = retrofit.create(HomeDiaryService::class.java)
+    val searchService : SearchService = retrofit.create(SearchService::class.java)
 }

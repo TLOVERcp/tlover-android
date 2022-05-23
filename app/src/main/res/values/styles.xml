@@ -10,5 +10,4 @@
     <style name="DatePickerTheme" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">@color/tlover_main_color</item>
     </style>
-
 </resources>
