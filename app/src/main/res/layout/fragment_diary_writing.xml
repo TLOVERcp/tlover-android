@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/tlover_background_color"
+    app:layout_constraintBottom_toBottomOf="parent"
+    >
+
+    <View
+        android:id="@+id/fragment_diary_write_high_v"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/sign_uping_back_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="40dp"
+        android:clickable="true"
+        android:src="@drawable/ic_back_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/fragment_diary_write_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/notosans"
+        android:text="여행 계획 작성"
+        android:textColor="#1D1D20"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/fragment_diary_write_sv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_diary_write_high_v">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_diary_write_high_v">
+
+            <LinearLayout
+                android:id="@+id/fragment_diary_write_date_ly"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_date_tv">
+
+                <EditText
+                    android:id="@+id/fragment_diary_write_date_et"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/phone_requ"
+                    android:clickable="false"
+                    android:editable="false"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:fontFamily="@font/notosans"
+                    android:hint="시작 날짜"
+                    android:inputType="text"
+                    android:paddingVertical="3dp"
+                    android:paddingLeft="48dp"
+                    android:textColorHint="@color/join_text_gray_color"
+                    android:textSize="14dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_date_tv" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/fragment_diary_write_calendar_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:clickable="true"
+                android:src="@drawable/ic_plan_date"
+                app:layout_constraintBottom_toBottomOf="@id/fragment_diary_write_date_ly"
+                app:layout_constraintLeft_toLeftOf="@id/fragment_diary_write_date_tv"
+                app:layout_constraintTop_toTopOf="@id/fragment_diary_write_date_ly" />
+
+
+            <TextView
+                android:id="@+id/fragment_diary_write_date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/notosans"
+                android:text="날짜"
+                android:textColor="#3F3F45"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_high_v" />
+
+            <TextView
+                android:id="@+id/fragment_diary_write_location_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/notosans"
+                android:text="지역"
+                android:textColor="#3F3F45"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_date_ly" />
+
+            <EditText
+                android:id="@+id/fragment_diary_write_location_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:background="@drawable/phone_requ"
+                android:ems="10"
+                android:fontFamily="@font/notosans"
+                android:hint="여행 지역을 선택하세요."
+                android:inputType="text"
+                android:paddingVertical="3dp"
+                android:paddingLeft="48dp"
+                android:textColorHint="@color/join_text_gray_color"
+                android:textSize="14dp"
+                app:layout_constraintLeft_toLeftOf="@id/fragment_diary_write_location_tv"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_location_tv" />
+
+            <ImageView
+                android:id="@+id/fragment_diary_write_location_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:src="@drawable/ic_plan_location"
+                app:layout_constraintBottom_toBottomOf="@id/fragment_diary_write_location_et"
+                app:layout_constraintLeft_toLeftOf="@id/fragment_diary_write_location_et"
+                app:layout_constraintTop_toTopOf="@+id/fragment_diary_write_location_et" />
+
+            <TextView
+                android:id="@+id/fragment_diary_write_pay_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/notosans"
+                android:text="경비"
+                android:textColor="#3F3F45"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_location_et" />
+
+            <EditText
+                android:id="@+id/fragment_diary_write_pay_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:background="@drawable/phone_requ"
+                android:ems="10"
+                android:fontFamily="@font/notosans"
+                android:hint="예상되는 경비를 입력해 주세요."
+                android:inputType="text"
+                android:paddingVertical="3dp"
+                android:paddingLeft="48dp"
+                android:textColorHint="@color/join_text_gray_color"
+                android:textSize="14dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_pay_tv" />
+
+            <ImageView
+                android:id="@+id/fragment_diary_write_pay_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:src="@drawable/ic_plan_pay"
+                app:layout_constraintBottom_toBottomOf="@id/fragment_diary_write_pay_et"
+                app:layout_constraintLeft_toLeftOf="@id/fragment_diary_write_pay_et"
+                app:layout_constraintTop_toTopOf="@+id/fragment_diary_write_pay_et" />
+
+            <ImageView
+                android:id="@+id/fragment_diary_write_divider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_plan_divider"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_pay_et" />
+
+            <TextView
+                android:id="@+id/fragment_diary_write_picture_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/notosans"
+                android:text="사진 추가"
+                android:textColor="#3F3F45"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="@id/fragment_diary_write_pay_tv"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_divider" />
+
+            <ImageView
+                android:id="@+id/fragment_diary_write_picture_container"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                app:layout_constraintLeft_toLeftOf="@id/fragment_diary_write_picture_text"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_picture_text"
+                app:srcCompat="@drawable/ic_diary_imagecontainer" />
+
+            <ImageView
+                android:id="@+id/fragment_diary_write_picture_plus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_diary_write_picture_container"
+                app:layout_constraintLeft_toLeftOf="@+id/fragment_diary_write_picture_container"
+                app:layout_constraintRight_toRightOf="@+id/fragment_diary_write_picture_container"
+                app:layout_constraintTop_toTopOf="@id/fragment_diary_write_picture_container"
+                app:srcCompat="@drawable/ic_diary_plus"/>
+
+            <ImageView
+                android:id="@+id/fragment_diary_write_picture_container2"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="4dp"
+                app:layout_constraintLeft_toRightOf="@id/fragment_diary_write_picture_container"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_picture_text"
+                app:srcCompat="@drawable/ic_diary_imagecontainer"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/fragment_diary_write_picture_container3"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="4dp"
+                app:layout_constraintLeft_toRightOf="@id/fragment_diary_write_picture_container2"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_picture_text"
+                app:srcCompat="@drawable/ic_diary_imagecontainer"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/fragment_diary_write_picture_container4"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintLeft_toLeftOf="@id/fragment_diary_write_picture_container"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_picture_container"
+                app:srcCompat="@drawable/ic_diary_imagecontainer"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/fragment_diary_write_picture_container5"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintLeft_toRightOf="@id/fragment_diary_write_picture_container4"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_picture_container2"
+                app:srcCompat="@drawable/ic_diary_imagecontainer"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/fragment_diary_write_picture_container6"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintLeft_toRightOf="@id/fragment_diary_write_picture_container5"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_picture_container3"
+                app:srcCompat="@drawable/ic_diary_imagecontainer"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/fragment_diary_write_picture_plus2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_diary_write_picture_container2"
+                app:layout_constraintLeft_toLeftOf="@+id/fragment_diary_write_picture_container2"
+                app:layout_constraintRight_toRightOf="@+id/fragment_diary_write_picture_container2"
+                app:layout_constraintTop_toTopOf="@id/fragment_diary_write_picture_container2"
+                app:srcCompat="@drawable/ic_diary_plus"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/fragment_diary_write_picture_plus3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_diary_write_picture_container3"
+                app:layout_constraintLeft_toLeftOf="@+id/fragment_diary_write_picture_container3"
+                app:layout_constraintRight_toRightOf="@+id/fragment_diary_write_picture_container3"
+                app:layout_constraintTop_toTopOf="@id/fragment_diary_write_picture_container3"
+                app:srcCompat="@drawable/ic_diary_plus"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/fragment_diary_write_picture_plus4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_diary_write_picture_container4"
+                app:layout_constraintLeft_toLeftOf="@+id/fragment_diary_write_picture_container4"
+                app:layout_constraintRight_toRightOf="@+id/fragment_diary_write_picture_container4"
+                app:layout_constraintTop_toTopOf="@id/fragment_diary_write_picture_container4"
+                app:srcCompat="@drawable/ic_diary_plus"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/fragment_diary_write_picture_plus5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_diary_write_picture_container5"
+                app:layout_constraintLeft_toLeftOf="@+id/fragment_diary_write_picture_container5"
+                app:layout_constraintRight_toRightOf="@+id/fragment_diary_write_picture_container5"
+                app:layout_constraintTop_toTopOf="@id/fragment_diary_write_picture_container5"
+                app:srcCompat="@drawable/ic_diary_plus"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/fragment_diary_write_picture_plus6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_diary_write_picture_container6"
+                app:layout_constraintLeft_toLeftOf="@+id/fragment_diary_write_picture_container6"
+                app:layout_constraintRight_toRightOf="@+id/fragment_diary_write_picture_container6"
+                app:layout_constraintTop_toTopOf="@id/fragment_diary_write_picture_container6"
+                app:srcCompat="@drawable/ic_diary_plus"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/fragment_diary_write_divider2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="110dp"
+                android:src="@drawable/ic_plan_divider"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_picture_container" />
+
+            <EditText
+                android:id="@+id/fragment_diary_write_title_edittext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="24dp"
+                android:ems="30"
+                android:fontFamily="@font/notosans"
+                android:inputType="textPersonName"
+                android:text="여행 제목"
+                android:textColor="#6E6E76"
+                android:textSize="16sp"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_divider2" />
+
+            <EditText
+                android:id="@+id/fragment_diary_content_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="24dp"
+                android:background="@drawable/plan_write_text"
+                android:fontFamily="@font/notosans"
+                android:gravity="start"
+                android:hint="Test"
+                android:inputType="textMultiLine"
+                android:lines="15"
+                android:paddingVertical="3dp"
+                android:paddingLeft="24dp"
+                android:scrollbars="vertical"
+                android:textColorHint="@color/join_text_gray_color"
+                android:overScrollMode="always"
+                android:scrollbarStyle="insideInset"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_title_edittext"
+                android:textSize="14sp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:id="@+id/fragment_diary_write_low_v"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/fragment_diary_write_save_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="35dp"
+        android:background="@drawable/certification_requ"
+        android:enabled="false"
+        android:fontFamily="@font/notosans"
+        android:text="저장하기"
+        android:textColor="#6E6E76"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/fragment_diary_write_low_v"
+        app:layout_constraintTop_toTopOf="@id/fragment_diary_write_low_v"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
