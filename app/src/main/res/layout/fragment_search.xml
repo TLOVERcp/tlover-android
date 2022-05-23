@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.cookandroid.teamproject1.SearchFragment"
+    tools:context="com.cookandroid.teamproject1.search.view.SearchFragment"
     android:id="@+id/searchFragment"
     android:background="@color/tlover_background_color">
 

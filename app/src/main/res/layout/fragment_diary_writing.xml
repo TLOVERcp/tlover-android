@@ -45,7 +45,8 @@
         android:id="@+id/fragment_diary_write_sv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_diary_write_high_v">
+        app:layout_constraintTop_toBottomOf="@+id/fragment_diary_write_high_v"
+        tools:layout_editor_absoluteX="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -100,14 +101,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="12dp"
                 android:fontFamily="@font/notosans"
                 android:text="날짜"
                 android:textColor="#3F3F45"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_high_v" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/fragment_diary_write_location_tv"
@@ -231,37 +230,37 @@
                 app:layout_constraintLeft_toLeftOf="@+id/fragment_diary_write_picture_container"
                 app:layout_constraintRight_toRightOf="@+id/fragment_diary_write_picture_container"
                 app:layout_constraintTop_toTopOf="@id/fragment_diary_write_picture_container"
-                app:srcCompat="@drawable/ic_diary_plus"/>
+                app:srcCompat="@drawable/ic_diary_plus" />
 
             <ImageView
                 android:id="@+id/fragment_diary_write_picture_container2"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_marginLeft="4dp"
+                android:visibility="gone"
                 app:layout_constraintLeft_toRightOf="@id/fragment_diary_write_picture_container"
                 app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_picture_text"
-                app:srcCompat="@drawable/ic_diary_imagecontainer"
-                android:visibility="gone"/>
+                app:srcCompat="@drawable/ic_diary_imagecontainer" />
 
             <ImageView
                 android:id="@+id/fragment_diary_write_picture_container3"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_marginLeft="4dp"
+                android:visibility="gone"
                 app:layout_constraintLeft_toRightOf="@id/fragment_diary_write_picture_container2"
                 app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_picture_text"
-                app:srcCompat="@drawable/ic_diary_imagecontainer"
-                android:visibility="gone"/>
+                app:srcCompat="@drawable/ic_diary_imagecontainer" />
 
             <ImageView
                 android:id="@+id/fragment_diary_write_picture_container4"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_marginTop="4dp"
+                android:visibility="gone"
                 app:layout_constraintLeft_toLeftOf="@id/fragment_diary_write_picture_container"
                 app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_picture_container"
-                app:srcCompat="@drawable/ic_diary_imagecontainer"
-                android:visibility="gone"/>
+                app:srcCompat="@drawable/ic_diary_imagecontainer" />
 
             <ImageView
                 android:id="@+id/fragment_diary_write_picture_container5"
@@ -269,10 +268,10 @@
                 android:layout_height="90dp"
                 android:layout_marginLeft="4dp"
                 android:layout_marginTop="4dp"
+                android:visibility="gone"
                 app:layout_constraintLeft_toRightOf="@id/fragment_diary_write_picture_container4"
                 app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_picture_container2"
-                app:srcCompat="@drawable/ic_diary_imagecontainer"
-                android:visibility="gone"/>
+                app:srcCompat="@drawable/ic_diary_imagecontainer" />
 
             <ImageView
                 android:id="@+id/fragment_diary_write_picture_container6"
@@ -280,70 +279,70 @@
                 android:layout_height="90dp"
                 android:layout_marginLeft="4dp"
                 android:layout_marginTop="4dp"
+                android:visibility="gone"
                 app:layout_constraintLeft_toRightOf="@id/fragment_diary_write_picture_container5"
                 app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_picture_container3"
-                app:srcCompat="@drawable/ic_diary_imagecontainer"
-                android:visibility="gone"/>
+                app:srcCompat="@drawable/ic_diary_imagecontainer" />
 
             <ImageView
                 android:id="@+id/fragment_diary_write_picture_plus2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/fragment_diary_write_picture_container2"
                 app:layout_constraintLeft_toLeftOf="@+id/fragment_diary_write_picture_container2"
                 app:layout_constraintRight_toRightOf="@+id/fragment_diary_write_picture_container2"
                 app:layout_constraintTop_toTopOf="@id/fragment_diary_write_picture_container2"
-                app:srcCompat="@drawable/ic_diary_plus"
-                android:visibility="gone"/>
+                app:srcCompat="@drawable/ic_diary_plus" />
 
             <ImageView
                 android:id="@+id/fragment_diary_write_picture_plus3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/fragment_diary_write_picture_container3"
                 app:layout_constraintLeft_toLeftOf="@+id/fragment_diary_write_picture_container3"
                 app:layout_constraintRight_toRightOf="@+id/fragment_diary_write_picture_container3"
                 app:layout_constraintTop_toTopOf="@id/fragment_diary_write_picture_container3"
-                app:srcCompat="@drawable/ic_diary_plus"
-                android:visibility="gone"/>
+                app:srcCompat="@drawable/ic_diary_plus" />
 
             <ImageView
                 android:id="@+id/fragment_diary_write_picture_plus4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/fragment_diary_write_picture_container4"
                 app:layout_constraintLeft_toLeftOf="@+id/fragment_diary_write_picture_container4"
                 app:layout_constraintRight_toRightOf="@+id/fragment_diary_write_picture_container4"
                 app:layout_constraintTop_toTopOf="@id/fragment_diary_write_picture_container4"
-                app:srcCompat="@drawable/ic_diary_plus"
-                android:visibility="gone"/>
+                app:srcCompat="@drawable/ic_diary_plus" />
 
             <ImageView
                 android:id="@+id/fragment_diary_write_picture_plus5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/fragment_diary_write_picture_container5"
                 app:layout_constraintLeft_toLeftOf="@+id/fragment_diary_write_picture_container5"
                 app:layout_constraintRight_toRightOf="@+id/fragment_diary_write_picture_container5"
                 app:layout_constraintTop_toTopOf="@id/fragment_diary_write_picture_container5"
-                app:srcCompat="@drawable/ic_diary_plus"
-                android:visibility="gone"/>
+                app:srcCompat="@drawable/ic_diary_plus" />
 
             <ImageView
                 android:id="@+id/fragment_diary_write_picture_plus6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/fragment_diary_write_picture_container6"
                 app:layout_constraintLeft_toLeftOf="@+id/fragment_diary_write_picture_container6"
                 app:layout_constraintRight_toRightOf="@+id/fragment_diary_write_picture_container6"
                 app:layout_constraintTop_toTopOf="@id/fragment_diary_write_picture_container6"
-                app:srcCompat="@drawable/ic_diary_plus"
-                android:visibility="gone"/>
+                app:srcCompat="@drawable/ic_diary_plus" />
 
             <ImageView
                 android:id="@+id/fragment_diary_write_divider2"
@@ -386,14 +385,14 @@
                 android:hint="Test"
                 android:inputType="textMultiLine"
                 android:lines="15"
+                android:overScrollMode="always"
                 android:paddingVertical="3dp"
                 android:paddingLeft="24dp"
+                android:scrollbarStyle="insideInset"
                 android:scrollbars="vertical"
                 android:textColorHint="@color/join_text_gray_color"
-                android:overScrollMode="always"
-                android:scrollbarStyle="insideInset"
-                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_title_edittext"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_title_edittext" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

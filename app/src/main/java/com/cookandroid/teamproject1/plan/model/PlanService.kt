@@ -11,6 +11,7 @@ import retrofit2.http.*
  * +계획 권한 공유 요청 보내기 api 연동 : 윤성식
  * +계획 권한 요청 받은 목록 조회 api 연동 : 윤성식
  * +계획 권환 요청 수락 api 연동 : 윤성식
+ * +계획 권한 요청 거절 api 연동 : 윤성식
  */
 
 interface PlanService {
@@ -63,5 +64,11 @@ interface PlanService {
         @Path("authorityPlanId") authorityPlanId : Int
     ) : Call<ResponseAcceptAuthData>
 
-    //계획 권한 요청 거절 api 연동 예정
+    //계획 권한 요청 거절
+    @POST("/api/v1/authority-plans/reject-authority-plan/{authorityPlanId}")
+    fun rejectPlanAuth(
+        @Header("X-ACCESS-TOKEN") jwt: String,
+        @Header("X-REFRESH-TOKEN") refreshToken: Int,
+        @Path("authorityPlanId") authorityPlanId : Int
+    ) : Call<ResponseAcceptAuthData> //계획 수락 api랑 동일한 Response사용
 }

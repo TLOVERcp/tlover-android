@@ -43,10 +43,10 @@ class DiaryWritingFragment : Fragment() {
 
             val datePickerDialog = DatePickerDialog(requireActivity(),
                 R.style.DatePickerTheme,DatePickerDialog.OnDateSetListener { view, myear, month, mdayOfMonth ->
-                val mmonth2 = month+1
-                mBinding?.fragmentDiaryWriteDateEt?.setText(""+ mdayOfMonth +"/"+ mmonth2+ "/"+ myear)
-                mBinding?.fragmentDiaryWriteDateEt?.setTextColor(Color.BLACK)
-            }, year, month, day)
+                    val mmonth2 = month+1
+                    mBinding?.fragmentDiaryWriteDateEt?.setText(""+ mdayOfMonth +"/"+ mmonth2+ "/"+ myear)
+                    mBinding?.fragmentDiaryWriteDateEt?.setTextColor(Color.BLACK)
+                }, year, month, day)
 
             datePickerDialog.show()
         }
@@ -163,5 +163,4 @@ class DiaryWritingFragment : Fragment() {
 
         }
     }
-    }
-
+}
