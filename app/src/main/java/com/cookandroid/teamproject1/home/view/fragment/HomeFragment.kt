@@ -11,12 +11,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.FragmentHomeBinding
-import com.cookandroid.teamproject1.home.model.HomeDataModel
-import com.cookandroid.teamproject1.home.model.HomeHotRecommendDataModel
-import com.cookandroid.teamproject1.home.model.ResponseAllDiaryData
-import com.cookandroid.teamproject1.home.model.ResponseHotDiaryData
+import com.cookandroid.teamproject1.home.model.*
 import com.cookandroid.teamproject1.home.view.adapter.HomeHotRecommendRVAdapter
 import com.cookandroid.teamproject1.home.view.adapter.HomeRVAdapter
+import com.cookandroid.teamproject1.home.view.adapter.HomeWeatherRVAdapter
 import com.cookandroid.teamproject1.util.ServiceCreator
 import com.cookandroid.teamproject1.util.TloverApplication
 import retrofit2.Call
@@ -31,6 +29,7 @@ class HomeFragment : Fragment(){
 
     private var homeRVAdapter = HomeRVAdapter()
     private var homeHotRecommendRVAdapter = HomeHotRecommendRVAdapter()
+    private var homeWeatherRVAdapter = HomeWeatherRVAdapter()
 
     override fun onCreateView(
 
@@ -129,6 +128,40 @@ class HomeFragment : Fragment(){
                 TODO("Not yet implemented")
             }
         })
+        /**
+         * 날씨 추천 다이어리 api 연동
+         * 0524
+         * 작성자 : 윤성식
+         */
+        mBinding?.fragmentHomeTitleWeatherRv?.adapter = homeWeatherRVAdapter
+
+        val callWeather: Call<ResponseWeatherDiaryData> = ServiceCreator.homeDiaryService.getWeatherDiary(
+            TloverApplication.prefs.getString("jwt", "null"),
+            TloverApplication.prefs.getString("refreshToken", "null").toInt()
+        )
+
+        callWeather.enqueue(object: Callback<ResponseWeatherDiaryData>{
+            override fun onResponse(
+                call: Call<ResponseWeatherDiaryData>,
+                response: Response<ResponseWeatherDiaryData>
+            ) {
+                if(response.code() == 200){
+                    Log.e("reponse", "200!!")
+                    val body = response.body()
+                    if(body != null){
+                        Log.e("response", "notNull")
+                        val data = body.data
+//                        println(data)
+                        homeWeatherRVAdapter.weatherDiaryList = data
+                    }
+                    homeWeatherRVAdapter.notifyDataSetChanged()
+                }
+            }
+            override fun onFailure(call: Call<ResponseWeatherDiaryData>, t: Throwable) {
+                Log.e("response", "fail")
+            }
+        })
+
 
 //        mBinding?.fragmentHomeTitleSameRv?.layoutManager = GridLayoutManager(context, 3) testtest
         //test commit
@@ -136,6 +169,7 @@ class HomeFragment : Fragment(){
 //        val homeRVAdapter = HomeRVAdapter(dataList)
 //        binding.fragmentHomeTitleRandomRv.adapter = homeRVAdapter
         binding.fragmentHomeTitleRandomRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        mBinding?.fragmentHomeTitleWeatherRv?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
 
 
 //        binding.fragmentHomeTitleSameRv.adapter = homeHotRecommendRVAdapter

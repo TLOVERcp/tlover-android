@@ -22,4 +22,10 @@ interface HomeDiaryService {
         @Header("X-ACCESS-TOKEN") jwt: String,
         @Header("X-REFRESH-TOKEN") refreshToken: Int
     ): Call<ResponseHotDiaryData>
+
+    @GET("/api/v1/diaries/get-diary-weather")
+    fun getWeatherDiary(
+        @Header("X-ACCESS-TOKEN") jwt: String,
+        @Header("X-REFRESH-TOKEN") refreshToken: Int
+    ): Call<ResponseWeatherDiaryData>
 }

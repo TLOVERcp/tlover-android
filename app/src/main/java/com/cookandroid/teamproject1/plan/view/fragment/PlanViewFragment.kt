@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
@@ -14,6 +15,7 @@ import com.cookandroid.teamproject1.databinding.FragmentPlanViewBinding
 import com.cookandroid.teamproject1.id.viewmodel.SignUpViewModel.Companion.TAG
 import com.cookandroid.teamproject1.plan.model.ResponseDiaryPlanData
 import com.cookandroid.teamproject1.plan.model.ResponsePlanViewData
+import com.cookandroid.teamproject1.plan.model.ResponsePlanWriteData
 import com.cookandroid.teamproject1.util.ServiceCreator
 import com.cookandroid.teamproject1.util.TloverApplication
 import retrofit2.Call
@@ -80,5 +82,37 @@ class PlanViewFragment : Fragment(){
                 Log.d(TAG, "onFailure: $t")
             }
         })
+
+        /**
+         * 0524 계획 삭제 api 연동
+         * 작성자 : 윤성식
+         */
+        mBinding?.fragmentPlanViewDeleteIv?.setOnClickListener{
+            val call: Call<ResponsePlanWriteData> = ServiceCreator.planService.deletePlan(
+                TloverApplication.prefs.getString("jwt", "null"),
+                TloverApplication.prefs.getString("refreshToken", "null").toInt(),
+                planId.toInt()
+            )
+
+            call.enqueue(object: Callback<ResponsePlanWriteData> {
+                override fun onResponse(
+                    call: Call<ResponsePlanWriteData>,
+                    response: Response<ResponsePlanWriteData>
+                ) {
+                    if(response.code() == 200){
+                        Log.e("reponse", "200!!~~~")
+                        Toast.makeText(requireActivity(), "삭제되었습니다.", Toast.LENGTH_SHORT).show()
+                    }
+                    else if(response.code() == 403){
+                        Toast.makeText(requireActivity(), "해당 계획에 삭제 권한이 없는 유저입니다.", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponsePlanWriteData>, t: Throwable) {
+                    Log.d(TAG, "onFailure: $t")
+                }
+            })
+            it.findNavController().navigate(R.id.action_planViewFragment_to_diaryFragment)
+        }
     }
 }
