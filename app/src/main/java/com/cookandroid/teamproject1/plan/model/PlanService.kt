@@ -71,4 +71,15 @@ interface PlanService {
         @Header("X-REFRESH-TOKEN") refreshToken: Int,
         @Path("authorityPlanId") authorityPlanId : Int
     ) : Call<ResponseAcceptAuthData> //계획 수락 api랑 동일한 Response사용
+    //계획 권한 요청 거절 api 연동 예정
+
+
+    // 계획 작성 api 연동
+    @POST("/api/v1/plans/create-plan")
+    fun postPlanWrite(
+        @Header("X-ACCESS-TOKEN") jwt: String,
+        @Header("X-REFRESH-TOKEN") refreshToken: Int,
+        @Body body : RequestPlanWriteData
+    ) : Call<ResponsePlanWriteData>
+
 }
