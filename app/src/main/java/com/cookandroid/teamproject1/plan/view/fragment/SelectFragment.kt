@@ -2,21 +2,16 @@ package com.cookandroid.teamproject1.plan.view.fragment
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.os.bundleOf
-import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.setFragmentResult
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.FragmentSelectBinding
-import com.cookandroid.teamproject1.id.viewmodel.SignUpViewModel
-import com.cookandroid.teamproject1.plan.view.viewmodel.SelectViewModel
+import com.cookandroid.teamproject1.plan.viewmodel.SelectViewModel
 
 class SelectFragment : Fragment() {
 

@@ -11,22 +11,17 @@ import com.cookandroid.teamproject1.databinding.FragmentPlanWriteBinding
 import android.app.DatePickerDialog
 import android.graphics.Color
 import android.os.Build
-import android.view.Gravity
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.setFragmentResultListener
 import com.cookandroid.teamproject1.plan.model.RequestPlanWriteData
 import com.cookandroid.teamproject1.plan.model.ResponsePlanWriteData
-import com.cookandroid.teamproject1.plan.view.viewmodel.SelectViewModel
+import com.cookandroid.teamproject1.plan.viewmodel.SelectViewModel
 import com.cookandroid.teamproject1.util.ServiceCreator
 import com.cookandroid.teamproject1.util.TloverApplication
-import kotlinx.coroutines.NonDisposableHandle.parent
 import java.util.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 
 
 /**

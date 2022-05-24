@@ -1,4 +1,4 @@
-package com.cookandroid.teamproject1.plan.view.viewmodel
+package com.cookandroid.teamproject1.plan.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
