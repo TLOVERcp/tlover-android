@@ -52,6 +52,16 @@
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment
+        android:id="@+id/selectFragment"
+        android:name="com.cookandroid.teamproject1.plan.view.fragment.SelectFragment"
+        android:label="fragment_select"
+        tools:layout="@layout/fragment_select" >
+        <action
+            android:id="@+id/action_selectFragment_to_planWriteFragment"
+            app:destination="@id/planWriteFragment" />
+    </fragment>
+
+    <fragment
         android:id="@+id/diaryViewFragment"
         android:name="com.cookandroid.teamproject1.diary.view.fragment.DiaryViewFragment"
         android:label="fragment_diary_view"
@@ -65,7 +75,8 @@
         android:id="@+id/planViewFragment"
         android:name="com.cookandroid.teamproject1.plan.view.fragment.PlanViewFragment"
         android:label="fragment_plan_view"
-        tools:layout="@layout/fragment_plan_view" >
+        tools:layout="@layout/fragment_plan_view">
+
         <argument
             android:name="planId"
             app:argType="long"/>
@@ -103,5 +114,6 @@
             android:id="@+id/action_planAuthListFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+
 
 </navigation>
