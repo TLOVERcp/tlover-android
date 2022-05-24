@@ -47,6 +47,7 @@ class DiaryFragment : Fragment() {
         //새로운 게획 작성 버튼을 클릭할 때 planWriteFragment로 이동
         mBinding?.fragmentPlanNewWriteB?.setOnClickListener(){
             it.findNavController().navigate(R.id.action_diaryFragment_to_planWriteFragment)
+//            it.findNavController().navigate(R.id.action_diaryFragment_to_diaryWritingFragment)
         }
         super.onViewCreated(view, savedInstanceState)
     }

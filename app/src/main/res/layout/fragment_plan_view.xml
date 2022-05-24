@@ -254,14 +254,16 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="35dp"
             android:background="@drawable/certification_requ"
-            android:enabled="false"
+            android:enabled="true"
             android:fontFamily="@font/notosans"
             android:text="일기 작성하기"
             android:textColor="#6E6E76"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/fragment_plan_view_low_v"
             app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v"
+            android:clickable="true"
             />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -149,7 +149,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/fragment_home_title_random_rv"
                 android:layout_width="match_parent"
-                android:layout_height="133dp"
+                android:layout_height="188dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:orientation="horizontal"

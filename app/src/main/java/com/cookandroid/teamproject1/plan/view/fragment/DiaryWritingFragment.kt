@@ -43,53 +43,41 @@ class DiaryWritingFragment : Fragment() {
 
             val datePickerDialog = DatePickerDialog(requireActivity(),
                 R.style.DatePickerTheme,DatePickerDialog.OnDateSetListener { view, myear, month, mdayOfMonth ->
-                    val mmonth2 = month+1
-                    mBinding?.fragmentDiaryWriteDateEt?.setText(""+ mdayOfMonth +"/"+ mmonth2+ "/"+ myear)
-                    mBinding?.fragmentDiaryWriteDateEt?.setTextColor(Color.BLACK)
-                }, year, month, day)
+                val mmonth2 = month+1
+                mBinding?.fragmentDiaryWriteDateEt?.setText(""+ mdayOfMonth +"/"+ mmonth2+ "/"+ myear)
+                mBinding?.fragmentDiaryWriteDateEt?.setTextColor(Color.BLACK)
+            }, year, month, day)
 
             datePickerDialog.show()
         }
 
         mBinding?.fragmentDiaryWritePicturePlus?.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
-            startActivityForResult(intent,requestGetImage)
+            getPicture()
             selectPicNum=1
         }
 
         mBinding?.fragmentDiaryWritePicturePlus2?.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
-            startActivityForResult(intent,requestGetImage)
+            getPicture()
             selectPicNum=2
         }
 
         mBinding?.fragmentDiaryWritePicturePlus3?.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
-            startActivityForResult(intent,requestGetImage)
+            getPicture()
             selectPicNum=3
         }
 
         mBinding?.fragmentDiaryWritePicturePlus4?.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
-            startActivityForResult(intent,requestGetImage)
+            getPicture()
             selectPicNum=4
         }
 
         mBinding?.fragmentDiaryWritePicturePlus5?.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
-            startActivityForResult(intent,requestGetImage)
+            getPicture()
             selectPicNum=5
         }
 
         mBinding?.fragmentDiaryWritePicturePlus6?.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
-            startActivityForResult(intent,requestGetImage)
+            getPicture()
             selectPicNum=6
         }
 
@@ -163,4 +151,11 @@ class DiaryWritingFragment : Fragment() {
 
         }
     }
-}
+
+    private fun getPicture() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent,requestGetImage)
+    }
+    }
+

@@ -1,4 +1,5 @@
 package com.cookandroid.teamproject1.plan.view.fragment
+import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import android.text.TextWatcher
@@ -10,11 +11,13 @@ import androidx.navigation.findNavController
 import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.FragmentPlanWriteBinding
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 import com.google.android.material.datepicker.MaterialDatePicker
-
+import kotlinx.coroutines.selects.select
+import java.lang.Exception
 
 
 /**
@@ -23,6 +26,9 @@ import com.google.android.material.datepicker.MaterialDatePicker
 class PlanWriteFragment : Fragment(){
     private var mBinding: FragmentPlanWriteBinding?=null
     private var inputText = ""
+    val requestGetImage = 105
+    var picCount = 0
+    var selectPicNum = 1
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,7 +54,7 @@ class PlanWriteFragment : Fragment(){
             val month = cal.get(Calendar.MONTH)
             val day = cal.get(Calendar.DAY_OF_MONTH)
 
-            val datePickerDialog = DatePickerDialog(requireActivity(),DatePickerDialog.OnDateSetListener { view, myear, month, mdayOfMonth ->
+            val datePickerDialog = DatePickerDialog(requireActivity(),R.style.DatePickerTheme,DatePickerDialog.OnDateSetListener { view, myear, month, mdayOfMonth ->
                 val mmonth2 = month+1
                 mBinding?.fragmentPlanWriteDateEt?.setText(""+ mdayOfMonth +"/"+ mmonth2+ "/"+ myear)
                 mBinding?.fragmentPlanWriteDateEt?.setTextColor(Color.BLACK)
@@ -63,12 +69,15 @@ class PlanWriteFragment : Fragment(){
             val month = cal.get(Calendar.MONTH)
             val day = cal.get(Calendar.DAY_OF_MONTH)
 
-            val datePickerDialog = DatePickerDialog(requireActivity(), DatePickerDialog.OnDateSetListener { view, myear, month, mdayOfMonth ->
+            val datePickerDialog = DatePickerDialog(requireActivity(),R.style.DatePickerTheme,DatePickerDialog.OnDateSetListener { view, myear, month, mdayOfMonth ->
                 val mmonth2 = month+1
                 mBinding?.fragmentPlanWriteEndDateEt?.setText(""+ mdayOfMonth +"/"+ mmonth2+ "/"+ myear)
                 mBinding?.fragmentPlanWriteEndDateEt?.setTextColor(Color.BLACK)
             }, year, month, day)
             datePickerDialog.show()
         }
+
     }
+
+
 }
