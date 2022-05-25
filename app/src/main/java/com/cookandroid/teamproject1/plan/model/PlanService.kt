@@ -88,4 +88,5 @@ interface PlanService {
         @Header("X-REFRESH-TOKEN") refreshToken: Int,
         @Path("planId") planId : Int
     ) : Call<ResponsePlanWriteData> //계획 작성 api랑 동일한 Response를 사용
+
 }

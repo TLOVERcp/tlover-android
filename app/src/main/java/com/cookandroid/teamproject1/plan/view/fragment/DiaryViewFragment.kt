@@ -36,7 +36,28 @@ class DiaryViewFragment : Fragment() {
         val diaryId = args.diaryId
         Log.d(SignUpViewModel.TAG, "onViewCreated: $diaryId")
 
+        val call:Call<ResponseDiaryViewData> = ServiceCreator.planService.getDiaryView(
+            TloverApplication.prefs.getString("jwt", "null"),
+            TloverApplication.prefs.getString("refreshToken", "null").toInt(),
+            diaryId.toInt()
+        )
 
+        call.enqueue(object: Callback<ResponseDiaryViewData>{
+            override fun onResponse(
+                call: Call<ResponseDiaryViewData>,
+                response: Response<ResponseDiaryViewData>
+            ) {
+                if(response.code() == 200){
+                    Log.e("reponse", "200")
+                    mBinding?.diaryDetailView = response.body()?.data
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseDiaryViewData>, t: Throwable) {
+                Log.d(SignUpViewModel.TAG, "onFailure: $t")
+            }
+
+        })
 
 
     }

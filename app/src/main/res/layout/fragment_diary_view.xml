@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="diaryDetailView"
+            type="com.cookandroid.teamproject1.plan.model.ResponseDiaryViewData.Result"/>
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/tlover_background_color"
-    tools:context=".diary.view.fragment.DiaryViewFragment"
+    tools:context="com.cookandroid.teamproject1.plan.view.fragment.DiaryViewFragment"
     >
 
     <View
@@ -70,7 +78,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/notosans"
-                android:text="💚제목제목❤"
+                android:text=""
                 android:textColor="#1D1D20"
                 android:textFontWeight="700"
                 android:textSize="22sp"
@@ -95,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:fontFamily="@font/notosans"
-                android:text="2022.05.06."
+                android:text=""
                 android:textColor="#52525A"
                 android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@+id/fragment_plan_view_date_tv"
@@ -120,7 +128,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:fontFamily="@font/notosans"
-                android:text="속초"
+                android:text=""
                 android:textColor="#52525A"
                 android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@+id/fragment_plan_view_region_tv"
@@ -191,7 +199,7 @@
                 android:paddingVertical="3dp"
                 android:paddingLeft="24dp"
                 android:scrollbars="vertical"
-                android:text="꺄아아아아아아악"
+                android:text=""
                 android:textColor="#1D1D20"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -279,3 +287,4 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
+</layout>
