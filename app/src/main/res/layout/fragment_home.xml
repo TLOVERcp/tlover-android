@@ -149,7 +149,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/fragment_home_title_random_rv"
                 android:layout_width="match_parent"
-                android:layout_height="133dp"
+                android:layout_height="188dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:orientation="horizontal"
@@ -178,7 +178,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
                     android:fontFamily="@font/notosans"
-                    android:text="지금 핫한 여행지"
+                    android:text="지금 핫한 여행지 ❤ ️‍🔥‍"
                     android:textColor="#2E2E33"
                     android:textSize="16sp"
                     app:layout_constraintLeft_toLeftOf="@id/fragment_home_tlover_tv"
@@ -228,7 +228,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/notosans"
-                    android:text="지금 핫한 여행지 ❤️‍🔥"
+                    android:text="지금 날씨에 가보면 좋을 곳들"
                     android:textColor="#2E2E33"
                     android:textSize="16sp"
                     app:layout_constraintLeft_toLeftOf="@id/fragment_home_tlover_tv"
@@ -250,7 +250,7 @@
 
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/fragment_home_title_hot_rv"
+                android:id="@+id/fragment_home_title_weather_rv"
                 android:layout_width="match_parent"
                 android:layout_height="133dp"
                 android:layout_marginStart="16dp"

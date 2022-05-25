@@ -40,10 +40,13 @@
         <action
             android:id="@+id/action_diaryFragment_to_planViewFragment"
             app:destination="@id/planViewFragment" />
+        <action
+            android:id="@+id/action_diaryFragment_to_diaryWritingFragment"
+            app:destination="@id/diaryWritingFragment" />
     </fragment>
     <fragment
         android:id="@+id/myInfoFragment"
-        android:name="com.cookandroid.teamproject1.MyInfoFragment"
+        android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoFragment"
         android:label="fragment_my_info"
         tools:layout="@layout/fragment_my_info" />
     <fragment
@@ -55,6 +58,16 @@
             android:id="@+id/action_planWriteFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/selectFragment"
+        android:name="com.cookandroid.teamproject1.plan.view.fragment.SelectFragment"
+        android:label="fragment_select"
+        tools:layout="@layout/fragment_select" >
+        <action
+            android:id="@+id/action_selectFragment_to_planWriteFragment"
+            app:destination="@id/planWriteFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/diaryViewFragment"
         android:name="com.cookandroid.teamproject1.diary.view.fragment.DiaryViewFragment"
@@ -69,7 +82,8 @@
         android:id="@+id/planViewFragment"
         android:name="com.cookandroid.teamproject1.plan.view.fragment.PlanViewFragment"
         android:label="fragment_plan_view"
-        tools:layout="@layout/fragment_plan_view" >
+        tools:layout="@layout/fragment_plan_view">
+
         <argument
             android:name="planId"
             app:argType="long"/>
@@ -79,6 +93,9 @@
         <action
             android:id="@+id/action_planViewFragment_to_planFriendInviteFragment"
             app:destination="@id/planFriendInviteFragment" />
+        <action
+            android:id="@+id/action_planViewFragment_to_diaryWritingFragment"
+            app:destination="@id/diaryWritingFragment" />
     </fragment>
 
     <fragment
@@ -107,5 +124,10 @@
             android:id="@+id/action_planAuthListFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/diaryWritingFragment"
+        android:name="com.cookandroid.teamproject1.plan.view.fragment.DiaryWritingFragment"
+        android:label="DiaryWritingFragment" />
+
 
 </navigation>

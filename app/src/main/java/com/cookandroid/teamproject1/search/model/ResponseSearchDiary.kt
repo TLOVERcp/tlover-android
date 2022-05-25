@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 /**
  * 검색 화면에서 다이어리 검색하였을 때 반환하는 데이터
+ * 작성자 : 윤성식
  */
 data class ResponseSearchDiary(
     val code: Int,
@@ -44,10 +45,10 @@ data class ResponseSearchDiary(
             val diaryWriteDate: String,
             @SerializedName("diaryEndDate")
             val diaryEndDate: String,
-            @SerializedName("diaryView")
-            val diaryView: String,
-//            @SerializedName("myFileKey")
-//            val myFileKey: String,
+            @SerializedName("diaryImg")
+            val diaryImg: String,
+            @SerializedName("totalCost")
+            val totalCost: Int,
             @SerializedName("themaNames")
             val themaNames: ArrayList<String>,
             @SerializedName("regionNames")

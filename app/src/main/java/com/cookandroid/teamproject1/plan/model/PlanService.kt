@@ -12,6 +12,8 @@ import retrofit2.http.*
  * +계획 권한 요청 받은 목록 조회 api 연동 : 윤성식
  * +계획 권환 요청 수락 api 연동 : 윤성식
  * +계획 권한 요청 거절 api 연동 : 윤성식
+ * +계획 작성 api 연동 : 원도혜
+ * +계획 삭제 api 연동 : 윤성식
  */
 
 interface PlanService {
@@ -71,4 +73,19 @@ interface PlanService {
         @Header("X-REFRESH-TOKEN") refreshToken: Int,
         @Path("authorityPlanId") authorityPlanId : Int
     ) : Call<ResponseAcceptAuthData> //계획 수락 api랑 동일한 Response사용
+
+    // 계획 작성 api 연동
+    @POST("/api/v1/plans/create-plan")
+    fun postPlanWrite(
+        @Header("X-ACCESS-TOKEN") jwt: String,
+        @Header("X-REFRESH-TOKEN") refreshToken: Int,
+        @Body body : RequestPlanWriteData
+    ) : Call<ResponsePlanWriteData>
+
+    @POST("/api/v1/plans/delete-plan/{planId}")
+    fun deletePlan(
+        @Header("X-ACCESS-TOKEN") jwt: String,
+        @Header("X-REFRESH-TOKEN") refreshToken: Int,
+        @Path("planId") planId : Int
+    ) : Call<ResponsePlanWriteData> //계획 작성 api랑 동일한 Response를 사용
 }

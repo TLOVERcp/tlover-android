@@ -1,6 +1,7 @@
 package com.cookandroid.teamproject1.util
 
 import android.util.Log
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.isGone
@@ -69,5 +70,13 @@ object BindingConversion {
     @BindingAdapter("getToString")
     fun getToString(textView: TextView, num: Int){
         textView.text = num.toString()
+    }
+
+    //다이어리 검색뷰에서 이미지 리사이징 구현
+    @JvmStatic
+    @BindingAdapter("loadSearchImg")
+    fun loadSearchImg(imageView: ImageView, url: String){
+        Glide.with(imageView.context).load("https://d1mwr8154tagzz.cloudfront.net/$url?w=107&h=144&qq=50")
+            .into(imageView)
     }
 }
