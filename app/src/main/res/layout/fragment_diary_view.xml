@@ -7,15 +7,15 @@
 
     <data>
         <variable
-            name="diaryDetailView"
-            type="com.cookandroid.teamproject1.plan.model.ResponseDiaryViewData.Result"/>
+            name="diaryViewList"
+            type="com.cookandroid.teamproject1.diary.model.ResponseDiaryViewData.Result"/>
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/tlover_background_color"
-    tools:context="com.cookandroid.teamproject1.plan.view.fragment.DiaryViewFragment"
+    tools:context="com.cookandroid.teamproject1.diary.view.fragment.DiaryViewFragment"
     >
 
     <View
@@ -78,7 +78,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/notosans"
-                android:text=""
+                android:text="@{diaryViewList.diaryTitle}"
                 android:textColor="#1D1D20"
                 android:textFontWeight="700"
                 android:textSize="22sp"
@@ -103,12 +103,35 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:fontFamily="@font/notosans"
-                android:text=""
+                android:text="@{diaryViewList.diaryStartDate}"
                 android:textColor="#52525A"
                 android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@+id/fragment_plan_view_date_tv"
                 app:layout_constraintTop_toBottomOf="@id/fragment_plan_title_tv" />
 
+            <TextView
+                android:id="@+id/fragment_plan_view_middle_date_v_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/notosans"
+                android:text="~"
+                android:textColor="#52525A"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/fragment_plan_view_start_date_v_tv"
+                app:layout_constraintTop_toBottomOf="@id/fragment_plan_title_tv" />
+
+            <TextView
+                android:id="@+id/fragment_plan_view_end_date_v_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/notosans"
+                android:text="@{diaryViewList.diaryEndDate}"
+                android:textColor="#52525A"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/fragment_plan_view_middle_date_v_tv"
+                app:layout_constraintTop_toBottomOf="@id/fragment_plan_title_tv" />
 
             <TextView
                 android:id="@+id/fragment_plan_view_region_tv"
@@ -128,7 +151,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:fontFamily="@font/notosans"
-                android:text=""
+                android:text="@{diaryViewList.regionDetail}"
                 android:textColor="#52525A"
                 android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@+id/fragment_plan_view_region_tv"
@@ -152,7 +175,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:fontFamily="@font/notosans"
-                android:text="50,000"
+                android:text="50000"
                 android:textColor="#52525A"
                 android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@+id/fragment_plan_view_money_tv"
@@ -199,7 +222,7 @@
                 android:paddingVertical="3dp"
                 android:paddingLeft="24dp"
                 android:scrollbars="vertical"
-                android:text=""
+                android:text="꺄아아아아아아악"
                 android:textColor="#1D1D20"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -286,5 +309,5 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
 </layout>
+

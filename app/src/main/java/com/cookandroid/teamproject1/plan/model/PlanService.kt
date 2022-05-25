@@ -82,6 +82,7 @@ interface PlanService {
         @Body body : RequestPlanWriteData
     ) : Call<ResponsePlanWriteData>
 
+    //계획 삭제
     @POST("/api/v1/plans/delete-plan/{planId}")
     fun deletePlan(
         @Header("X-ACCESS-TOKEN") jwt: String,
