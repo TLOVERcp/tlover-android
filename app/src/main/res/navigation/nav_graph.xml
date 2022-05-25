@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/myInfoFragment"
-        android:name="com.cookandroid.teamproject1.MyInfoFragment"
+        android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoFragment"
         android:label="fragment_my_info"
         tools:layout="@layout/fragment_my_info" />
     <fragment

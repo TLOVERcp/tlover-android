@@ -40,7 +40,7 @@ class DiaryFragment : Fragment() {
 //            iBinding?.checkBox?.visibility =View.VISIBLE
         }
 
-        return binding.root
+        return mBinding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

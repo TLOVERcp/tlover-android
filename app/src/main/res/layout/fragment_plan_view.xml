@@ -45,6 +45,7 @@
             android:text="여행 계획"
             android:textColor="#1D1D20"
             android:textFontWeight="700"
+            android:textSize="16sp"
             android:layout_marginLeft="35dp"
             app:layout_constraintLeft_toRightOf="@id/sign_uping_back_img"
             app:layout_constraintTop_toTopOf="parent" />
