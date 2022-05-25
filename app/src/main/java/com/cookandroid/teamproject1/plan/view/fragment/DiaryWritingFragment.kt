@@ -12,7 +12,9 @@ import android.graphics.Color
 import com.cookandroid.teamproject1.R
 import java.util.*
 import android.app.Activity
+import android.provider.MediaStore
 import androidx.core.content.ContextCompat
+import androidx.navigation.findNavController
 import java.lang.Exception
 import java.util.jar.Manifest
 
@@ -33,6 +35,10 @@ class DiaryWritingFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        mBinding?.signUpingBackImg?.setOnClickListener {
+
+        }
         mBinding?.fragmentDiaryWriteCalendarImg?.setOnClickListener {
 
 
@@ -156,6 +162,12 @@ class DiaryWritingFragment : Fragment() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent,requestGetImage)
+
+//        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+//        intent.type = "image/*"
+//        startActivityForResult(intent, OPEN_GALLERY)
+
     }
+
     }
 

@@ -39,4 +39,6 @@ object ServiceCreator {
     val planService : PlanService = retrofit.create(PlanService::class.java)
     val homeDiaryService : HomeDiaryService = retrofit.create(HomeDiaryService::class.java)
     val searchService : SearchService = retrofit.create(SearchService::class.java)
+
+
 }
