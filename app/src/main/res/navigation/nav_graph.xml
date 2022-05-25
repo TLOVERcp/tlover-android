@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.cookandroid.teamproject1.search.view.SearchFragment"
+        android:name="com.cookandroid.teamproject1.search.view.fragment.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action
@@ -127,7 +127,8 @@
     <fragment
         android:id="@+id/diaryWritingFragment"
         android:name="com.cookandroid.teamproject1.plan.view.fragment.DiaryWritingFragment"
-        android:label="DiaryWritingFragment" />
+        android:label="DiaryWritingFragment"
+        tools:layout="@layout/fragment_diary_writing"/>
 
 
 </navigation>

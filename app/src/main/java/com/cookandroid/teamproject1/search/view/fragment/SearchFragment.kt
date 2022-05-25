@@ -1,4 +1,4 @@
-package com.cookandroid.teamproject1.search.view
+package com.cookandroid.teamproject1.search.view.fragment
 
 import android.os.Bundle
 import android.util.Log
@@ -7,9 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.cookandroid.teamproject1.databinding.FragmentHomeBinding
 import com.cookandroid.teamproject1.databinding.FragmentSearchBinding
-import com.cookandroid.teamproject1.search.adapter.SearchRVAdapter
+import com.cookandroid.teamproject1.search.view.adapter.SearchRVAdapter
 import com.cookandroid.teamproject1.search.model.ResponseSearchDiary
 import com.cookandroid.teamproject1.util.ServiceCreator
 import com.cookandroid.teamproject1.util.TloverApplication

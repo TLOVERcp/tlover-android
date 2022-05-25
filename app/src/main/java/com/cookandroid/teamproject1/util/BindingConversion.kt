@@ -79,4 +79,12 @@ object BindingConversion {
         Glide.with(imageView.context).load("https://d1mwr8154tagzz.cloudfront.net/$url?w=107&h=144&qq=50")
             .into(imageView)
     }
+
+    //다이어리 상세조회 이미지 리사이징
+    @JvmStatic
+    @BindingAdapter("loadDetailImg")
+    fun loadDetailImg(imageView: ImageView, url: String){
+        Glide.with(imageView.context).load("https://d1mwr8154tagzz.cloudfront.net/$url?w=330&h=270&qq=50")
+            .into(imageView)
+    }
 }
