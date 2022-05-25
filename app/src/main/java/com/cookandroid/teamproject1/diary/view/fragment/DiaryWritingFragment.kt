@@ -12,7 +12,21 @@ import android.graphics.Color
 import com.cookandroid.teamproject1.R
 import java.util.*
 import android.app.Activity
+import android.util.Log
 import androidx.core.content.ContextCompat
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
+import com.cookandroid.teamproject1.diary.model.ResponseDiaryWriteData
+import com.cookandroid.teamproject1.id.viewmodel.SignUpViewModel
+import com.cookandroid.teamproject1.plan.model.ResponsePlanViewData
+import com.cookandroid.teamproject1.plan.model.ResponsePlanWriteData
+import com.cookandroid.teamproject1.plan.view.fragment.PlanFriendInviteFragmentDirections
+import com.cookandroid.teamproject1.plan.view.fragment.PlanViewFragmentArgs
+import com.cookandroid.teamproject1.util.ServiceCreator
+import com.cookandroid.teamproject1.util.TloverApplication
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.lang.Exception
 import java.util.jar.Manifest
 
@@ -21,6 +35,9 @@ class DiaryWritingFragment : Fragment() {
     val requestGetImage = 105
     var picCount = 0
     var selectPicNum = 1
+    // null 방지 사진은?
+    var isTitle : Boolean = false
+    var isContext : Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,26 +46,72 @@ class DiaryWritingFragment : Fragment() {
     ): View? {
         val binding = FragmentDiaryWritingBinding.inflate(inflater,container,false)
         mBinding = binding
+
         return mBinding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        mBinding?.fragmentDiaryWriteCalendarImg?.setOnClickListener {
+        // api 연동
+        // 기존값 셋팅해주기
+        val args : DiaryWritingFragmentArgs by navArgs()
+        val planId = args.planId
+
+        val call: Call<ResponsePlanViewData> = ServiceCreator.planService.getDiaryPlanView(
+            TloverApplication.prefs.getString("jwt", "null"),
+            TloverApplication.prefs.getString("refreshToken", "null").toInt(),
+            planId.toInt()
+        )
+
+        call.enqueue(object: Callback<ResponsePlanViewData> {
+            override fun onResponse(
+                call: Call<ResponsePlanViewData>,
+                response: Response<ResponsePlanViewData>
+            ) {
+                if(response.code() == 200){
+                    Log.e("reponse", "200!!~~~")
+                    mBinding?.fragmentDiaryWriteDateEt?.setText(response.body()?.data?.planStartDate?.substring(0,10))
+                    mBinding?.fragmentDiaryWriteEndDateEt?.setText(response.body()?.data?.planEndDate?.substring(0,10))
+                    mBinding?.fragmentDiaryWritePayEt?.setText(response.body()?.data?.expense.toString())
+                    mBinding?.fragmentDiaryWriteLocationEt?.setText(response.body()?.data?.regionDetail)
+                    mBinding?.fragmentDiaryWriteDateEt?.setTextColor(Color.parseColor("#2E2E33"))
+                    mBinding?.fragmentDiaryWriteEndDateEt?.setTextColor(Color.parseColor("#2E2E33"))
+                    mBinding?.fragmentDiaryWritePayEt?.setTextColor(Color.parseColor("#2E2E33"))
+                    mBinding?.fragmentDiaryWriteLocationEt?.setTextColor(Color.parseColor("#2E2E33"))
+                }
+            }
 
 
-            val cal = Calendar.getInstance()
-            val year = cal.get(Calendar.YEAR)
-            val month = cal.get(Calendar.MONTH)
-            val day = cal.get(Calendar.DAY_OF_MONTH)
+            override fun onFailure(call: Call<ResponsePlanViewData>, t: Throwable) {
 
-            val datePickerDialog = DatePickerDialog(requireActivity(),
-                R.style.DatePickerTheme,DatePickerDialog.OnDateSetListener { view, myear, month, mdayOfMonth ->
-                    val mmonth2 = month+1
-                    mBinding?.fragmentDiaryWriteDateEt?.setText(""+ mdayOfMonth +"/"+ mmonth2+ "/"+ myear)
-                    mBinding?.fragmentDiaryWriteDateEt?.setTextColor(Color.BLACK)
-                }, year, month, day)
+            }
+        })
+        // 제목, 내용, planId, 사진 POST
+        mBinding?.fragmentDiaryWriteSaveBt?.setOnClickListener() {
+            if (mBinding?.fragmentDiaryContentTv?.text != null) {
+                isContext = true
+            }
+            if (mBinding?.fragmentDiaryWriteTitleEdittext?.text != null) {
+                isTitle = true
+            }
+            if (isContext && isTitle) {
+                mBinding?.fragmentDiaryWriteSaveBt?.isEnabled = true
+            }
+//            val call: Call<ResponseDiaryWriteData> = ServiceCreator.diaryService.postDiaryWrite(
+//                TloverApplication.prefs.getString("jwt", "null"),
+//                TloverApplication.prefs.getString("refreshToken", "null").toInt(),
+//                mBinding?.fragmentDiaryWriteTitleEdittext?.text.toString(),
+//                mBinding?.fragmentDiaryContentTv?.text.toString(),
+//                planId.toInt(),
+//
+//
+//            )}
 
-            datePickerDialog.show()
+        }
+        // 뒤로 가기 버튼
+        mBinding?.signUpingBackImg?.setOnClickListener(){
+            val action = DiaryWritingFragmentDirections.actionDiaryWritingFragmentToPlanViewFragment(planId)
+            it.findNavController().navigate(action)
+
         }
 
         mBinding?.fragmentDiaryWritePicturePlus?.setOnClickListener {
@@ -163,4 +226,8 @@ class DiaryWritingFragment : Fragment() {
 
         }
     }
+
+
+
+
 }

@@ -83,6 +83,12 @@ class PlanViewFragment : Fragment(){
             }
         })
 
+        // 다이어리 작성 프래그먼트로 이동
+        mBinding?.fragmentPlanDiaryWriteBt?.setOnClickListener(){
+            val action = PlanViewFragmentDirections.actionPlanViewFragmentToDiaryWritingFragment(planId)
+            it.findNavController().navigate(action)
+        }
+
         /**
          * 0524 계획 삭제 api 연동
          * 작성자 : 윤성식

@@ -36,9 +36,9 @@ class DiaryFragment : Fragment() {
             tab.text = information[position]
         }.attach()
 
-        mBinding?.fragmentDiaryChangeTv?.setOnClickListener(){
-//            iBinding?.checkBox?.visibility =View.VISIBLE
-        }
+//        mBinding?.fragmentDiaryChangeTv?.setOnClickListener(){
+////            iBinding?.checkBox?.visibility =View.VISIBLE
+//        }
 
         return binding.root
     }

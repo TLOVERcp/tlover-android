@@ -265,7 +265,6 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="35dp"
             android:background="@drawable/certification_requ"
-            android:enabled="false"
             android:fontFamily="@font/notosans"
             android:text="일기 작성하기"
             android:textColor="#6E6E76"
