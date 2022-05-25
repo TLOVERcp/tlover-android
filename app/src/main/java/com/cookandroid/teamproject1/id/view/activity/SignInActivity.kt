@@ -134,6 +134,9 @@ class SignInActivity : AppCompatActivity() {
                         TloverApplication.prefs.setString("message", response.body()?.message.toString())
                         TloverApplication.prefs.setString("refreshToken", response.body()?.refreshToken.toString())
                         TloverApplication.prefs.setString("userNickname", response.body()?.userNickname.toString())
+                        TloverApplication.prefs.setString("userRating", response.body()?.userRating.toString())
+                        TloverApplication.prefs.setString("userThemaName", response.body()?.userThemaName.toString())
+                        TloverApplication.prefs.setString("userRegionName", response.body()?.userRegionName.toString())
 //
                         TloverApplication.prefs.setUserId(inputId)
                         TloverApplication.prefs.setUserPW(inputPassword)
