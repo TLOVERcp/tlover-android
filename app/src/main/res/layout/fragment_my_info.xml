@@ -1,23 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.cookandroid.teamproject1.MyInfoFragment"
     android:id="@+id/myInfoFragment"
-    android:background="@color/colorPrimaryDark">
+    android:layout_width="match_parent"
+    android:background="@color/tlover_background_color"
+    android:layout_height="match_parent"
+    tools:context="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoFragment">
+
+
+    <View
+        android:id="@+id/fragment_my_info_high_v"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/fragment_my_info_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="myinfo"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintTop_toTopOf ="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/notosans"
+        android:textFontWeight="700"
+        android:text="마이페이지"
+        android:textColor="#2E2E33"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/fragment_my_info_setting_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/diary_setting_btn"
+        app:layout_constraintRight_toRightOf="@id/fragment_my_info_high_v"
+        app:layout_constraintTop_toTopOf="@id/fragment_my_info_high_v"
+        app:layout_constraintBottom_toBottomOf="@id/fragment_my_info_high_v"/>
+
+    <ImageView
+        android:id="@+id/fragment_my_info_img_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ellipse_exicon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_my_info_high_v"/>
+
+    <TextView
+        android:id="@+id/fragment_my_info_nickname_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/notosans"
+        android:text="닉네임"
+        android:textColor="#1D1D20"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@+id/fragment_my_info_img_iv"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_my_info_high_v" />
+
+    <TextView
+        android:id="@+id/fragment_my_info_nim_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/notosans"
+        android:textSize="16sp"
+        android:textColor="#1D1D20"
+        android:text="님"
+        app:layout_constraintLeft_toRightOf="@+id/fragment_my_info_nickname_tv"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_my_info_high_v" />
+
+    <ImageView
+        android:id="@+id/fragment_my_info_star_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="9.5dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/full_star_icon"
+        app:layout_constraintLeft_toRightOf="@+id/fragment_my_info_nim_tv"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_my_info_high_v"  />
+
+    <TextView
+        android:id="@+id/fragment_my_info_star_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3.5dp"
+        android:layout_marginTop="22dp"
+        android:fontFamily="@font/notosans"
+        android:textColor="#3F3F45"
+        android:textSize="12sp"
+        android:text="4.5"
+        app:layout_constraintLeft_toRightOf="@+id/fragment_my_info_star_iv"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_my_info_high_v"/>
+
+    <TextView
+        android:id="@+id/fragment_my_info_interest_theme_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="관심테마"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintLeft_toRightOf="@+id/fragment_my_info_img_iv"
+        app:layout_constraintTop_toBottomOf="@id/fragment_my_info_nickname_tv"/>
+
+    <TextView
+        android:id="@+id/fragment_my_info_interest_region_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="관심지역"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintLeft_toRightOf="@+id/fragment_my_info_img_iv"
+        app:layout_constraintTop_toBottomOf="@id/fragment_my_info_interest_theme_tv"/>
+
+    <TextView
+        android:id="@+id/fragment_my_info_theme_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="액티비티"
+        android:layout_marginLeft="12dp"
+        android:textColor="#1D1D20"
+        app:layout_constraintLeft_toRightOf="@+id/fragment_my_info_interest_theme_tv"
+        app:layout_constraintTop_toBottomOf="@id/fragment_my_info_nickname_tv" />
+
+    <TextView
+        android:id="@+id/fragment_my_info_region_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="충청북도"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#1D1D20"
+        app:layout_constraintLeft_toRightOf="@+id/fragment_my_info_interest_region_tv"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_my_info_theme_tv"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/fragment_my_info_tb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabSelectedTextColor="@color/tlover_main_color"
+        app:tabIndicatorColor="@color/tlover_main_color"
+        app:tabRippleColor="#00ff0000"
+        app:layout_constraintTop_toBottomOf="@id/fragment_my_info_interest_region_tv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        android:layout_marginTop="16dp"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/fragment_my_info_vp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/tlover_background_color"
+        app:layout_constraintTop_toBottomOf="@id/fragment_my_info_tb"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
