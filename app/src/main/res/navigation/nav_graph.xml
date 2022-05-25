@@ -127,7 +127,8 @@
     <fragment
         android:id="@+id/diaryWritingFragment"
         android:name="com.cookandroid.teamproject1.plan.view.fragment.DiaryWritingFragment"
-        android:label="DiaryWritingFragment" />
+        android:label="DiaryWritingFragment"
+        tools:layout="@layout/fragment_diary_writing"/>
 
 
 </navigation>

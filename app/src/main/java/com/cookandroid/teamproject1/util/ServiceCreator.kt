@@ -1,5 +1,6 @@
 package com.cookandroid.teamproject1.util
 
+import com.cookandroid.teamproject1.diary.model.DiaryService
 import com.cookandroid.teamproject1.home.model.HomeDiaryService
 import com.cookandroid.teamproject1.plan.model.PlanService
 import com.cookandroid.teamproject1.id.model.*
@@ -39,6 +40,6 @@ object ServiceCreator {
     val planService : PlanService = retrofit.create(PlanService::class.java)
     val homeDiaryService : HomeDiaryService = retrofit.create(HomeDiaryService::class.java)
     val searchService : SearchService = retrofit.create(SearchService::class.java)
-
+    val diaryService : DiaryService = retrofit.create(DiaryService::class.java)
 
 }
