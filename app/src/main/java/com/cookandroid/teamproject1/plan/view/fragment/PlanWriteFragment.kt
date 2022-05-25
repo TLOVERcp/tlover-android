@@ -55,6 +55,16 @@ class PlanWriteFragment : Fragment(){
 //        sharedViewModel.currentInputRegion.observe(this, Observer {
 //            mBinding?.fragmentPlanWriteLocationEt.text = it.toString()
 //        }
+
+        // 값 셋팅
+        mBinding?.fragmentPlanWriteLocationEt?.text
+        mBinding?.fragmentPlanWriteDateEt?.text
+        mBinding?.fragmentPlanWriteEndDateEt?.text
+        mBinding?.fragmentPlanWritePayEt?.text
+        mBinding?.fragmentDiaryContentTv?.text
+        mBinding?.fragmentPlanWritePayEt?.text
+
+
         setFragmentResultListener("requestKey") { requestKey, bundle ->
             val result = bundle.getString("senderKey").toString()
             val new = result.substring(1,result.length-1)
@@ -122,7 +132,7 @@ class PlanWriteFragment : Fragment(){
                 }else{
                     mdayOfMonth.toString()
                 }
-                mBinding?.fragmentPlanWriteDateEt?.setText("" + myear + "-" + m + "-" + d)
+                mBinding?.fragmentPlanWriteDateEt?.setText("$myear-$m-$d")
                 issDate = true
                 mBinding?.fragmentPlanWriteDateEt?.setTextColor(Color.BLACK)
             }, year, month, day)
