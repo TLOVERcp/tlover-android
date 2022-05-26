@@ -15,6 +15,7 @@ import android.util.Log
 import android.app.Activity.RESULT_CANCELED
 import android.app.Activity.RESULT_OK
 import android.graphics.ImageDecoder
+import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
 import android.widget.Toast
@@ -33,6 +34,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import androidx.navigation.findNavController
+import com.cookandroid.teamproject1.id.model.SelectDataModel
 import com.cookandroid.teamproject1.plan.view.fragment.DiaryWritingFragmentArgs
 import com.cookandroid.teamproject1.plan.view.fragment.DiaryWritingFragmentDirections
 import java.io.IOException
@@ -48,6 +50,10 @@ class DiaryWritingFragment : Fragment() {
     // null 방지 사진은?
     var isTitle : Boolean = false
     var isContext : Boolean = false
+
+    private var selectPhotoUri = mutableListOf<Uri>()
+    private var selectPhotoString = mutableListOf<String>()
+
 
 
     override fun onCreateView(
@@ -192,7 +198,8 @@ class DiaryWritingFragment : Fragment() {
                                     requireActivity().contentResolver,
                                     currentImageUri
                                 )
-                                currentImageUri.toString()
+                                selectPhotoString.add(currentImageUri.toString())
+                                selectPhotoUri.add(currentImageUri)
                                 mBinding?.fragmentDiaryWritePictureContainer?.setImageBitmap(bitmap)
                                 mBinding?.fragmentDiaryWritePicturePlus?.visibility=View.GONE
                             } else {
@@ -200,6 +207,8 @@ class DiaryWritingFragment : Fragment() {
                                     requireActivity().contentResolver,
                                     currentImageUri
                                 )
+                                selectPhotoString.add(currentImageUri.toString())
+                                selectPhotoUri.add(currentImageUri)
                                 val bitmap = ImageDecoder.decodeBitmap(source)
                                 mBinding?.fragmentDiaryWritePictureContainer?.setImageBitmap(bitmap)
                                 mBinding?.fragmentDiaryWritePicturePlus?.visibility=View.GONE
@@ -219,6 +228,8 @@ class DiaryWritingFragment : Fragment() {
                                     requireActivity().contentResolver,
                                     currentImageUri
                                 )
+                                selectPhotoString.add(currentImageUri.toString())
+                                selectPhotoUri.add(currentImageUri)
                                 val bitmap = ImageDecoder.decodeBitmap(source)
                                 mBinding?.fragmentDiaryWritePictureContainer2?.setImageBitmap(bitmap)
                                 mBinding?.fragmentDiaryWritePicturePlus2?.visibility=View.GONE
@@ -238,6 +249,8 @@ class DiaryWritingFragment : Fragment() {
                                     requireActivity().contentResolver,
                                     currentImageUri
                                 )
+                                selectPhotoString.add(currentImageUri.toString())
+                                selectPhotoUri.add(currentImageUri)
                                 val bitmap = ImageDecoder.decodeBitmap(source)
                                 mBinding?.fragmentDiaryWritePictureContainer3?.setImageBitmap(bitmap)
                                 mBinding?.fragmentDiaryWritePicturePlus3?.visibility=View.GONE
