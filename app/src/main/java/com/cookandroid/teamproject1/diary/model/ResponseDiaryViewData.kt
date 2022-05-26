@@ -35,6 +35,10 @@ data class ResponseDiaryViewData(
         @SerializedName("diaryConnectionCount")
         val diaryConnectionCount:Int,
         @SerializedName("regionDetail")
-        val regionDetail:String
+        val regionDetail:String,
+        @SerializedName("totalCost")
+        val totalCost:Int,
+        @SerializedName("diaryThema")
+        val diaryThema: ArrayList<String>,
     )
 }

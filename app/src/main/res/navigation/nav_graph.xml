@@ -129,6 +129,11 @@
         android:name="com.cookandroid.teamproject1.plan.view.fragment.DiaryWritingFragment"
         android:label="DiaryWritingFragment"
         tools:layout="@layout/fragment_diary_writing"/>
+    <fragment
+        android:id="@+id/myInfoSettingFragment"
+        android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoSettingFragment"
+        android:label="fragment_my_info_setting"
+        tools:layout="@layout/fragment_my_info_setting" />
 
 
 </navigation>
