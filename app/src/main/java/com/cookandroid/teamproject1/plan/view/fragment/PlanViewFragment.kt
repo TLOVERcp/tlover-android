@@ -28,7 +28,6 @@ import retrofit2.Response
  */
 class PlanViewFragment : Fragment(){
     private var mBinding : FragmentPlanViewBinding?=null
-//    private var planAcceptRVAdapter = PlanAcceptRVAdapter()
     private lateinit var planAcceptRVAdapter :PlanAcceptRVAdapter
     private var dataList = mutableListOf<PlanAcceptDataModel>()
 

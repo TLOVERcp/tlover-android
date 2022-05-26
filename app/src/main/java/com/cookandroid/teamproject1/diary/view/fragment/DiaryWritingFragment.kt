@@ -35,8 +35,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import androidx.navigation.findNavController
 import com.cookandroid.teamproject1.id.model.SelectDataModel
-import com.cookandroid.teamproject1.plan.view.fragment.DiaryWritingFragmentArgs
-import com.cookandroid.teamproject1.plan.view.fragment.DiaryWritingFragmentDirections
+import com.cookandroid.teamproject1.diary.view.fragment.DiaryWritingFragmentArgs
+import com.cookandroid.teamproject1.diary.view.fragment.DiaryWritingFragmentDirections
 import java.io.IOException
 import java.lang.Exception
 import java.util.jar.Manifest
