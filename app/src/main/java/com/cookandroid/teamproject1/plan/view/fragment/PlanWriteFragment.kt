@@ -141,7 +141,7 @@ class PlanWriteFragment : Fragment(){
             val month = cal.get(Calendar.MONTH)
             val day = cal.get(Calendar.DAY_OF_MONTH)
 
-            val datePickerDialog = DatePickerDialog(requireActivity(), DatePickerDialog.OnDateSetListener { view, myear, month, mdayOfMonth ->
+            val datePickerDialog = DatePickerDialog(requireActivity(), R.style.DatePickerTheme,DatePickerDialog.OnDateSetListener { view, myear, month, mdayOfMonth ->
                 val mmonth2 = month + 1
                 var m = ""
                 m = if (mmonth2<10){
@@ -171,7 +171,7 @@ class PlanWriteFragment : Fragment(){
 
                 val datePickerDialog = DatePickerDialog(
                     requireActivity(),
-                    DatePickerDialog.OnDateSetListener { view, myear, month, mdayOfMonth ->
+                   R.style.DatePickerTheme, DatePickerDialog.OnDateSetListener { view, myear, month, mdayOfMonth ->
                         val mmonth2 = month + 1
                         var m = ""
                         m = if (mmonth2<10){
