@@ -11,22 +11,21 @@
     </data>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="154dp"
-        android:layout_height="112dp"
+        android:layout_width="192dp"
+        android:layout_height="188dp"
         app:cardBackgroundColor="@color/tlover_background_color"
-        app:cardElevation="0dp"
-        >
+        app:cardElevation="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="150dp"
-            android:layout_height="match_parent">
+            android:layout_width="188dp"
+            android:layout_height="188dp">
 
             <ImageView
                 android:id="@+id/item_home_random_img"
-                android:layout_width="match_parent"
-                android:layout_height="112dp"
-                android:scaleType="fitXY"
                 loadImg="@{preferDiaryItem.image[0]}"
+                android:layout_width="188dp"
+                android:layout_height="188dp"
+                android:scaleType="fitXY"
                 tools:ignore="MissingConstraints" />
 
             <TextView
@@ -56,11 +55,11 @@
 
             <TextView
                 android:id="@+id/item_home_random_img_date"
+                setCalendarStart="@{preferDiaryItem.startDate}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="8dp"
                 android:fontFamily="@font/notosans"
-                setCalendarStart="@{preferDiaryItem.startDate}"
                 android:textColor="@color/white"
                 android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="@id/item_home_random_img_location"

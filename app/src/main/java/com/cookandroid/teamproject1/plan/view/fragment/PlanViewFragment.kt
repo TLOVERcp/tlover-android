@@ -42,6 +42,10 @@ class PlanViewFragment : Fragment(){
             it.findNavController().navigate(R.id.action_planViewFragment_to_diaryFragment)
         }
 
+        mBinding?.fragmentPlanDiaryWriteBt?.setOnClickListener {
+            it.findNavController().navigate(R.id.action_planViewFragment_to_diaryWritingFragment)
+        }
+
         return mBinding?.root
     }
 

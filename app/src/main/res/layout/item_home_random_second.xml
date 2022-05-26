@@ -10,99 +10,101 @@
             type="com.cookandroid.teamproject1.home.model.ResponseHotDiaryData.Result.Result2" />
     </data>
 
-<androidx.cardview.widget.CardView
-    android:layout_width="154dp"
-    android:layout_height="112dp"
-    app:cardBackgroundColor="@color/tlover_background_color"
-    app:cardElevation="0dp"
-    app:contentPaddingBottom="4dp"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    <androidx.cardview.widget.CardView
+        android:layout_width="154dp"
+        android:layout_height="112dp"
+        app:cardBackgroundColor="@color/tlover_background_color"
+        app:cardElevation="0dp"
+        app:contentPaddingBottom="4dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="150dp"
-        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="150dp"
+            android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/item_home_random_second_img"
-            android:layout_width="match_parent"
-            android:layout_height="112dp"
-            android:scaleType="fitXY"
-            loadImg="@{hotDiaryItem.myFileKey}"
-            tools:ignore="MissingConstraints" />
+            <ImageView
+                android:id="@+id/item_home_random_second_img"
+                loadImg="@{hotDiaryItem.myFileKey}"
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:scaleType="fitXY"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="-1dp" />
 
-        <TextView
-            android:id="@+id/item_home_random_second_like_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="115dp"
-            android:fontFamily="@font/notosans"
-            android:text="@{Long.toString(hotDiaryItem.scrapCount)}"
-            android:textColor="@color/white"
-            android:textSize="10sp"
-            app:layout_constraintBottom_toBottomOf="@id/item_home_random_second_heart_img"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/item_home_random_second_heart_img" />
+            <TextView
+                android:id="@+id/item_home_random_second_like_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="115dp"
+                android:fontFamily="@font/notosans"
+                android:text="@{Long.toString(hotDiaryItem.scrapCount)}"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@id/item_home_random_second_heart_img"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/item_home_random_second_heart_img" />
 
-        <TextView
-            android:id="@+id/item_home_random_second_img_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="14dp"
-            android:fontFamily="@font/notosans"
-            android:text="@{hotDiaryItem.diaryTitle}"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="@id/item_home_random_second_location" />
+            <TextView
+                android:id="@+id/item_home_random_second_img_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:fontFamily="@font/notosans"
+                android:text="@{hotDiaryItem.diaryTitle}"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/item_home_random_second_location" />
 
-        <TextView
-            android:id="@+id/item_home_random_second_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:fontFamily="@font/notosans"
-            android:text="@{hotDiaryItem.diaryStatus}"
-            android:textColor="@color/white"
-            android:textSize="10sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/item_home_random_second_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:fontFamily="@font/notosans"
+                android:text="@{hotDiaryItem.diaryStatus}"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/item_home_random_second_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:fontFamily="@font/notosans"
-            setCalendarStart="@{hotDiaryItem.diaryWriteDate}"
-            android:textColor="@color/white"
-            android:textSize="10sp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/item_home_random_second_location" />
+            <TextView
+                android:id="@+id/item_home_random_second_date"
+                setCalendarStart="@{hotDiaryItem.diaryWriteDate}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:fontFamily="@font/notosans"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/item_home_random_second_location" />
 
-        <ImageView
-            android:id="@+id/item_home_random_second_heart_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="120dp"
-            android:layout_marginBottom="75dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:srcCompat="@drawable/heartshape" />
+            <ImageView
+                android:id="@+id/item_home_random_second_heart_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="120dp"
+                android:layout_marginBottom="75dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:srcCompat="@drawable/heartshape" />
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/item_home_random_txt"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="title"-->
-        <!--            android:layout_marginTop="-3dp"-->
-        <!--            android:fontFamily="@font/notosans"-->
-        <!--            android:textColor="#2E2E33"-->
-        <!--            android:textSize="12sp"/>-->
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--        <TextView-->
+            <!--            android:id="@+id/item_home_random_txt"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="title"-->
+            <!--            android:layout_marginTop="-3dp"-->
+            <!--            android:fontFamily="@font/notosans"-->
+            <!--            android:textColor="#2E2E33"-->
+            <!--            android:textSize="12sp"/>-->
 
 
-</androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
 </layout>

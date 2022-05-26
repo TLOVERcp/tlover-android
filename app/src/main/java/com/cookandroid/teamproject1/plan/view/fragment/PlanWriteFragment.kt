@@ -1,6 +1,7 @@
 package com.cookandroid.teamproject1.plan.view.fragment
 import android.os.Bundle
 import android.util.Log
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -133,6 +134,8 @@ class PlanWriteFragment : Fragment(){
 //            })
 
         mBinding?.fragmentPlanWriteCalendarImg?.setOnClickListener {
+
+
             val cal = Calendar.getInstance()
             val year = cal.get(Calendar.YEAR)
             val month = cal.get(Calendar.MONTH)

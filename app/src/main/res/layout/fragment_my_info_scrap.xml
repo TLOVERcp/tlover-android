@@ -2,21 +2,21 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:background="@color/tlover_background_color"
-    tools:context=".diary.view.fragment.DiaryLibraryFragment">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoScrapFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/fragment_diary_library_random_rv"
+        android:id="@+id/fragment_scrap_rv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="12dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/item_home_diary_library" />
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
