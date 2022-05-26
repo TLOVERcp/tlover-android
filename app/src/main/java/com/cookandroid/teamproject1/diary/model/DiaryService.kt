@@ -1,5 +1,6 @@
 package com.cookandroid.teamproject1.diary.model
 
+import android.net.Uri
 import com.cookandroid.teamproject1.plan.model.RequestAuthUserData
 import retrofit2.Call
 import retrofit2.http.*
@@ -29,7 +30,7 @@ interface DiaryService {
             @Query("diaryTitle") diaryTitle : String,
             @Query("diaryContext") diaryContext : String,
             @Query("planId") planId : Int,
-            @Query("diaryImages") diaryImages : ArrayList<File>
+            @Query("diaryImages") diaryImages : ArrayList<Uri>
         ) : Call<ResponseDiaryWriteData>
 
         //다이어리 상세조회

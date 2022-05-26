@@ -9,13 +9,14 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.GridLayoutManager
 import com.cookandroid.teamproject1.R
-import com.cookandroid.teamproject1.databinding.FragmentDiaryViewBinding
 import com.cookandroid.teamproject1.databinding.FragmentPlanViewBinding
 import com.cookandroid.teamproject1.id.viewmodel.SignUpViewModel.Companion.TAG
-import com.cookandroid.teamproject1.plan.model.ResponseDiaryPlanData
+import com.cookandroid.teamproject1.plan.model.PlanAcceptDataModel
 import com.cookandroid.teamproject1.plan.model.ResponsePlanViewData
 import com.cookandroid.teamproject1.plan.model.ResponsePlanWriteData
+import com.cookandroid.teamproject1.plan.view.adapter.PlanAcceptRVAdapter
 import com.cookandroid.teamproject1.util.ServiceCreator
 import com.cookandroid.teamproject1.util.TloverApplication
 import retrofit2.Call
@@ -27,6 +28,10 @@ import retrofit2.Response
  */
 class PlanViewFragment : Fragment(){
     private var mBinding : FragmentPlanViewBinding?=null
+//    private var planAcceptRVAdapter = PlanAcceptRVAdapter()
+    private lateinit var planAcceptRVAdapter :PlanAcceptRVAdapter
+    private var dataList = mutableListOf<PlanAcceptDataModel>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,7 +40,6 @@ class PlanViewFragment : Fragment(){
     ): View? {
         val binding = FragmentPlanViewBinding.inflate(inflater, container, false)
         mBinding = binding
-
 
         //뒤로가기버튼
         mBinding?.signUpingBackImg?.setOnClickListener{
@@ -58,6 +62,12 @@ class PlanViewFragment : Fragment(){
         val planId = args.planId
         Log.d(TAG, "onViewCreated: $planId")
 
+
+        planAcceptRVAdapter = PlanAcceptRVAdapter(requireContext())
+        mBinding?.fragmentPlanDiaryWriteFrRv?.layoutManager = GridLayoutManager(requireContext(), 4)
+        mBinding?.fragmentPlanDiaryWriteFrRv?.adapter = planAcceptRVAdapter
+
+
         //공유할 사람 초대하는 프래그먼트로 이동
         //planId 를 전달해야함. -> 프래그먼트 이동시 다시 x버튼을 클릭 했을 때 이 화면으로 돌아와야하기 떄문에 planId를 계속 전달해야함
         mBinding?.fragmentPlanViewNewFriendLayout?.setOnClickListener{
@@ -79,7 +89,16 @@ class PlanViewFragment : Fragment(){
                 if(response.code() == 200){
                     Log.e("reponse", "200!!~~~")
                     mBinding?.planDetailView = response.body()?.data
+                    for (i in 0 until response.body()?.data?.users?.size!!){
+                        dataList.add(PlanAcceptDataModel(response.body()?.data?.users!![i]))
+                    }
+                    planAcceptRVAdapter.setDataList(dataList)
+//                    var planAcceptDataList = mutableListOf(response.body()?.data!!)
+//                    planAcceptRVAdapter.planAcceptList = planAcceptDataList
+
                 }
+                planAcceptRVAdapter.notifyDataSetChanged()
+
             }
 
             override fun onFailure(call: Call<ResponsePlanViewData>, t: Throwable) {

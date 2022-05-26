@@ -1,5 +1,4 @@
-package com.cookandroid.teamproject1.plan.view.fragment
-
+package com.cookandroid.teamproject1.diary.view.fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -34,6 +33,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import androidx.navigation.findNavController
+import com.cookandroid.teamproject1.plan.view.fragment.DiaryWritingFragmentArgs
+import com.cookandroid.teamproject1.plan.view.fragment.DiaryWritingFragmentDirections
 import java.io.IOException
 import java.lang.Exception
 import java.util.jar.Manifest
@@ -47,6 +48,7 @@ class DiaryWritingFragment : Fragment() {
     // null 방지 사진은?
     var isTitle : Boolean = false
     var isContext : Boolean = false
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -117,7 +119,6 @@ class DiaryWritingFragment : Fragment() {
         mBinding?.signUpingBackImg?.setOnClickListener(){
             val action = DiaryWritingFragmentDirections.actionDiaryWritingFragmentToPlanViewFragment(planId)
             it.findNavController().navigate(action)
-
         }
 
         mBinding?.fragmentDiaryWritePicturePlus?.setOnClickListener(object : View.OnClickListener {
@@ -173,8 +174,6 @@ class DiaryWritingFragment : Fragment() {
                 selectPicNum=6
             }
         })
-
-
     }
 
     //사진 관련
@@ -193,6 +192,7 @@ class DiaryWritingFragment : Fragment() {
                                     requireActivity().contentResolver,
                                     currentImageUri
                                 )
+                                currentImageUri.toString()
                                 mBinding?.fragmentDiaryWritePictureContainer?.setImageBitmap(bitmap)
                                 mBinding?.fragmentDiaryWritePicturePlus?.visibility=View.GONE
                             } else {
