@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.FragmentDiaryViewBinding
 import com.cookandroid.teamproject1.diary.model.*
 import com.cookandroid.teamproject1.id.viewmodel.SignUpViewModel
@@ -106,6 +107,7 @@ class DiaryViewFragment : Fragment(){
                 if(response.code()==200) {
                     Log.e("response!!!", "200!!!!!")
                     mBinding?.diaryLike = response.body()?.data
+
                 }
 
             }
@@ -129,6 +131,7 @@ class DiaryViewFragment : Fragment(){
                     response: Response<ResponseLikeData>
                 ) {
                     Log.e("response!!!!", "200?!")
+
                 }
 
                 override fun onFailure(call: Call<ResponseLikeData>, t: Throwable) {
@@ -151,6 +154,7 @@ class DiaryViewFragment : Fragment(){
                     if(response.code()==200) {
                         Log.e("response!!!", "200!!!!!")
                         mBinding?.diaryLike = response.body()?.data
+
                     }
 
                 }
@@ -160,7 +164,6 @@ class DiaryViewFragment : Fragment(){
                 }
 
             })
-
 
         }
 
@@ -211,10 +214,6 @@ class DiaryViewFragment : Fragment(){
 
 
         }
-
-
-
-
         super.onViewCreated(view, savedInstanceState)
     }
 

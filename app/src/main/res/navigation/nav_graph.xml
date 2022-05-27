@@ -141,6 +141,9 @@
         <argument
             android:name="planId"
             app:argType="long" />
+        <action
+            android:id="@+id/action_diaryWritingFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 
 
