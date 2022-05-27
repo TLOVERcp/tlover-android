@@ -9,8 +9,8 @@ data class ResponseRecentData(
 )
 {
     data class Result(
-//        @SerializedName("diaryId")
-//        val id: Int,
+        @SerializedName("diaryId")
+        val id: Int,
         @SerializedName("diaryTitle")
         val diaryTitle: String,
         @SerializedName("diaryStartDate")

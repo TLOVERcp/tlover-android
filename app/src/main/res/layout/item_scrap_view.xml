@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="recentDiary"
-            type="com.cookandroid.teamproject1.myInfo.model.ResponseRecentData.Result" />
+            name="scrapDiary"
+            type="com.cookandroid.teamproject1.myInfo.model.ResponseScrapData.Result.Result2" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -28,7 +28,7 @@
                 android:id="@+id/item_search_view_rectangle_image"
                 android:layout_width="107dp"
                 android:layout_height="144dp"
-                loadSearchImg="@{recentDiary.myFileKeys[0]}"
+                loadImg="@{scrapDiary.diaryView}"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -43,7 +43,7 @@
                 android:fontFamily="@font/notosans"
                 android:textColor="#1D1D20"
                 android:textSize="14sp"
-                android:text="@{recentDiary.diaryTitle}"
+                android:text="@{scrapDiary.diaryTitle}"
                 app:layout_constraintLeft_toRightOf="@id/item_search_view_rectangle_image"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,7 +55,7 @@
                 android:layout_marginTop="36dp"
                 android:layout_marginLeft="12dp"
                 android:fontFamily="@font/notosans"
-                setCalendarStart="@{recentDiary.diaryStartDate}"
+                setCalendarStart="@{scrapDiary.planStartDate}"
                 android:textSize="12sp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/item_search_view_rectangle_image"
@@ -81,7 +81,7 @@
                 android:layout_marginLeft="1dp"
                 android:fontFamily="@font/notosans"
                 android:textSize="12sp"
-                android:text="@{recentDiary.regionDetail}"
+                android:text="@{scrapDiary.planRegionDetail}"
                 app:layout_constraintBottom_toBottomOf="@+id/item_search_view_calander_divide"
                 app:layout_constraintLeft_toRightOf="@+id/item_search_view_calander_divide"
                 app:layout_constraintTop_toTopOf="@+id/item_search_view_calander_divide" />
@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
                 android:fontFamily="@font/notosans"
-                android:text="@{Integer.toString(recentDiary.totalCost)}"
+                android:text="@{Integer.toString(scrapDiary.expense)}"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/item_search_view_calander_divide_1"
                 app:layout_constraintLeft_toRightOf="@+id/item_search_view_calander_divide_1"
