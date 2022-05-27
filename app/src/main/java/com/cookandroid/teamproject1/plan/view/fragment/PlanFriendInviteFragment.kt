@@ -131,6 +131,7 @@ class PlanFriendInviteFragment : Fragment() {
          * 0514 사용자 권한 요청 api 연결
          * 작성자 : 윤성식
          */
+        // 권한 요청하는 곳 돌아가면서
         mBinding?.fragmentPlanFriendFinishBt?.setOnClickListener{
             val requestAuthUserData = RequestAuthUserData(
                 userNickname = mBinding?.fragmentPlanFriendSearchEt?.text.toString()
@@ -156,6 +157,9 @@ class PlanFriendInviteFragment : Fragment() {
                     }
                     else if(response.code()==400){
                         Toast.makeText(requireActivity(), "해당 유저에게 이미 계획 공유 요청중입니다.", Toast.LENGTH_SHORT).show()
+                    }
+                    else if(response.code()==403){
+                        Toast.makeText(requireActivity(),"이미 공유된 유저입니다.", Toast.LENGTH_SHORT).show()
                     }
                 }
 

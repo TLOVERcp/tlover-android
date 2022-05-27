@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--    <data>-->
+<!--        <variable-->
+<!--            name="PlanViewItem"-->
+<!--            type="com.cookandroid.teamproject1.plan.model.ResponsePlanViewData.Result" />-->
+<!--    </data>-->
+
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="12dp"
+        android:background="#E5E5E5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/item_plan_view_accept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans"
+                android:textSize="12sp"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:paddingLeft="11dp"
+                android:paddingRight="11dp"
+                android:textColor="#2E2E33"
+                android:textAllCaps="false"
+                android:background="@drawable/item_plan_friend_background"
+                android:text="text"
+                />
+
+    </androidx.cardview.widget.CardView>
