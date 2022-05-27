@@ -22,7 +22,7 @@ class DiaryLibraryRVAdapter (): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             binding.myDiaryItem = myDiaryProject
 
             itemView.setOnClickListener{
-                val action = DiaryLibraryFragmentDirections.actionDiaryLibraryFragmentToDiaryViewFragment(myDiaryProject.diaryId)
+                val action = DiaryLibraryFragmentDirections.actionDiaryLibraryFragmentToDiaryViewFragment(diaryId = myDiaryProject.diaryId, start = 4)
                 it.findNavController().navigate(action)
             }
         }

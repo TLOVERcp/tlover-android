@@ -205,9 +205,9 @@ class PlanWriteFragment : Fragment(){
             }
 
         // 뒤로 가기 버튼
-        mBinding?.signUpingBackImg?.setOnClickListener(){
-            it.findNavController().navigate(R.id.action_planWriteFragment_to_diaryFragment)
-        }
+//        mBinding?.signUpingBackImg?.setOnClickListener(){
+//            it.findNavController().navigate(R.id.action_planWriteFragment_to_diaryFragment)
+//        }
 
         // api 연동
         mBinding?.fragmentPlanWriteSaveBt?.setOnClickListener(){

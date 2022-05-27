@@ -100,7 +100,7 @@ class PlanAuthRVAdapter (): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
                         if(response.code() == 200){
                             Log.e("거절하기", "200!!~~~")
                             Toast.makeText(context, "요청을 거절했습니다.", Toast.LENGTH_SHORT).show()
-                            it.findNavController().navigate(PlanAuthListFragmentDirections.actionPlanAuthListFragmentToHomeFragment())
+                            it.findNavController().navigate(PlanAuthListFragmentDirections.actionPlanAuthListFragmentSelf())
 
                         }
                     }
