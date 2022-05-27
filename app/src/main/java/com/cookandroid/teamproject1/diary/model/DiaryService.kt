@@ -26,13 +26,14 @@ interface DiaryService {
 //        @Multipart
         @POST("/api/v1/diaries/create-diary")
         @Headers("Content-Type: multipart/form-data")
+        // "multipart/form-data; boundary=<calculated when request is sent>"
         fun postDiaryWrite(
             @Header("X-ACCESS-TOKEN") jwt: String,
             @Header("X-REFRESH-TOKEN") refreshToken: Int,
 //            @Body body: RequestDiaryWriteData
             @Query("diaryContext") diaryContext: String,
             @Query("diaryEndDate") diaryEndDate: String,
-            @Query("diaryImages") diaryImages: ArrayList<File>,
+            @Query("diaryImages") diaryImages: ArrayList<File>?,
             @Query("diaryStartDate") diaryStartDate: String,
             @Query("diaryTitle") diaryTitle: String,
             @Query("planId") planId: Int,

@@ -21,12 +21,8 @@ import androidx.navigation.fragment.navArgs
 import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.diary.model.ResponseDiaryWriteData
 import com.cookandroid.teamproject1.plan.model.ResponsePlanViewData
-import com.cookandroid.teamproject1.plan.model.ResponsePlanWriteData
 import com.cookandroid.teamproject1.util.ServiceCreator
 import com.cookandroid.teamproject1.util.TloverApplication
-import okhttp3.MediaType
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -50,7 +46,6 @@ class DiaryWritingFragment : Fragment() {
     private var listed : List<String> = arrayListOf()
     private var selectdata : ArrayList<String> = arrayListOf()
     private var photoList : ArrayList<File> = arrayListOf()
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -115,6 +110,10 @@ class DiaryWritingFragment : Fragment() {
 
         for (i in 0 until arrB.size){
             arrB[i].setOnClickListener(){
+                // 데이터 최대 선택 3개
+                if(selectdata.size==3){
+                    return@setOnClickListener
+                }
                 for (j in 0 until selectdata.size){
                     if (selectdata[j] == arrB[i].text.toString()){
                         selectdata.removeAt(j)
@@ -149,7 +148,7 @@ class DiaryWritingFragment : Fragment() {
                 TloverApplication.prefs.getString("refreshToken", "null").toInt(),
                 mBinding?.fragmentDiaryContentTv?.text.toString(),
                 mBinding?.fragmentDiaryWriteEndDateEt?.text.toString()+ " 23:59:59",
-                photoList,
+                null,
                 mBinding?.fragmentDiaryWriteDateEt?.text.toString()+ " 00:00:00",
                 mBinding?.fragmentDiaryWriteTitleEdittext?.text.toString(),
                 planId.toInt(),
