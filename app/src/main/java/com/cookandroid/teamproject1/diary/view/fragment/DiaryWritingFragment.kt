@@ -24,6 +24,9 @@ import com.cookandroid.teamproject1.plan.model.ResponsePlanViewData
 import com.cookandroid.teamproject1.plan.model.ResponsePlanWriteData
 import com.cookandroid.teamproject1.util.ServiceCreator
 import com.cookandroid.teamproject1.util.TloverApplication
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -145,9 +148,9 @@ class DiaryWritingFragment : Fragment() {
                 TloverApplication.prefs.getString("jwt", "null"),
                 TloverApplication.prefs.getString("refreshToken", "null").toInt(),
                 mBinding?.fragmentDiaryContentTv?.text.toString(),
-                mBinding?.fragmentDiaryWriteEndDateEt?.text.toString(),
+                mBinding?.fragmentDiaryWriteEndDateEt?.text.toString()+ " 23:59:59",
                 photoList,
-                mBinding?.fragmentDiaryWriteDateEt?.text.toString(),
+                mBinding?.fragmentDiaryWriteDateEt?.text.toString()+ " 00:00:00",
                 mBinding?.fragmentDiaryWriteTitleEdittext?.text.toString(),
                 planId.toInt(),
                 list,
@@ -179,6 +182,13 @@ class DiaryWritingFragment : Fragment() {
             val action = DiaryWritingFragmentDirections.actionDiaryWritingFragmentToPlanViewFragment(planId)
             it.findNavController().navigate(action)
         }
+
+        // 사진 임의로 request 형식 변환
+//        val file = File(" /storage/emulated/0/Download/filename.pdf")
+//        val requestFile = RequestBody.create(MediaType.parse("application/pdf"), file)
+//        val body = MultipartBody.Part.createFormData("file", file.name, requestFile)
+//
+
 
         mBinding?.fragmentDiaryWritePicturePlus?.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
