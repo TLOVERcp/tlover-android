@@ -64,6 +64,9 @@ class DiaryViewFragment : Fragment(){
             }else if (startNum ==3){
                 it.findNavController().navigate(DiaryViewFragmentDirections.actionDiaryViewFragmentToMyInfoFragment())
 
+            }else if (startNum ==4){
+                it.findNavController().navigate(DiaryViewFragmentDirections.actionDiaryViewFragmentToDiaryFragment())
+
             }
 //            activity?.supportFragmentManager?.beginTransaction()?.remove(this)?.commit()
         }

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cookandroid.teamproject1.databinding.ItemHomeDiaryLibraryBinding
 import com.cookandroid.teamproject1.diary.model.ResponseMyDiaryData
 import com.cookandroid.teamproject1.diary.view.fragment.DiaryFragmentDirections
-import com.cookandroid.teamproject1.diary.view.fragment.DiaryLibraryFragmentDirections
+
 
 /**
  * 내가 작성한 다이어리 목록 조회 어댑터
@@ -22,7 +22,7 @@ class DiaryLibraryRVAdapter (): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             binding.myDiaryItem = myDiaryProject
 
             itemView.setOnClickListener{
-                val action = DiaryLibraryFragmentDirections.actionDiaryLibraryFragmentToDiaryViewFragment(diaryId = myDiaryProject.diaryId, start = 4)
+                val action = DiaryFragmentDirections.actionDiaryFragmentToDiaryViewFragment(diaryId = myDiaryProject.diaryId, start = 4)
                 it.findNavController().navigate(action)
             }
         }
