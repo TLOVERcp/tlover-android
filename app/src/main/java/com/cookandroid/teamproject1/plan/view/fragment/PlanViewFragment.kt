@@ -1,5 +1,8 @@
 package com.cookandroid.teamproject1.plan.view.fragment
 
+import android.app.AlertDialog
+import android.content.DialogInterface
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -115,32 +118,53 @@ class PlanViewFragment : Fragment(){
          * 0524 계획 삭제 api 연동
          * 작성자 : 윤성식
          */
-        mBinding?.fragmentPlanViewDeleteIv?.setOnClickListener{
-            val call: Call<ResponsePlanWriteData> = ServiceCreator.planService.deletePlan(
-                TloverApplication.prefs.getString("jwt", "null"),
-                TloverApplication.prefs.getString("refreshToken", "null").toInt(),
-                planId.toInt()
-            )
+        mBinding?.fragmentPlanViewDeleteIv?.setOnClickListener {
+            var builder = AlertDialog.Builder(context)
+            builder.setTitle("삭제하시겠습니까?")
+            builder.setMessage("삭제한 여행 계획은 복구할 수 없습니다.")
+            builder.setCancelable(false)
+            builder.setPositiveButton("삭제", DialogInterface.OnClickListener { dialog, id ->
+                val call: Call<ResponsePlanWriteData> = ServiceCreator.planService.deletePlan(
+                    TloverApplication.prefs.getString("jwt", "null"),
+                    TloverApplication.prefs.getString("refreshToken", "null").toInt(),
+                    planId.toInt()
+                )
 
-            call.enqueue(object: Callback<ResponsePlanWriteData> {
-                override fun onResponse(
-                    call: Call<ResponsePlanWriteData>,
-                    response: Response<ResponsePlanWriteData>
-                ) {
-                    if(response.code() == 200){
-                        Log.e("reponse", "200!!~~~")
-                        Toast.makeText(requireActivity(), "삭제되었습니다.", Toast.LENGTH_SHORT).show()
-                    }
-                    else if(response.code() == 403){
-                        Toast.makeText(requireActivity(), "해당 계획에 삭제 권한이 없는 유저입니다.", Toast.LENGTH_SHORT).show()
-                    }
-                }
+                call.enqueue(object : Callback<ResponsePlanWriteData> {
+                    override fun onResponse(
+                        call: Call<ResponsePlanWriteData>,
+                        response: Response<ResponsePlanWriteData>
+                    ) {
+                        if (response.code() == 200) {
+                            Log.e("reponse", "200!!~~~")
+                            Toast.makeText(requireActivity(), "삭제되었습니다.", Toast.LENGTH_SHORT).show()
+                            dialog.cancel()
+                        } else if (response.code() == 403) {
+                            Toast.makeText(
+                                requireActivity(),
+                                "해당 계획에 삭제 권한이 없는 유저입니다.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            dialog.cancel()
 
-                override fun onFailure(call: Call<ResponsePlanWriteData>, t: Throwable) {
-                    Log.d(TAG, "onFailure: $t")
-                }
+                        }
+                    }
+
+                    override fun onFailure(call: Call<ResponsePlanWriteData>, t: Throwable) {
+                        Log.d(TAG, "onFailure: $t")
+
+                    }
+                })
+                it.findNavController().navigate(R.id.action_planViewFragment_to_diaryFragment)
+
             })
-            it.findNavController().navigate(R.id.action_planViewFragment_to_diaryFragment)
+            builder.setNegativeButton("취소", DialogInterface.OnClickListener { dialog, id ->
+                dialog.cancel()
+            })
+            var alert: AlertDialog = builder.create()
+//            alert.setIcon(R.drawable.vector_delete)
+//            alert.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#A2A2A8"))
+            alert.show()
         }
     }
 }

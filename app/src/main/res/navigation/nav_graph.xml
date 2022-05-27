@@ -89,6 +89,18 @@
         <argument
             android:name="diaryId"
             app:argType="integer" />
+        <argument
+            android:name="start"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_diaryViewFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_diaryViewFragment_to_myInfoFragment"
+            app:destination="@id/myInfoFragment" />
+        <action
+            android:id="@+id/action_diaryViewFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
 
     <fragment
@@ -137,6 +149,9 @@
         <action
             android:id="@+id/action_planAuthListFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_planAuthListFragment_self"
+            app:destination="@id/planAuthListFragment" />
     </fragment>
     <fragment
         android:id="@+id/diaryWritingFragment"

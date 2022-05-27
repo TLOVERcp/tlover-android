@@ -21,7 +21,7 @@ class MyInfoLikeRVAdapter () : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             binding.likeDiary = diaryLikeList
 
             itemView.setOnClickListener{
-                val action = MyInfoFragmentDirections.actionMyInfoFragmentToDiaryViewFragment(diaryLikeList.id)
+                val action = MyInfoFragmentDirections.actionMyInfoFragmentToDiaryViewFragment(diaryId = diaryLikeList.id, start = 3)
                 it.findNavController().navigate(action)
             }
         }

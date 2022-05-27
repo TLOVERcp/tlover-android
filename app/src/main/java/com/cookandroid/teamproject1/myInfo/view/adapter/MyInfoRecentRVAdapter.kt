@@ -23,7 +23,7 @@ class MyInfoRecentRVAdapter () : RecyclerView.Adapter<RecyclerView.ViewHolder>()
             binding.recentDiary = diaryRecentList
 
             itemView.setOnClickListener{
-                val action = MyInfoFragmentDirections.actionMyInfoFragmentToDiaryViewFragment(diaryRecentList.id)
+                val action = MyInfoFragmentDirections.actionMyInfoFragmentToDiaryViewFragment(diaryId = diaryRecentList.id, start = 3)
                 it.findNavController().navigate(action)
             }
         }
