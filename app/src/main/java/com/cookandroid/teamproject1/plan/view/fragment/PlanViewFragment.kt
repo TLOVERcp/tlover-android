@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
@@ -17,6 +18,7 @@ import com.cookandroid.teamproject1.plan.model.PlanAcceptDataModel
 import com.cookandroid.teamproject1.plan.model.ResponsePlanViewData
 import com.cookandroid.teamproject1.plan.model.ResponsePlanWriteData
 import com.cookandroid.teamproject1.plan.view.adapter.PlanAcceptRVAdapter
+import com.cookandroid.teamproject1.plan.viewmodel.PlanDetailViewModel
 import com.cookandroid.teamproject1.util.ServiceCreator
 import com.cookandroid.teamproject1.util.TloverApplication
 import retrofit2.Call
@@ -30,6 +32,7 @@ class PlanViewFragment : Fragment(){
     private var mBinding : FragmentPlanViewBinding?=null
     private lateinit var planAcceptRVAdapter :PlanAcceptRVAdapter
     private var dataList = mutableListOf<PlanAcceptDataModel>()
+    private lateinit var viewModel : PlanDetailViewModel
 
 
     override fun onCreateView(
@@ -39,6 +42,11 @@ class PlanViewFragment : Fragment(){
     ): View? {
         val binding = FragmentPlanViewBinding.inflate(inflater, container, false)
         mBinding = binding
+
+        activity?.run{
+            viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
+                .get(PlanDetailViewModel::class.java)
+        }
 
         //뒤로가기버튼
         mBinding?.signUpingBackImg?.setOnClickListener{
@@ -57,8 +65,10 @@ class PlanViewFragment : Fragment(){
          * 계획 상세보기 api 연결
          * 작성자 : 윤성식
          */
+
         val args : PlanViewFragmentArgs by navArgs()
         val planId = args.planId
+        viewModel.updatePlanId(planId.toInt())
         Log.d(TAG, "onViewCreated: $planId")
 
 
@@ -77,7 +87,8 @@ class PlanViewFragment : Fragment(){
         val call: Call<ResponsePlanViewData> = ServiceCreator.planService.getDiaryPlanView(
             TloverApplication.prefs.getString("jwt", "null"),
             TloverApplication.prefs.getString("refreshToken", "null").toInt(),
-            planId.toInt()
+//            planId.toInt()
+            viewModel.currentPlanId.value
         )
 
         call.enqueue(object: Callback<ResponsePlanViewData> {
@@ -88,6 +99,8 @@ class PlanViewFragment : Fragment(){
                 if(response.code() == 200){
                     Log.e("reponse", "200!!~~~")
                     mBinding?.planDetailView = response.body()?.data
+                    viewModel.updatePlanStartDate(response.body()?.data?.planStartDate)
+
                     for (i in 0 until response.body()?.data?.users?.size!!){
                         dataList.add(PlanAcceptDataModel(response.body()?.data?.users!![i]))
                     }

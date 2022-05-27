@@ -24,7 +24,7 @@ data class ResponsePlanViewData (
         @SerializedName("planId")
         val planId: Int,
         @SerializedName("planStartDate")
-        val planStartDate: String,
+        var planStartDate: String,
         @SerializedName("planStatus")
         val planStatus: String,
         @SerializedName("planTitle")

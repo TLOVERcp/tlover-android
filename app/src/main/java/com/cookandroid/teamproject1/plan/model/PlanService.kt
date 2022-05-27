@@ -31,7 +31,7 @@ interface PlanService {
     fun getDiaryPlanView(
         @Header("X-ACCESS-TOKEN") jwt: String,
         @Header("X-REFRESH-TOKEN") refreshToken: Int,
-        @Path("planId") planId : Int
+        @Path("planId") planId: Int?
 //        @Query("Status") status: String
     ) : Call<ResponsePlanViewData>
 
