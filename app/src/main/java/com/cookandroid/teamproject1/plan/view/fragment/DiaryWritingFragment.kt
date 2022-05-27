@@ -17,6 +17,7 @@ import android.app.Activity.RESULT_OK
 import android.graphics.ImageDecoder
 import android.os.Build
 import android.provider.MediaStore
+import android.widget.ScrollView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
@@ -289,6 +290,7 @@ class DiaryWritingFragment : Fragment() {
         mBinding?.fragmentDiaryThemeButton10?.setOnClickListener {
 
         }
+
 
     }
 
