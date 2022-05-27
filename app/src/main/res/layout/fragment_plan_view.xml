@@ -91,7 +91,7 @@
             android:id="@+id/fragment_plan_view_start_date_v_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            setCalendarStart="@{planDetailView.planStartDate}"
+            android:text="@{planDetailView.planStartDate}"
             android:textSize="14sp"
             android:fontFamily="@font/notosans"
             android:textColor="#52525A"

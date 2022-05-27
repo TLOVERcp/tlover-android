@@ -29,7 +29,7 @@
     <View
         android:id="@+id/fragment_plan_view_high_v"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="70dp"
         android:background="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -39,12 +39,12 @@
         android:id="@+id/sign_uping_back_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="376dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginRight="21dp"
         android:clickable="true"
         android:src="@drawable/diary_x_btn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_plan_view_high_v"/>
 
 
 <!--    마진탑60-->
