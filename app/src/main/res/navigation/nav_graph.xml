@@ -142,12 +142,6 @@
         android:id="@+id/diaryWritingFragment"
         android:name="com.cookandroid.teamproject1.diary.view.fragment.DiaryWritingFragment"
         android:label="DiaryWritingFragment"
-        tools:layout="@layout/fragment_diary_writing"/>
-    <fragment
-        android:id="@+id/myInfoSettingFragment"
-        android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoSettingFragment"
-        android:label="fragment_my_info_setting"
-        tools:layout="@layout/fragment_my_info_setting" />
         tools:layout="@layout/fragment_diary_writing">
         <action
             android:id="@+id/action_diaryWritingFragment_to_planViewFragment"
@@ -155,6 +149,13 @@
         <argument
             android:name="planId"
             app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/myInfoSettingFragment"
+        android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoSettingFragment"
+        android:label="fragment_my_info_setting"
+        tools:layout="@layout/fragment_my_info_setting" >
+
     </fragment>
 
 
