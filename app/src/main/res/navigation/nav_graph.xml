@@ -61,6 +61,9 @@
         android:name="com.cookandroid.teamproject1.plan.view.fragment.PlanWriteFragment"
         android:label="fragment_plan_write"
         tools:layout="@layout/fragment_plan_write" >
+        <argument
+            android:name="start"
+            app:argType="integer" />
         <action
             android:id="@+id/action_planWriteFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
