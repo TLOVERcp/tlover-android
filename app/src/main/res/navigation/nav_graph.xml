@@ -96,7 +96,6 @@
         android:name="com.cookandroid.teamproject1.plan.view.fragment.PlanViewFragment"
         android:label="fragment_plan_view"
         tools:layout="@layout/fragment_plan_view">
-
         <argument
             android:name="planId"
             app:argType="long"/>
@@ -156,6 +155,15 @@
         android:label="fragment_my_info_setting"
         tools:layout="@layout/fragment_my_info_setting" >
 
+    </fragment>
+    <fragment
+        android:id="@+id/diaryLibraryFragment"
+        android:name="com.cookandroid.teamproject1.diary.view.fragment.DiaryLibraryFragment"
+        android:label="fragment_diary_library"
+        tools:layout="@layout/fragment_diary_library" >
+        <action
+            android:id="@+id/action_diaryLibraryFragment_to_diaryViewFragment"
+            app:destination="@id/diaryViewFragment" />
     </fragment>
 
 

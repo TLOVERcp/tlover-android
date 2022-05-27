@@ -82,6 +82,12 @@ interface DiaryService {
         @Body body : RequestScrapData
     ) : Call<ResponseScrapData>
 
+    //내가 작성한 다이어리 목록 조회
+    @GET("api/v1/diaries/my-diaries")
+    fun getMyDiary(
+        @Header("X-ACCESS-TOKEN") jwt: String,
+        @Header("X-REFRESH-TOKEN") refreshToken: Int
+    ) : Call<ResponseMyDiaryData>
 
 
 }

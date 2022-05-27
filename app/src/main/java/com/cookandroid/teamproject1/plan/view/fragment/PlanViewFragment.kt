@@ -68,6 +68,7 @@ class PlanViewFragment : Fragment(){
 
         val args : PlanViewFragmentArgs by navArgs()
         val planId = args.planId
+//        val planStartDate = args.planStartDate
         viewModel.updatePlanId(planId.toInt())
         Log.d(TAG, "onViewCreated: $planId")
 
@@ -87,9 +88,11 @@ class PlanViewFragment : Fragment(){
         val call: Call<ResponsePlanViewData> = ServiceCreator.planService.getDiaryPlanView(
             TloverApplication.prefs.getString("jwt", "null"),
             TloverApplication.prefs.getString("refreshToken", "null").toInt(),
-//            planId.toInt()
-            viewModel.currentPlanId.value
+            planId.toInt()
+//            viewModel.currentPlanId.value
         )
+
+        println(mBinding?.planDetailView?.planStartDate)
 
         call.enqueue(object: Callback<ResponsePlanViewData> {
             override fun onResponse(
@@ -99,6 +102,7 @@ class PlanViewFragment : Fragment(){
                 if(response.code() == 200){
                     Log.e("reponse", "200!!~~~")
                     mBinding?.planDetailView = response.body()?.data
+
                     viewModel.updatePlanStartDate(response.body()?.data?.planStartDate)
 
                     for (i in 0 until response.body()?.data?.users?.size!!){

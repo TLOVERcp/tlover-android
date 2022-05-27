@@ -59,7 +59,6 @@ class PlanAuthRVAdapter (): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
                     ) {
                         if(response.code() == 200){
                             Log.e("권한요청성공", "200!!~~~")
-
                         }
 
                     }
