@@ -17,6 +17,9 @@ import androidx.annotation.RequiresApi
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
+import androidx.navigation.fragment.navArgs
+import com.cookandroid.teamproject1.diary.view.fragment.DiaryViewFragmentArgs
+import com.cookandroid.teamproject1.diary.view.fragment.DiaryViewFragmentDirections
 import com.cookandroid.teamproject1.plan.model.RequestPlanWriteData
 import com.cookandroid.teamproject1.plan.model.ResponsePlanWriteData
 import com.cookandroid.teamproject1.plan.viewmodel.SelectViewModel
@@ -103,9 +106,21 @@ class PlanWriteFragment : Fragment(){
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+
+        val args : PlanWriteFragmentArgs by navArgs()
+        val startNum = args.start
+
         mBinding?.signUpingBackImg?.setOnClickListener(){
-            it.findNavController().navigate(R.id.action_planWriteFragment_to_homeFragment)
+            if (startNum ==1){
+                it.findNavController().navigate(PlanWriteFragmentDirections.actionPlanWriteFragmentToHomeFragment())
+
+            }else if (startNum ==2){
+                it.findNavController().navigate(PlanWriteFragmentDirections.actionPlanWriteFragmentToDiaryFragment())
+
+            }
         }
+
             // 지역 선택
             mBinding?.fragmentPlanWriteLocationEt?.setOnClickListener() {
                 val exist = mBinding?.fragmentPlanWriteDateEt?.text.toString()+"/ "+
@@ -141,8 +156,6 @@ class PlanWriteFragment : Fragment(){
 //            })
 
         mBinding?.fragmentPlanWriteCalendarImg?.setOnClickListener {
-
-
             val cal = Calendar.getInstance()
             val year = cal.get(Calendar.YEAR)
             val month = cal.get(Calendar.MONTH)
@@ -205,6 +218,16 @@ class PlanWriteFragment : Fragment(){
             }
 
         // 뒤로 가기 버튼
+        mBinding?.signUpingBackImg?.setOnClickListener(){
+            if (startNum ==1){
+                it.findNavController().navigate(PlanWriteFragmentDirections.actionPlanWriteFragmentToHomeFragment())
+
+            }else if (startNum ==2){
+                it.findNavController().navigate(PlanWriteFragmentDirections.actionPlanWriteFragmentToDiaryFragment())
+
+            }
+//            activity?.supportFragmentManager?.beginTransaction()?.remove(this)?.commit()
+        }
 //        mBinding?.signUpingBackImg?.setOnClickListener(){
 //            it.findNavController().navigate(R.id.action_planWriteFragment_to_diaryFragment)
 //        }
