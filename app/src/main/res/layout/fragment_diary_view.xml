@@ -9,7 +9,15 @@
         <variable
             name="diaryViewList"
             type="com.cookandroid.teamproject1.diary.model.ResponseDiaryViewData.Result"/>
+
+        <variable
+            name="diaryScrap"
+            type="com.cookandroid.teamproject1.diary.model.ResponseDiaryScrapNumData.Result" />
+        <variable
+            name="diaryLike"
+            type="com.cookandroid.teamproject1.diary.model.ResponseDiaryLikeNumData.Result" />
     </data>
+
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -33,6 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="376dp"
         android:layout_marginTop="21dp"
+        android:clickable="true"
         android:src="@drawable/diary_x_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -61,7 +70,9 @@
                     android:id="@+id/imageView"
                     android:layout_width="match_parent"
                     android:layout_height="270dp"
-                    android:src="@drawable/tlover_nlogo"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:src="@drawable/img2_item_home_random"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/fragment_plan_view_high_v" />
 
@@ -172,7 +183,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:fontFamily="@font/notosans"
-                android:text="50000"
+                android:text="@{Integer.toString(diaryViewList.totalCost)}"
                 android:textColor="#52525A"
                 android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@+id/fragment_plan_view_money_tv"
@@ -196,7 +207,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:fontFamily="@font/notosans"
-                android:text="맛집투어"
+                android:text="@{diaryViewList.diaryThema[0]}"
                 android:textColor="#52525A"
                 android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@+id/fragment_plan_view_theme_tv"
@@ -265,14 +276,27 @@
         app:layout_constraintStart_toStartOf="@+id/fragment_diary_write_sv"
         app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v" />
 
+    <ImageView
+        android:id="@+id/item_search_view_scrap_icon_colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="298dp"
+        android:layout_marginTop="19dp"
+        app:srcCompat="@drawable/ic_colored_scrap"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/fragment_diary_write_sv"
+        app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v" />
+
     <TextView
         android:id="@+id/fragment_plan_diary_write"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="254dp"
         android:layout_marginTop="19dp"
+        android:clickable="true"
         android:fontFamily="@font/notoserifkr_regular"
-        android:text="100"
+        android:text="@{Integer.toString(diaryLike.diaryLikedViews)}"
         android:textColor="#1D1D20"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -285,7 +309,21 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="228dp"
         android:layout_marginTop="19dp"
+        android:clickable="true"
         app:srcCompat="@drawable/diary_search_heart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/fragment_diary_write_sv"
+        app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v" />
+
+    <ImageView
+        android:id="@+id/item_search_view_heart_icon_colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="228dp"
+        android:layout_marginTop="19dp"
+        android:clickable="true"
+        app:srcCompat="@drawable/ic_colored_heart"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/fragment_diary_write_sv"
         app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v" />
@@ -297,7 +335,7 @@
         android:layout_marginStart="321dp"
         android:layout_marginTop="19dp"
         android:fontFamily="@font/notoserifkr_regular"
-        android:text="100"
+        android:text="@{Integer.toString(diaryScrap.scrapCount)}"
         android:textColor="#1D1D20"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
