@@ -1,4 +1,4 @@
-package com.cookandroid.teamproject1.plan.view.fragment
+package com.cookandroid.teamproject1.diary.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,19 +11,13 @@ import android.content.Intent
 import android.graphics.Color
 import com.cookandroid.teamproject1.R
 import java.util.*
-import android.app.Activity
 import android.app.Activity.RESULT_CANCELED
 import android.app.Activity.RESULT_OK
 import android.graphics.ImageDecoder
 import android.os.Build
 import android.provider.MediaStore
-import android.widget.ScrollView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
-import androidx.navigation.findNavController
 import java.io.IOException
-import java.lang.Exception
-import java.util.jar.Manifest
 
 class DiaryWritingFragment : Fragment() {
     private var mBinding : FragmentDiaryWritingBinding?=null

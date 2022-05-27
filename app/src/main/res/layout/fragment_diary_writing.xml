@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:background="@color/tlover_background_color"
     app:layout_constraintBottom_toBottomOf="parent"
-    tools:context="com.cookandroid.teamproject1.plan.view.fragment.DiaryWritingFragment"
+    tools:context="com.cookandroid.teamproject1.diary.view.fragment.DiaryWritingFragment"
     >
 
     <View
@@ -365,8 +365,8 @@
                 android:layout_marginRight="24dp"
                 android:ems="30"
                 android:fontFamily="@font/notosans"
+                android:hint="여행 제목"
                 android:inputType="textPersonName"
-                android:text="여행 제목"
                 android:textColor="#6E6E76"
                 android:textSize="16sp"
                 app:layout_constraintHorizontal_bias="0.0"
