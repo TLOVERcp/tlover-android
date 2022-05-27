@@ -60,6 +60,9 @@
         <action
             android:id="@+id/action_planWriteFragment_to_diaryFragment"
             app:destination="@id/diaryFragment" />
+        <action
+            android:id="@+id/action_planWriteFragment_to_selectFragment"
+            app:destination="@id/selectFragment" />
     </fragment>
     <fragment
         android:id="@+id/selectFragment"

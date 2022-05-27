@@ -58,9 +58,10 @@ class PlanAuthRVAdapter (): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
                         response: Response<ResponseAcceptAuthData>
                     ) {
                         if(response.code() == 200){
-                            // 플랜아이디, 닉네임 저장하고 나중에 그걸 플랜아이디로 ㅡ러와야 됨
                             Log.e("권한요청성공", "200!!~~~")
+
                         }
+
                     }
 
                     override fun onFailure(call: Call<ResponseAcceptAuthData>, t: Throwable) {

@@ -62,8 +62,13 @@ class PlanWriteFragment : Fragment(){
 //            mBinding?.fragmentPlanWriteLocationEt.text = it.toString()
 //        }
 
+        setFragmentResultListener("requestSecondKey") { requestKey, bundle ->
+            val result = bundle.getString("passKey").toString()
+            Log.e("", result)
+           }
+
         setFragmentResultListener("requestKey") { requestKey, bundle ->
-            Log.e("listener", "장소셋팅")
+            Log.e("listenerLocation..", "장소셋팅")
             val result = bundle.getString("senderKey").toString()
             val new = result.substring(1,result.length-1)
             listed = new.split("/")
@@ -109,11 +114,13 @@ class PlanWriteFragment : Fragment(){
                         mBinding?.fragmentDiaryContentTv?.text.toString()+"/ "+
                         mBinding?.fragmentPlanWriteTitleEdittext?.text.toString()
                 val bundle3 = bundleOf("existKey" to exist)
-                Log.e("e", exist)
+                Log.e("bundle3", exist)
                 mBinding?.fragmentPlanWriteLocationEt?.isEnabled = false
-                setFragmentResult("requestThirdKey", bundle3)
+                setFragmentResult("requestKeyT", bundle3)
+//                it.findNavController().navigate(R.id.action_planWriteFragment_to_selectFragment)
                 activity?.supportFragmentManager?.beginTransaction()?.replace(
                     R.id.container, SelectFragment())?.commit()
+
             }
 
             // 경비 작성 정수만 - input type

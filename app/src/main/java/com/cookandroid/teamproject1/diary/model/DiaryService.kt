@@ -23,15 +23,22 @@ interface DiaryService {
         ) : Call<ResponseDiaryListData>
 
         // 다이어리 작성
+        @Multipart
         @POST("/api/v1/diaries/create-diary")
+//        @Headers("Content-Type: multipart/form-data")
         fun postDiaryWrite(
             @Header("X-ACCESS-TOKEN") jwt: String,
             @Header("X-REFRESH-TOKEN") refreshToken: Int,
-            @Query("diaryTitle") diaryTitle : String,
-            @Query("diaryContext") diaryContext : String,
-            @Query("planId") planId : Int,
-            @Query("diaryImages") diaryImages : ArrayList<Uri>
-        ) : Call<ResponseDiaryWriteData>
+            @Query("diaryContext") diaryContext: String,
+            @Query("diaryEndDate") diaryEndDate: String,
+            @Part("diaryImages") diaryImages: ArrayList<File>,
+            @Query("diaryStartDate") diaryStartDate: String,
+            @Query("diaryTitle") diaryTitle: String,
+            @Query("planId") planId: Int,
+            @Query("regionName") regionName: ArrayList<String>,
+            @Query("themaName") themaName: ArrayList<String>,
+            @Query("totalCost") totalCost: Int
+            ) : Call<ResponseDiaryWriteData>
 
         //다이어리 상세조회
     @GET("api/v1/diaries/connections/{diaryId}")

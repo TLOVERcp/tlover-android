@@ -2,13 +2,14 @@ package com.cookandroid.teamproject1.util
 
 import com.cookandroid.teamproject1.diary.model.DiaryService
 import com.cookandroid.teamproject1.home.model.HomeDiaryService
-import com.cookandroid.teamproject1.plan.model.PlanService
 import com.cookandroid.teamproject1.id.model.*
+import com.cookandroid.teamproject1.plan.model.PlanService
 import com.cookandroid.teamproject1.search.model.SearchService
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import okhttp3.logging.HttpLoggingInterceptor
+import java.net.HttpURLConnection
 
 /**
  * 작성자 : 윤성식, 이충환

@@ -30,13 +30,24 @@ class SelectFragment : Fragment() {
     ): View? {
         val binding = FragmentSelectBinding.inflate(inflater, container, false)
         mBinding = binding
-        Log.e("re", "viewcreated")
+        Log.e("", "viewCreated")
 
-
+//        setFragmentResultListener("requestThirdKey") { requestKey, bundle ->
+//            Log.e("listener", "기존셋팅")
+//            passText = bundle.getString("existKey").toString()
+//            Log.e("리스너불러오기", passText)
+////            val bundle2 = bundleOf("passKey" to passText)
+////            Log.e("리스너셋팅", passText)
+////            setFragmentResult("requestSecondKey", bundle2)
+//
+//        }
         setFragmentResultListener("requestThirdKey") {requestKey, bundle ->
             Log.e("listener", "기존셋팅")
-            val existResult = bundle.getString("existKey").toString()
+            val passText = bundle.getString("existKey").toString()
+            Log.e("listener", passText)
         }
+
+
         return mBinding?.root
     }
 

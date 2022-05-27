@@ -5,7 +5,8 @@ import com.google.gson.annotations.SerializedName
 
 data class ResponseDiaryWriteData (
     val code: Int,
-    val data: ArrayList<ResponseDiaryWriteData.Data>
+    val data: ArrayList<ResponseDiaryWriteData.Data>,
+    val message: String
 ) {
     data class Data(
         @SerializedName("created")

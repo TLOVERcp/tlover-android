@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:background="@color/tlover_background_color"
     app:layout_constraintBottom_toBottomOf="parent"
-    tools:context="com.cookandroid.teamproject1.plan.view.fragment.DiaryWritingFragment"
+    tools:context="com.cookandroid.teamproject1.diary.view.fragment.DiaryWritingFragment"
     >
 
     <View
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:fontFamily="@font/notosans"
-        android:text="여행 다이어리 작성"
+        android:text="여행 계획 작성"
         android:textColor="#1D1D20"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -46,6 +46,7 @@
         android:id="@+id/fragment_diary_write_sv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:overScrollMode="never"
         app:layout_constraintTop_toBottomOf="@+id/fragment_diary_write_high_v"
         tools:layout_editor_absoluteX="0dp">
 
@@ -53,6 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/fragment_diary_write_high_v">
+
 
             <LinearLayout
                 android:id="@+id/fragment_diary_write_date_ly"
@@ -120,18 +122,6 @@
                 app:layout_constraintLeft_toLeftOf="@id/fragment_diary_write_date_tv"
                 app:layout_constraintTop_toTopOf="@id/fragment_diary_write_date_ly" />
 
-            <ImageView
-                android:id="@+id/fragment_diary_write_calendar_end_img"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:clickable="true"
-                android:src="@drawable/ic_plan_date"
-                app:layout_constraintBottom_toBottomOf="@id/fragment_diary_write_date_ly"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@id/fragment_diary_write_date_ly" />
-
 
             <TextView
                 android:id="@+id/fragment_diary_write_date_tv"
@@ -167,10 +157,6 @@
                 android:ems="10"
                 android:fontFamily="@font/notosans"
                 android:hint="여행 지역을 선택하세요."
-                android:clickable="false"
-                android:editable="false"
-                android:enabled="false"
-                android:focusable="false"
                 android:inputType="text"
                 android:paddingVertical="3dp"
                 android:paddingLeft="48dp"
@@ -210,10 +196,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:background="@drawable/phone_requ"
-                android:clickable="false"
-                android:editable="false"
-                android:enabled="false"
-                android:focusable="false"
                 android:ems="10"
                 android:fontFamily="@font/notosans"
                 android:hint="예상되는 경비를 입력해 주세요."
@@ -408,14 +390,14 @@
                 android:layout_marginRight="24dp"
                 android:ems="30"
                 android:fontFamily="@font/notosans"
+                android:hint="여행 제목"
                 android:inputType="textPersonName"
-                android:text="여행 제목"
                 android:textColor="#6E6E76"
                 android:textSize="16sp"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fragment_diary_theme_button10" />
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_divider2" />
 
             <EditText
                 android:id="@+id/fragment_diary_content_tv"
@@ -443,14 +425,13 @@
                 android:id="@+id/fragment_diary_theme_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/notosans"
                 android:text="테마선택"
                 android:textColor="#3F3F45"
                 android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_diary_write_divider2" />
+                app:layout_constraintLeft_toLeftOf="@id/fragment_diary_write_title_edittext"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_divider3" />
 
             <Button
                 android:id="@+id/fragment_diary_theme_button1"
@@ -458,12 +439,11 @@
                 android:layout_width="69dp"
                 android:layout_height="32dp"
                 android:layout_marginTop="12dp"
+                android:background="@drawable/plan_select_region_background"
                 android:text="액티비티"
                 android:textSize="12sp"
-                android:background="@drawable/plan_select_region_background"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_diary_theme_text"
                 app:layout_constraintLeft_toLeftOf="@+id/fragment_diary_theme_text"
-                />
+                app:layout_constraintTop_toBottomOf="@+id/fragment_diary_theme_text" />
 
             <Button
                 android:id="@+id/fragment_diary_theme_button2"
@@ -523,7 +503,7 @@
                 android:text="유적지"
                 android:textSize="12sp"
                 app:layout_constraintLeft_toRightOf="@+id/fragment_diary_theme_button5"
-                app:layout_constraintTop_toTopOf="@+id/fragment_diary_theme_button5"/>
+                app:layout_constraintTop_toTopOf="@+id/fragment_diary_theme_button5" />
 
             <Button
                 android:id="@+id/fragment_diary_theme_button7"
@@ -547,7 +527,7 @@
                 android:text="데이트"
                 android:textSize="12sp"
                 app:layout_constraintLeft_toRightOf="@+id/fragment_diary_theme_button7"
-                app:layout_constraintTop_toTopOf="@+id/fragment_diary_theme_button7"/>
+                app:layout_constraintTop_toTopOf="@+id/fragment_diary_theme_button7" />
 
             <Button
                 android:id="@+id/fragment_diary_theme_button9"
@@ -581,11 +561,17 @@
                 android:src="@drawable/ic_plan_divider"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_diary_content_tv" />
+
+            <View
+                android:id="@+id/fragment_diary_write_space_v"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/fragment_diary_theme_button10" />
-
-
-
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
