@@ -38,7 +38,7 @@ class SearchRVAdapter (): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
              */
             itemView.setOnClickListener{
                 //action_searchFragment_to_diaryViewFragment
-                val action = SearchFragmentDirections.actionSearchFragmentToDiaryViewFragment(diarySearchList.id)
+                val action = SearchFragmentDirections.actionSearchFragmentToDiaryViewFragment(diaryId = diarySearchList.id, start = 1)
                 it.findNavController().navigate(action)
             }
         }

@@ -150,7 +150,7 @@ class PlanFriendInviteFragment : Fragment() {
                     response: Response<ResponseAuthUserData>
                 ) {
                     if(response.code()==200){
-                        Toast.makeText(requireActivity(), response.message(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireActivity(), "권한 승인을 요청했습니다.", Toast.LENGTH_SHORT).show()
                         //다시 해당 플랜 프래그먼트로 이동
 //                        val action = PlanFriendInviteFragmentDirections.actionPlanFriendInviteFragmentToPlanViewFragment(planId)
 //                        it.findNavController().navigate(action)
