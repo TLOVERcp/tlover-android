@@ -1,5 +1,4 @@
 package com.cookandroid.teamproject1.diary.view.fragment
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,13 +10,30 @@ import android.content.Intent
 import android.graphics.Color
 import com.cookandroid.teamproject1.R
 import java.util.*
+import android.app.Activity
 import android.app.Activity.RESULT_CANCELED
 import android.app.Activity.RESULT_OK
 import android.graphics.ImageDecoder
+import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
+import android.widget.Button
 import android.widget.Toast
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
+import com.cookandroid.teamproject1.R
+import com.cookandroid.teamproject1.diary.model.ResponseDiaryWriteData
+import com.cookandroid.teamproject1.plan.model.ResponsePlanViewData
+import com.cookandroid.teamproject1.plan.model.ResponsePlanWriteData
+import com.cookandroid.teamproject1.util.ServiceCreator
+import com.cookandroid.teamproject1.util.TloverApplication
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.io.File
 import java.io.IOException
+import java.lang.Exception
+import java.util.jar.Manifest
 
 class DiaryWritingFragment : Fragment() {
     private var mBinding : FragmentDiaryWritingBinding?=null
@@ -25,6 +41,17 @@ class DiaryWritingFragment : Fragment() {
     var picCount = 0
     var selectPicNum = 1
     private var OPEN_GALLERY = 1
+    // null 방지 사진은?
+    var isTitle : Boolean = false
+    var isContext : Boolean = false
+
+    private var selectPhotoUri = mutableListOf<Uri>()
+    private var selectPhotoString = mutableListOf<String>()
+    private var list : ArrayList<String> = arrayListOf()
+    private var listed : List<String> = arrayListOf()
+    private var selectdata : ArrayList<String> = arrayListOf()
+    private var photoList : ArrayList<File> = arrayListOf()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,26 +64,124 @@ class DiaryWritingFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        // api 연동
+        // 기존값 셋팅해주기
+        val args : DiaryWritingFragmentArgs by navArgs()
+        val planId = args.planId
 
-        mBinding?.signUpingBackImg?.setOnClickListener {
+        val call: Call<ResponsePlanViewData> = ServiceCreator.planService.getDiaryPlanView(
+            TloverApplication.prefs.getString("jwt", "null"),
+            TloverApplication.prefs.getString("refreshToken", "null").toInt(),
+            planId.toInt()
+        )
+
+        call.enqueue(object: Callback<ResponsePlanViewData> {
+            override fun onResponse(
+                call: Call<ResponsePlanViewData>,
+                response: Response<ResponsePlanViewData>
+            ) {
+                if(response.code() == 200){
+                    Log.e("reponse", "200!!~~~")
+                    mBinding?.fragmentDiaryWriteDateEt?.setText(response.body()?.data?.planStartDate?.substring(0,10))
+                    mBinding?.fragmentDiaryWriteEndDateEt?.setText(response.body()?.data?.planEndDate?.substring(0,10))
+                    mBinding?.fragmentDiaryWritePayEt?.setText(response.body()?.data?.expense.toString())
+                    mBinding?.fragmentDiaryWriteLocationEt?.setText(response.body()?.data?.regionDetail)
+                    mBinding?.fragmentDiaryWriteDateEt?.setTextColor(Color.parseColor("#2E2E33"))
+                    mBinding?.fragmentDiaryWriteEndDateEt?.setTextColor(Color.parseColor("#2E2E33"))
+                    mBinding?.fragmentDiaryWritePayEt?.setTextColor(Color.parseColor("#2E2E33"))
+                    mBinding?.fragmentDiaryWriteLocationEt?.setTextColor(Color.parseColor("#2E2E33"))
+                    listed = mBinding?.fragmentDiaryWriteLocationEt?.text!!.split(", ")
+                    for (i in listed.indices){
+                        list.add(listed[i])
+                    }
+                }
+            }
+            override fun onFailure(call: Call<ResponsePlanViewData>, t: Throwable) {
+
+            }
+        })
+
+        // 테마 선택 기능
+        val arrB : ArrayList<Button> = arrayListOf()
+        arrB.add(mBinding?.fragmentDiaryThemeButton1!!)
+        arrB.add(mBinding?.fragmentDiaryThemeButton2!!)
+        arrB.add(mBinding?.fragmentDiaryThemeButton3!!)
+        arrB.add(mBinding?.fragmentDiaryThemeButton4!!)
+        arrB.add(mBinding?.fragmentDiaryThemeButton5!!)
+        arrB.add(mBinding?.fragmentDiaryThemeButton6!!)
+        arrB.add(mBinding?.fragmentDiaryThemeButton7!!)
+        arrB.add(mBinding?.fragmentDiaryThemeButton8!!)
+        arrB.add(mBinding?.fragmentDiaryThemeButton9!!)
+        arrB.add(mBinding?.fragmentDiaryThemeButton10!!)
+
+        for (i in 0 until arrB.size){
+            arrB[i].setOnClickListener(){
+                for (j in 0 until selectdata.size){
+                    if (selectdata[j] == arrB[i].text.toString()){
+                        selectdata.removeAt(j)
+                        arrB[i].setBackgroundResource(R.drawable.plan_select_region_background)
+                        arrB[i].setTextColor(Color.parseColor("#2E2E33"))
+                        return@setOnClickListener
+                    }
+                }
+                selectdata.add(arrB[i].text.toString())
+                arrB[i].setBackgroundResource(R.drawable.backgroud_fragment_select_select)
+                arrB[i].setTextColor(Color.parseColor("#ffffff"))
+
+            }
+        }
+
+        // 제목, 내용, planId, 사진 POST
+            if (mBinding?.fragmentDiaryContentTv?.text != null) {
+                isContext = true
+            }
+            if (mBinding?.fragmentDiaryWriteTitleEdittext?.text != null) {
+                isTitle = true
+            }
+            if (isContext && isTitle) {
+                mBinding?.fragmentDiaryWriteSaveBt?.isEnabled = true
+            }
+        mBinding?.fragmentDiaryWriteSaveBt?.setOnClickListener() {
+            Log.e("", list.toString())
+            Log.e("", selectdata.toString())
+
+            val call: Call<ResponseDiaryWriteData> = ServiceCreator.diaryService.postDiaryWrite(
+                TloverApplication.prefs.getString("jwt", "null"),
+                TloverApplication.prefs.getString("refreshToken", "null").toInt(),
+                mBinding?.fragmentDiaryContentTv?.text.toString(),
+                mBinding?.fragmentDiaryWriteEndDateEt?.text.toString(),
+                photoList,
+                mBinding?.fragmentDiaryWriteDateEt?.text.toString(),
+                mBinding?.fragmentDiaryWriteTitleEdittext?.text.toString(),
+                planId.toInt(),
+                list,
+                selectdata,
+                mBinding?.fragmentDiaryWritePayEt?.text.toString().toInt()
+            )
+
+            call.enqueue(object : Callback<ResponseDiaryWriteData> {
+                override fun onResponse(
+                    call: Call<ResponseDiaryWriteData>,
+                    response: Response<ResponseDiaryWriteData>
+                ) {
+                    if (response.code() == 200) {
+                        Log.e("diaryWrite_server_test", "200")
+                        Toast.makeText(requireActivity(), "작성되었습니다.", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Log.e("diaryWrite_server_test", "codeFail")
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseDiaryWriteData>, t: Throwable) {
+
+                }
+            })
 
         }
-        mBinding?.fragmentDiaryWriteCalendarImg?.setOnClickListener {
-
-
-            val cal = Calendar.getInstance()
-            val year = cal.get(Calendar.YEAR)
-            val month = cal.get(Calendar.MONTH)
-            val day = cal.get(Calendar.DAY_OF_MONTH)
-
-            val datePickerDialog = DatePickerDialog(requireActivity(),
-                R.style.DatePickerTheme,DatePickerDialog.OnDateSetListener { view, myear, month, mdayOfMonth ->
-                val mmonth2 = month+1
-                mBinding?.fragmentDiaryWriteDateEt?.setText(""+ mdayOfMonth +"/"+ mmonth2+ "/"+ myear)
-                mBinding?.fragmentDiaryWriteDateEt?.setTextColor(Color.BLACK)
-            }, year, month, day)
-
-            datePickerDialog.show()
+        // 뒤로 가기 버튼
+        mBinding?.signUpingBackImg?.setOnClickListener(){
+            val action = DiaryWritingFragmentDirections.actionDiaryWritingFragmentToPlanViewFragment(planId)
+            it.findNavController().navigate(action)
         }
 
         mBinding?.fragmentDiaryWritePicturePlus?.setOnClickListener(object : View.OnClickListener {
@@ -116,6 +241,7 @@ class DiaryWritingFragment : Fragment() {
 
     }
 
+    //사진 관련
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if(requestCode == OPEN_GALLERY)
         {
@@ -131,6 +257,8 @@ class DiaryWritingFragment : Fragment() {
                                     requireActivity().contentResolver,
                                     currentImageUri
                                 )
+                                selectPhotoString.add(currentImageUri.toString())
+                                selectPhotoUri.add(currentImageUri)
                                 mBinding?.fragmentDiaryWritePictureContainer?.setImageBitmap(bitmap)
                                 mBinding?.fragmentDiaryWritePicturePlus?.visibility=View.GONE
                             } else {
@@ -138,6 +266,8 @@ class DiaryWritingFragment : Fragment() {
                                     requireActivity().contentResolver,
                                     currentImageUri
                                 )
+                                selectPhotoString.add(currentImageUri.toString())
+                                selectPhotoUri.add(currentImageUri)
                                 val bitmap = ImageDecoder.decodeBitmap(source)
                                 mBinding?.fragmentDiaryWritePictureContainer?.setImageBitmap(bitmap)
                                 mBinding?.fragmentDiaryWritePicturePlus?.visibility=View.GONE
@@ -157,6 +287,8 @@ class DiaryWritingFragment : Fragment() {
                                     requireActivity().contentResolver,
                                     currentImageUri
                                 )
+                                selectPhotoString.add(currentImageUri.toString())
+                                selectPhotoUri.add(currentImageUri)
                                 val bitmap = ImageDecoder.decodeBitmap(source)
                                 mBinding?.fragmentDiaryWritePictureContainer2?.setImageBitmap(bitmap)
                                 mBinding?.fragmentDiaryWritePicturePlus2?.visibility=View.GONE
@@ -176,6 +308,8 @@ class DiaryWritingFragment : Fragment() {
                                     requireActivity().contentResolver,
                                     currentImageUri
                                 )
+                                selectPhotoString.add(currentImageUri.toString())
+                                selectPhotoUri.add(currentImageUri)
                                 val bitmap = ImageDecoder.decodeBitmap(source)
                                 mBinding?.fragmentDiaryWritePictureContainer3?.setImageBitmap(bitmap)
                                 mBinding?.fragmentDiaryWritePicturePlus3?.visibility=View.GONE
@@ -284,7 +418,6 @@ class DiaryWritingFragment : Fragment() {
         mBinding?.fragmentDiaryThemeButton10?.setOnClickListener {
 
         }
-
 
     }
 

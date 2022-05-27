@@ -55,6 +55,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/fragment_diary_write_high_v">
 
+
             <LinearLayout
                 android:id="@+id/fragment_diary_write_date_ly"
                 android:layout_width="match_parent"
@@ -70,11 +71,35 @@
                     android:background="@drawable/phone_requ"
                     android:clickable="false"
                     android:editable="false"
-                    android:ems="10"
+                    android:ems="20"
                     android:enabled="false"
                     android:focusable="false"
                     android:fontFamily="@font/notosans"
                     android:hint="시작 날짜"
+                    android:inputType="text"
+                    android:paddingVertical="3dp"
+                    android:paddingLeft="48dp"
+                    android:textColorHint="@color/join_text_gray_color"
+                    android:textSize="14dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_diary_write_date_tv" />
+
+                <EditText
+                    android:id="@+id/fragment_diary_write_end_date_et"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/phone_requ"
+                    android:clickable="false"
+                    android:editable="false"
+                    android:ems="20"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:fontFamily="@font/notosans"
+                    android:hint="끝 날짜"
                     android:inputType="text"
                     android:paddingVertical="3dp"
                     android:paddingLeft="48dp"
