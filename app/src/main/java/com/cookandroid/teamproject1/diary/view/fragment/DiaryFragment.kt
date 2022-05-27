@@ -10,6 +10,7 @@ import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.FragmentDiaryBinding
 import com.cookandroid.teamproject1.databinding.ItemHomeDiaryBinding
 import com.cookandroid.teamproject1.diary.view.adapter.DiaryVPAdapter
+import com.cookandroid.teamproject1.home.view.fragment.HomeFragmentDirections
 import com.google.android.material.tabs.TabLayoutMediator
 
 /**
@@ -46,7 +47,8 @@ class DiaryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         //새로운 게획 작성 버튼을 클릭할 때 planWriteFragment로 이동
         mBinding?.fragmentPlanNewWriteB?.setOnClickListener(){
-            it.findNavController().navigate(R.id.action_diaryFragment_to_planWriteFragment)
+            val action = DiaryFragmentDirections.actionDiaryFragmentToPlanWriteFragment(start = 2)
+            it.findNavController().navigate(action)
 //            it.findNavController().navigate(R.id.action_diaryFragment_to_diaryWritingFragment)
         }
         super.onViewCreated(view, savedInstanceState)

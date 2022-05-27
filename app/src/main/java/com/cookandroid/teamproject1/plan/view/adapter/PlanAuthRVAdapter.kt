@@ -1,5 +1,7 @@
 package com.cookandroid.teamproject1.plan.view.adapter
 
+import android.app.AlertDialog
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -11,8 +13,11 @@ import com.cookandroid.teamproject1.databinding.ItemPlanAuthListBinding
 import com.cookandroid.teamproject1.diary.view.fragment.DiaryFragmentDirections
 import com.cookandroid.teamproject1.id.viewmodel.SignUpViewModel
 import com.cookandroid.teamproject1.plan.model.*
+import com.cookandroid.teamproject1.plan.view.fragment.PlanAuthListFragment
+import com.cookandroid.teamproject1.plan.view.fragment.PlanAuthListFragmentDirections
 import com.cookandroid.teamproject1.util.ServiceCreator
 import com.cookandroid.teamproject1.util.TloverApplication
+import kotlinx.coroutines.NonDisposableHandle.parent
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,9 +28,11 @@ import retrofit2.Response
 class PlanAuthRVAdapter (): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     var planAuthList = mutableListOf<ResponsePlanAuthData.Result>()
+    private lateinit var context : Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding : ItemPlanAuthListBinding = ItemPlanAuthListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        context = parent.context
         return ViewHolder(binding)
     }
 
@@ -47,7 +54,7 @@ class PlanAuthRVAdapter (): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             // 권한 요청 수락하면 그 리스트 지워져야 해서 다시 띄워야 함 - 왜 안되는지 논의 -도혜
             // 플랜 아이디에 맞는 프래그먼트에 공유 성공한 사람 닉네임 띄워야 함
             binding.itemAuthAcceptBt.setOnClickListener{
-                val call: Call<ResponseAcceptAuthData> = ServiceCreator.planService.acceptPlanAuth(
+             val call: Call<ResponseAcceptAuthData> = ServiceCreator.planService.acceptPlanAuth(
                     TloverApplication.prefs.getString("jwt", "null"),
                     TloverApplication.prefs.getString("refreshToken", "null").toInt(),
                     planAuthDataList.authorityPlanId
@@ -59,6 +66,8 @@ class PlanAuthRVAdapter (): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
                     ) {
                         if(response.code() == 200){
                             Log.e("권한요청성공", "200!!~~~")
+                            Toast.makeText(context, "요청을 수락했습니다.", Toast.LENGTH_SHORT).show()
+                            it.findNavController().navigate(PlanAuthListFragmentDirections.actionPlanAuthListFragmentSelf())
 
                         }
 
@@ -66,6 +75,8 @@ class PlanAuthRVAdapter (): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
                     override fun onFailure(call: Call<ResponseAcceptAuthData>, t: Throwable) {
                         Log.d(SignUpViewModel.TAG, "onFailure: $t")
+                        Toast.makeText(context, "서버 호출에 실패하였습니다.", Toast.LENGTH_SHORT).show()
+
                     }
                 })
 
@@ -88,11 +99,16 @@ class PlanAuthRVAdapter (): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
                     ) {
                         if(response.code() == 200){
                             Log.e("거절하기", "200!!~~~")
+                            Toast.makeText(context, "요청을 거절했습니다.", Toast.LENGTH_SHORT).show()
+                            it.findNavController().navigate(PlanAuthListFragmentDirections.actionPlanAuthListFragmentSelf())
+
                         }
                     }
 
                     override fun onFailure(call: Call<ResponseAcceptAuthData>, t: Throwable) {
                         Log.d(SignUpViewModel.TAG, "onFailure: $t")
+                        Toast.makeText(context, "서버 호출에 실패하였습니다.", Toast.LENGTH_SHORT).show()
+
                     }
                 })
             }

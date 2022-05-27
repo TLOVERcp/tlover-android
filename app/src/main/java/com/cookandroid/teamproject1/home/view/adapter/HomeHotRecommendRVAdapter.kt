@@ -25,7 +25,7 @@ class HomeHotRecommendRVAdapter() :RecyclerView.Adapter<HomeHotRecommendRVAdapte
             binding.hotDiaryItem = hotDiary
             //핫한 다이어리 목록 조회에서 item하나를 클릭하였을 때 다이어리 id를 전달함.
             itemView.setOnClickListener{
-                val action = HomeFragmentDirections.actionHomeFragmentToDiaryViewFragment(hotDiary.id)
+                val action = HomeFragmentDirections.actionHomeFragmentToDiaryViewFragment(diaryId = hotDiary.id, start = 2)
                 it.findNavController().navigate(action)
             }
         }

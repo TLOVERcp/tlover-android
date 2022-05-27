@@ -26,7 +26,7 @@ class HomeRVAdapter() :RecyclerView.Adapter<HomeRVAdapter.Holder>(){
             binding.preferDiaryItem = preferDiary
             //취향 다이어리 목록 조회에서 item하나를 클릭하였을 때 다이어리 id를 전달함.
             itemView.setOnClickListener{
-                val action = HomeFragmentDirections.actionHomeFragmentToDiaryViewFragment(preferDiary.id)
+                val action = HomeFragmentDirections.actionHomeFragmentToDiaryViewFragment(diaryId = preferDiary.id, start = 2)
                 it.findNavController().navigate(action)
             }
         }
