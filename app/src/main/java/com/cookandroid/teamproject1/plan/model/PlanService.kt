@@ -14,6 +14,7 @@ import retrofit2.http.*
  * +계획 권한 요청 거절 api 연동 : 윤성식
  * +계획 작성 api 연동 : 원도혜
  * +계획 삭제 api 연동 : 윤성식
+ * +계획 권한 요청 수락 닉네임 api : 원도혜
  */
 
 interface PlanService {
@@ -30,7 +31,7 @@ interface PlanService {
     fun getDiaryPlanView(
         @Header("X-ACCESS-TOKEN") jwt: String,
         @Header("X-REFRESH-TOKEN") refreshToken: Int,
-        @Path("planId") planId : Int
+        @Path("planId") planId: Int?
 //        @Query("Status") status: String
     ) : Call<ResponsePlanViewData>
 
@@ -65,6 +66,15 @@ interface PlanService {
         @Header("X-REFRESH-TOKEN") refreshToken: Int,
         @Path("authorityPlanId") authorityPlanId : Int
     ) : Call<ResponseAcceptAuthData>
+
+    //계획 권한 수락 리스트
+//    @POST("/api/v1/authority-plans/share-plan/{planId}")
+//    fun acceptPlanAuthList(
+//        @Header("X-ACCESS-TOKEN") jwt: String,
+//        @Header("X-REFRESH-TOKEN") refreshToken: Int,
+//        @Path("planId") planId : Int,
+//        @Body body : RequestSharePlan
+//    ) : Call<ResponseAcceptAuthData>
 
     //계획 권한 요청 거절
     @POST("/api/v1/authority-plans/reject-authority-plan/{authorityPlanId}")

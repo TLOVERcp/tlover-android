@@ -8,6 +8,7 @@ import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.cookandroid.teamproject1.R
 
 /**
  * data binding 사용
@@ -19,6 +20,7 @@ object BindingConversion {
     @BindingAdapter("loadImg")
     fun loadImg(imageView: ImageView, url: String){
         Glide.with(imageView.context).load("https://d1mwr8154tagzz.cloudfront.net/$url")
+            .error(R.drawable.tlover_nlogo)
             .into(imageView)
     }
 
@@ -35,7 +37,7 @@ object BindingConversion {
     @JvmStatic
     @BindingAdapter("setCalendarStart")
     fun setCalendarStart(textView: TextView, sCalendar: String){
-        textView.text = sCalendar.substring(0, 10)
+        textView.text = sCalendar.substring(0, 4)
     }
 
     @JvmStatic

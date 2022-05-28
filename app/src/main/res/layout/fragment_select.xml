@@ -58,7 +58,6 @@
 
     <Button
         android:id="@+id/button1"
-        android:onClick="onFun"
         android:layout_width="65dp"
         android:layout_height="45dp"
         android:layout_marginTop="8dp"

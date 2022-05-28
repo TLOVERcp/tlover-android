@@ -2,6 +2,7 @@ package com.cookandroid.teamproject1.plan.view.fragment
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.setFragmentResultListener
 import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.FragmentSelectBinding
 import com.cookandroid.teamproject1.plan.viewmodel.SelectViewModel
@@ -18,6 +20,7 @@ class SelectFragment : Fragment() {
     private var mBinding : FragmentSelectBinding?= null
     private var selectdata = mutableListOf<String>()
     private lateinit var sharedViewModel : SelectViewModel
+    private var passText = ""
 
 
     override fun onCreateView(
@@ -27,6 +30,24 @@ class SelectFragment : Fragment() {
     ): View? {
         val binding = FragmentSelectBinding.inflate(inflater, container, false)
         mBinding = binding
+        Log.e("", "viewCreated")
+
+//        setFragmentResultListener("requestThirdKey") { requestKey, bundle ->
+//            Log.e("listener", "기존셋팅")
+//            passText = bundle.getString("existKey").toString()
+//            Log.e("리스너불러오기", passText)
+////            val bundle2 = bundleOf("passKey" to passText)
+////            Log.e("리스너셋팅", passText)
+////            setFragmentResult("requestSecondKey", bundle2)
+//
+//        }
+        setFragmentResultListener("requestThirdKey") {requestKey, bundle ->
+            Log.e("listener", "기존셋팅")
+            val passText = bundle.getString("existKey").toString()
+            Log.e("listener", passText)
+        }
+
+
         return mBinding?.root
     }
 
@@ -36,8 +57,8 @@ class SelectFragment : Fragment() {
 
 //            sharedViewModel = ViewModelProvider(this).get(SelectViewModel::class.java)
 //            sharedViewModel.updateInputRegion(selectdata.toString())
-
-
+            val bundle2 = bundleOf("passKey" to passText)
+            setFragmentResult("requestSecondKey", bundle2)
 //            activity?.supportFragmentManager?.popBackStack()
             val bundle = bundleOf("senderKey" to selectdata.toString())
             setFragmentResult("requestKey", bundle)

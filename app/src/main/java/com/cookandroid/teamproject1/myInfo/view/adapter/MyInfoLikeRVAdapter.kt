@@ -2,9 +2,11 @@ package com.cookandroid.teamproject1.myInfo.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.cookandroid.teamproject1.databinding.ItemLikeViewBinding
 import com.cookandroid.teamproject1.myInfo.model.ResponseLikeData
+import com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoFragmentDirections
 
 /**
  * 좋아요한 다이어리 리사이클러뷰 어댑터
@@ -17,6 +19,11 @@ class MyInfoLikeRVAdapter () : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     ): RecyclerView.ViewHolder(binding.root){
         fun onBind(diaryLikeList : ResponseLikeData.Result.Result2){
             binding.likeDiary = diaryLikeList
+
+            itemView.setOnClickListener{
+                val action = MyInfoFragmentDirections.actionMyInfoFragmentToDiaryViewFragment(diaryId = diaryLikeList.id, start = 3)
+                it.findNavController().navigate(action)
+            }
         }
     }
 

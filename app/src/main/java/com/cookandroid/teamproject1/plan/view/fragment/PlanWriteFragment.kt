@@ -12,8 +12,14 @@ import com.cookandroid.teamproject1.databinding.FragmentPlanWriteBinding
 import android.app.DatePickerDialog
 import android.graphics.Color
 import android.os.Build
+import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
+import androidx.navigation.fragment.navArgs
+import com.cookandroid.teamproject1.diary.view.fragment.DiaryViewFragmentArgs
+import com.cookandroid.teamproject1.diary.view.fragment.DiaryViewFragmentDirections
 import com.cookandroid.teamproject1.plan.model.RequestPlanWriteData
 import com.cookandroid.teamproject1.plan.model.ResponsePlanWriteData
 import com.cookandroid.teamproject1.plan.viewmodel.SelectViewModel
@@ -34,6 +40,8 @@ class PlanWriteFragment : Fragment(){
     private lateinit var sharedViewModel : SelectViewModel
     private var list : ArrayList<String> = arrayListOf()
     private var listed : List<String> = arrayListOf()
+    private var existList : List<String> = arrayListOf()
+
 
     // null 값 방지
     var isExpense : Boolean = false
@@ -56,10 +64,17 @@ class PlanWriteFragment : Fragment(){
 //        sharedViewModel.currentInputRegion.observe(this, Observer {
 //            mBinding?.fragmentPlanWriteLocationEt.text = it.toString()
 //        }
+
+        setFragmentResultListener("requestSecondKey") { requestKey, bundle ->
+            val result = bundle.getString("passKey").toString()
+            Log.e("", result)
+           }
+
         setFragmentResultListener("requestKey") { requestKey, bundle ->
+            Log.e("listenerLocation..", "장소셋팅")
             val result = bundle.getString("senderKey").toString()
             val new = result.substring(1,result.length-1)
-            listed = new.split(", ")
+            listed = new.split("/")
             for (i in listed.indices){
                 list.add(listed[i])
             }
@@ -67,22 +82,59 @@ class PlanWriteFragment : Fragment(){
             isRegion=true
             mBinding?.fragmentPlanWriteLocationEt?.setTextColor(Color.parseColor("#2E2E33"))
         }
-            return mBinding?.root
+
+        // 값 셋팅
+//        mBinding?.fragmentPlanWriteDateEt?.text.toString() == ""
+//        mBinding?.fragmentPlanWriteEndDateEt?.text.toString() == ""
+//        mBinding?.fragmentPlanWritePayEt?.text.toString() == ""
+//        mBinding?.fragmentDiaryContentTv?.text.toString() == ""
+//        mBinding?.fragmentPlanWritePayEt?.text.toString() == ""
+//        setFragmentResultListener("requestSecondKey") {requestKey, bundle ->
+//            Log.e("listener", "기존셋팅")
+//            val existResult = bundle.getString("passKey").toString()
+//            existList = existResult.split("/ ")
+//            mBinding?.fragmentPlanWriteDateEt?.setText(existList[0])
+//            mBinding?.fragmentPlanWriteEndDateEt?.setText(existList[1])
+//            mBinding?.fragmentPlanWritePayEt?.setText(existList[2])
+//            mBinding?.fragmentDiaryContentTv?.setText(existList[3])
+//            mBinding?.fragmentPlanWriteTitleEdittext?.setText(existList[4])
+//        }
+        return mBinding?.root
 
     }
 
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+
+        val args : PlanWriteFragmentArgs by navArgs()
+        val startNum = args.start
+
         mBinding?.signUpingBackImg?.setOnClickListener(){
-            it.findNavController().navigate(R.id.action_planWriteFragment_to_homeFragment)
+            if (startNum ==1){
+                it.findNavController().navigate(PlanWriteFragmentDirections.actionPlanWriteFragmentToHomeFragment())
+
+            }else if (startNum ==2){
+                it.findNavController().navigate(PlanWriteFragmentDirections.actionPlanWriteFragmentToDiaryFragment())
+
+            }
         }
+
             // 지역 선택
             mBinding?.fragmentPlanWriteLocationEt?.setOnClickListener() {
-                activity?.supportFragmentManager?.beginTransaction()
-                    ?.add(R.id.container, SelectFragment(), "tag")
-                    ?.addToBackStack(null)
-                    ?.commit()
+                val exist = mBinding?.fragmentPlanWriteDateEt?.text.toString()+"/ "+
+                        mBinding?.fragmentPlanWriteEndDateEt?.text.toString()+"/ "+
+                        mBinding?.fragmentPlanWritePayEt?.text.toString()+"/ "+
+                        mBinding?.fragmentDiaryContentTv?.text.toString()+"/ "+
+                        mBinding?.fragmentPlanWriteTitleEdittext?.text.toString()
+                val bundle3 = bundleOf("existKey" to exist)
+                Log.e("bundle3", exist)
                 mBinding?.fragmentPlanWriteLocationEt?.isEnabled = false
+                setFragmentResult("requestKeyT", bundle3)
+//                it.findNavController().navigate(R.id.action_planWriteFragment_to_selectFragment)
+                activity?.supportFragmentManager?.beginTransaction()?.replace(
+                    R.id.container, SelectFragment())?.commit()
 
             }
 
@@ -104,14 +156,12 @@ class PlanWriteFragment : Fragment(){
 //            })
 
         mBinding?.fragmentPlanWriteCalendarImg?.setOnClickListener {
-
-
             val cal = Calendar.getInstance()
             val year = cal.get(Calendar.YEAR)
             val month = cal.get(Calendar.MONTH)
             val day = cal.get(Calendar.DAY_OF_MONTH)
 
-            val datePickerDialog = DatePickerDialog(requireActivity(), DatePickerDialog.OnDateSetListener { view, myear, month, mdayOfMonth ->
+            val datePickerDialog = DatePickerDialog(requireActivity(), R.style.DatePickerTheme,DatePickerDialog.OnDateSetListener { view, myear, month, mdayOfMonth ->
                 val mmonth2 = month + 1
                 var m = ""
                 m = if (mmonth2<10){
@@ -125,7 +175,7 @@ class PlanWriteFragment : Fragment(){
                 }else{
                     mdayOfMonth.toString()
                 }
-                mBinding?.fragmentPlanWriteDateEt?.setText("" + myear + "-" + m + "-" + d)
+                mBinding?.fragmentPlanWriteDateEt?.setText("$myear-$m-$d")
                 issDate = true
                 mBinding?.fragmentPlanWriteDateEt?.setTextColor(Color.BLACK)
             }, year, month, day)
@@ -141,7 +191,7 @@ class PlanWriteFragment : Fragment(){
 
                 val datePickerDialog = DatePickerDialog(
                     requireActivity(),
-                    DatePickerDialog.OnDateSetListener { view, myear, month, mdayOfMonth ->
+                   R.style.DatePickerTheme, DatePickerDialog.OnDateSetListener { view, myear, month, mdayOfMonth ->
                         val mmonth2 = month + 1
                         var m = ""
                         m = if (mmonth2<10){
@@ -167,6 +217,21 @@ class PlanWriteFragment : Fragment(){
                 datePickerDialog.show()
             }
 
+        // 뒤로 가기 버튼
+        mBinding?.signUpingBackImg?.setOnClickListener(){
+            if (startNum ==1){
+                it.findNavController().navigate(PlanWriteFragmentDirections.actionPlanWriteFragmentToHomeFragment())
+
+            }else if (startNum ==2){
+                it.findNavController().navigate(PlanWriteFragmentDirections.actionPlanWriteFragmentToDiaryFragment())
+
+            }
+//            activity?.supportFragmentManager?.beginTransaction()?.remove(this)?.commit()
+        }
+//        mBinding?.signUpingBackImg?.setOnClickListener(){
+//            it.findNavController().navigate(R.id.action_planWriteFragment_to_diaryFragment)
+//        }
+
         // api 연동
         mBinding?.fragmentPlanWriteSaveBt?.setOnClickListener(){
             if (mBinding?.fragmentDiaryContentTv?.text!=null){
@@ -179,13 +244,14 @@ class PlanWriteFragment : Fragment(){
                 isTitle=true
             }
             if (!issDate||!iseDate||!isRegion||!isContext||!isContext||!isExpense){
+                Toast.makeText(requireActivity(), "값을 입력해주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             val requestPlanWriteData = RequestPlanWriteData(
                 mBinding?.fragmentPlanWritePayEt?.text.toString().toLong(),
                 mBinding?.fragmentDiaryContentTv?.text.toString(),
-                mBinding?.fragmentPlanWriteEndDateEt?.text.toString()+" 00:00:00",
-                mBinding?.fragmentPlanWriteDateEt?.text.toString()+" 23:59:59",
+                mBinding?.fragmentPlanWriteEndDateEt?.text.toString()+" 23:59:59",
+                mBinding?.fragmentPlanWriteDateEt?.text.toString()+" 00:00:00",
                 list,
                 mBinding?.fragmentPlanWriteTitleEdittext?.text.toString()
                 )
@@ -203,12 +269,11 @@ class PlanWriteFragment : Fragment(){
             ) {
                 if(response.code() == 200){
                     Log.e("planWrite_server_test", "200")
-                    it.findNavController().navigate(R.id.action_planWriteFragment_to_homeFragment)
-                    //저장완료 표시라도?
+                    Toast.makeText(requireActivity(), "작성되었습니다.", Toast.LENGTH_SHORT).show()
+                    it.findNavController().navigate(R.id.action_planWriteFragment_to_diaryFragment)
                 }
                 else{
                     Log.e("planWrite_server_test", "codeFail")
-
             }
             }
 

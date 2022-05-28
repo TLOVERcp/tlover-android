@@ -47,8 +47,8 @@ class PlanFriendInviteFragment : Fragment() {
 
         //친구 초대 프래그먼트에서 x버튼을 클릭했을 때 아무것도 실행되지 않고, 그 전 화면으로 가기 위해 planId 전달
         mBinding?.fragmentPlanFriendXIv?.setOnClickListener{
-            val action = PlanFriendInviteFragmentDirections.actionPlanFriendInviteFragmentToPlanViewFragment(planId)
-            it.findNavController().navigate(action)
+//            val action = PlanFriendInviteFragmentDirections.actionPlanFriendInviteFragmentToPlanViewFragment(planId)
+//            it.findNavController().navigate(action)
         }
 
         //친구 검색 editText에서 입력하고 있을 때 버튼 활성화
@@ -131,6 +131,7 @@ class PlanFriendInviteFragment : Fragment() {
          * 0514 사용자 권한 요청 api 연결
          * 작성자 : 윤성식
          */
+        // 권한 요청하는 곳 돌아가면서
         mBinding?.fragmentPlanFriendFinishBt?.setOnClickListener{
             val requestAuthUserData = RequestAuthUserData(
                 userNickname = mBinding?.fragmentPlanFriendSearchEt?.text.toString()
@@ -149,13 +150,16 @@ class PlanFriendInviteFragment : Fragment() {
                     response: Response<ResponseAuthUserData>
                 ) {
                     if(response.code()==200){
-                        Toast.makeText(requireActivity(), response.message(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireActivity(), "권한 승인을 요청했습니다.", Toast.LENGTH_SHORT).show()
                         //다시 해당 플랜 프래그먼트로 이동
-                        val action = PlanFriendInviteFragmentDirections.actionPlanFriendInviteFragmentToPlanViewFragment(planId)
-                        it.findNavController().navigate(action)
+//                        val action = PlanFriendInviteFragmentDirections.actionPlanFriendInviteFragmentToPlanViewFragment(planId)
+//                        it.findNavController().navigate(action)
                     }
                     else if(response.code()==400){
                         Toast.makeText(requireActivity(), "해당 유저에게 이미 계획 공유 요청중입니다.", Toast.LENGTH_SHORT).show()
+                    }
+                    else if(response.code()==403){
+                        Toast.makeText(requireActivity(),"이미 공유된 유저입니다.", Toast.LENGTH_SHORT).show()
                     }
                 }
 

@@ -19,4 +19,16 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:listitem="@layout/item_home_diary_library" />
 
+    <TextView
+        android:id="@+id/fragment_diary_library_no_diary_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="작성된 다이어리가 없습니다."
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

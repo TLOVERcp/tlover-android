@@ -21,14 +21,14 @@ interface MyInfoService {
 
     //스크랩한 다이어리 목록 조회
     @POST("/api/v1/diaries/myScrap")
-    fun getLikeDiary(
+    fun getScrapDiary(
         @Header("X-ACCESS-TOKEN") jwt: String,
         @Header("X-REFRESH-TOKEN") refreshToken: Int
     ) : Call<ResponseScrapData>
 
     //좋아요한 다이어리 목록 조회
     @POST("/api/v1/diaries/myLiked")
-    fun getScrapDiary(
+    fun getLikeDiary(
         @Header("X-ACCESS-TOKEN") jwt: String,
         @Header("X-REFRESH-TOKEN") refreshToken: Int
     ) : Call<ResponseLikeData>

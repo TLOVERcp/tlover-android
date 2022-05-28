@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName
 data class ResponsePlanViewData (
     val code:Int,
     val message: String,
+//    val dataList: ArrayList<Result>,
     val data: Result
 )
 {
@@ -23,7 +24,7 @@ data class ResponsePlanViewData (
         @SerializedName("planId")
         val planId: Int,
         @SerializedName("planStartDate")
-        val planStartDate: String,
+        var planStartDate: String,
         @SerializedName("planStatus")
         val planStatus: String,
         @SerializedName("planTitle")
