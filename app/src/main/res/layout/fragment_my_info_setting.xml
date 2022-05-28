@@ -1,8 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/tlover_background_color"
     tools:context="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoSettingFragment">
+
+    <ImageView
+        android:id="@+id/setting_back_img"
+        android:layout_width="19dp"
+        android:layout_height="17dp"
+        android:layout_marginLeft="18.5dp"
+        android:layout_marginTop="43.5dp"
+        android:src="@drawable/back_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/setting_upbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="34.5dp"
+        android:layout_marginTop="30dp"
+        android:textColor="#1D1D20"
+        android:fontFamily="@font/notosans"
+        android:text="설정"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@+id/setting_back_img"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/setting_content_inquire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="44dp"
+        android:text="문의하기"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setting_upbar_title"
+        android:textColor="#1D1D20"
+        android:fontFamily="@font/notosans"/>
+
+    <ImageView
+        android:id="@+id/setting_divider1"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/setting_divider1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setting_content_inquire"
+        android:textColor="#1D1D20"
+        android:fontFamily="@font/notosans" />
+
+    <TextView
+        android:id="@+id/setting_content_versinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="12dp"
+        android:text="버전정보"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setting_divider1"
+        android:textColor="#1D1D20"
+        android:fontFamily="@font/notosans"/>
+
+    <TextView
+        android:id="@+id/setting_content_term_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="12dp"
+        android:text="이용약관"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setting_divider2"
+        android:textColor="#1D1D20"
+        android:fontFamily="@font/notosans"/>
+
+    <TextView
+        android:id="@+id/setting_content_privinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="12dp"
+        android:text="개인정보 처리방침"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setting_divider3"
+        android:textColor="#1D1D20"
+        android:fontFamily="@font/notosans"/>
+
+    <TextView
+        android:id="@+id/setting_content_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="12dp"
+        android:text="로그아웃"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setting_divider4"
+        android:textColor="#1D1D20"
+        android:fontFamily="@font/notosans"/>
+
+    <TextView
+        android:id="@+id/setting_content_withdrawal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="13dp"
+        android:text="회원탈퇴"
+        android:textColor="#A2A2A8"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setting_divider5" />
+
+    <ImageView
+        android:id="@+id/setting_divider2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/setting_divider1"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setting_content_versinfo" />
+
+    <ImageView
+        android:id="@+id/setting_divider3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/setting_divider1"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setting_content_term_service"
+        />
+
+    <ImageView
+        android:id="@+id/setting_divider4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/setting_divider1"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setting_content_privinfo" />
+
+    <ImageView
+        android:id="@+id/setting_divider5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/setting_divider1"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setting_content_logout" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
