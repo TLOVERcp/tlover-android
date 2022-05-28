@@ -63,30 +63,12 @@ class PlanViewFragment : Fragment(){
         return mBinding?.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        /**
-         * 계획 상세보기 api 연결
-         * 작성자 : 윤성식
-         */
-
+    override fun onStart() {
         val args : PlanViewFragmentArgs by navArgs()
         val planId = args.planId
 //        val planStartDate = args.planStartDate
         viewModel.updatePlanId(planId.toInt())
         Log.d(TAG, "onViewCreated: $planId")
-
-
-        planAcceptRVAdapter = PlanAcceptRVAdapter(requireContext())
-        mBinding?.fragmentPlanDiaryWriteFrRv?.layoutManager = GridLayoutManager(requireContext(), 4)
-        mBinding?.fragmentPlanDiaryWriteFrRv?.adapter = planAcceptRVAdapter
-
-
-        //공유할 사람 초대하는 프래그먼트로 이동
-        //planId 를 전달해야함. -> 프래그먼트 이동시 다시 x버튼을 클릭 했을 때 이 화면으로 돌아와야하기 떄문에 planId를 계속 전달해야함
-        mBinding?.fragmentPlanViewNewFriendLayout?.setOnClickListener{
-            val action = PlanViewFragmentDirections.actionPlanViewFragmentToPlanFriendInviteFragment(planId)
-            it.findNavController().navigate(action)
-        }
 
         val call: Call<ResponsePlanViewData> = ServiceCreator.planService.getDiaryPlanView(
             TloverApplication.prefs.getString("jwt", "null"),
@@ -124,6 +106,37 @@ class PlanViewFragment : Fragment(){
                 Log.d(TAG, "onFailure: $t")
             }
         })
+
+        super.onStart()
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        /**
+         * 계획 상세보기 api 연결
+         * 작성자 : 윤성식
+         */
+
+        val args : PlanViewFragmentArgs by navArgs()
+        val planId = args.planId
+//        val planStartDate = args.planStartDate
+        viewModel.updatePlanId(planId.toInt())
+        Log.d(TAG, "onViewCreated: $planId")
+
+
+        planAcceptRVAdapter = PlanAcceptRVAdapter(requireContext())
+        mBinding?.fragmentPlanDiaryWriteFrRv?.layoutManager = GridLayoutManager(requireContext(), 4)
+        mBinding?.fragmentPlanDiaryWriteFrRv?.adapter = planAcceptRVAdapter
+
+
+        //공유할 사람 초대하는 프래그먼트로 이동
+        //planId 를 전달해야함. -> 프래그먼트 이동시 다시 x버튼을 클릭 했을 때 이 화면으로 돌아와야하기 떄문에 planId를 계속 전달해야함
+        mBinding?.fragmentPlanViewNewFriendLayout?.setOnClickListener{
+            val action = PlanViewFragmentDirections.actionPlanViewFragmentToPlanFriendInviteFragment(planId)
+            it.findNavController().navigate(action)
+        }
+
+
 
         // 다이어리 작성 프래그먼트로 이동
         mBinding?.fragmentPlanDiaryWriteBt?.setOnClickListener(){

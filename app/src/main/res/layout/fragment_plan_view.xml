@@ -8,6 +8,9 @@
         <variable
             name="planDetailView"
             type="com.cookandroid.teamproject1.plan.model.ResponsePlanViewData.Result"/>
+        <variable
+            name="planDetailViewModel"
+            type="com.cookandroid.teamproject1.plan.viewmodel.PlanDetailViewModel"/>
     </data>
     
 <androidx.constraintlayout.widget.ConstraintLayout 

@@ -11,6 +11,8 @@ data class ResponseMyDiaryData(
     data class Result(
         @SerializedName("diaryId")
         val diaryId: Int,
+        @SerializedName("planId")
+        val planId: Int,
         @SerializedName("diaryTitle")
         val diaryTitle: String,
         @SerializedName("diaryContext")
@@ -24,7 +26,7 @@ data class ResponseMyDiaryData(
         @SerializedName("diaryWriteDate")
         val diaryWriteDate: String,
         @SerializedName("regionNames")
-        val regionNames: ArrayList<String>,
+        val regionNames: String,
         @SerializedName("themaNames")
         val themaNames: ArrayList<String>
 

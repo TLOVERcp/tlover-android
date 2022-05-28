@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.cookandroid.teamproject1.databinding.FragmentPlanViewBinding
 import com.cookandroid.teamproject1.databinding.ItemHomeDiaryBinding
 import com.cookandroid.teamproject1.diary.view.fragment.DiaryFragmentDirections
 import com.cookandroid.teamproject1.plan.model.ResponseDiaryPlanData
