@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.cookandroid.teamproject1.search.view.SearchFragment"
+    tools:context="com.cookandroid.teamproject1.search.view.fragment.SearchFragment"
     android:id="@+id/searchFragment"
     android:background="@color/tlover_background_color">
 
@@ -21,9 +21,10 @@
         android:id="@+id/fragment_search_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/notosans"
         android:textFontWeight="700"
+        android:textSize="16sp"
         android:text="검색"
         android:textColor="#1D1D20"
         android:layout_marginLeft="16dp"

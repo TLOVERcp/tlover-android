@@ -2,6 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="myDiaryItem"
+            type="com.cookandroid.teamproject1.diary.model.ResponseMyDiaryData.Result" />
+    </data>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,7 +43,7 @@
                 android:fontFamily="@font/notosans"
                 android:textColor="#1D1D20"
                 android:textSize="14sp"
-                android:text="김도영 아자아자아자자"
+                android:text="@{myDiaryItem.diaryTitle}"
                 app:layout_constraintLeft_toRightOf="@id/item_library_view_rectangle_image"
                 app:layout_constraintTop_toTopOf="parent" />
 

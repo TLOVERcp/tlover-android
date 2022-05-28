@@ -19,7 +19,7 @@ class HomeWeatherRVAdapter() :RecyclerView.Adapter<HomeWeatherRVAdapter.Holder>(
             binding.weatherDiaryItem = weatherDiary
             //날씨 추천 목록 조회에서 item하나를 클릭하였을 때 다이어리 id를 전달함.
             itemView.setOnClickListener{
-                val action = HomeFragmentDirections.actionHomeFragmentToDiaryViewFragment(weatherDiary.id)
+                val action = HomeFragmentDirections.actionHomeFragmentToDiaryViewFragment(diaryId = weatherDiary.id, start = 2)
                 it.findNavController().navigate(action)
             }
         }

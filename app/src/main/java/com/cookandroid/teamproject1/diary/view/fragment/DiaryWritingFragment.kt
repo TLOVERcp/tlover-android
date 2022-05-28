@@ -1,11 +1,6 @@
 package com.cookandroid.teamproject1.diary.view.fragment
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.cookandroid.teamproject1.databinding.FragmentDiaryWritingBinding
-import android.app.DatePickerDialog
+import android.app.Activity.RESULT_CANCELED
+import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.graphics.Color
 import com.cookandroid.teamproject1.R
@@ -17,19 +12,33 @@ import android.content.pm.PackageManager
 import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
+import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import com.cookandroid.teamproject1.R
+import com.cookandroid.teamproject1.databinding.FragmentDiaryWritingBinding
 import com.cookandroid.teamproject1.diary.model.ResponseDiaryWriteData
 import com.cookandroid.teamproject1.plan.model.ResponsePlanViewData
 import com.cookandroid.teamproject1.plan.model.ResponsePlanWriteData
 import com.cookandroid.teamproject1.util.ServiceCreator
 import com.cookandroid.teamproject1.util.TloverApplication
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -55,9 +64,11 @@ class DiaryWritingFragment : Fragment() {
     private var list : ArrayList<String> = arrayListOf()
     private var listed : List<String> = arrayListOf()
     private var selectdata : ArrayList<String> = arrayListOf()
-    private var photoList : ArrayList<File> = arrayListOf()
+    private var photoList : ArrayList<String> = arrayListOf()
+    private var text : String = "text"
 
-
+    private var photoUri : Uri? = Uri.EMPTY
+// null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -121,6 +132,7 @@ class DiaryWritingFragment : Fragment() {
 
         for (i in 0 until arrB.size){
             arrB[i].setOnClickListener(){
+
                 for (j in 0 until selectdata.size){
                     if (selectdata[j] == arrB[i].text.toString()){
                         selectdata.removeAt(j)
@@ -128,6 +140,10 @@ class DiaryWritingFragment : Fragment() {
                         arrB[i].setTextColor(Color.parseColor("#2E2E33"))
                         return@setOnClickListener
                     }
+                }
+                // 데이터 최대 선택 3개
+                if(selectdata.size==3){
+                    return@setOnClickListener
                 }
                 selectdata.add(arrB[i].text.toString())
                 arrB[i].setBackgroundResource(R.drawable.backgroud_fragment_select_select)
@@ -146,23 +162,37 @@ class DiaryWritingFragment : Fragment() {
             if (isContext && isTitle) {
                 mBinding?.fragmentDiaryWriteSaveBt?.isEnabled = true
             }
+
+
         mBinding?.fragmentDiaryWriteSaveBt?.setOnClickListener() {
             Log.e("", list.toString())
             Log.e("", selectdata.toString())
 
-            val call: Call<ResponseDiaryWriteData> = ServiceCreator.diaryService.postDiaryWrite(
+//            fun String?.toPlainRequestBody() = requireNotNull(this).toRequestBody("text/plain".toMediaTypeOrNull())
+//            var file = File(uri.getPath())
+//            val fileBody: RequestBody
+
+            fun File?.toImgRequestBody() = requireNotNull(this).asRequestBody("image/jpeg".toMediaTypeOrNull())
+
+            // uri 넣는 부분에, 함수를 호출
+
+//        val file = File(mediaPath)
+//        val requestBody = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+//        MultipartBody.Part.createFormData("images", file.name, requestBody)
+            // createFormData("key", value) RequestBody 말고 MultipartBody.Part
+            // 이미지 같은 경우 requestBody 필요
+            val call: Call<ResponseDiaryWriteData> =ServiceCreator.diaryService.createDiary(
                 TloverApplication.prefs.getString("jwt", "null"),
                 TloverApplication.prefs.getString("refreshToken", "null").toInt(),
-                mBinding?.fragmentDiaryContentTv?.text.toString(),
-                mBinding?.fragmentDiaryWriteEndDateEt?.text.toString(),
-                photoList,
-                mBinding?.fragmentDiaryWriteDateEt?.text.toString(),
-                mBinding?.fragmentDiaryWriteTitleEdittext?.text.toString(),
-                planId.toInt(),
-                list,
-                selectdata,
-                mBinding?.fragmentDiaryWritePayEt?.text.toString().toInt()
-            )
+                MultipartBody.Part.createFormData("diaryTitle", mBinding?.fragmentDiaryWriteTitleEdittext?.text.toString()),
+                MultipartBody.Part.createFormData("diaryContext", mBinding?.fragmentDiaryContentTv?.text.toString()),
+                arrayListOf(MultipartBody.Part.createFormData("diaryImages", photoList.toString(), File(photoUri?.path).toImgRequestBody())),
+                MultipartBody.Part.createFormData("diaryStartDate", mBinding?.fragmentDiaryWriteDateEt?.text.toString()+ " 00:00:00"),
+                MultipartBody.Part.createFormData("diaryEndDate", mBinding?.fragmentDiaryWriteEndDateEt?.text.toString()+ " 23:59:59"),
+                MultipartBody.Part.createFormData("regionName", list.toString()),
+                MultipartBody.Part.createFormData("themaName", selectdata.toString()),
+                MultipartBody.Part.createFormData("totalCost", mBinding?.fragmentDiaryWritePayEt?.text.toString()),
+                MultipartBody.Part.createFormData("planId", planId.toString()))
 
             call.enqueue(object : Callback<ResponseDiaryWriteData> {
                 override fun onResponse(
@@ -182,6 +212,85 @@ class DiaryWritingFragment : Fragment() {
                 }
             })
 
+
+////            val text = "12323"
+//            val test : MultipartBody.Part? = null
+////
+////          테스트
+//            ServiceCreator.diaryService.postTest(
+//                TloverApplication.prefs.getString("jwt", "null"),
+//                TloverApplication.prefs.getString("refreshToken", "null").toInt(),
+//                test,
+//                test,
+//                test,
+//                test,
+//                null
+//            )
+
+
+            // data model 로 전송 @query, @headers
+//            val requestDiaryWriteData = RequestDiaryWriteData(
+//                mBinding?.fragmentDiaryContentTv?.text.toString(),
+//                mBinding?.fragmentDiaryWriteEndDateEt?.text.toString()+ " 23:59:59",
+//                photoList,
+//                mBinding?.fragmentDiaryWriteDateEt?.text.toString()+ " 00:00:00",
+//                mBinding?.fragmentDiaryWriteTitleEdittext?.text.toString(),
+//                planId.toInt(),
+//                list,
+//                selectdata,
+//                mBinding?.fragmentDiaryWritePayEt?.text.toString().toInt()
+//            )
+
+            // To requestbody
+//            fun String?.toPlainRequestBody() = requireNotNull(this).toRequestBody("text/plain".toMediaTypeOrNull())
+
+
+            // createFormData(key, value, requestBody)
+//            val call: Call<ResponseDiaryWriteData> =ServiceCreator.diaryService.createDiary(
+//                TloverApplication.prefs.getString("jwt", "null"),
+//                TloverApplication.prefs.getString("refreshToken", "null").toInt(),
+//                MultipartBody.Part.createFormData("diaryTitle", mBinding?.fragmentDiaryWriteTitleEdittext?.text.toString(), text.toPlainRequestBody()),
+//                MultipartBody.Part.createFormData("diaryContext", mBinding?.fragmentDiaryContentTv?.text.toString(), text.toPlainRequestBody()),
+//                        arrayListOf(MultipartBody.Part.createFormData("diaryImages", photoList.toString(), text.toPlainRequestBody())),
+//                MultipartBody.Part.createFormData("diaryStartDate", mBinding?.fragmentDiaryWriteDateEt?.text.toString()+ " 00:00:00", text.toPlainRequestBody()),
+//                        MultipartBody.Part.createFormData("diaryEndDate", mBinding?.fragmentDiaryWriteEndDateEt?.text.toString()+ " 23:59:59", text.toPlainRequestBody()),
+//            MultipartBody.Part.createFormData("regionName", list.toString(), text.toPlainRequestBody()),
+//                    MultipartBody.Part.createFormData("themaName", selectdata.toString(), text.toPlainRequestBody()),
+//            MultipartBody.Part.createFormData("totalCost", mBinding?.fragmentDiaryWritePayEt?.text.toString(), text.toPlainRequestBody()),
+//                    MultipartBody.Part.createFormData("planId", planId.toString(), "18".toPlainRequestBody())
+//
+//            )
+
+                    // RequestBody만
+//            val call: Call<ResponseDiaryWriteData> =ServiceCreator.diaryService.createDiary(
+//                TloverApplication.prefs.getString("jwt", "null"),
+//                TloverApplication.prefs.getString("refreshToken", "null").toInt(),
+//                mBinding?.fragmentDiaryWriteTitleEdittext?.text.toString().toPlainRequestBody(),
+//                mBinding?.fragmentDiaryContentTv?.text.toString().toPlainRequestBody(),
+//                arrayListOf(MultipartBody.Part.createFormData("diaryImages", photoList.toString(), text.toPlainRequestBody())),
+//                mBinding?.fragmentDiaryWriteDateEt?.text.toString().toPlainRequestBody(),
+//                mBinding?.fragmentDiaryWriteEndDateEt?.text.toString().toPlainRequestBody(),
+//                list.toString().toPlainRequestBody(),
+//                selectdata.toString().toPlainRequestBody(),
+//                mBinding?.fragmentDiaryWritePayEt?.text.toString().toPlainRequestBody(),
+//                planId.toString().toPlainRequestBody()
+//            )
+//
+            // 사진 임의로 request 형식 변환
+//        val file = File(" /storage/emulated/0/Download/filename.pdf")
+//        val requestFile = RequestBody.create(MediaType.parse("mage/jpeg"), file)
+//        val body = MultipartBody.Part.createFormData("file", file.name, requestFile)
+//
+
+//        val file = File(mediaPath)
+//        val requestBody = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+//        MultipartBody.Part.createFormData("images", file.name, requestBody)
+
+            val text : String = "12"
+
+//        MultipartBody.Part.createFormData("diaryTitle", mBinding?.fragmentDiaryWriteTitleEdittext?.text.toString(), text.toPlainRequestBody())
+
+
         }
         // 뒤로 가기 버튼
         mBinding?.signUpingBackImg?.setOnClickListener(){
@@ -189,6 +298,8 @@ class DiaryWritingFragment : Fragment() {
             it.findNavController().navigate(action)
         }
 
+
+        // 갤러리 여는 것
         mBinding?.fragmentDiaryWritePicturePlus?.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
                 var permissionCheck = ContextCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE)
@@ -212,7 +323,6 @@ class DiaryWritingFragment : Fragment() {
         })
 
         mBinding?.fragmentDiaryWritePicturePlus2?.setOnClickListener(object : View.OnClickListener {
-
             override fun onClick(v: View) {
                 var permissionCheck = ContextCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE)
                 if(permissionCheck != PackageManager.PERMISSION_GRANTED){
@@ -353,7 +463,9 @@ class DiaryWritingFragment : Fragment() {
         {
             if(resultCode == RESULT_OK)
             {
+                // 클릭한 사진 uri
                 var currentImageUri = data?.data
+                photoUri = currentImageUri
 
                 try{
                     currentImageUri?.let {
@@ -602,6 +714,9 @@ class DiaryWritingFragment : Fragment() {
 
         }
     }
+
+
+
 
     }
 

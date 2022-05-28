@@ -182,7 +182,8 @@ class HomeFragment : Fragment(){
 
         mBinding?.fragmentHomePlanBt?.setOnClickListener(){
             //nav_graph 에서 프래그먼트 이동할 것을 이어준 후 이렇게 적어주면 프래그먼트간 이동 끝
-            it.findNavController().navigate(R.id.action_homeFragment_to_planWriteFragment)
+            val action = HomeFragmentDirections.actionHomeFragmentToPlanWriteFragment(start = 1, exist = "", region = "")
+            it.findNavController().navigate(action)
         }
         mBinding?.fragmentHomeAlarmImg?.setOnClickListener{
             it.findNavController().navigate(R.id.action_homeFragment_to_planAuthListFragment)

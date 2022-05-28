@@ -1,4 +1,4 @@
-package com.cookandroid.teamproject1.search.adapter
+package com.cookandroid.teamproject1.search.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.cookandroid.teamproject1.databinding.ItemSearchViewBinding
 import com.cookandroid.teamproject1.search.model.ResponseSearchDiary
-import com.cookandroid.teamproject1.search.view.SearchFragmentDirections
+import com.cookandroid.teamproject1.search.view.fragment.SearchFragmentDirections
 
 /**
  * 검색화면 리사이클러뷰 어댑터
@@ -38,7 +38,7 @@ class SearchRVAdapter (): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
              */
             itemView.setOnClickListener{
                 //action_searchFragment_to_diaryViewFragment
-                val action = SearchFragmentDirections.actionSearchFragmentToDiaryViewFragment(diarySearchList.id)
+                val action = SearchFragmentDirections.actionSearchFragmentToDiaryViewFragment(diaryId = diarySearchList.id, start = 1)
                 it.findNavController().navigate(action)
             }
         }

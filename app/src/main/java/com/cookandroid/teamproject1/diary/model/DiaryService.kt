@@ -2,6 +2,8 @@ package com.cookandroid.teamproject1.diary.model
 
 import android.net.Uri
 import com.cookandroid.teamproject1.plan.model.RequestAuthUserData
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 import java.io.File
@@ -23,22 +25,49 @@ interface DiaryService {
         ) : Call<ResponseDiaryListData>
 
         // 다이어리 작성
+////        @Multipart
+//        @POST("/api/v1/diaries/create-diary")
+//        @Headers("Content-Type: multipart/form-data")
+//        // "multipart/form-data; boundary=<calculated when request is sent>"
+//        fun postDiaryWrite(
+//            @Header("X-ACCESS-TOKEN") jwt: String,
+//            @Header("X-REFRESH-TOKEN") refreshToken: Int,
+//            @Body body: RequestDiaryWriteData
+////            @Query("diaryContext") diaryContext: String,
+////            @Query("diaryEndDate") diaryEndDate: String,
+////            @Query("diaryImages") diaryImages: ArrayList<File>,
+////            @Query("diaryStartDate") diaryStartDate: String,
+////            @Query("diaryTitle") diaryTitle: String,
+////            @Query("planId") planId: Int,
+////            @Query("regionName") regionName: ArrayList<String>,
+////            @Query("themaName") themaName: ArrayList<String>,
+////            @Query("totalCost") totalCost: Int
+//            ) : Call<ResponseDiaryWriteData>
+
         @Multipart
         @POST("/api/v1/diaries/create-diary")
-//        @Headers("Content-Type: multipart/form-data")
-        fun postDiaryWrite(
+        fun createDiary(
             @Header("X-ACCESS-TOKEN") jwt: String,
             @Header("X-REFRESH-TOKEN") refreshToken: Int,
-            @Query("diaryContext") diaryContext: String,
-            @Query("diaryEndDate") diaryEndDate: String,
-            @Part("diaryImages") diaryImages: ArrayList<File>,
-            @Query("diaryStartDate") diaryStartDate: String,
-            @Query("diaryTitle") diaryTitle: String,
-            @Query("planId") planId: Int,
-            @Query("regionName") regionName: ArrayList<String>,
-            @Query("themaName") themaName: ArrayList<String>,
-            @Query("totalCost") totalCost: Int
-            ) : Call<ResponseDiaryWriteData>
+            @Part diaryTitle: MultipartBody.Part,
+            @Part diaryContext: MultipartBody.Part,
+            @Part diaryImages: ArrayList<MultipartBody.Part?>,
+            @Part diaryStartDate: MultipartBody.Part,
+            @Part diaryEndDate: MultipartBody.Part,
+            @Part regionName: MultipartBody.Part,
+            @Part themaName: MultipartBody.Part,
+            @Part totalCost: MultipartBody.Part,
+            @Part planId: MultipartBody.Part
+        ) : Call<ResponseDiaryWriteData>
+
+        //다이어리 RV
+        @POST("/api/v1/diaries/diary-plan/{diaryId}")
+        fun getDiaryPlanId(
+            @Header("X-ACCESS-TOKEN") jwt: String,
+            @Header("X-REFRESH-TOKEN") refreshToken: Int,
+            @Path("diaryId") diaryId : Int
+        ) : Call<ResponseDiaryPlanId>
+
 
         //다이어리 상세조회
     @GET("api/v1/diaries/connections/{diaryId}")
@@ -80,6 +109,12 @@ interface DiaryService {
         @Body body : RequestScrapData
     ) : Call<ResponseScrapData>
 
+    //내가 작성한 다이어리 목록 조회
+    @GET("api/v1/diaries/my-diaries")
+    fun getMyDiary(
+        @Header("X-ACCESS-TOKEN") jwt: String,
+        @Header("X-REFRESH-TOKEN") refreshToken: Int
+    ) : Call<ResponseMyDiaryData>
 
 
 }
