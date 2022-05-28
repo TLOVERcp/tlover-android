@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/tlover_background_color"
+    tools:context="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoSettingWithdrawalFragment">
+
+    <ImageView
+        android:id="@+id/setting_withdrawal_back_img"
+        android:layout_width="19dp"
+        android:layout_height="17dp"
+        android:layout_marginLeft="18.5dp"
+        android:layout_marginTop="43.5dp"
+        android:src="@drawable/back_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/setting_withdrawal_upbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="34.5dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/notosans"
+        android:text="회원탈퇴"
+        android:textColor="#1D1D20"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@+id/setting_withdrawal_back_img"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/setting_content_inquire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/notosans"
+        android:text="트러버 회원탈퇴"
+        android:textSize="22sp"
+        android:textColor="#1D1D20"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setting_withdrawal_upbar_title" />
+
+
+    <TextView
+        android:id="@+id/setting_content_versinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/notosans"
+        android:text="비밀번호"
+        android:textColor="#3F3F45"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setting_content_inquire" />
+
+
+    <EditText
+        android:id="@+id/setting_withdrawal_pw_edit"
+        android:layout_width="328dp"
+        android:layout_height="44dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/phone_requ"
+        android:ems="10"
+        android:fontFamily="@font/notosans"
+        android:hint="비밀번호를 입력하세요."
+        android:inputType="textPersonName"
+        android:paddingVertical="3dp"
+        android:paddingLeft="12dp"
+        android:textColorHint="@color/join_text_gray_color"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setting_content_versinfo" />
+
+    <TextView
+        android:id="@+id/setting_withdrawal_reason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="38dp"
+        android:text="회원탈퇴 사유"
+        android:textColor="#3F3F45"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setting_withdrawal_pw_edit" />
+
+
+        <RadioButton
+            android:id="@+id/r_btn1"
+            android:text="콘텐츠가 부족해요"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/setting_withdrawal_reason"/>
+        <RadioButton
+            android:id="@+id/r_btn2"
+            android:text="서비스 이용이 불편해요"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/r_btn1"
+            />
+
+        <RadioButton
+            android:id="@+id/r_btn3"
+            android:text="잘 이용하지 않아요"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/r_btn2" />
+
+
+
+    <RadioButton
+        android:id="@+id/r_btn4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="개인정보 유출이 걱정돼요"
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r_btn3"/>
+
+
+    <Button
+        android:id="@+id/setting_withdrawal_btn_drawal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="85dp"
+        android:background="@drawable/certification_requ"
+        android:enabled="false"
+        android:fontFamily="@font/notosans"
+        android:text="탈퇴하기"
+        android:textColor="#6E6E76"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r_btn4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

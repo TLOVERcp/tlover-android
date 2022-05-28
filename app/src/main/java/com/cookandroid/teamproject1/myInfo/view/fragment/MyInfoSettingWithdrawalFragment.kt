@@ -5,25 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import com.cookandroid.teamproject1.databinding.FragmentMyInfoSettingBinding
+import com.cookandroid.teamproject1.databinding.FragmentMyInfoSettingWithdrawalBinding
 
-class MyInfoSettingFragment : Fragment(){
-    private var mBinding : FragmentMyInfoSettingBinding?= null
+class MyInfoSettingWithdrawalFragment : Fragment(){
+    private var mBinding : FragmentMyInfoSettingWithdrawalBinding?= null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentMyInfoSettingBinding.inflate(inflater, container, false)
+        val binding = FragmentMyInfoSettingWithdrawalBinding.inflate(inflater, container, false)
 
         mBinding = binding
 
-        mBinding?.settingContentWithdrawal?.setOnClickListener{
-            val action = MyInfoSettingFragmentDirections.actionMyInfoSettingFragmentToMyInfoSettingWithdrawalFragment()
-            it.findNavController().navigate(action)
-        }
         return mBinding?.root
     }
 

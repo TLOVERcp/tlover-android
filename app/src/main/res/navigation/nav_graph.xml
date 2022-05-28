@@ -176,6 +176,9 @@
         android:label="fragment_my_info_setting"
         tools:layout="@layout/fragment_my_info_setting" >
 
+        <action
+            android:id="@+id/action_myInfoSettingFragment_to_myInfoSettingWithdrawalFragment"
+            app:destination="@id/myInfoSettingWithdrawalFragment" />
     </fragment>
     <fragment
         android:id="@+id/diaryLibraryFragment"
@@ -222,6 +225,11 @@
         android:name="com.cookandroid.teamproject1.id.view.activity.LoginSuccessActivity"
         android:label="activity_login_success"
         tools:layout="@layout/activity_login_success" />
+    <fragment
+        android:id="@+id/myInfoSettingWithdrawalFragment"
+        android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoSettingWithdrawalFragment"
+        android:label="fragment_my_info_setting_withdrawal"
+        tools:layout="@layout/fragment_my_info_setting_withdrawal" />
 
 
 </navigation>

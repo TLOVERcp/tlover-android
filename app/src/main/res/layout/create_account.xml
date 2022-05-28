@@ -13,9 +13,9 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         android:paddingRight="15.5dp"
-        app:layout_constraintRight_toRightOf="@id/create_account_id_edittext"
-        app:layout_constraintTop_toTopOf="@id/create_account_id_edittext"
-        app:layout_constraintBottom_toBottomOf="@id/create_account_id_edittext"
+        app:layout_constraintRight_toRightOf="@id/setting_withdrawal_pw_edit"
+        app:layout_constraintTop_toTopOf="@id/setting_withdrawal_pw_edit"
+        app:layout_constraintBottom_toBottomOf="@id/setting_withdrawal_pw_edit"
         android:src="@drawable/check_mark_new"
         />
 
@@ -105,7 +105,7 @@
         android:textColor="#3F3F45"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/create_account_id_edittext" />
+        app:layout_constraintTop_toBottomOf="@id/setting_withdrawal_pw_edit" />
 
     <TextView
         android:id="@+id/create_account_nickname_text"
@@ -140,7 +140,7 @@
         tools:layout_editor_absoluteY="0dp" />
 
     <EditText
-        android:id="@+id/create_account_id_edittext"
+        android:id="@+id/setting_withdrawal_pw_edit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -240,7 +240,7 @@
         android:textColor="@color/join_text_gray_color"
         android:textSize="12sp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/create_account_id_edittext" />
+        app:layout_constraintTop_toTopOf="@id/setting_withdrawal_pw_edit" />
 
     <TextView
         android:id="@+id/create_account_id_warning_textview"
@@ -253,8 +253,8 @@
         android:textSize="12sp"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/create_account_password_text"
-        app:layout_constraintLeft_toLeftOf="@id/create_account_id_edittext"
-        app:layout_constraintTop_toBottomOf="@id/create_account_id_edittext" />
+        app:layout_constraintLeft_toLeftOf="@id/setting_withdrawal_pw_edit"
+        app:layout_constraintTop_toBottomOf="@id/setting_withdrawal_pw_edit" />
 
     <TextView
         android:id="@+id/create_account_password_warning_textview"
