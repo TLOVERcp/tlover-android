@@ -44,7 +44,7 @@ class DiaryViewFragment : Fragment(){
     ): View? {
         val binding = FragmentDiaryViewBinding.inflate(inflater, container, false)
         mBinding = binding
-
+        dataList.clear()
         return mBinding?.root
     }
 
@@ -71,6 +71,7 @@ class DiaryViewFragment : Fragment(){
             }
 //            activity?.supportFragmentManager?.beginTransaction()?.remove(this)?.commit()
         }
+
 
         // RV- planId도 받아와야되는데 넘어가나? diaryid에 맞는거 있나 diaryId -> planId 방법
         ServiceCreator.diaryService.getDiaryPlanId(

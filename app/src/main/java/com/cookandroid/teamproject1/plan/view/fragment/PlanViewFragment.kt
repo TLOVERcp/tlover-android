@@ -45,12 +45,12 @@ class PlanViewFragment : Fragment(){
     ): View? {
         val binding = FragmentPlanViewBinding.inflate(inflater, container, false)
         mBinding = binding
+        dataList.clear()
 
         activity?.run{
             viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
                 .get(PlanDetailViewModel::class.java)
         }
-
         //뒤로가기버튼
         mBinding?.signUpingBackImg?.setOnClickListener{
             it.findNavController().navigate(R.id.action_planViewFragment_to_diaryFragment)
