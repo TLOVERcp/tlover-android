@@ -60,6 +60,14 @@ interface DiaryService {
             @Part planId: MultipartBody.Part
         ) : Call<ResponseDiaryWriteData>
 
+        //다이어리 RV
+        @POST("/api/v1/diaries/diary-plan/{diaryId}")
+        fun getDiaryPlanId(
+            @Header("X-ACCESS-TOKEN") jwt: String,
+            @Header("X-REFRESH-TOKEN") refreshToken: Int,
+            @Path("diaryId") diaryId : Int
+        ) : Call<ResponseDiaryPlanId>
+
 
         //다이어리 상세조회
     @GET("api/v1/diaries/connections/{diaryId}")
