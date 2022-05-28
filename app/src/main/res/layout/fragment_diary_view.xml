@@ -339,10 +339,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="298dp"
         android:layout_marginTop="19dp"
-        app:srcCompat="@drawable/diary_search_scrap"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/fragment_diary_write_sv"
-        app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v" />
+        app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v"
+        app:srcCompat="@drawable/diary_search_scrap" />
 
     <ImageView
         android:id="@+id/item_search_view_scrap_icon_colored"

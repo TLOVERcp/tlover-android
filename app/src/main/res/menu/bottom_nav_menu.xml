@@ -13,11 +13,11 @@
     <item
         android:id="@+id/diaryFragment"
         android:title="다이어리"
-        android:icon="@drawable/diary_logo"
+        android:icon="@drawable/ic_bottom_diary"
         />
     <item
         android:id="@+id/myInfoFragment"
         android:title="내프로필"
-        android:icon="@drawable/my_info_logo"
+        android:icon="@drawable/ic_my_info"
         />
 </menu>

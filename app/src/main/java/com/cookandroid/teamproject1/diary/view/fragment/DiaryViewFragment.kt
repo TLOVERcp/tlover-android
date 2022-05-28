@@ -34,6 +34,7 @@ class DiaryViewFragment : Fragment(){
     private lateinit var planAcceptRVAdapter : PlanAcceptRVAdapter
     private var dataList = mutableListOf<PlanAcceptDataModel>()
     var heartShape = false
+    var scrapShape = false
     private var planId : String = ""
 
 
@@ -127,6 +128,12 @@ class DiaryViewFragment : Fragment(){
         val requestScrapData = RequestScrapData(
             diaryId = args.diaryId
         )
+        val requestScrapWhetherData = RequestScrapWhetherData(
+            diaryId=args.diaryId
+        )
+        val requestLikeWhetherData = RequestLikeWhetherData(
+            diaryId=args.diaryId
+        )
 
 
 
@@ -201,7 +208,65 @@ class DiaryViewFragment : Fragment(){
 
         })
 
-        mBinding?.itemSearchViewHeartIcon?.setOnClickListener {
+        //해당 유저의 해당 다이어리 스크랩 여부 조회
+        val call6: Call<ResponseDiaryScrapWhetherData> = ServiceCreator.diaryService.getScrapWhether(
+            TloverApplication.prefs.getString("jwt","null"),
+            TloverApplication.prefs.getString("refreshToken","null").toInt(),
+            requestScrapWhetherData
+        )
+
+        call6.enqueue(object : Callback<ResponseDiaryScrapWhetherData>{
+            override fun onResponse(
+                call: Call<ResponseDiaryScrapWhetherData>,
+                response: Response<ResponseDiaryScrapWhetherData>
+            ) {
+                Log.e("response~~!!", "200?!?!")
+                if (response.body()?.data?.scraped==true) {
+                    scrapShape=true
+                }
+                else if (response.body()?.data?.scraped==false) {
+                    scrapShape=false
+                }
+
+                scrapShape()
+            }
+
+            override fun onFailure(call: Call<ResponseDiaryScrapWhetherData>, t: Throwable) {
+
+            }
+
+        })
+
+        val call7: Call<ResponseDiaryLikeWhetherData> = ServiceCreator.diaryService.getLikeWhether(
+            TloverApplication.prefs.getString("jwt","null"),
+            TloverApplication.prefs.getString("refreshToken","null").toInt(),
+            requestLikeWhetherData
+        )
+
+        call7.enqueue(object : Callback<ResponseDiaryLikeWhetherData>{
+            override fun onResponse(
+                call: Call<ResponseDiaryLikeWhetherData>,
+                response: Response<ResponseDiaryLikeWhetherData>
+            ) {
+                if (response.body()?.data?.liked==true) {
+                    heartShape=true
+                }
+                else if (response.body()?.data?.liked==false) {
+                    heartShape=false
+                }
+
+                heartShape()
+            }
+
+            override fun onFailure(call: Call<ResponseDiaryLikeWhetherData>, t: Throwable) {
+
+            }
+
+        })
+
+
+       mBinding?.itemSearchViewHeartIcon?.setOnClickListener {
+            //좋아요 API 연동
             val call4: Call<ResponseLikeData> = ServiceCreator.diaryService.getLike(
                 TloverApplication.prefs.getString("jwt","null"),
                 TloverApplication.prefs.getString("refreshToken","null").toInt(),
@@ -214,6 +279,13 @@ class DiaryViewFragment : Fragment(){
                     response: Response<ResponseLikeData>
                 ) {
                     Log.e("response!!!!", "200?!")
+                    if (response.body()?.data?.liked==true) {
+                        heartShape=true
+                    }
+                    else if (response.body()?.data?.liked==false) {
+                        heartShape=false
+                    }
+
                 }
 
                 override fun onFailure(call: Call<ResponseLikeData>, t: Throwable) {
@@ -236,6 +308,7 @@ class DiaryViewFragment : Fragment(){
                     if(response.code()==200) {
                         Log.e("response!!!", "200!!!!!")
                         mBinding?.diaryLike = response.body()?.data
+
                     }
 
                 }
@@ -246,7 +319,7 @@ class DiaryViewFragment : Fragment(){
 
             })
 
-
+            heartShape()
         }
 
         mBinding?.itemSearchViewScrapIcon?.setOnClickListener {
@@ -293,15 +366,55 @@ class DiaryViewFragment : Fragment(){
                 }
 
             })
+            //스크랩 여부 조회
+            val call6: Call<ResponseDiaryScrapWhetherData> = ServiceCreator.diaryService.getScrapWhether(
+                TloverApplication.prefs.getString("jwt","null"),
+                TloverApplication.prefs.getString("refreshToken","null").toInt(),
+                requestScrapWhetherData
+            )
+
+            call6.enqueue(object : Callback<ResponseDiaryScrapWhetherData>{
+                override fun onResponse(
+                    call: Call<ResponseDiaryScrapWhetherData>,
+                    response: Response<ResponseDiaryScrapWhetherData>
+                ) {
+                    Log.e("response~~!!", "200?!?!")
+                    if (response.body()?.data?.scraped==true) {
+                        scrapShape=true
+                    }
+                    else if (response.body()?.data?.scraped==false) {
+                        scrapShape=false
+                    }
+
+                    scrapShape()
+                }
+
+                override fun onFailure(call: Call<ResponseDiaryScrapWhetherData>, t: Throwable) {
+
+                }
+
+            })
 
 
         }
-
-
-
-
         super.onViewCreated(view, savedInstanceState)
     }
+    private fun heartShape() {
+        if(heartShape==true) {
+            mBinding?.itemSearchViewHeartIcon?.setImageResource(R.drawable.ic_colored_heart)
+        }
+        else if(heartShape==false) {
+            mBinding?.itemSearchViewHeartIcon?.setImageResource(R.drawable.diary_search_heart)
+        }
+    }
 
+    private fun scrapShape() {
+        if(scrapShape==true) {
+            mBinding?.itemSearchViewScrapIcon?.setImageResource(R.drawable.ic_colored_scrap)
+        }
+        else if(scrapShape==false) {
+            mBinding?.itemSearchViewScrapIcon?.setImageResource(R.drawable.diary_search_scrap)
+        }
+    }
 
 }

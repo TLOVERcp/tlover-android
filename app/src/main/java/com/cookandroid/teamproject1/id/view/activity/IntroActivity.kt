@@ -64,7 +64,7 @@ class IntroActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<ResponseLoginData>, t: Throwable) {
-                    TODO("Not yet implemented")
+
                 }
 
             })
@@ -72,12 +72,12 @@ class IntroActivity : AppCompatActivity() {
         else{
             startActivity(intentLoginFail)
         }
-//        var handler=Handler()
-//        handler.postDelayed({
-//            var intent=Intent(this, FirstTitleActivity::class.java)
-//            startActivity(intent)// 다음 화면으로 넘어가기
-//        },2000)//2초뒤 실행
-//
+        var handler=Handler()
+        handler.postDelayed({
+            var intent=Intent(this, FirstTitleActivity::class.java)
+           startActivity(intent)// 다음 화면으로 넘어가기
+      },2000)//2초뒤 실행
+
     }
 
     override fun onPause() {

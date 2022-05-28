@@ -68,6 +68,13 @@ interface DiaryService {
             @Path("diaryId") diaryId : Int
         ) : Call<ResponseDiaryPlanId>
 
+    //해당 유저의 해당 다이어리 스크랩 여부 조회
+    @POST("api/v1/scraps/whether")
+    fun getScrapWhether(
+        @Header("X-ACCESS-TOKEN") jwt: String,
+        @Header("X-REFRESH-TOKEN") refreshToken: Int,
+        @Body body: RequestScrapWhetherData
+    ) : Call<ResponseDiaryScrapWhetherData>
 
         //다이어리 상세조회
     @GET("api/v1/diaries/connections/{diaryId}")
@@ -116,5 +123,11 @@ interface DiaryService {
         @Header("X-REFRESH-TOKEN") refreshToken: Int
     ) : Call<ResponseMyDiaryData>
 
-
+    //해당 유저의 해당 다이어리 좋아요 여부 조회
+    @POST("api/v1/diaries/liked/whether")
+    fun getLikeWhether(
+        @Header("X-ACCESS-TOKEN") jwt: String,
+        @Header("X-REFRESH-TOKEN") refreshToken: Int,
+        @Body body: RequestLikeWhetherData
+    ) : Call<ResponseDiaryLikeWhetherData>
 }

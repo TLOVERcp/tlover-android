@@ -15,7 +15,6 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,7 +25,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
-import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.FragmentDiaryWritingBinding
 import com.cookandroid.teamproject1.diary.model.ResponseDiaryWriteData
 import com.cookandroid.teamproject1.plan.model.ResponsePlanViewData
@@ -59,6 +57,8 @@ class DiaryWritingFragment : Fragment() {
     var isContext : Boolean = false
     var REQUIRED_PERMISSIONS = arrayOf<String>( android.Manifest.permission.READ_EXTERNAL_STORAGE)
 
+
+
     private var selectPhotoUri = mutableListOf<Uri>()
     private var selectPhotoString = mutableListOf<String>()
     private var list : ArrayList<String> = arrayListOf()
@@ -67,7 +67,7 @@ class DiaryWritingFragment : Fragment() {
     private var photoList : ArrayList<String> = arrayListOf()
     private var text : String = "text"
 
-    private var photoUri : Uri? = Uri.EMPTY
+    private var photoUri : Uri? = null
 // null
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -467,6 +467,7 @@ class DiaryWritingFragment : Fragment() {
                 var currentImageUri = data?.data
                 photoUri = currentImageUri
 
+
                 try{
                     currentImageUri?.let {
                         if (selectPicNum == 1) {
@@ -475,6 +476,7 @@ class DiaryWritingFragment : Fragment() {
                                     val bitmap = MediaStore.Images.Media.getBitmap(
                                         requireActivity().contentResolver,
                                         currentImageUri
+
                                     )
                                     selectPhotoString.add(currentImageUri.toString())
                                     selectPhotoUri.add(currentImageUri)
@@ -654,36 +656,7 @@ class DiaryWritingFragment : Fragment() {
                 Toast.makeText(requireActivity(), "사진 선택 취소", Toast.LENGTH_LONG).show();
             }
         }
-        mBinding?.fragmentDiaryThemeButton1?.setOnClickListener {
 
-        }
-        mBinding?.fragmentDiaryThemeButton2?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton3?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton4?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton5?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton6?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton7?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton8?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton9?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton10?.setOnClickListener {
-
-        }
 
     }
 
