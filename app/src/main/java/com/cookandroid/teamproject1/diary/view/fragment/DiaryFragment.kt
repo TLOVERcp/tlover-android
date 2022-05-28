@@ -47,7 +47,7 @@ class DiaryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         //새로운 게획 작성 버튼을 클릭할 때 planWriteFragment로 이동
         mBinding?.fragmentPlanNewWriteB?.setOnClickListener(){
-            val action = DiaryFragmentDirections.actionDiaryFragmentToPlanWriteFragment(start = 2)
+            val action = DiaryFragmentDirections.actionDiaryFragmentToPlanWriteFragment(start = 2, exist = "", region = "")
             it.findNavController().navigate(action)
 //            it.findNavController().navigate(R.id.action_diaryFragment_to_diaryWritingFragment)
         }

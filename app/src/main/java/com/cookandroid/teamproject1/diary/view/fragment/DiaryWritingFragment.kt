@@ -473,36 +473,6 @@ class DiaryWritingFragment : Fragment() {
                 Toast.makeText(requireActivity(), "사진 선택 취소", Toast.LENGTH_LONG).show();
             }
         }
-        mBinding?.fragmentDiaryThemeButton1?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton2?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton3?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton4?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton5?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton6?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton7?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton8?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton9?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton10?.setOnClickListener {
-
-        }
 
     }
 

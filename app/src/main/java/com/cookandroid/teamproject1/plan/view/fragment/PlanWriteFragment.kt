@@ -20,6 +20,7 @@ import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.navArgs
 import com.cookandroid.teamproject1.diary.view.fragment.DiaryViewFragmentArgs
 import com.cookandroid.teamproject1.diary.view.fragment.DiaryViewFragmentDirections
+import com.cookandroid.teamproject1.home.view.fragment.HomeFragmentDirections
 import com.cookandroid.teamproject1.plan.model.RequestPlanWriteData
 import com.cookandroid.teamproject1.plan.model.ResponsePlanWriteData
 import com.cookandroid.teamproject1.plan.viewmodel.SelectViewModel
@@ -65,23 +66,24 @@ class PlanWriteFragment : Fragment(){
 //            mBinding?.fragmentPlanWriteLocationEt.text = it.toString()
 //        }
 
-        setFragmentResultListener("requestSecondKey") { requestKey, bundle ->
-            val result = bundle.getString("passKey").toString()
-            Log.e("", result)
-           }
-
-        setFragmentResultListener("requestKey") { requestKey, bundle ->
-            Log.e("listenerLocation..", "장소셋팅")
-            val result = bundle.getString("senderKey").toString()
-            val new = result.substring(1,result.length-1)
-            listed = new.split("/")
-            for (i in listed.indices){
-                list.add(listed[i])
-            }
-            mBinding?.fragmentPlanWriteLocationEt?.setText(new)
-            isRegion=true
-            mBinding?.fragmentPlanWriteLocationEt?.setTextColor(Color.parseColor("#2E2E33"))
-        }
+        // fragmentListener
+//        setFragmentResultListener("requestSecondKey") { requestKey, bundle ->
+//            val result = bundle.getString("passKey").toString()
+//            Log.e("", result)
+//           }
+//
+//        setFragmentResultListener("requestKey") { requestKey, bundle ->
+//            Log.e("listenerLocation..", "장소셋팅")
+//            val result = bundle.getString("senderKey").toString()
+//            val new = result.substring(1,result.length-1)
+//            listed = new.split("/")
+//            for (i in listed.indices){
+//                list.add(listed[i])
+//            }
+//            mBinding?.fragmentPlanWriteLocationEt?.setText(new)
+//            isRegion=true
+//            mBinding?.fragmentPlanWriteLocationEt?.setTextColor(Color.parseColor("#2E2E33"))
+//        }
 
         // 값 셋팅
 //        mBinding?.fragmentPlanWriteDateEt?.text.toString() == ""
@@ -110,7 +112,35 @@ class PlanWriteFragment : Fragment(){
 
         val args : PlanWriteFragmentArgs by navArgs()
         val startNum = args.start
+        val existData = args.exist
+        val regionData = args.region
 
+        if (existData == ""){
+      }else if(existData != ""){
+            existList = existData.split("/ ")
+            mBinding?.fragmentPlanWriteDateEt?.setText(existList[0])
+            mBinding?.fragmentPlanWriteDateEt?.setTextColor(Color.BLACK)
+            mBinding?.fragmentPlanWriteEndDateEt?.setText(existList[1])
+            mBinding?.fragmentPlanWriteEndDateEt?.setTextColor(Color.BLACK)
+            mBinding?.fragmentPlanWritePayEt?.setText(existList[2])
+            mBinding?.fragmentDiaryContentTv?.setText(existList[3])
+            mBinding?.fragmentPlanWriteTitleEdittext?.setText(existList[4])
+        }
+        if (regionData == ""){
+
+        }else if(regionData != ""){
+            val new = regionData.substring(1,regionData.length-1)
+            listed = new.split("/")
+            for (i in listed.indices){
+                list.add(listed[i])
+            }
+            mBinding?.fragmentPlanWriteLocationEt?.setText(new)
+            isRegion=true
+            mBinding?.fragmentPlanWriteLocationEt?.setTextColor(android.graphics.Color.parseColor("#2E2E33"))
+
+        }
+
+        // 뒤로 가기 버튼
         mBinding?.signUpingBackImg?.setOnClickListener(){
             if (startNum ==1){
                 it.findNavController().navigate(PlanWriteFragmentDirections.actionPlanWriteFragmentToHomeFragment())
@@ -121,6 +151,7 @@ class PlanWriteFragment : Fragment(){
             }
         }
 
+
             // 지역 선택
             mBinding?.fragmentPlanWriteLocationEt?.setOnClickListener() {
                 val exist = mBinding?.fragmentPlanWriteDateEt?.text.toString()+"/ "+
@@ -128,13 +159,18 @@ class PlanWriteFragment : Fragment(){
                         mBinding?.fragmentPlanWritePayEt?.text.toString()+"/ "+
                         mBinding?.fragmentDiaryContentTv?.text.toString()+"/ "+
                         mBinding?.fragmentPlanWriteTitleEdittext?.text.toString()
-                val bundle3 = bundleOf("existKey" to exist)
-                Log.e("bundle3", exist)
-                mBinding?.fragmentPlanWriteLocationEt?.isEnabled = false
-                setFragmentResult("requestKeyT", bundle3)
-//                it.findNavController().navigate(R.id.action_planWriteFragment_to_selectFragment)
-                activity?.supportFragmentManager?.beginTransaction()?.replace(
-                    R.id.container, SelectFragment())?.commit()
+                //fragment listener
+//                val bundle3 = bundleOf("existKey" to exist)
+//                Log.e("bundle3", exist)
+//                mBinding?.fragmentPlanWriteLocationEt?.isEnabled = false
+//                setFragmentResult("requestKeyT", bundle3)
+////                it.findNavController().navigate(R.id.action_planWriteFragment_to_selectFragment)
+//                activity?.supportFragmentManager?.beginTransaction()?.replace(
+//                    R.id.container, SelectFragment())?.commit()
+
+                // nav로
+                val action = PlanWriteFragmentDirections.actionPlanWriteFragmentToSelectFragment(exist=exist, startNum = startNum, region = "")
+                it.findNavController().navigate(action)
 
             }
 
@@ -217,17 +253,7 @@ class PlanWriteFragment : Fragment(){
                 datePickerDialog.show()
             }
 
-        // 뒤로 가기 버튼
-        mBinding?.signUpingBackImg?.setOnClickListener(){
-            if (startNum ==1){
-                it.findNavController().navigate(PlanWriteFragmentDirections.actionPlanWriteFragmentToHomeFragment())
 
-            }else if (startNum ==2){
-                it.findNavController().navigate(PlanWriteFragmentDirections.actionPlanWriteFragmentToDiaryFragment())
-
-            }
-//            activity?.supportFragmentManager?.beginTransaction()?.remove(this)?.commit()
-        }
 //        mBinding?.signUpingBackImg?.setOnClickListener(){
 //            it.findNavController().navigate(R.id.action_planWriteFragment_to_diaryFragment)
 //        }
