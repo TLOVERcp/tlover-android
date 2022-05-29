@@ -54,6 +54,10 @@ class DiaryViewFragment : Fragment(){
         val startNum = args.start
         Log.d(SignUpViewModel.TAG, "onViewCreated: $diaryId")
 
+        planAcceptRVAdapter = PlanAcceptRVAdapter(requireContext())
+        mBinding?.fragmentDiaryViewFrRv?.layoutManager = GridLayoutManager(requireContext(), 4)
+        mBinding?.fragmentDiaryViewFrRv?.adapter = planAcceptRVAdapter
+
         // x버튼 - 번호 받아와서 해보자 or fragmentListener finish X
         mBinding?.signUpingBackImg?.setOnClickListener(){
             if (startNum ==1){
