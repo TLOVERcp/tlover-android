@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.cookandroid.teamproject1.databinding.FragmentMyInfoBinding
 import com.cookandroid.teamproject1.myInfo.view.adapter.MyInfoVPAdapter
 import com.cookandroid.teamproject1.util.TloverApplication
@@ -47,6 +48,11 @@ class MyInfoFragment : Fragment(){
         mBinding?.fragmentMyInfoNicknameTv?.text = "%s".format(TloverApplication.prefs.getString("userNickname", "null"))
         mBinding?.fragmentMyInfoRegionTv?.text = regionTextLast
         mBinding?.fragmentMyInfoThemeTv?.text = themeTextLast
+
+        mBinding?.fragmentMyInfoSettingIv?.setOnClickListener{
+            val action = MyInfoFragmentDirections.actionMyInfoFragmentToMyInfoSettingFragment()
+            it.findNavController().navigate(action)
+        }
 
 
         return mBinding?.root

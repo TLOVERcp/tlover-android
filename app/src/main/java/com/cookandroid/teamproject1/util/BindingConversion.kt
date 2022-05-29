@@ -37,7 +37,7 @@ object BindingConversion {
     @JvmStatic
     @BindingAdapter("setCalendarStart")
     fun setCalendarStart(textView: TextView, sCalendar: String){
-        textView.text = sCalendar.substring(0, 4)
+        textView.text = sCalendar.substring(0, 10)
     }
 
     @JvmStatic

@@ -64,6 +64,12 @@
         <argument
             android:name="start"
             app:argType="integer" />
+        <argument
+            android:name="exist"
+            app:argType="string" />
+        <argument
+            android:name="region"
+            app:argType="string" />
         <action
             android:id="@+id/action_planWriteFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -79,6 +85,15 @@
         android:name="com.cookandroid.teamproject1.plan.view.fragment.SelectFragment"
         android:label="fragment_select"
         tools:layout="@layout/fragment_select" >
+        <argument
+            android:name="exist"
+            app:argType="string" />
+        <argument
+            android:name="startNum"
+            app:argType="integer"/>
+        <argument
+            android:name="region"
+            app:argType="string" />
         <action
             android:id="@+id/action_selectFragment_to_planWriteFragment"
             app:destination="@id/planWriteFragment" />
@@ -166,9 +181,13 @@
         <action
             android:id="@+id/action_diaryWritingFragment_to_planViewFragment"
             app:destination="@id/planViewFragment" />
+
         <argument
             android:name="planId"
             app:argType="long" />
+        <action
+            android:id="@+id/action_diaryWritingFragment_to_diaryFragment"
+            app:destination="@id/diaryFragment" />
     </fragment>
     <fragment
         android:id="@+id/myInfoSettingFragment"
@@ -176,6 +195,24 @@
         android:label="fragment_my_info_setting"
         tools:layout="@layout/fragment_my_info_setting" >
 
+        <action
+            android:id="@+id/action_myInfoSettingFragment_to_myInfoSettingWithdrawalFragment"
+            app:destination="@id/myInfoSettingWithdrawalFragment" />
+        <action
+            android:id="@+id/action_myInfoSettingFragment_to_myInfoFragment"
+            app:destination="@id/myInfoFragment" />
+        <action
+            android:id="@+id/action_myInfoSettingFragment_to_signInActivity"
+            app:destination="@id/signInActivity" />
+        <action
+            android:id="@+id/action_myInfoSettingFragment_to_myInfoServiceFragment"
+            app:destination="@id/myInfoServiceFragment" />
+        <action
+            android:id="@+id/action_myInfoSettingFragment_to_myInfoPrivacyFragment"
+            app:destination="@id/myInfoPrivacyFragment" />
+        <action
+            android:id="@+id/action_myInfoSettingFragment_to_myInfoVersionFragment"
+            app:destination="@id/myInfoVersionFragment" />
     </fragment>
     <fragment
         android:id="@+id/diaryLibraryFragment"
@@ -222,6 +259,60 @@
         android:name="com.cookandroid.teamproject1.id.view.activity.LoginSuccessActivity"
         android:label="activity_login_success"
         tools:layout="@layout/activity_login_success" />
+    <fragment
+        android:id="@+id/myInfoSettingWithdrawalFragment"
+        android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoSettingWithdrawalFragment"
+        android:label="fragment_my_info_setting_withdrawal"
+        tools:layout="@layout/fragment_my_info_setting_withdrawal" >
+        <action
+            android:id="@+id/action_myInfoSettingWithdrawalFragment_to_myInfoSettingFragment"
+            app:destination="@id/myInfoSettingFragment" />
+        <action
+            android:id="@+id/action_myInfoSettingWithdrawalFragment_to_signInActivity"
+            app:destination="@id/signInActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/myInfoServiceFragment"
+        android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoServiceFragment"
+        android:label="fragment_my_info_service"
+        tools:layout="@layout/fragment_my_info_service" >
+        <action
+            android:id="@+id/action_myInfoServiceFragment_to_myInfoSettingFragment"
+            app:destination="@id/myInfoSettingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myInfoPrivacyFragment"
+        android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoPrivacyFragment"
+        android:label="fragment_my_info_privacy"
+        tools:layout="@layout/fragment_my_info_privacy" >
+        <action
+            android:id="@+id/action_myInfoPrivacyFragment_to_myInfoSettingFragment"
+            app:destination="@id/myInfoSettingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myInfoVersionFragment"
+        android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoVersionFragment"
+        android:label="fragment_my_info_version"
+        tools:layout="@layout/fragment_my_info_version" >
+        <action
+            android:id="@+id/action_myInfoVersionFragment_to_myInfoSettingFragment"
+            app:destination="@id/myInfoSettingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myInfoLikeFragment"
+        android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoLikeFragment"
+        android:label="fragment_my_info_like"
+        tools:layout="@layout/fragment_my_info_like" />
+    <fragment
+        android:id="@+id/myInfoRecentFragment"
+        android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoRecentFragment"
+        android:label="fragment_my_info_recent"
+        tools:layout="@layout/fragment_my_info_recent" />
+    <fragment
+        android:id="@+id/myInfoScrapFragment"
+        android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoScrapFragment"
+        android:label="fragment_my_info_scrap"
+        tools:layout="@layout/fragment_my_info_scrap" />
 
 
 </navigation>

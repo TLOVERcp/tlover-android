@@ -60,7 +60,8 @@ class MyInfoLikeFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<ResponseLikeData>, t: Throwable) {
-                TODO("Not yet implemented")
+                Log.e("response", "MyInfoNull~!!")
+
             }
 
         })

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/tlover_background_color"
+    tools:context="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoVersionFragment">
+
+    <ImageView
+        android:id="@+id/my_info_version_back_iv"
+        android:layout_width="19dp"
+        android:layout_height="17dp"
+        android:layout_marginLeft="18.5dp"
+        android:layout_marginTop="43.5dp"
+        android:src="@drawable/ic_back_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/my_info_version_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="34.5dp"
+        android:layout_marginTop="28dp"
+        android:textColor="#1D1D20"
+        android:fontFamily="@font/notosans"
+        android:text="버전정보"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@+id/my_info_version_back_iv"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/my_info_version_context_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="최신 버전을 사용 중입니다"
+        android:fontFamily="@font/notosans"
+        android:textFontWeight="700"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/my_info_version_1_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="현재 버전 1.0.0"
+        android:fontFamily="@font/notosans"
+        android:textSize="10sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_info_version_context_tv"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

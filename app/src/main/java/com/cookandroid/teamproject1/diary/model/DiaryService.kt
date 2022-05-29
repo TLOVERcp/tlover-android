@@ -51,15 +51,30 @@ interface DiaryService {
             @Header("X-REFRESH-TOKEN") refreshToken: Int,
             @Part diaryTitle: MultipartBody.Part,
             @Part diaryContext: MultipartBody.Part,
-            @Part diaryImages: ArrayList<MultipartBody.Part?>,
+            @Part diaryImages: List<MultipartBody.Part?>?,
             @Part diaryStartDate: MultipartBody.Part,
             @Part diaryEndDate: MultipartBody.Part,
-            @Part regionName: MultipartBody.Part,
-            @Part themaName: MultipartBody.Part,
+            @Part regionName: List<MultipartBody.Part>,
+            @Part themaName: List<MultipartBody.Part>,
             @Part totalCost: MultipartBody.Part,
             @Part planId: MultipartBody.Part
         ) : Call<ResponseDiaryWriteData>
 
+        //다이어리 RV
+        @POST("/api/v1/diaries/diary-plan/{diaryId}")
+        fun getDiaryPlanId(
+            @Header("X-ACCESS-TOKEN") jwt: String,
+            @Header("X-REFRESH-TOKEN") refreshToken: Int,
+            @Path("diaryId") diaryId : Int
+        ) : Call<ResponseDiaryPlanId>
+
+    //해당 유저의 해당 다이어리 스크랩 여부 조회
+    @POST("api/v1/scraps/whether")
+    fun getScrapWhether(
+        @Header("X-ACCESS-TOKEN") jwt: String,
+        @Header("X-REFRESH-TOKEN") refreshToken: Int,
+        @Body body: RequestScrapWhetherData
+    ) : Call<ResponseDiaryScrapWhetherData>
 
         //다이어리 상세조회
     @GET("api/v1/diaries/connections/{diaryId}")
@@ -108,5 +123,11 @@ interface DiaryService {
         @Header("X-REFRESH-TOKEN") refreshToken: Int
     ) : Call<ResponseMyDiaryData>
 
-
+    //해당 유저의 해당 다이어리 좋아요 여부 조회
+    @POST("api/v1/diaries/liked/whether")
+    fun getLikeWhether(
+        @Header("X-ACCESS-TOKEN") jwt: String,
+        @Header("X-REFRESH-TOKEN") refreshToken: Int,
+        @Body body: RequestLikeWhetherData
+    ) : Call<ResponseDiaryLikeWhetherData>
 }

@@ -8,9 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.FragmentSelectBinding
 import com.cookandroid.teamproject1.plan.viewmodel.SelectViewModel
@@ -41,11 +44,12 @@ class SelectFragment : Fragment() {
 ////            setFragmentResult("requestSecondKey", bundle2)
 //
 //        }
-        setFragmentResultListener("requestThirdKey") {requestKey, bundle ->
-            Log.e("listener", "기존셋팅")
-            val passText = bundle.getString("existKey").toString()
-            Log.e("listener", passText)
-        }
+        //fragment
+//        setFragmentResultListener("requestThirdKey") {requestKey, bundle ->
+//            Log.e("listener", "기존셋팅")
+//            val passText = bundle.getString("existKey").toString()
+//            Log.e("listener", passText)
+//        }
 
 
         return mBinding?.root
@@ -53,18 +57,35 @@ class SelectFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+        val args : SelectFragmentArgs by navArgs()
+        val exist = args.exist
+        val startNum = args.startNum
+
         mBinding?.fragmentDiaryRegionSelectClose?.setOnClickListener(){
 
 //            sharedViewModel = ViewModelProvider(this).get(SelectViewModel::class.java)
 //            sharedViewModel.updateInputRegion(selectdata.toString())
-            val bundle2 = bundleOf("passKey" to passText)
-            setFragmentResult("requestSecondKey", bundle2)
-//            activity?.supportFragmentManager?.popBackStack()
-            val bundle = bundleOf("senderKey" to selectdata.toString())
-            setFragmentResult("requestKey", bundle)
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.container2, PlanWriteFragment())
-                ?.commit()
+            //            activity?.supportFragmentManager?.popBackStack()
+
+            // fragmentResultListener
+//            val bundle2 = bundleOf("passKey" to passText)
+//            setFragmentResult("requestSecondKey", bundle2)
+//            val bundle = bundleOf("senderKey" to selectdata.toString())
+//            setFragmentResult("requestKey", bundle)
+//            activity?.supportFragmentManager?.beginTransaction()
+//                ?.replace(R.id.container2, PlanWriteFragment())
+//                ?.commit()
+            if (
+                selectdata.size ==0
+            ){
+                Toast.makeText(requireActivity(), "한 개 이상 선택해주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // nav
+            val action = SelectFragmentDirections.actionSelectFragmentToPlanWriteFragment(exist=exist, start = startNum,
+             region = selectdata.toString())
+            it.findNavController().navigate(action)
         }
         //                ?.replace(R.id.container2, PlanWriteFragment())
         // ?.hide(this)

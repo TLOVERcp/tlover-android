@@ -125,7 +125,6 @@ class HomeFragment : Fragment(){
             }
 
             override fun onFailure(call: Call<ResponseHotDiaryData>, t: Throwable) {
-                TODO("Not yet implemented")
             }
         })
         /**
@@ -182,7 +181,7 @@ class HomeFragment : Fragment(){
 
         mBinding?.fragmentHomePlanBt?.setOnClickListener(){
             //nav_graph 에서 프래그먼트 이동할 것을 이어준 후 이렇게 적어주면 프래그먼트간 이동 끝
-            val action = HomeFragmentDirections.actionHomeFragmentToPlanWriteFragment(start = 1)
+            val action = HomeFragmentDirections.actionHomeFragmentToPlanWriteFragment(start = 1, exist = "", region = "")
             it.findNavController().navigate(action)
         }
         mBinding?.fragmentHomeAlarmImg?.setOnClickListener{

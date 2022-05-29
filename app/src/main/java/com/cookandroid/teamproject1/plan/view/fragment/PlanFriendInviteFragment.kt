@@ -47,8 +47,8 @@ class PlanFriendInviteFragment : Fragment() {
 
         //친구 초대 프래그먼트에서 x버튼을 클릭했을 때 아무것도 실행되지 않고, 그 전 화면으로 가기 위해 planId 전달
         mBinding?.fragmentPlanFriendXIv?.setOnClickListener{
-//            val action = PlanFriendInviteFragmentDirections.actionPlanFriendInviteFragmentToPlanViewFragment(planId)
-//            it.findNavController().navigate(action)
+            val action = PlanFriendInviteFragmentDirections.actionPlanFriendInviteFragmentToPlanViewFragment(planId)
+            it.findNavController().navigate(action)
         }
 
         //친구 검색 editText에서 입력하고 있을 때 버튼 활성화

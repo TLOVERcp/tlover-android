@@ -37,5 +37,5 @@ data class ResponseLoginData(
     @SerializedName("userRegionName")
     val userRegionName: ArrayList<String>,
     @SerializedName("userRating")
-    val userRating: Int
+    val userRating: Float
 )

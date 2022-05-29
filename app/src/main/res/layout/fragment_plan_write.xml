@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:layout_width="match_parent"
+<FrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/container"
     xmlns:android="http://schemas.android.com/apk/res/android">
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/tlover_background_color"
@@ -69,11 +69,11 @@
                     android:layout_marginLeft="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/phone_requ"
-                    android:clickable="false"
-                    android:editable="false"
                     android:ems="20"
-                    android:enabled="false"
+                    android:clickable="true"
+                    android:editable="false"
                     android:focusable="false"
+                    android:enabled="true"
                     android:fontFamily="@font/notosans"
                     android:hint="시작 날짜"
                     android:inputType="text"
@@ -93,11 +93,11 @@
                     android:layout_marginRight="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/phone_requ"
-                    android:clickable="false"
+                    android:clickable="true"
                     android:editable="false"
-                    android:ems="20"
-                    android:enabled="false"
                     android:focusable="false"
+                    android:enabled="true"
+                    android:ems="20"
                     android:fontFamily="@font/notosans"
                     android:hint="끝 날짜"
                     android:inputType="text"
@@ -173,7 +173,9 @@
                 android:hint="여행 지역을 선택하세요."
                 android:inputType="text"
                 android:clickable="true"
+                android:editable="false"
                 android:focusable="false"
+                android:enabled="true"
                 android:paddingVertical="3dp"
                 android:paddingLeft="48dp"
                 android:textColorHint="@color/join_text_gray_color"
@@ -245,6 +247,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/fragment_plan_write_pay_et" />
 
+<!--            textPersonName-->
 
             <EditText
                 android:id="@+id/fragment_plan_write_title_edittext"
@@ -255,7 +258,6 @@
                 android:layout_marginRight="24dp"
                 android:ems="30"
                 android:fontFamily="@font/notosans"
-                android:inputType="textPersonName"
                 android:hint="여행 제목"
                 android:textColorHint="@color/join_text_gray_color"
                 android:textSize="16sp"
@@ -264,11 +266,13 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/fragment_plan_write_divider" />
 
-                <androidx.core.widget.NestedScrollView
-                    android:id="@+id/fragment_plan_write_sv2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/fragment_plan_write_title_edittext">
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/fragment_plan_write_sv2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/fragment_plan_write_title_edittext"
+                tools:layout_editor_absoluteX="0dp">
+
                 <EditText
                     android:id="@+id/fragment_diary_content_tv"
                     android:layout_width="match_parent"
@@ -282,42 +286,51 @@
                     android:hint="Test"
                     android:inputType="textMultiLine"
                     android:lines="15"
+                    android:overScrollMode="always"
                     android:paddingVertical="3dp"
                     android:paddingLeft="24dp"
+                    android:scrollbarStyle="insideInset"
                     android:scrollbars="vertical"
                     android:textColorHint="@color/join_text_gray_color"
-                    android:overScrollMode="always"
-                    android:scrollbarStyle="insideInset"
-                    app:layout_constraintTop_toBottomOf="@id/fragment_plan_write_title_edittext"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_plan_write_title_edittext" />
 
-                </androidx.core.widget.NestedScrollView>
+            </androidx.core.widget.NestedScrollView>
 
             <View
-                android:id="@+id/fragment_plan_write_low_v"
+                android:id="@+id/fragment_diary_write_space_v"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="20dp"
                 android:background="@color/white"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
-
-            <Button
-                android:id="@+id/fragment_plan_write_save_bt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="35dp"
-                android:background="@drawable/certification_requ"
-                android:fontFamily="@font/notosans"
-                android:text="저장하기"
-                android:textColor="#6E6E76"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@id/fragment_plan_write_low_v"
-                app:layout_constraintTop_toTopOf="@id/fragment_plan_write_low_v"
-                />
-
+                app:layout_constraintTop_toBottomOf="@id/fragment_plan_write_sv2" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:id="@+id/fragment_plan_write_low_v"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/tlover_background_color"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/fragment_plan_write_save_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="35dp"
+        android:background="@drawable/certification_requ"
+        android:fontFamily="@font/notosans"
+        android:text="저장하기"
+        android:textColor="#6E6E76"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/fragment_plan_write_low_v"
+        app:layout_constraintTop_toTopOf="@id/fragment_plan_write_low_v"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

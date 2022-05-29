@@ -31,6 +31,10 @@ class SignInActivity : AppCompatActivity() {
 
         val intent = Intent(this, LoginSuccessActivity::class.java)
 
+        binding.textSignup.setOnClickListener {
+            startActivity(Intent(this, SignUpingActivity::class.java))
+        }
+
         //id edittext 비어있는 경우 체크
         binding.signinId.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -46,7 +50,7 @@ class SignInActivity : AppCompatActivity() {
                 else {
                     isIdEntered = false
                     changeConfirmButtonColor()
-                    binding.signinFindid.visibility=View.GONE
+//                    binding.signinFindid.visibility=View.GONE
                 }
             }
 
@@ -80,9 +84,9 @@ class SignInActivity : AppCompatActivity() {
 
         })
         //뒤로가기 버튼
-        binding.signInBackImg.setOnClickListener {
-            startActivity(Intent(this,FirstTitleActivity::class.java))
-        }
+//        binding.signInBackImg.setOnClickListener {
+//            startActivity(Intent(this,FirstTitleActivity::class.java))
+//        }
 
         //아이디 텍스트 필드 포커스된 경우
         binding.signinId.setOnFocusChangeListener (object : View.OnFocusChangeListener {
@@ -144,7 +148,7 @@ class SignInActivity : AppCompatActivity() {
                         startActivity(intent)
                     }
                     else{
-                        binding.signinFindid.visibility=View.VISIBLE
+//                        binding.signinFindid.visibility=View.VISIBLE
                         binding.signinPwnot.visibility=View.VISIBLE
                     }
                 }
