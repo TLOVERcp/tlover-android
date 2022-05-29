@@ -58,7 +58,7 @@ class DiaryLibraryFragment : Fragment(){
             }
 
             override fun onFailure(call: Call<ResponseMyDiaryData>, t: Throwable) {
-ut
+
             }
 
         })

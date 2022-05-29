@@ -9,6 +9,7 @@ import android.app.Activity
 import android.app.Activity.RESULT_CANCELED
 import android.app.Activity.RESULT_OK
 import android.content.pm.PackageManager
+import android.database.Cursor
 import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
@@ -68,6 +69,9 @@ class DiaryWritingFragment : Fragment() {
     private var text : String = "text"
 
     private var photoUri : Uri? = null
+
+    private var idx : Int = 0
+    var filePath : String =""
 // null
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -484,6 +488,7 @@ class DiaryWritingFragment : Fragment() {
                                         bitmap
                                     )
                                     mBinding?.fragmentDiaryWritePicturePlus?.visibility = View.GONE
+                                    Log.d("사진","사진"+currentImageUri.path)
                                 } else {
                                     val source = ImageDecoder.createSource(
                                         requireActivity().contentResolver,
@@ -496,10 +501,24 @@ class DiaryWritingFragment : Fragment() {
                                         bitmap
                                     )
                                     mBinding?.fragmentDiaryWritePicturePlus?.visibility = View.GONE
+                                    mBinding?.fragmentDiaryWritePicturePlus?.visibility = View.GONE
                                 }
                             } catch (e:IOException) {
                                 e.printStackTrace()
                             }
+                            val cursor: Cursor = requireActivity().contentResolver.query(
+                                Uri.parse(currentImageUri.toString()),
+                                null,
+                                null,
+                                null,
+                                null
+                            )!!
+                            cursor.moveToFirst()
+                            idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
+                            filePath = cursor.getString(idx)
+                            cursor.close()
+                            Log.d("코드1","코드1"+filePath)
+
                         }
 
                         if(selectPicNum==2) {
