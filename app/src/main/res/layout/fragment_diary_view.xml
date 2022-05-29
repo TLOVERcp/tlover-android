@@ -311,29 +311,29 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <TextView
-        android:id="@+id/fragment_plan_diary_write_bt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/notosans"
-        android:text="일기장 전체보기"
-        android:textColor="#52525A"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/fragment_diary_write_sv"
-        app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v" />
+<!--    <TextView-->
+<!--        android:id="@+id/fragment_plan_diary_write_bt"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:fontFamily="@font/notosans"-->
+<!--        android:text="일기장 전체보기"-->
+<!--        android:textColor="#52525A"-->
+<!--        android:textSize="14sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/fragment_diary_write_sv"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v" />-->
 
     <ImageView
         android:id="@+id/item_search_view_scrap_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="298dp"
+        android:layout_marginRight="9dp"
         android:layout_marginTop="19dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/fragment_diary_write_sv"
+        app:layout_constraintRight_toLeftOf="@id/fragment_plan_diary_write_1"
         app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v"
         app:srcCompat="@drawable/diary_search_scrap" />
 
@@ -341,19 +341,19 @@
         android:id="@+id/item_search_view_scrap_icon_colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="298dp"
+        android:layout_marginRight="9dp"
         android:layout_marginTop="19dp"
         app:srcCompat="@drawable/ic_colored_scrap"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/fragment_diary_write_sv"
+        app:layout_constraintRight_toLeftOf="@id/fragment_plan_diary_write_1"
         app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v" />
 
     <TextView
         android:id="@+id/fragment_plan_diary_write"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="254dp"
+        android:layout_marginRight="21dp"
         android:layout_marginTop="19dp"
         android:clickable="true"
         android:fontFamily="@font/notoserifkr_regular"
@@ -361,46 +361,46 @@
         android:textColor="#1D1D20"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/fragment_diary_write_sv"
+        app:layout_constraintRight_toLeftOf="@id/item_search_view_scrap_icon"
         app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v" />
 
     <ImageView
         android:id="@+id/item_search_view_heart_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="228dp"
+        android:layout_marginRight="9dp"
         android:layout_marginTop="19dp"
         android:clickable="true"
         app:srcCompat="@drawable/diary_search_heart"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/fragment_diary_write_sv"
+        app:layout_constraintRight_toLeftOf="@id/fragment_plan_diary_write"
         app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v" />
 
     <ImageView
         android:id="@+id/item_search_view_heart_icon_colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="228dp"
+        android:layout_marginRight="9dp"
         android:layout_marginTop="19dp"
         android:clickable="true"
         app:srcCompat="@drawable/ic_colored_heart"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/fragment_diary_write_sv"
+        app:layout_constraintRight_toLeftOf="@id/fragment_plan_diary_write"
         app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v" />
 
     <TextView
         android:id="@+id/fragment_plan_diary_write_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="321dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="19dp"
         android:fontFamily="@font/notoserifkr_regular"
         android:text="@{Integer.toString(diaryScrap.scrapCount)}"
         android:textColor="#1D1D20"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/fragment_diary_write_sv"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/fragment_plan_view_low_v" />
 
 

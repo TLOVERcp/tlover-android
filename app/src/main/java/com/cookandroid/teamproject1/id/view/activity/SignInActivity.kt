@@ -50,7 +50,7 @@ class SignInActivity : AppCompatActivity() {
                 else {
                     isIdEntered = false
                     changeConfirmButtonColor()
-                    binding.signinFindid.visibility=View.GONE
+//                    binding.signinFindid.visibility=View.GONE
                 }
             }
 
@@ -148,7 +148,7 @@ class SignInActivity : AppCompatActivity() {
                         startActivity(intent)
                     }
                     else{
-                        binding.signinFindid.visibility=View.VISIBLE
+//                        binding.signinFindid.visibility=View.VISIBLE
                         binding.signinPwnot.visibility=View.VISIBLE
                     }
                 }

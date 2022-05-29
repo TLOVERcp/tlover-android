@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -24,6 +25,11 @@ import retrofit2.Response
 class MyInfoSettingWithdrawalFragment : Fragment(){
     private var mBinding : FragmentMyInfoSettingWithdrawalBinding?= null
 
+    var radiobtck1: Boolean = false
+    var radiobtck2: Boolean = false
+    var radiobtck3: Boolean = false
+    var radiobtck4: Boolean = false
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -40,6 +46,35 @@ class MyInfoSettingWithdrawalFragment : Fragment(){
 
         //회원탈퇴 버튼 클릭
         mBinding?.settingWithdrawalBtnDrawal?.setOnClickListener{
+            val arrB : ArrayList<RadioButton> = arrayListOf()
+            val radiobtck : ArrayList<Boolean> = arrayListOf()
+
+            arrB.add(mBinding?.rBtn1!!)
+            arrB.add(mBinding?.rBtn2!!)
+            arrB.add(mBinding?.rBtn3!!)
+            arrB.add(mBinding?.rBtn4!!)
+
+            radiobtck.add(radiobtck1)
+            radiobtck.add(radiobtck2)
+            radiobtck.add(radiobtck3)
+            radiobtck.add(radiobtck4)
+
+
+            for (i in 0 until arrB.size){
+                arrB[i].setOnClickListener(){
+                    if(radiobtck[i]) {
+                        arrB[i].isChecked =false
+                        radiobtck[i] = false
+                        Log.e("", arrB[i].text.toString())
+                    }
+                    else{
+                        radiobtck[i] = true
+                        Log.e("", arrB[i].text.toString())
+                    }
+                }
+            }
+
+
             val inputPassword = binding.settingWithdrawalPwEdit.text.toString()
 
             val requestWithdrawData = RequestWithdrawData(

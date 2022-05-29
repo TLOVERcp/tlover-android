@@ -97,7 +97,7 @@ class SelectThemeActivity : AppCompatActivity() {
 //                selectThemeArray
 //            )
 //            startActivity(Intent(this, SelectThemeActivity::class.java))
-            val intent = Intent(this, FirstTitleActivity::class.java)
+            val intent = Intent(this, SignInActivity::class.java)
 //            intent.putExtra("selectThemeKey", selectThemeData)
 
             /**
@@ -124,6 +124,10 @@ class SelectThemeActivity : AppCompatActivity() {
                     if(response.code() == 200){
                         Log.e("signup_server_test", "200")
                         TloverApplication.prefs.setString("message", response.body()?.message.toString())
+                        Toast.makeText(this@SelectThemeActivity, "회원가입 완료 되었습니다. 로그인해주세요.", Toast.LENGTH_SHORT).show()
+                    }
+                    else if(response.code() == 409){
+                        Toast.makeText(this@SelectThemeActivity, "전화번호를 확인해주세요", Toast.LENGTH_SHORT).show()
                     }
                     else{
                         Log.e("signup_server_test", "responseFail")
