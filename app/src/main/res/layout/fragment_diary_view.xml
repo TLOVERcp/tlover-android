@@ -76,7 +76,7 @@
                     android:layout_height="270dp"
                     android:layout_marginLeft="0dp"
                     android:layout_marginTop="0dp"
-                    android:src="@drawable/img2_item_home_random"
+                    android:src="@drawable/tlover_nlogo"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/fragment_plan_view_high_v" />
 
