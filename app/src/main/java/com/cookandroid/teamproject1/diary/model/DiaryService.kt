@@ -51,11 +51,11 @@ interface DiaryService {
             @Header("X-REFRESH-TOKEN") refreshToken: Int,
             @Part diaryTitle: MultipartBody.Part,
             @Part diaryContext: MultipartBody.Part,
-            @Part diaryImages: ArrayList<MultipartBody.Part?>,
+            @Part diaryImages: List<MultipartBody.Part?>?,
             @Part diaryStartDate: MultipartBody.Part,
             @Part diaryEndDate: MultipartBody.Part,
-            @Part regionName: MultipartBody.Part,
-            @Part themaName: MultipartBody.Part,
+            @Part regionName: List<MultipartBody.Part>,
+            @Part themaName: List<MultipartBody.Part>,
             @Part totalCost: MultipartBody.Part,
             @Part planId: MultipartBody.Part
         ) : Call<ResponseDiaryWriteData>

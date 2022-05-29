@@ -181,9 +181,13 @@
         <action
             android:id="@+id/action_diaryWritingFragment_to_planViewFragment"
             app:destination="@id/planViewFragment" />
+
         <argument
             android:name="planId"
             app:argType="long" />
+        <action
+            android:id="@+id/action_diaryWritingFragment_to_diaryFragment"
+            app:destination="@id/diaryFragment" />
     </fragment>
     <fragment
         android:id="@+id/myInfoSettingFragment"
@@ -198,8 +202,8 @@
             android:id="@+id/action_myInfoSettingFragment_to_myInfoFragment"
             app:destination="@id/myInfoFragment" />
         <action
-            android:id="@+id/action_myInfoSettingFragment_to_firstTitleActivity"
-            app:destination="@id/firstTitleActivity" />
+            android:id="@+id/action_myInfoSettingFragment_to_signInActivity"
+            app:destination="@id/signInActivity" />
         <action
             android:id="@+id/action_myInfoSettingFragment_to_myInfoServiceFragment"
             app:destination="@id/myInfoServiceFragment" />

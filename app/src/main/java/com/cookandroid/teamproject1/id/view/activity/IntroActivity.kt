@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Handler
 import android.os.Bundle
+import android.util.Log
 import com.cookandroid.teamproject1.FirstTitleActivity
 import com.cookandroid.teamproject1.HomeActivity
 import com.cookandroid.teamproject1.R
@@ -25,7 +26,7 @@ class IntroActivity : AppCompatActivity() {
         //처음에 들어갔을 때, 유저 id와 유저 pw가 남아있으면 홈액티비티로,
         //그게 아니면 로그인화면으로
         val intentLoginSuccess = Intent(this, HomeActivity::class.java)
-        var intentLoginFail =Intent(this, FirstTitleActivity::class.java)
+        var intentLoginFail =Intent(this, SignInActivity::class.java)
         //xml 소스 연결
         if(TloverApplication.prefs.getUserId().isNotEmpty() and TloverApplication.prefs.getUserPW().isNotEmpty()){
 
@@ -64,7 +65,8 @@ class IntroActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<ResponseLoginData>, t: Throwable) {
-                    TODO("Not yet implemented")
+                    Log.w("MyTag", "requestFailed", t);
+
                 }
 
             })

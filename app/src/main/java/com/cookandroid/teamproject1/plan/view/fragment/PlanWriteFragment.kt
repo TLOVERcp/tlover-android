@@ -43,7 +43,6 @@ class PlanWriteFragment : Fragment(){
     private var listed : List<String> = arrayListOf()
     private var existList : List<String> = arrayListOf()
 
-
     // null 값 방지
     var isExpense : Boolean = false
     var isRegion : Boolean = false
@@ -108,7 +107,6 @@ class PlanWriteFragment : Fragment(){
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
 
         val args : PlanWriteFragmentArgs by navArgs()
         val startNum = args.start
@@ -260,16 +258,26 @@ class PlanWriteFragment : Fragment(){
 
         // api 연동
         mBinding?.fragmentPlanWriteSaveBt?.setOnClickListener(){
-            if (mBinding?.fragmentDiaryContentTv?.text!=null){
+            if (mBinding?.fragmentDiaryContentTv?.text?.equals("")== false){
                 isContext=true
             }
-            if ( mBinding?.fragmentPlanWritePayEt?.text!=null){
+            if (mBinding?.fragmentPlanWritePayEt?.text?.equals("")== false){
                 isExpense=true
             }
-            if (mBinding?.fragmentPlanWriteTitleEdittext?.text!=null){
+            if (mBinding?.fragmentPlanWriteTitleEdittext?.text?.equals("")== false){
                 isTitle=true
             }
-            if (!issDate||!iseDate||!isRegion||!isContext||!isContext||!isExpense){
+            if (mBinding?.fragmentPlanWriteDateEt?.text?.equals("")== false){
+                issDate=true
+            }
+            if (mBinding?.fragmentPlanWriteEndDateEt?.text?.equals("")== false){
+                iseDate=true
+            }
+            if (mBinding?.fragmentPlanWriteLocationEt?.text?.equals("")== false){
+                isRegion=true
+            }
+//            Log.e("", isContext)
+            if (!issDate||!iseDate||!isRegion||!isContext||!isTitle||!isExpense){
                 Toast.makeText(requireActivity(), "값을 입력해주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }

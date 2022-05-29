@@ -25,10 +25,7 @@ class FirstTitleActivity : AppCompatActivity() {
         binding.textSignin.setOnClickListener {
             startActivity(Intent(this, SignInActivity::class.java))
         }
-        //임시로 여행지 선택창 걸어놓음 0416 김도영
-        binding.textQuest.setOnClickListener {
-            startActivity(Intent(this, SelectDestActivity::class.java))
-        }
+
 
     }
 }
