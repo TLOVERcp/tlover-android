@@ -64,6 +64,12 @@
         <argument
             android:name="start"
             app:argType="integer" />
+        <argument
+            android:name="exist"
+            app:argType="string" />
+        <argument
+            android:name="region"
+            app:argType="string" />
         <action
             android:id="@+id/action_planWriteFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -79,6 +85,15 @@
         android:name="com.cookandroid.teamproject1.plan.view.fragment.SelectFragment"
         android:label="fragment_select"
         tools:layout="@layout/fragment_select" >
+        <argument
+            android:name="exist"
+            app:argType="string" />
+        <argument
+            android:name="startNum"
+            app:argType="integer"/>
+        <argument
+            android:name="region"
+            app:argType="string" />
         <action
             android:id="@+id/action_selectFragment_to_planWriteFragment"
             app:destination="@id/planWriteFragment" />

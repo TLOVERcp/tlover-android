@@ -23,12 +23,16 @@ import com.cookandroid.teamproject1.diary.model.ResponseDiaryWriteData
 import com.cookandroid.teamproject1.plan.model.ResponsePlanViewData
 import com.cookandroid.teamproject1.util.ServiceCreator
 import com.cookandroid.teamproject1.util.TloverApplication
+import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.File
 import java.io.IOException
 
 
@@ -50,6 +54,8 @@ class DiaryWritingFragment : Fragment() {
     private var photoList : ArrayList<String> = arrayListOf()
     private var text : String = "text"
 
+    private var photoUri : Uri? = Uri.EMPTY
+// null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -150,7 +156,23 @@ class DiaryWritingFragment : Fragment() {
             Log.e("", selectdata.toString())
 
             fun String?.toPlainRequestBody() = requireNotNull(this).toRequestBody("text/plain".toMediaTypeOrNull())
+//            var file = File(uri.getPath())
+//            val fileBody: RequestBody
 
+            fun File?.toImgRequestBody() = this?.asRequestBody("image/jpeg".toMediaTypeOrNull())
+//            fun File?.toImgRequestBody() = this?.asRequestBody("multipart/form-data; boundary=<calculated when request is sent>".toMediaTypeOrNull())
+
+//            arrayListOf(MultipartBody.Part.createFormData("diaryImages", File(photoUri?.path).name,
+//                File(photoUri?.path).toImgRequestBody()!!
+//            )),
+            // uri 넣는 부분에, 함수를 호출
+
+//        val file = File(mediaPath)
+//        val requestBody = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+//        MultipartBody.Part.createFormData("images", file.name, requestBody)
+            // arrayListOf(MultipartBody.Part.createFormData("diaryImages", File(photoUri?.path!!).name,
+            //                    File(photoUri?.path!!).toImgRequestBody()!!
+            //                )),
             // createFormData("key", value) RequestBody 말고 MultipartBody.Part
             // 이미지 같은 경우 requestBody 필요
             val call: Call<ResponseDiaryWriteData> =ServiceCreator.diaryService.createDiary(
@@ -158,7 +180,9 @@ class DiaryWritingFragment : Fragment() {
                 TloverApplication.prefs.getString("refreshToken", "null").toInt(),
                 MultipartBody.Part.createFormData("diaryTitle", mBinding?.fragmentDiaryWriteTitleEdittext?.text.toString()),
                 MultipartBody.Part.createFormData("diaryContext", mBinding?.fragmentDiaryContentTv?.text.toString()),
-                arrayListOf(MultipartBody.Part.createFormData("diaryImages", photoList.toString(), text.toPlainRequestBody())),
+                arrayListOf(MultipartBody.Part.createFormData("diaryImages", File(photoUri?.path!!).name,
+                    text.toPlainRequestBody()
+                )),
                 MultipartBody.Part.createFormData("diaryStartDate", mBinding?.fragmentDiaryWriteDateEt?.text.toString()+ " 00:00:00"),
                 MultipartBody.Part.createFormData("diaryEndDate", mBinding?.fragmentDiaryWriteEndDateEt?.text.toString()+ " 23:59:59"),
                 MultipartBody.Part.createFormData("regionName", list.toString()),
@@ -250,7 +274,7 @@ class DiaryWritingFragment : Fragment() {
 //
             // 사진 임의로 request 형식 변환
 //        val file = File(" /storage/emulated/0/Download/filename.pdf")
-//        val requestFile = RequestBody.create(MediaType.parse("application/pdf"), file)
+//        val requestFile = RequestBody.create(MediaType.parse("mage/jpeg"), file)
 //        val body = MultipartBody.Part.createFormData("file", file.name, requestFile)
 //
 
@@ -271,10 +295,12 @@ class DiaryWritingFragment : Fragment() {
         }
 
 
+        // 갤러리 여는 것
         mBinding?.fragmentDiaryWritePicturePlus?.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
                 val intent = Intent(Intent.ACTION_GET_CONTENT)
                 intent.setType("image/*")
+                // override
                 startActivityForResult(intent,OPEN_GALLERY)
                 selectPicNum=1
             }
@@ -332,7 +358,9 @@ class DiaryWritingFragment : Fragment() {
         {
             if(resultCode == RESULT_OK)
             {
+                // 클릭한 사진 uri
                 var currentImageUri = data?.data
+                photoUri = currentImageUri
 
                 try{
                     currentImageUri?.let {
@@ -472,36 +500,6 @@ class DiaryWritingFragment : Fragment() {
             {
                 Toast.makeText(requireActivity(), "사진 선택 취소", Toast.LENGTH_LONG).show();
             }
-        }
-        mBinding?.fragmentDiaryThemeButton1?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton2?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton3?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton4?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton5?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton6?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton7?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton8?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton9?.setOnClickListener {
-
-        }
-        mBinding?.fragmentDiaryThemeButton10?.setOnClickListener {
-
         }
 
     }

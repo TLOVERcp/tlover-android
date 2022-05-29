@@ -34,6 +34,7 @@ class DiaryViewFragment : Fragment(){
     private lateinit var planAcceptRVAdapter : PlanAcceptRVAdapter
     private var dataList = mutableListOf<PlanAcceptDataModel>()
     var heartShape = false
+    private var planId : String = ""
 
 
     override fun onCreateView(
@@ -43,7 +44,7 @@ class DiaryViewFragment : Fragment(){
     ): View? {
         val binding = FragmentDiaryViewBinding.inflate(inflater, container, false)
         mBinding = binding
-
+        dataList.clear()
         return mBinding?.root
     }
 
@@ -53,7 +54,7 @@ class DiaryViewFragment : Fragment(){
         val startNum = args.start
         Log.d(SignUpViewModel.TAG, "onViewCreated: $diaryId")
 
-        // x버튼 - 번호 받아와서 해보자 or fragmentListener finish
+        // x버튼 - 번호 받아와서 해보자 or fragmentListener finish X
         mBinding?.signUpingBackImg?.setOnClickListener(){
             if (startNum ==1){
                 it.findNavController().navigate(DiaryViewFragmentDirections.actionDiaryViewFragmentToSearchFragment())
@@ -61,46 +62,75 @@ class DiaryViewFragment : Fragment(){
             }else if (startNum ==2){
                 it.findNavController().navigate(DiaryViewFragmentDirections.actionDiaryViewFragmentToHomeFragment())
 
-            }else if (startNum ==3){
+            }
+            // 탭 레이아웃
+            else if (startNum ==31){
                 it.findNavController().navigate(DiaryViewFragmentDirections.actionDiaryViewFragmentToMyInfoFragment())
 
-            }else if (startNum ==4){
+            }else if (startNum ==32){
+                it.findNavController().navigate(DiaryViewFragmentDirections.actionDiaryViewFragmentToMyInfoFragment())
+
+            }else if (startNum ==32){
+                it.findNavController().navigate(DiaryViewFragmentDirections.actionDiaryViewFragmentToMyInfoFragment())
+
+            }
+            else if (startNum ==4){
                 it.findNavController().navigate(DiaryViewFragmentDirections.actionDiaryViewFragmentToDiaryFragment())
 
             }
 //            activity?.supportFragmentManager?.beginTransaction()?.remove(this)?.commit()
         }
 
+
         // RV- planId도 받아와야되는데 넘어가나? diaryid에 맞는거 있나 diaryId -> planId 방법
+        ServiceCreator.diaryService.getDiaryPlanId(
+            TloverApplication.prefs.getString("jwt", "null"),
+            TloverApplication.prefs.getString("refreshToken", "null").toInt(),
+            diaryId
+        ).enqueue(object: Callback<ResponseDiaryPlanId> {
+
+            override fun onResponse(
+                call: Call<ResponseDiaryPlanId>,
+                response: Response<ResponseDiaryPlanId>
+            ) {
+                if(response.code() == 200){
+                    planId = response.body()?.data?.planId.toString()
+                    ServiceCreator.planService.getDiaryPlanView(
+                        TloverApplication.prefs.getString("jwt", "null"),
+                        TloverApplication.prefs.getString("refreshToken", "null").toInt(),
+                        planId.toInt()
+                    ).enqueue(object: Callback<ResponsePlanViewData> {
+                        override fun onResponse(
+                            call: Call<ResponsePlanViewData>,
+                            response: Response<ResponsePlanViewData>
+                        ) {
+                            if(response.code() == 200){
+                                Log.e("reponse", "200!!~~~")
+                                for (i in 0 until response.body()?.data?.users?.size!!){
+                                    dataList.add(PlanAcceptDataModel(response.body()?.data?.users!![i]))
+                                }
+                                planAcceptRVAdapter.setDataList(dataList)
+
+                            }
+
+                        }
+
+                        override fun onFailure(call: Call<ResponsePlanViewData>, t: Throwable) {
+                            Log.d(SignUpViewModel.TAG, "onFailure: $t")
+                        }
+                    })
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseDiaryPlanId>, t: Throwable) {
+            }
+        })
+
 //        planAcceptRVAdapter = PlanAcceptRVAdapter(requireContext())
 //        mBinding?.fragmentDiaryViewFrRv?.layoutManager = GridLayoutManager(requireContext(), 4)
 //        mBinding?.fragmentDiaryViewFrRv?.adapter = planAcceptRVAdapter
 //
-//        ServiceCreator.planService.getDiaryPlanView(
-//            TloverApplication.prefs.getString("jwt", "null"),
-//            TloverApplication.prefs.getString("refreshToken", "null").toInt(),
-//            diaryId
-//        ).enqueue(object: Callback<ResponsePlanViewData> {
-//            override fun onResponse(
-//                call: Call<ResponsePlanViewData>,
-//                response: Response<ResponsePlanViewData>
-//            ) {
-//                if(response.code() == 200){
-//                    Log.e("reponse", "200!!~~~")
-//                    for (i in 0 until response.body()?.data?.users?.size!!){
-//                        dataList.add(PlanAcceptDataModel(response.body()?.data?.users!![i]))
-//                    }
-//                    planAcceptRVAdapter.setDataList(dataList)
-//
-//                }
-//                planAcceptRVAdapter.notifyDataSetChanged()
-//
-//            }
-//
-//            override fun onFailure(call: Call<ResponsePlanViewData>, t: Throwable) {
-//                Log.d(SignUpViewModel.TAG, "onFailure: $t")
-//            }
-//        })
+
 
 
 
