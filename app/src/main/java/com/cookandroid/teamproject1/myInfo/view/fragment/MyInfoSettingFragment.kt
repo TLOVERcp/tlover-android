@@ -68,8 +68,8 @@ class MyInfoSettingFragment : Fragment() {
 
         //문의하기 클릭
         mBinding?.settingContentInquire?.setOnClickListener{
-            val action = MyInfoSettingFragmentDirections.actionMyInfoSettingFragmentToWebViewActivity()
-            it.findNavController().navigate(action)
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://forms.gle/unnEebxGofNLUZmZ9"))
+            startActivity(intent)
         }
 
         //로그아웃 버튼 클릭
