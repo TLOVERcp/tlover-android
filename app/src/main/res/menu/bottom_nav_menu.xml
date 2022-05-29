@@ -8,16 +8,16 @@
     <item
         android:id="@+id/searchFragment"
         android:title="검색"
-        android:icon="@drawable/ic_bottom_search"
+        android:icon="@drawable/ic_search_ic"
         />
     <item
         android:id="@+id/diaryFragment"
         android:title="다이어리"
-        android:icon="@drawable/diary_logo"
+        android:icon="@drawable/ic_diary_ic"
         />
     <item
         android:id="@+id/myInfoFragment"
         android:title="내프로필"
-        android:icon="@drawable/my_info_logo"
+        android:icon="@drawable/ic_my_info_ic"
         />
 </menu>

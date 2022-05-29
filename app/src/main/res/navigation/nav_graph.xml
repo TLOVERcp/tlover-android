@@ -294,6 +294,21 @@
             android:id="@+id/action_myInfoVersionFragment_to_myInfoSettingFragment"
             app:destination="@id/myInfoSettingFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/myInfoLikeFragment"
+        android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoLikeFragment"
+        android:label="fragment_my_info_like"
+        tools:layout="@layout/fragment_my_info_like" />
+    <fragment
+        android:id="@+id/myInfoRecentFragment"
+        android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoRecentFragment"
+        android:label="fragment_my_info_recent"
+        tools:layout="@layout/fragment_my_info_recent" />
+    <fragment
+        android:id="@+id/myInfoScrapFragment"
+        android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoScrapFragment"
+        android:label="fragment_my_info_scrap"
+        tools:layout="@layout/fragment_my_info_scrap" />
 
 
 </navigation>
