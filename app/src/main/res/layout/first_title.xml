@@ -42,117 +42,158 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/first_title_logo" />
 
+<!--    <Button-->
+<!--        android:id="@+id/kakao_login_btn"-->
+<!--        android:layout_width="250dp"-->
+<!--        android:layout_height="46dp"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="140dp"-->
+<!--        android:layout_marginBottom="139dp"-->
+<!--        android:background="@drawable/kakao_btn_background"-->
+<!--        android:drawableLeft="@drawable/kakao_login_small_logo"-->
+<!--        android:fontFamily="@font/notosans"-->
+<!--        android:paddingLeft="20dp"-->
+<!--        android:text="카카오 로그인"-->
+<!--        android:textSize="14dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.496"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/text_tlover"-->
+<!--        app:layout_constraintVertical_bias="0.283" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/naver_login_btn"-->
+<!--        android:layout_width="250dp"-->
+<!--        android:layout_height="46dp"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="18dp"-->
+<!--        android:background="@drawable/naver_btn_background"-->
+<!--        android:drawableLeft="@drawable/naver_small_logo"-->
+<!--        android:fontFamily="@font/notosans"-->
+<!--        android:paddingLeft="20dp"-->
+<!--        android:text="네이버 로그인"-->
+<!--        android:textColor="#FFFFFF"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.496"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/google_login_btn"-->
+
+<!--        />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/google_login_btn"-->
+<!--        android:layout_width="250dp"-->
+<!--        android:layout_height="46dp"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="18dp"-->
+<!--        android:background="@drawable/google_btn_background"-->
+<!--        android:drawableLeft="@drawable/btn_google_light_normal"-->
+<!--        android:fontFamily="@font/roboto"-->
+<!--        android:paddingLeft="20dp"-->
+<!--        android:text="Google 계정으로 로그인"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textSize="14dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.496"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/kakao_login_btn"-->
+<!--        app:layout_constraintVertical_bias="0.627" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/text_signup"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:background="#00ff0000"-->
+<!--        android:layout_marginStart="60dp"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true"-->
+<!--        android:fontFamily="@font/notosans"-->
+<!--        android:text="회원가입"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/text_signin"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
     <Button
-        android:id="@+id/kakao_login_btn"
+        android:id="@+id/text_signin"
         android:layout_width="250dp"
         android:layout_height="46dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="140dp"
-        android:layout_marginBottom="139dp"
-        android:background="@drawable/kakao_btn_background"
-        android:drawableLeft="@drawable/kakao_login_small_logo"
+        android:background="@drawable/sign_up_background"
+        android:drawableLeft="@drawable/white_stroke_vector"
         android:fontFamily="@font/notosans"
-        android:paddingLeft="20dp"
-        android:text="카카오 로그인"
-        android:textSize="14dp"
+        android:gravity="center"
+        android:paddingLeft="13dp"
+        android:text="로그인"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_tlover"
-        app:layout_constraintVertical_bias="0.283" />
-
-    <Button
-        android:id="@+id/naver_login_btn"
-        android:layout_width="250dp"
-        android:layout_height="46dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
-        android:background="@drawable/naver_btn_background"
-        android:drawableLeft="@drawable/naver_small_logo"
-        android:fontFamily="@font/notosans"
-        android:paddingLeft="20dp"
-        android:text="네이버 로그인"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/google_login_btn"
-
-        />
-
-    <Button
-        android:id="@+id/google_login_btn"
-        android:layout_width="250dp"
-        android:layout_height="46dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
-        android:background="@drawable/google_btn_background"
-        android:drawableLeft="@drawable/btn_google_light_normal"
-        android:fontFamily="@font/roboto"
-        android:paddingLeft="20dp"
-        android:text="Google 계정으로 로그인"
-        android:textAllCaps="false"
-        android:textSize="14dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/kakao_login_btn"
-        app:layout_constraintVertical_bias="0.627" />
+        app:layout_constraintTop_toBottomOf="@id/text_tlover" />
 
     <Button
         android:id="@+id/text_signup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:background="#00ff0000"
-        android:layout_marginStart="60dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:fontFamily="@font/notosans"
-        android:text="회원가입"
-        app:layout_constraintBaseline_toBaselineOf="@+id/text_signin"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/text_signin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="46dp"
+        android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
-        android:background="#00ff0000"
-        android:clickable="true"
-        android:focusable="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/sign_up_background"
+        android:drawableLeft="@drawable/white_stroke_vector"
         android:fontFamily="@font/notosans"
-        android:text="아이디 로그인"
+        android:gravity="center"
+        android:paddingLeft="13dp"
+        android:text="회원가입"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_signin" />
 
-        app:layout_constraintLeft_toRightOf="@+id/text_signup"
-        app:layout_constraintRight_toLeftOf="@id/text_quest"
-        app:layout_constraintTop_toBottomOf="@id/naver_login_btn"/>
+<!--    <Button-->
+<!--        android:id="@+id/text_signin"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:layout_marginEnd="4dp"-->
+<!--        android:layout_marginRight="4dp"-->
+<!--        android:background="#00ff0000"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true"-->
+<!--        android:fontFamily="@font/notosans"-->
+<!--        android:text="아이디 로그인"-->
 
-    <Button
-        android:id="@+id/text_quest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:background="#00ff0000"
-        android:clickable="true"
-        android:focusable="true"
-        android:fontFamily="@font/notosans"
-        android:text="문의하기"
-        android:layout_marginEnd="60dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/text_signin"
-        app:layout_constraintEnd_toEndOf="parent" />
+<!--        app:layout_constraintLeft_toRightOf="@+id/text_signup"-->
+<!--        app:layout_constraintRight_toLeftOf="@id/text_quest"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/naver_login_btn"/>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/text_quest"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:background="#00ff0000"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true"-->
+<!--        android:fontFamily="@font/notosans"-->
+<!--        android:text="문의하기"-->
+<!--        android:layout_marginEnd="60dp"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/text_signin"-->
+<!--        app:layout_constraintEnd_toEndOf="parent" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

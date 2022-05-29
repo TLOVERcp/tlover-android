@@ -2,6 +2,8 @@ package com.cookandroid.teamproject1.myInfo.view.fragment
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -64,6 +66,12 @@ class MyInfoSettingFragment : Fragment() {
             it.findNavController().navigate(action)
         }
 
+        //문의하기 클릭
+        mBinding?.settingContentInquire?.setOnClickListener{
+            val action = MyInfoSettingFragmentDirections.actionMyInfoSettingFragmentToWebViewActivity()
+            it.findNavController().navigate(action)
+        }
+
         //로그아웃 버튼 클릭
         mBinding?.settingContentLogout?.setOnClickListener {
             var builder = AlertDialog.Builder(context)
@@ -85,7 +93,7 @@ class MyInfoSettingFragment : Fragment() {
                             TloverApplication.prefs.setString("jwt", "null")
                             TloverApplication.prefs.setUserId("null")
 
-                            val action = MyInfoSettingFragmentDirections.actionMyInfoSettingFragmentToFirstTitleActivity()
+                            val action = MyInfoSettingFragmentDirections.actionMyInfoSettingFragmentToSignInActivity()
                             it.findNavController().navigate(action)
                             dialog.cancel()
                         }

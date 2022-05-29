@@ -202,7 +202,7 @@ class SignUpingActivity : AppCompatActivity() {
 
         //뒤로가기 버튼
         sbinding.signUpingBackImg.setOnClickListener {
-            startActivity(Intent(this, FirstTitleActivity::class.java))
+            startActivity(Intent(this, SignInActivity::class.java))
         }
 
         //재전송 버튼

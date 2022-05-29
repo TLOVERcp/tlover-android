@@ -231,6 +231,7 @@
                 android:hint="Test"
                 android:inputType="textMultiLine"
                 android:lines="15"
+                android:enabled="false"
                 android:paddingVertical="3dp"
                 android:paddingLeft="24dp"
                 android:scrollbars="vertical"

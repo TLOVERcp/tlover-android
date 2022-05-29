@@ -260,19 +260,29 @@ class PlanWriteFragment : Fragment(){
 
         // api 연동
         mBinding?.fragmentPlanWriteSaveBt?.setOnClickListener(){
-//            if (mBinding?.fragmentDiaryContentTv?.text!=null){
-//                isContext=true
-//            }
-//            if ( mBinding?.fragmentPlanWritePayEt?.text!=null){
-//                isExpense=true
-//            }
-//            if (mBinding?.fragmentPlanWriteTitleEdittext?.text!=null){
-//                isTitle=true
-//            }
-//            if (!issDate||!iseDate||!isRegion||!isContext||!isContext||!isExpense){
-//                Toast.makeText(requireActivity(), "값을 입력해주세요.", Toast.LENGTH_SHORT).show()
-//                return@setOnClickListener
-//            }
+            if (mBinding?.fragmentDiaryContentTv?.text?.equals("")== false){
+                isContext=true
+            }
+            if (mBinding?.fragmentPlanWritePayEt?.text?.equals("")== false){
+                isExpense=true
+            }
+            if (mBinding?.fragmentPlanWriteTitleEdittext?.text?.equals("")== false){
+                isTitle=true
+            }
+            if (mBinding?.fragmentPlanWriteDateEt?.text?.equals("")== false){
+                issDate=true
+            }
+            if (mBinding?.fragmentPlanWriteEndDateEt?.text?.equals("")== false){
+                iseDate=true
+            }
+            if (mBinding?.fragmentPlanWriteLocationEt?.text?.equals("")== false){
+                isRegion=true
+            }
+//            Log.e("", isContext)
+            if (!issDate||!iseDate||!isRegion||!isContext||!isTitle||!isExpense){
+                Toast.makeText(requireActivity(), "값을 입력해주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             val requestPlanWriteData = RequestPlanWriteData(
                 mBinding?.fragmentPlanWritePayEt?.text.toString().toLong(),
                 mBinding?.fragmentDiaryContentTv?.text.toString(),

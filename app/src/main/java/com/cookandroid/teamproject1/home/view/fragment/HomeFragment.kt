@@ -125,7 +125,6 @@ class HomeFragment : Fragment(){
             }
 
             override fun onFailure(call: Call<ResponseHotDiaryData>, t: Throwable) {
-                TODO("Not yet implemented")
             }
         })
         /**

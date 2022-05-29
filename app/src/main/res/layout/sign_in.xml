@@ -46,12 +46,12 @@
         android:id="@+id/signin_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="163dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="103dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sign_in_join_title"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/tlover_nblogo" />
 
 
@@ -159,30 +159,48 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signin_tlover" />
 
-    <TextView
-        android:id="@+id/sign_in_join_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:textFontWeight="700"
-        android:fontFamily="@font/notosans"
-        android:text="로그인"
-        android:textColor="#2E2E33"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+<!--    <TextView-->
+<!--        android:id="@+id/sign_in_join_title"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:textFontWeight="700"-->
+<!--        android:fontFamily="@font/notosans"-->
+<!--        android:text="로그인"-->
+<!--        android:textColor="#2E2E33"-->
+<!--        android:textSize="17sp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"/>-->
 
-    <ImageView
-        android:id="@+id/sign_in_back_img"
+<!--    <ImageView-->
+<!--        android:id="@+id/sign_in_back_img"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="18.5dp"-->
+<!--        android:layout_marginTop="43.5dp"-->
+<!--        android:clickable="true"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:src="@drawable/ic_back_button" />-->
+
+
+    <EditText
+        android:id="@+id/text_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="18.5dp"
-        android:layout_marginTop="43.5dp"
+        android:ems="15"
+        android:focusable="false"
         android:clickable="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_back_button" />
+        android:textColor="@color/join_text_gray_color"
+        android:gravity="start|top"
+        android:textSize="12sp"
+        android:text="TLOVER가 처음이신가요? 회원가입하기"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="@+id/signin_login_btn"
+        app:layout_constraintStart_toStartOf="@+id/signin_login_btn"
+        app:layout_constraintTop_toBottomOf="@+id/signin_login_btn" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

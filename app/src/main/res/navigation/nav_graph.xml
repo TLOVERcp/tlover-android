@@ -181,12 +181,13 @@
         <action
             android:id="@+id/action_diaryWritingFragment_to_planViewFragment"
             app:destination="@id/planViewFragment" />
+
         <argument
             android:name="planId"
             app:argType="long" />
         <action
-            android:id="@+id/action_diaryWritingFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_diaryWritingFragment_to_diaryFragment"
+            app:destination="@id/diaryFragment" />
     </fragment>
     <fragment
         android:id="@+id/myInfoSettingFragment"
@@ -201,8 +202,8 @@
             android:id="@+id/action_myInfoSettingFragment_to_myInfoFragment"
             app:destination="@id/myInfoFragment" />
         <action
-            android:id="@+id/action_myInfoSettingFragment_to_firstTitleActivity"
-            app:destination="@id/firstTitleActivity" />
+            android:id="@+id/action_myInfoSettingFragment_to_signInActivity"
+            app:destination="@id/signInActivity" />
         <action
             android:id="@+id/action_myInfoSettingFragment_to_myInfoServiceFragment"
             app:destination="@id/myInfoServiceFragment" />
@@ -212,6 +213,9 @@
         <action
             android:id="@+id/action_myInfoSettingFragment_to_myInfoVersionFragment"
             app:destination="@id/myInfoVersionFragment" />
+        <action
+            android:id="@+id/action_myInfoSettingFragment_to_webViewActivity"
+            app:destination="@id/webViewActivity" />
     </fragment>
     <fragment
         android:id="@+id/diaryLibraryFragment"
@@ -267,8 +271,8 @@
             android:id="@+id/action_myInfoSettingWithdrawalFragment_to_myInfoSettingFragment"
             app:destination="@id/myInfoSettingFragment" />
         <action
-            android:id="@+id/action_myInfoSettingWithdrawalFragment_to_firstTitleActivity"
-            app:destination="@id/firstTitleActivity" />
+            android:id="@+id/action_myInfoSettingWithdrawalFragment_to_signInActivity"
+            app:destination="@id/signInActivity" />
     </fragment>
     <fragment
         android:id="@+id/myInfoServiceFragment"
@@ -312,6 +316,11 @@
         android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoScrapFragment"
         android:label="fragment_my_info_scrap"
         tools:layout="@layout/fragment_my_info_scrap" />
+    <activity
+        android:id="@+id/webViewActivity"
+        android:name="com.cookandroid.teamproject1.WebViewActivity"
+        android:label="activity_web_view"
+        tools:layout="@layout/activity_web_view" />
 
 
 </navigation>
