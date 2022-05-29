@@ -22,8 +22,8 @@ class IntroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.intro_activity)
-        //처음에 들어갔을 때, 유저 id와 유저 pw가 남아있으면 홈액티비티로,
-        //그게 아니면 로그인화면으로
+//        처음에 들어갔을 때, 유저 id와 유저 pw가 남아있으면 홈액티비티로,
+//        그게 아니면 로그인화면으로
         val intentLoginSuccess = Intent(this, HomeActivity::class.java)
         var intentLoginFail =Intent(this, FirstTitleActivity::class.java)
         //xml 소스 연결
@@ -64,7 +64,10 @@ class IntroActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<ResponseLoginData>, t: Throwable) {
-
+                    var handler = Handler()
+                    handler.postDelayed({
+                        startActivity(intentLoginFail)
+                    }, 2000)
                 }
 
             })
@@ -72,11 +75,11 @@ class IntroActivity : AppCompatActivity() {
         else{
             startActivity(intentLoginFail)
         }
-        var handler=Handler()
-        handler.postDelayed({
-            var intent=Intent(this, FirstTitleActivity::class.java)
-           startActivity(intent)// 다음 화면으로 넘어가기
-      },2000)//2초뒤 실행
+//        var handler=Handler()
+//        handler.postDelayed({
+//            var intent=Intent(this, FirstTitleActivity::class.java)
+//           startActivity(intent)// 다음 화면으로 넘어가기
+//      },2000)//2초뒤 실행
 
     }
 

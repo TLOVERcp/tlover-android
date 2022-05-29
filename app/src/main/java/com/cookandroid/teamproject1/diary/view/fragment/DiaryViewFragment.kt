@@ -75,9 +75,8 @@ class DiaryViewFragment : Fragment(){
             }else if (startNum ==32){
                 it.findNavController().navigate(DiaryViewFragmentDirections.actionDiaryViewFragmentToMyInfoFragment())
 
-            }else if (startNum ==32){
+            }else if (startNum ==33){
                 it.findNavController().navigate(DiaryViewFragmentDirections.actionDiaryViewFragmentToMyInfoFragment())
-
             }
             else if (startNum ==4){
                 it.findNavController().navigate(DiaryViewFragmentDirections.actionDiaryViewFragmentToDiaryFragment())
