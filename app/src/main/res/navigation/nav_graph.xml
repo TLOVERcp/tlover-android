@@ -213,6 +213,9 @@
         <action
             android:id="@+id/action_myInfoSettingFragment_to_myInfoVersionFragment"
             app:destination="@id/myInfoVersionFragment" />
+        <action
+            android:id="@+id/action_myInfoSettingFragment_to_webViewActivity"
+            app:destination="@id/webViewActivity" />
     </fragment>
     <fragment
         android:id="@+id/diaryLibraryFragment"
@@ -268,8 +271,8 @@
             android:id="@+id/action_myInfoSettingWithdrawalFragment_to_myInfoSettingFragment"
             app:destination="@id/myInfoSettingFragment" />
         <action
-            android:id="@+id/action_myInfoSettingWithdrawalFragment_to_firstTitleActivity"
-            app:destination="@id/firstTitleActivity" />
+            android:id="@+id/action_myInfoSettingWithdrawalFragment_to_signInActivity"
+            app:destination="@id/signInActivity" />
     </fragment>
     <fragment
         android:id="@+id/myInfoServiceFragment"
@@ -298,6 +301,26 @@
             android:id="@+id/action_myInfoVersionFragment_to_myInfoSettingFragment"
             app:destination="@id/myInfoSettingFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/myInfoLikeFragment"
+        android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoLikeFragment"
+        android:label="fragment_my_info_like"
+        tools:layout="@layout/fragment_my_info_like" />
+    <fragment
+        android:id="@+id/myInfoRecentFragment"
+        android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoRecentFragment"
+        android:label="fragment_my_info_recent"
+        tools:layout="@layout/fragment_my_info_recent" />
+    <fragment
+        android:id="@+id/myInfoScrapFragment"
+        android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoScrapFragment"
+        android:label="fragment_my_info_scrap"
+        tools:layout="@layout/fragment_my_info_scrap" />
+    <activity
+        android:id="@+id/webViewActivity"
+        android:name="com.cookandroid.teamproject1.WebViewActivity"
+        android:label="activity_web_view"
+        tools:layout="@layout/activity_web_view" />
 
 
 </navigation>

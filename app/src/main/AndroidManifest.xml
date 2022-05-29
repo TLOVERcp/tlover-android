@@ -47,6 +47,8 @@
         </activity>
         <activity android:name=".id.view.activity.LoginSuccessActivity">
         </activity>
+        <activity android:name=".WebViewActivity">
+        </activity>
 
     </application>
 

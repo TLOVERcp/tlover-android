@@ -132,17 +132,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/fragment_home_main_img" />
 
-                <ImageView
-                    android:id="@+id/fragment_home_title_random_nav"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="23dp"
-                    android:layout_marginRight="23dp"
-                    android:src="@drawable/ic_nav_right"
-                    app:layout_constraintBottom_toBottomOf="@+id/fragment_home_title_random"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintRight_toRightOf="@+id/fragment_home_alarm_img"
-                    app:layout_constraintTop_toTopOf="@+id/fragment_home_title_random" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/fragment_home_title_random_nav"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginEnd="23dp"-->
+<!--                    android:layout_marginRight="23dp"-->
+<!--                    android:src="@drawable/ic_nav_right"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@+id/fragment_home_title_random"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintRight_toRightOf="@+id/fragment_home_alarm_img"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/fragment_home_title_random" />-->
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -185,17 +185,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/fragment_home_gray_line" />
 
-                <ImageView
-                    android:id="@+id/fragment_home_title_same_nav"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="23dp"
-                    android:layout_marginRight="23dp"
-                    android:src="@drawable/ic_nav_right"
-                    app:layout_constraintBottom_toBottomOf="@+id/fragment_home_title_same"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintRight_toRightOf="@+id/fragment_home_alarm_img"
-                    app:layout_constraintTop_toTopOf="@+id/fragment_home_title_same" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/fragment_home_title_same_nav"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginEnd="23dp"-->
+<!--                    android:layout_marginRight="23dp"-->
+<!--                    android:src="@drawable/ic_nav_right"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@+id/fragment_home_title_same"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintRight_toRightOf="@+id/fragment_home_alarm_img"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/fragment_home_title_same" />-->
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -220,6 +220,12 @@
                 android:layout_marginTop="26dp"
                 >
 
+                <View
+                    android:id="@+id/fragment_home_gray_line_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#D4D4D8"/>
+
                 <TextView
                     android:id="@+id/fragment_home_title_hot"
                     android:layout_width="wrap_content"
@@ -233,19 +239,19 @@
                     android:textSize="16sp"
                     app:layout_constraintLeft_toLeftOf="@id/fragment_home_tlover_tv"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/fragment_home_title_same_rv" />
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_home_gray_line_1" />
 
-                <ImageView
-                    android:id="@+id/fragment_home_title_hot_nav"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="23dp"
-                    android:layout_marginRight="23dp"
-                    android:src="@drawable/ic_nav_right"
-                    app:layout_constraintBottom_toBottomOf="@+id/fragment_home_title_hot"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintRight_toRightOf="@+id/fragment_home_alarm_img"
-                    app:layout_constraintTop_toTopOf="@+id/fragment_home_title_hot" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/fragment_home_title_hot_nav"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginEnd="23dp"-->
+<!--                    android:layout_marginRight="23dp"-->
+<!--                    android:src="@drawable/ic_nav_right"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@+id/fragment_home_title_hot"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintRight_toRightOf="@+id/fragment_home_alarm_img"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/fragment_home_title_hot" />-->
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -264,54 +270,54 @@
                 tools:listitem="@layout/item_home_random" />
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="26dp"
-                >
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginTop="26dp"-->
+<!--                >-->
 
-                <TextView
-                    android:id="@+id/fragment_home_title_recent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/notosans"
-                    android:text="꽃이 만개한 요즘, 갈 만한 여행지"
-                    android:textColor="#2E2E33"
-                    android:textSize="16sp"
-                    app:layout_constraintLeft_toLeftOf="@id/fragment_home_tlover_tv"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/fragment_home_title_hot_rv" />
+<!--                <TextView-->
+<!--                    android:id="@+id/fragment_home_title_recent"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="16dp"-->
+<!--                    android:layout_marginLeft="16dp"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:fontFamily="@font/notosans"-->
+<!--                    android:text="꽃이 만개한 요즘, 갈 만한 여행지"-->
+<!--                    android:textColor="#2E2E33"-->
+<!--                    android:textSize="16sp"-->
+<!--                    app:layout_constraintLeft_toLeftOf="@id/fragment_home_tlover_tv"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/fragment_home_title_hot_rv" />-->
 
-                <ImageView
-                    android:id="@+id/fragment_home_title_recent_nav"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="23dp"
-                    android:layout_marginRight="23dp"
-                    android:src="@drawable/ic_nav_right"
-                    app:layout_constraintBottom_toBottomOf="@+id/fragment_home_title_recent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintRight_toRightOf="@+id/fragment_home_alarm_img"
-                    app:layout_constraintTop_toTopOf="@+id/fragment_home_title_recent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                <ImageView-->
+<!--                    android:id="@+id/fragment_home_title_recent_nav"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginEnd="23dp"-->
+<!--                    android:layout_marginRight="23dp"-->
+<!--                    android:src="@drawable/ic_nav_right"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@+id/fragment_home_title_recent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintRight_toRightOf="@+id/fragment_home_alarm_img"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/fragment_home_title_recent" />-->
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/fragment_home_title_recent_rv"
-                android:layout_width="match_parent"
-                android:layout_height="133dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/fragment_home_tlover_tv"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_home_title_hot_nav"
-                tools:listitem="@layout/item_home_random" />
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/fragment_home_title_recent_rv"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="133dp"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginLeft="16dp"-->
+<!--                android:orientation="horizontal"-->
+<!--                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintLeft_toLeftOf="@id/fragment_home_tlover_tv"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/fragment_home_title_hot_nav"-->
+<!--                tools:listitem="@layout/item_home_random" />-->
 
 
 

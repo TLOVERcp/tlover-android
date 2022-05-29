@@ -43,9 +43,13 @@ class DiaryWritingFragment : Fragment() {
     var picCount = 0
     var selectPicNum = 1
     private var OPEN_GALLERY = 1
+    val PERMISSIONS_REQUEST_CODE = 101
     // null 방지 사진은?
     var isTitle : Boolean = false
     var isContext : Boolean = false
+    var REQUIRED_PERMISSIONS = arrayOf<String>( android.Manifest.permission.READ_EXTERNAL_STORAGE)
+
+
 
     private var selectPhotoUri = mutableListOf<Uri>()
     private var selectPhotoString = mutableListOf<String>()
