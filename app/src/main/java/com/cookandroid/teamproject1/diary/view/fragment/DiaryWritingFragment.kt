@@ -172,17 +172,24 @@ class DiaryWritingFragment : Fragment() {
             Log.e("", list.toString())
             Log.e("", selectdata.toString())
 
-//            fun String?.toPlainRequestBody() = requireNotNull(this).toRequestBody("text/plain".toMediaTypeOrNull())
+            fun String?.toPlainRequestBody() = requireNotNull(this).toRequestBody("text/plain".toMediaTypeOrNull())
 //            var file = File(uri.getPath())
 //            val fileBody: RequestBody
 
-            fun File?.toImgRequestBody() = requireNotNull(this).asRequestBody("image/jpeg".toMediaTypeOrNull())
+            fun File?.toImgRequestBody() = this?.asRequestBody("image/jpeg".toMediaTypeOrNull())
+//            fun File?.toImgRequestBody() = this?.asRequestBody("multipart/form-data; boundary=<calculated when request is sent>".toMediaTypeOrNull())
 
+//            arrayListOf(MultipartBody.Part.createFormData("diaryImages", File(photoUri?.path).name,
+//                File(photoUri?.path).toImgRequestBody()!!
+//            )),
             // uri 넣는 부분에, 함수를 호출
 
 //        val file = File(mediaPath)
 //        val requestBody = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
 //        MultipartBody.Part.createFormData("images", file.name, requestBody)
+            // arrayListOf(MultipartBody.Part.createFormData("diaryImages", File(photoUri?.path!!).name,
+            //                    File(photoUri?.path!!).toImgRequestBody()!!
+            //                )),
             // createFormData("key", value) RequestBody 말고 MultipartBody.Part
             // 이미지 같은 경우 requestBody 필요
             val call: Call<ResponseDiaryWriteData> =ServiceCreator.diaryService.createDiary(
@@ -190,7 +197,9 @@ class DiaryWritingFragment : Fragment() {
                 TloverApplication.prefs.getString("refreshToken", "null").toInt(),
                 MultipartBody.Part.createFormData("diaryTitle", mBinding?.fragmentDiaryWriteTitleEdittext?.text.toString()),
                 MultipartBody.Part.createFormData("diaryContext", mBinding?.fragmentDiaryContentTv?.text.toString()),
-                arrayListOf(MultipartBody.Part.createFormData("diaryImages", photoList.toString(), File(photoUri?.path).toImgRequestBody())),
+                arrayListOf(MultipartBody.Part.createFormData("diaryImages", File(photoUri?.path!!).name,
+                    text.toPlainRequestBody()
+                )),
                 MultipartBody.Part.createFormData("diaryStartDate", mBinding?.fragmentDiaryWriteDateEt?.text.toString()+ " 00:00:00"),
                 MultipartBody.Part.createFormData("diaryEndDate", mBinding?.fragmentDiaryWriteEndDateEt?.text.toString()+ " 23:59:59"),
                 MultipartBody.Part.createFormData("regionName", list.toString()),
