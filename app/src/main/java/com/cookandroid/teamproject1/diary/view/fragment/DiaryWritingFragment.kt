@@ -1,4 +1,5 @@
 package com.cookandroid.teamproject1.diary.view.fragment
+import android.annotation.SuppressLint
 import android.app.Activity.RESULT_CANCELED
 import android.app.Activity.RESULT_OK
 import android.content.Intent
@@ -471,6 +472,7 @@ class DiaryWritingFragment : Fragment() {
     }
 
     //사진 관련
+    @SuppressLint("Range")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if(requestCode == OPEN_GALLERY)
         {
@@ -515,6 +517,19 @@ class DiaryWritingFragment : Fragment() {
                             } catch (e:IOException) {
                                 e.printStackTrace()
                             }
+//                            val cursor: Cursor = requireActivity().contentResolver.query(
+//                                Uri.parse(currentImageUri.toString()),
+//                                null,
+//                                null,
+//                                null,
+//                                null
+//                            )!!
+//                            cursor.moveToFirst()
+//                            idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
+//                            filePath = cursor.getString(idx)
+//                            cursor.close()
+//                            Log.d("코드1","코드1"+filePath)
+
                             val cursor: Cursor = requireActivity().contentResolver.query(
                                 Uri.parse(currentImageUri.toString()),
                                 null,
@@ -523,10 +538,7 @@ class DiaryWritingFragment : Fragment() {
                                 null
                             )!!
                             cursor.moveToFirst()
-                            idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
-                            filePath = cursor.getString(idx)
-                            cursor.close()
-                            Log.d("코드1","코드1"+filePath)
+                            filePath = cursor.getString(cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA))
 
                         }
 
@@ -557,6 +569,18 @@ class DiaryWritingFragment : Fragment() {
                             }catch (e:IOException) {
                                 e.printStackTrace()
                             }
+                            val cursor: Cursor = requireActivity().contentResolver.query(
+                                Uri.parse(currentImageUri.toString()),
+                                null,
+                                null,
+                                null,
+                                null
+                            )!!
+                            cursor.moveToFirst()
+                            idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
+                            filePath = cursor.getString(idx)
+                            cursor.close()
+                            Log.d("코드2","코드2"+filePath)
                         }
 
                         if(selectPicNum==3) {
@@ -714,6 +738,18 @@ class DiaryWritingFragment : Fragment() {
         else {
 
         }
+    }
+
+    fun absolutelyPath(path: Uri): String {
+
+        var proj: Array<String> = arrayOf(MediaStore.Images.Media.DATA)
+        var c: Cursor = requireActivity().query(path, proj, null, null, null)
+        var index = c.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+        c.moveToFirst()
+
+        var result = c.getString(index)
+
+        return result
     }
 
 

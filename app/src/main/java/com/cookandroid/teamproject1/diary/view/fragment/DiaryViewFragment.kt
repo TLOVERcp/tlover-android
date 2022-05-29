@@ -29,12 +29,15 @@ import retrofit2.Response
 /**
  * diary 상세보기 프래그먼트
  */
+
 class DiaryViewFragment : Fragment(){
     private var mBinding : FragmentDiaryViewBinding?=null
     private lateinit var planAcceptRVAdapter : PlanAcceptRVAdapter
     private var dataList = mutableListOf<PlanAcceptDataModel>()
+
     var heartShape = false
     var scrapShape = false
+
     private var planId : String = ""
 
 
@@ -137,8 +140,6 @@ class DiaryViewFragment : Fragment(){
 //
 
 
-
-
         val requestScrapData = RequestScrapData(
             diaryId = args.diaryId
         )
@@ -174,19 +175,20 @@ class DiaryViewFragment : Fragment(){
 
         })
 
-        val call2: Call<ResponseDiaryScrapNumData> = ServiceCreator.diaryService.getScrapNum(
+        //스크랩 수를 받아온다.
+        val callScrapCount: Call<ResponseDiaryScrapNumData> = ServiceCreator.diaryService.getScrapNum(
             TloverApplication.prefs.getString("jwt","null"),
             TloverApplication.prefs.getString("refreshToken","null").toInt(),
             diaryId
         )
 
-        call2.enqueue(object : Callback<ResponseDiaryScrapNumData> {
+        callScrapCount.enqueue(object : Callback<ResponseDiaryScrapNumData> {
             override fun onResponse(
                 call: Call<ResponseDiaryScrapNumData>,
                 response: Response<ResponseDiaryScrapNumData>
             ) {
                 if(response.code()==200) {
-                    Log.e("response!!","200!!!!")
+                    Log.e("response!!","200 scrapcount")
                     mBinding?.diaryScrap = response.body()?.data
                 }
             }
@@ -197,19 +199,20 @@ class DiaryViewFragment : Fragment(){
 
         })
 
-        val call3: Call<ResponseDiaryLikeNumData> = ServiceCreator.diaryService.getLikeNum(
+        //좋아요 개수 받아오기
+        val callLikeCount: Call<ResponseDiaryLikeNumData> = ServiceCreator.diaryService.getLikeNum(
             TloverApplication.prefs.getString("jwt","null"),
             TloverApplication.prefs.getString("refreshToken","null").toInt(),
             diaryId
         )
 
-        call3.enqueue(object: Callback<ResponseDiaryLikeNumData> {
+        callLikeCount.enqueue(object: Callback<ResponseDiaryLikeNumData> {
             override fun onResponse(
                 call: Call<ResponseDiaryLikeNumData>,
                 response: Response<ResponseDiaryLikeNumData>
             ) {
                 if(response.code()==200) {
-                    Log.e("response!!!", "200!!!!!")
+                    Log.e("response!!!", "200 likeCount")
                     mBinding?.diaryLike = response.body()?.data
 
                 }
@@ -222,27 +225,29 @@ class DiaryViewFragment : Fragment(){
 
         })
 
-        //해당 유저의 해당 다이어리 스크랩 여부 조회
-        val call6: Call<ResponseDiaryScrapWhetherData> = ServiceCreator.diaryService.getScrapWhether(
+        //해당 유저의 해당 다이어리 스크랩 여부 조회 (만약 스크랩이 이미 되어있을 경우에는 스크랩 색을 칠해져 있게 만든다)
+        val callDiaryScrapWhether: Call<ResponseDiaryScrapWhetherData> = ServiceCreator.diaryService.getScrapWhether(
             TloverApplication.prefs.getString("jwt","null"),
             TloverApplication.prefs.getString("refreshToken","null").toInt(),
             requestScrapWhetherData
         )
 
-        call6.enqueue(object : Callback<ResponseDiaryScrapWhetherData>{
+        callDiaryScrapWhether.enqueue(object : Callback<ResponseDiaryScrapWhetherData>{
             override fun onResponse(
                 call: Call<ResponseDiaryScrapWhetherData>,
                 response: Response<ResponseDiaryScrapWhetherData>
             ) {
-                Log.e("response~~!!", "200?!?!")
-                if (response.body()?.data?.scraped==true) {
-                    scrapShape=true
+                if(response.code()==200) {
+                    Log.e("response", "200 scrap whether")
+                    if (response.body()?.data?.scraped == true) {
+                        scrapShape = true
+                    } else if (response.body()?.data?.scraped == false) {
+                        scrapShape = false
+                    }
                 }
-                else if (response.body()?.data?.scraped==false) {
-                    scrapShape=false
-                }
-
                 scrapShape()
+
+                
             }
 
             override fun onFailure(call: Call<ResponseDiaryScrapWhetherData>, t: Throwable) {
@@ -251,24 +256,26 @@ class DiaryViewFragment : Fragment(){
 
         })
 
-        val call7: Call<ResponseDiaryLikeWhetherData> = ServiceCreator.diaryService.getLikeWhether(
+        //해당 인원의 좋아요 여부를 체크
+        val callDiaryLikeWhether: Call<ResponseDiaryLikeWhetherData> = ServiceCreator.diaryService.getLikeWhether(
             TloverApplication.prefs.getString("jwt","null"),
             TloverApplication.prefs.getString("refreshToken","null").toInt(),
             requestLikeWhetherData
         )
 
-        call7.enqueue(object : Callback<ResponseDiaryLikeWhetherData>{
+        callDiaryLikeWhether.enqueue(object : Callback<ResponseDiaryLikeWhetherData>{
             override fun onResponse(
                 call: Call<ResponseDiaryLikeWhetherData>,
                 response: Response<ResponseDiaryLikeWhetherData>
-            ) {
-                if (response.body()?.data?.liked==true) {
-                    heartShape=true
-                }
-                else if (response.body()?.data?.liked==false) {
-                    heartShape=false
+            ) {if(response.code()==200) {
+                Log.e("response", "200 like whether")
+                if (response.body()?.data?.liked == true) {
+                    heartShape = true
+                } else if (response.body()?.data?.liked== false) {
+                    heartShape = false
                 }
 
+            }
                 heartShape()
             }
 
@@ -279,135 +286,208 @@ class DiaryViewFragment : Fragment(){
         })
 
 
-       mBinding?.itemSearchViewHeartIcon?.setOnClickListener {
+        mBinding?.itemSearchViewHeartIcon?.setOnClickListener {
             //좋아요 API 연동
-            val call4: Call<ResponseLikeData> = ServiceCreator.diaryService.getLike(
+            val callLike: Call<ResponseLikeData> = ServiceCreator.diaryService.getLike(
                 TloverApplication.prefs.getString("jwt","null"),
                 TloverApplication.prefs.getString("refreshToken","null").toInt(),
                 diaryId
             )
 
-            call4.enqueue(object: Callback<ResponseLikeData> {
+            callLike.enqueue(object: Callback<ResponseLikeData> {
                 override fun onResponse(
                     call: Call<ResponseLikeData>,
                     response: Response<ResponseLikeData>
                 ) {
-                    Log.e("response!!!!", "200?!")
-                    if (response.body()?.data?.liked==true) {
-                        heartShape=true
-                    }
-                    else if (response.body()?.data?.liked==false) {
-                        heartShape=false
-                    }
+                    if (response.code() == 200) {
+                        Log.e("response!!!!", "200 like")
+                        if (response.body()?.data?.liked == true) {
+                            heartShape = true
+                        } else if (response.body()?.data?.liked == false) {
+                            heartShape = false
+                        }
+                        heartShape()
 
+                        //다시 좋아요 개수 체크
+                        val callLikeCount: Call<ResponseDiaryLikeNumData> = ServiceCreator.diaryService.getLikeNum(
+                            TloverApplication.prefs.getString("jwt","null"),
+                            TloverApplication.prefs.getString("refreshToken","null").toInt(),
+                            diaryId
+                        )
+
+                        callLikeCount.enqueue(object: Callback<ResponseDiaryLikeNumData> {
+                            override fun onResponse(
+                                call: Call<ResponseDiaryLikeNumData>,
+                                response: Response<ResponseDiaryLikeNumData>
+                            ) {
+                                if(response.code()==200) {
+                                    Log.e("response!!!", "200 likeCount")
+                                    mBinding?.diaryLike = response.body()?.data
+
+                                }
+
+                            }
+
+                            override fun onFailure(call: Call<ResponseDiaryLikeNumData>, t: Throwable) {
+
+                            }
+
+                        })
+                    }
                 }
-
                 override fun onFailure(call: Call<ResponseLikeData>, t: Throwable) {
 
                 }
 
             } )
 
-            val call3: Call<ResponseDiaryLikeNumData> = ServiceCreator.diaryService.getLikeNum(
-                TloverApplication.prefs.getString("jwt","null"),
-                TloverApplication.prefs.getString("refreshToken","null").toInt(),
-                diaryId
-            )
 
-            call3.enqueue(object: Callback<ResponseDiaryLikeNumData> {
-                override fun onResponse(
-                    call: Call<ResponseDiaryLikeNumData>,
-                    response: Response<ResponseDiaryLikeNumData>
-                ) {
-                    if(response.code()==200) {
-                        Log.e("response!!!", "200!!!!!")
-                        mBinding?.diaryLike = response.body()?.data
 
-                    }
 
-                }
-
-                override fun onFailure(call: Call<ResponseDiaryLikeNumData>, t: Throwable) {
-
-                }
-
-            })
-
-            heartShape()
         }
-
+        //스크랩 api 연동
         mBinding?.itemSearchViewScrapIcon?.setOnClickListener {
-            val call5 : Call<ResponseScrapData> = ServiceCreator.diaryService.getScrap(
+            val callScrap : Call<ResponseScrapData> = ServiceCreator.diaryService.getScrap(
                 TloverApplication.prefs.getString("jwt","null"),
                 TloverApplication.prefs.getString("refreshToken","null").toInt(),
                 requestScrapData
             )
 
-            call5.enqueue(object : Callback<ResponseScrapData>{
+            callScrap.enqueue(object : Callback<ResponseScrapData>{
                 override fun onResponse(
                     call: Call<ResponseScrapData>,
                     response: Response<ResponseScrapData>
                 ) {
-                    if(response.code()==200) {
-                        Log.e("response~", "200?!?!")
+                    if(response.code()==201) {
+                        Log.e("response~", "201 scrap")
+
+                        //스크랩 수를 받아온다.
+                        val callScrapCount: Call<ResponseDiaryScrapNumData> = ServiceCreator.diaryService.getScrapNum(
+                            TloverApplication.prefs.getString("jwt","null"),
+                            TloverApplication.prefs.getString("refreshToken","null").toInt(),
+                            diaryId
+                        )
+
+                        callScrapCount.enqueue(object : Callback<ResponseDiaryScrapNumData> {
+                            override fun onResponse(
+                                call: Call<ResponseDiaryScrapNumData>,
+                                response: Response<ResponseDiaryScrapNumData>
+                            ) {
+                                if(response.code()==200) {
+                                    Log.e("response!!","200 scrapcount")
+                                    mBinding?.diaryScrap = response.body()?.data
+                                }
+                            }
+
+                            override fun onFailure(call: Call<ResponseDiaryScrapNumData>, t: Throwable) {
+
+                            }
+
+                        })
+
+                        //해당 유저의 해당 다이어리 스크랩 여부 조회 (만약 스크랩이 이미 되어있을 경우에는 스크랩 색을 칠해져 있게 만든다)
+                        val callDiaryScrapWhether: Call<ResponseDiaryScrapWhetherData> = ServiceCreator.diaryService.getScrapWhether(
+                            TloverApplication.prefs.getString("jwt","null"),
+                            TloverApplication.prefs.getString("refreshToken","null").toInt(),
+                            requestScrapWhetherData
+                        )
+
+                        callDiaryScrapWhether.enqueue(object : Callback<ResponseDiaryScrapWhetherData>{
+                            override fun onResponse(
+                                call: Call<ResponseDiaryScrapWhetherData>,
+                                response: Response<ResponseDiaryScrapWhetherData>
+                            ) {
+                                if(response.code()==200) {
+                                    Log.e("response", "200 scrap whether")
+                                    if (response.body()?.data?.scraped == true) {
+                                        scrapShape = true
+                                    } else if (response.body()?.data?.scraped == false) {
+                                        scrapShape = false
+                                    }
+                                }
+                                scrapShape()
+
+
+                            }
+
+                            override fun onFailure(call: Call<ResponseDiaryScrapWhetherData>, t: Throwable) {
+
+                            }
+
+                        })
+
+
                     }
+
+                    if(response.code()==204) {
+                        Log.e("response~", "204 scrap")
+
+                        //스크랩 수를 받아온다.
+                        val callScrapCount: Call<ResponseDiaryScrapNumData> = ServiceCreator.diaryService.getScrapNum(
+                            TloverApplication.prefs.getString("jwt","null"),
+                            TloverApplication.prefs.getString("refreshToken","null").toInt(),
+                            diaryId
+                        )
+
+                        callScrapCount.enqueue(object : Callback<ResponseDiaryScrapNumData> {
+                            override fun onResponse(
+                                call: Call<ResponseDiaryScrapNumData>,
+                                response: Response<ResponseDiaryScrapNumData>
+                            ) {
+                                if(response.code()==200) {
+                                    Log.e("response!!","200 scrapcount")
+                                    mBinding?.diaryScrap = response.body()?.data
+                                }
+                            }
+
+                            override fun onFailure(call: Call<ResponseDiaryScrapNumData>, t: Throwable) {
+
+                            }
+
+                        })
+
+                        //해당 유저의 해당 다이어리 스크랩 여부 조회 (만약 스크랩이 이미 되어있을 경우에는 스크랩 색을 칠해져 있게 만든다)
+                        val callDiaryScrapWhether: Call<ResponseDiaryScrapWhetherData> = ServiceCreator.diaryService.getScrapWhether(
+                            TloverApplication.prefs.getString("jwt","null"),
+                            TloverApplication.prefs.getString("refreshToken","null").toInt(),
+                            requestScrapWhetherData
+                        )
+
+                        callDiaryScrapWhether.enqueue(object : Callback<ResponseDiaryScrapWhetherData>{
+                            override fun onResponse(
+                                call: Call<ResponseDiaryScrapWhetherData>,
+                                response: Response<ResponseDiaryScrapWhetherData>
+                            ) {
+                                if(response.code()==200) {
+                                    Log.e("response", "200 scrap whether")
+                                    if (response.body()?.data?.scraped == true) {
+                                        scrapShape = true
+                                    } else if (response.body()?.data?.scraped == false) {
+                                        scrapShape = false
+                                    }
+                                }
+                                scrapShape()
+
+
+                            }
+
+                            override fun onFailure(call: Call<ResponseDiaryScrapWhetherData>, t: Throwable) {
+
+                            }
+
+                        })
+                    }
+
                 }
 
                 override fun onFailure(call: Call<ResponseScrapData>, t: Throwable) {
 
                 }
 
-            })
-            val call2: Call<ResponseDiaryScrapNumData> = ServiceCreator.diaryService.getScrapNum(
-                TloverApplication.prefs.getString("jwt","null"),
-                TloverApplication.prefs.getString("refreshToken","null").toInt(),
-                diaryId
-            )
-
-            call2.enqueue(object : Callback<ResponseDiaryScrapNumData> {
-                override fun onResponse(
-                    call: Call<ResponseDiaryScrapNumData>,
-                    response: Response<ResponseDiaryScrapNumData>
-                ) {
-                    if(response.code()==200) {
-                        Log.e("response!!","200!!!!")
-                        mBinding?.diaryScrap = response.body()?.data
-                    }
-                }
-
-                override fun onFailure(call: Call<ResponseDiaryScrapNumData>, t: Throwable) {
-
-                }
 
             })
-            //스크랩 여부 조회
-            val call6: Call<ResponseDiaryScrapWhetherData> = ServiceCreator.diaryService.getScrapWhether(
-                TloverApplication.prefs.getString("jwt","null"),
-                TloverApplication.prefs.getString("refreshToken","null").toInt(),
-                requestScrapWhetherData
-            )
 
-            call6.enqueue(object : Callback<ResponseDiaryScrapWhetherData>{
-                override fun onResponse(
-                    call: Call<ResponseDiaryScrapWhetherData>,
-                    response: Response<ResponseDiaryScrapWhetherData>
-                ) {
-                    Log.e("response~~!!", "200?!?!")
-                    if (response.body()?.data?.scraped==true) {
-                        scrapShape=true
-                    }
-                    else if (response.body()?.data?.scraped==false) {
-                        scrapShape=false
-                    }
 
-                    scrapShape()
-                }
-
-                override fun onFailure(call: Call<ResponseDiaryScrapWhetherData>, t: Throwable) {
-
-                }
-
-            })
 
 
         }
