@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
@@ -77,6 +78,7 @@ class SelectFragment : Fragment() {
             if (
                 selectdata.size ==0
             ){
+                Toast.makeText(requireActivity(), "한 개 이상 선택해주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
