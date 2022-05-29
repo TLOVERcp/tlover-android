@@ -37,7 +37,7 @@ class MyInfoSettingFragment : Fragment() {
         //회원탈퇴 버튼 클릭
         mBinding?.settingContentWithdrawal?.setOnClickListener {
             val action =
-                MyInfoSettingFragmentDirections.actionMyInfoSettingFragmentToMyInfoSettingWithdrawalFragment()
+                MyInfoSettingFragmentDirections.actionMyInfoSettingFragmentToSignInActivity()
             it.findNavController().navigate(action)
         }
 
@@ -93,7 +93,7 @@ class MyInfoSettingFragment : Fragment() {
                             TloverApplication.prefs.setString("jwt", "null")
                             TloverApplication.prefs.setUserId("null")
 
-                            val action = MyInfoSettingFragmentDirections.actionMyInfoSettingFragmentToFirstTitleActivity()
+                            val action = MyInfoSettingFragmentDirections.actionMyInfoSettingFragmentToSignInActivity()
                             it.findNavController().navigate(action)
                             dialog.cancel()
                         }

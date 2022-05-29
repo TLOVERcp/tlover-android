@@ -3,13 +3,6 @@ import android.app.Activity.RESULT_CANCELED
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.graphics.Color
-import com.cookandroid.teamproject1.R
-import java.util.*
-import android.app.Activity
-import android.app.Activity.RESULT_CANCELED
-import android.app.Activity.RESULT_OK
-import android.content.pm.PackageManager
-import android.database.Cursor
 import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
@@ -21,18 +14,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.FragmentDiaryWritingBinding
 import com.cookandroid.teamproject1.diary.model.ResponseDiaryWriteData
 import com.cookandroid.teamproject1.plan.model.ResponsePlanViewData
-import com.cookandroid.teamproject1.plan.model.ResponsePlanWriteData
 import com.cookandroid.teamproject1.util.ServiceCreator
 import com.cookandroid.teamproject1.util.TloverApplication
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -43,8 +35,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
 import java.io.IOException
-import java.lang.Exception
-import java.util.jar.Manifest
+
 
 class DiaryWritingFragment : Fragment() {
     private var mBinding : FragmentDiaryWritingBinding?=null
@@ -65,14 +56,14 @@ class DiaryWritingFragment : Fragment() {
     private var list : ArrayList<String> = arrayListOf()
     private var listed : List<String> = arrayListOf()
     private var selectdata : ArrayList<String> = arrayListOf()
-    private var photoList : ArrayList<String> = arrayListOf()
     private var text : String = "text"
 
-    private var photoUri : Uri? = null
+    private var photoUri : Uri? = Uri.EMPTY
+    private var regionList : ArrayList<MultipartBody.Part> = arrayListOf()
+    private var themaList : ArrayList<MultipartBody.Part> = arrayListOf()
+    private var photoList : ArrayList<MultipartBody.Part> = arrayListOf()
 
-    private var idx : Int = 0
-    var filePath : String =""
-// null
+    // null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -176,7 +167,6 @@ class DiaryWritingFragment : Fragment() {
 //            var file = File(uri.getPath())
 //            val fileBody: RequestBody
 
-            fun File?.toImgRequestBody() = this?.asRequestBody("image/jpeg".toMediaTypeOrNull())
 //            fun File?.toImgRequestBody() = this?.asRequestBody("multipart/form-data; boundary=<calculated when request is sent>".toMediaTypeOrNull())
 
 //            arrayListOf(MultipartBody.Part.createFormData("diaryImages", File(photoUri?.path).name,
@@ -186,6 +176,33 @@ class DiaryWritingFragment : Fragment() {
 
 //        val file = File(mediaPath)
 //        val requestBody = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+//        val requestBody = file.asRequestBody("image/*".toMediaTypeOrNull())
+
+
+//            fun File?.toImgRequestBody() = this?.asRequestBody("image/jpeg".toMediaTypeOrNull())
+            fun Uri?.toPath() {
+
+            }
+
+
+        fun File?.toImgRequestBody() = this?.asRequestBody("image/*".toMediaTypeOrNull())
+//        fun File?.toImgRequestBody() = this?.asRequestBody("image/*".toMediaType())
+
+            for (i in 0 until list.size) {
+                var part = MultipartBody.Part.createFormData("regionName", list[i])
+                regionList.add(part)
+            }
+
+            for (i in 0 until selectdata.size) {
+                var part = MultipartBody.Part.createFormData("themaName", selectdata[i])
+                themaList.add(part)
+            }
+
+            for (i in 0 until selectdata.size) {
+                var part = MultipartBody.Part.createFormData("diaryImages", File(photoUri?.path!!).name,File(photoUri?.path!!).toImgRequestBody()!!)
+                photoList.add(part)
+            }
+
 //        MultipartBody.Part.createFormData("images", file.name, requestBody)
             // arrayListOf(MultipartBody.Part.createFormData("diaryImages", File(photoUri?.path!!).name,
             //                    File(photoUri?.path!!).toImgRequestBody()!!
@@ -197,13 +214,11 @@ class DiaryWritingFragment : Fragment() {
                 TloverApplication.prefs.getString("refreshToken", "null").toInt(),
                 MultipartBody.Part.createFormData("diaryTitle", mBinding?.fragmentDiaryWriteTitleEdittext?.text.toString()),
                 MultipartBody.Part.createFormData("diaryContext", mBinding?.fragmentDiaryContentTv?.text.toString()),
-                arrayListOf(MultipartBody.Part.createFormData("diaryImages", File(photoUri?.path!!).name,
-                    text.toPlainRequestBody()
-                )),
+                null,
                 MultipartBody.Part.createFormData("diaryStartDate", mBinding?.fragmentDiaryWriteDateEt?.text.toString()+ " 00:00:00"),
                 MultipartBody.Part.createFormData("diaryEndDate", mBinding?.fragmentDiaryWriteEndDateEt?.text.toString()+ " 23:59:59"),
-                MultipartBody.Part.createFormData("regionName", list.toString()),
-                MultipartBody.Part.createFormData("themaName", selectdata.toString()),
+                regionList.toList(),
+                themaList.toList(),
                 MultipartBody.Part.createFormData("totalCost", mBinding?.fragmentDiaryWritePayEt?.text.toString()),
                 MultipartBody.Part.createFormData("planId", planId.toString()))
 
@@ -215,13 +230,15 @@ class DiaryWritingFragment : Fragment() {
                     if (response.code() == 200) {
                         Log.e("diaryWrite_server_test", "200")
                         Toast.makeText(requireActivity(), "작성되었습니다.", Toast.LENGTH_SHORT).show()
+                        val action = DiaryWritingFragmentDirections.actionDiaryWritingFragmentToDiaryFragment()
+                        it.findNavController().navigate(action)
                     } else {
                         Log.e("diaryWrite_server_test", "codeFail")
                     }
                 }
 
                 override fun onFailure(call: Call<ResponseDiaryWriteData>, t: Throwable) {
-
+                    Log.w("MyTag", "requestFailed", t);
                 }
             })
 
@@ -315,159 +332,59 @@ class DiaryWritingFragment : Fragment() {
         // 갤러리 여는 것
         mBinding?.fragmentDiaryWritePicturePlus?.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                var permissionCheck = ContextCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE)
-                if(permissionCheck != PackageManager.PERMISSION_GRANTED){
-                    //설명이 필요한지
-                    if(ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE)){
-                        //설명 필요 (사용자가 요청을 거부한 적이 있음)
-                        ActivityCompat.requestPermissions(requireActivity(), REQUIRED_PERMISSIONS, PERMISSIONS_REQUEST_CODE )
-                    }else{
-                        //설명 필요하지 않음
-                        ActivityCompat.requestPermissions(requireActivity(), REQUIRED_PERMISSIONS, PERMISSIONS_REQUEST_CODE )
-                    }
-                }else{
-                    //권한 허용하여 갤러리로 이동
-                    val intent = Intent(Intent.ACTION_GET_CONTENT)
-                    intent.setType("image/*")
-                    startActivityForResult(intent,OPEN_GALLERY)
-                    selectPicNum=1
-                }
+                Toast.makeText(requireActivity(), "죄송하니다. 서비스 준비중입니다.", Toast.LENGTH_SHORT).show()
+//                val intent = Intent(Intent.ACTION_GET_CONTENT)
+//                intent.setType("image/*")
+//                // override
+//                startActivityForResult(intent,OPEN_GALLERY)
+//                selectPicNum=1
             }
         })
 
         mBinding?.fragmentDiaryWritePicturePlus2?.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                var permissionCheck = ContextCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE)
-                if(permissionCheck != PackageManager.PERMISSION_GRANTED){
-                    //설명이 필요한지
-                    if(ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE)){
-                        //설명 필요 (사용자가 요청을 거부한 적이 있음)
-                        ActivityCompat.requestPermissions(requireActivity(), REQUIRED_PERMISSIONS, PERMISSIONS_REQUEST_CODE )
-                    }else{
-                        //설명 필요하지 않음
-                        ActivityCompat.requestPermissions(requireActivity(), REQUIRED_PERMISSIONS, PERMISSIONS_REQUEST_CODE )
-                    }
-                }else{
-                    //권한 허용하여 갤러리로 이동
-                    val intent = Intent(Intent.ACTION_GET_CONTENT)
-                    intent.setType("image/*")
-                    startActivityForResult(intent,OPEN_GALLERY)
-                    selectPicNum=2
-                }
-
+                val intent = Intent(Intent.ACTION_GET_CONTENT)
+                intent.setType("image/*")
+                startActivityForResult(intent,OPEN_GALLERY)
+                selectPicNum=2
             }
         })
 
         mBinding?.fragmentDiaryWritePicturePlus3?.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                var permissionCheck = ContextCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE)
-                if(permissionCheck != PackageManager.PERMISSION_GRANTED){
-                    //설명이 필요한지
-                    if(ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE)){
-                        //설명 필요 (사용자가 요청을 거부한 적이 있음)
-                        ActivityCompat.requestPermissions(requireActivity(), REQUIRED_PERMISSIONS, PERMISSIONS_REQUEST_CODE )
-                    }else{
-                        //설명 필요하지 않음
-                        ActivityCompat.requestPermissions(requireActivity(), REQUIRED_PERMISSIONS, PERMISSIONS_REQUEST_CODE )
-                    }
-                }else{
-                    //권한 허용하여 갤러리로 이동
-                    val intent = Intent(Intent.ACTION_GET_CONTENT)
-                    intent.setType("image/*")
-                    startActivityForResult(intent,OPEN_GALLERY)
-                    selectPicNum=3
-                }
-
+                val intent = Intent(Intent.ACTION_GET_CONTENT)
+                intent.setType("image/*")
+                startActivityForResult(intent,OPEN_GALLERY)
+                selectPicNum=3
             }
         })
 
         mBinding?.fragmentDiaryWritePicturePlus4?.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                var permissionCheck = ContextCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE)
-                if(permissionCheck != PackageManager.PERMISSION_GRANTED){
-                    //설명이 필요한지
-                    if(ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE)){
-                        //설명 필요 (사용자가 요청을 거부한 적이 있음)
-                        ActivityCompat.requestPermissions(requireActivity(), REQUIRED_PERMISSIONS, PERMISSIONS_REQUEST_CODE )
-                    }else{
-                        //설명 필요하지 않음
-                        ActivityCompat.requestPermissions(requireActivity(), REQUIRED_PERMISSIONS, PERMISSIONS_REQUEST_CODE )
-                    }
-                }else{
-                    //권한 허용하여 갤러리로 이동
-                    val intent = Intent(Intent.ACTION_GET_CONTENT)
-                    intent.setType("image/*")
-                    startActivityForResult(intent,OPEN_GALLERY)
-                    selectPicNum=4
-                }
-
+                val intent = Intent(Intent.ACTION_GET_CONTENT)
+                intent.setType("image/*")
+                startActivityForResult(intent,OPEN_GALLERY)
+                selectPicNum=4
             }
         })
 
         mBinding?.fragmentDiaryWritePicturePlus5?.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                var permissionCheck = ContextCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE)
-                if(permissionCheck != PackageManager.PERMISSION_GRANTED){
-                    //설명이 필요한지
-                    if(ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE)){
-                        //설명 필요 (사용자가 요청을 거부한 적이 있음)
-                        ActivityCompat.requestPermissions(requireActivity(), REQUIRED_PERMISSIONS, PERMISSIONS_REQUEST_CODE )
-                    }else{
-                        //설명 필요하지 않음
-                        ActivityCompat.requestPermissions(requireActivity(), REQUIRED_PERMISSIONS, PERMISSIONS_REQUEST_CODE )
-                    }
-                }else{
-                    //권한 허용하여 갤러리로 이동
-                    val intent = Intent(Intent.ACTION_GET_CONTENT)
-                    intent.setType("image/*")
-                    startActivityForResult(intent,OPEN_GALLERY)
-                    selectPicNum=5
-                }
-
+                val intent = Intent(Intent.ACTION_GET_CONTENT)
+                intent.setType("image/*")
+                startActivityForResult(intent,OPEN_GALLERY)
+                selectPicNum=5
             }
         })
 
         mBinding?.fragmentDiaryWritePicturePlus6?.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                var permissionCheck = ContextCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE)
-                if(permissionCheck != PackageManager.PERMISSION_GRANTED){
-                    //설명이 필요한지
-                    if(ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE)){
-                        //설명 필요 (사용자가 요청을 거부한 적이 있음)
-                        ActivityCompat.requestPermissions(requireActivity(), REQUIRED_PERMISSIONS, PERMISSIONS_REQUEST_CODE )
-                    }else{
-                        //설명 필요하지 않음
-                        ActivityCompat.requestPermissions(requireActivity(), REQUIRED_PERMISSIONS, PERMISSIONS_REQUEST_CODE )
-                    }
-                }else{
-                    //권한 허용하여 갤러리로 이동
-                    val intent = Intent(Intent.ACTION_GET_CONTENT)
-                    intent.setType("image/*")
-                    startActivityForResult(intent,OPEN_GALLERY)
-                    selectPicNum=6
-                }
-
+                val intent = Intent(Intent.ACTION_GET_CONTENT)
+                intent.setType("image/*")
+                startActivityForResult(intent,OPEN_GALLERY)
+                selectPicNum=6
             }
         })
-
-
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        when(requestCode){
-            PERMISSIONS_REQUEST_CODE -> {
-                if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-
-                }else{
-                    //권한 거부됨
-                }
-                return
-            }
-        }
     }
 
     //사진 관련
@@ -480,192 +397,127 @@ class DiaryWritingFragment : Fragment() {
                 var currentImageUri = data?.data
                 photoUri = currentImageUri
 
-
                 try{
                     currentImageUri?.let {
                         if (selectPicNum == 1) {
-                            try {
-                                if (Build.VERSION.SDK_INT < 28) {
-                                    val bitmap = MediaStore.Images.Media.getBitmap(
-                                        requireActivity().contentResolver,
-                                        currentImageUri
-
-                                    )
-                                    selectPhotoString.add(currentImageUri.toString())
-                                    selectPhotoUri.add(currentImageUri)
-                                    mBinding?.fragmentDiaryWritePictureContainer?.setImageBitmap(
-                                        bitmap
-                                    )
-                                    mBinding?.fragmentDiaryWritePicturePlus?.visibility = View.GONE
-                                    Log.d("사진","사진"+currentImageUri.path)
-                                } else {
-                                    val source = ImageDecoder.createSource(
-                                        requireActivity().contentResolver,
-                                        currentImageUri
-                                    )
-                                    selectPhotoString.add(currentImageUri.toString())
-                                    selectPhotoUri.add(currentImageUri)
-                                    val bitmap = ImageDecoder.decodeBitmap(source)
-                                    mBinding?.fragmentDiaryWritePictureContainer?.setImageBitmap(
-                                        bitmap
-                                    )
-                                    mBinding?.fragmentDiaryWritePicturePlus?.visibility = View.GONE
-                                    mBinding?.fragmentDiaryWritePicturePlus?.visibility = View.GONE
-                                }
-                            } catch (e:IOException) {
-                                e.printStackTrace()
+                            if (Build.VERSION.SDK_INT < 28) {
+                                val bitmap = MediaStore.Images.Media.getBitmap(
+                                    requireActivity().contentResolver,
+                                    currentImageUri
+                                )
+                                selectPhotoString.add(currentImageUri.toString())
+                                selectPhotoUri.add(currentImageUri)
+                                mBinding?.fragmentDiaryWritePictureContainer?.setImageBitmap(bitmap)
+                                mBinding?.fragmentDiaryWritePicturePlus?.visibility=View.GONE
+                            } else {
+                                val source = ImageDecoder.createSource(
+                                    requireActivity().contentResolver,
+                                    currentImageUri
+                                )
+                                selectPhotoString.add(currentImageUri.toString())
+                                selectPhotoUri.add(currentImageUri)
+                                val bitmap = ImageDecoder.decodeBitmap(source)
+                                mBinding?.fragmentDiaryWritePictureContainer?.setImageBitmap(bitmap)
+                                mBinding?.fragmentDiaryWritePicturePlus?.visibility=View.GONE
                             }
-                            val cursor: Cursor = requireActivity().contentResolver.query(
-                                Uri.parse(currentImageUri.toString()),
-                                null,
-                                null,
-                                null,
-                                null
-                            )!!
-                            cursor.moveToFirst()
-                            idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
-                            filePath = cursor.getString(idx)
-                            cursor.close()
-                            Log.d("코드1","코드1"+filePath)
-
                         }
 
                         if(selectPicNum==2) {
-                            try {
-                                if (Build.VERSION.SDK_INT < 28) {
-                                    val bitmap = MediaStore.Images.Media.getBitmap(
-                                        requireActivity().contentResolver,
-                                        currentImageUri
-                                    )
-                                    mBinding?.fragmentDiaryWritePictureContainer2?.setImageBitmap(
-                                        bitmap
-                                    )
-                                    mBinding?.fragmentDiaryWritePicturePlus2?.visibility = View.GONE
-                                } else {
-                                    val source = ImageDecoder.createSource(
-                                        requireActivity().contentResolver,
-                                        currentImageUri
-                                    )
-                                    selectPhotoString.add(currentImageUri.toString())
-                                    selectPhotoUri.add(currentImageUri)
-                                    val bitmap = ImageDecoder.decodeBitmap(source)
-                                    mBinding?.fragmentDiaryWritePictureContainer2?.setImageBitmap(
-                                        bitmap
-                                    )
-                                    mBinding?.fragmentDiaryWritePicturePlus2?.visibility = View.GONE
-                                }
-                            }catch (e:IOException) {
-                                e.printStackTrace()
+                            if (Build.VERSION.SDK_INT < 28) {
+                                val bitmap = MediaStore.Images.Media.getBitmap(
+                                    requireActivity().contentResolver,
+                                    currentImageUri
+                                )
+                                mBinding?.fragmentDiaryWritePictureContainer2?.setImageBitmap(bitmap)
+                                mBinding?.fragmentDiaryWritePicturePlus2?.visibility=View.GONE
+                            } else {
+                                val source = ImageDecoder.createSource(
+                                    requireActivity().contentResolver,
+                                    currentImageUri
+                                )
+                                selectPhotoString.add(currentImageUri.toString())
+                                selectPhotoUri.add(currentImageUri)
+                                val bitmap = ImageDecoder.decodeBitmap(source)
+                                mBinding?.fragmentDiaryWritePictureContainer2?.setImageBitmap(bitmap)
+                                mBinding?.fragmentDiaryWritePicturePlus2?.visibility=View.GONE
                             }
                         }
 
                         if(selectPicNum==3) {
-                            try {
-                                if (Build.VERSION.SDK_INT < 28) {
-                                    val bitmap = MediaStore.Images.Media.getBitmap(
-                                        requireActivity().contentResolver,
-                                        currentImageUri
-                                    )
-                                    mBinding?.fragmentDiaryWritePictureContainer3?.setImageBitmap(
-                                        bitmap
-                                    )
-                                    mBinding?.fragmentDiaryWritePicturePlus3?.visibility = View.GONE
-                                } else {
-                                    val source = ImageDecoder.createSource(
-                                        requireActivity().contentResolver,
-                                        currentImageUri
-                                    )
-                                    selectPhotoString.add(currentImageUri.toString())
-                                    selectPhotoUri.add(currentImageUri)
-                                    val bitmap = ImageDecoder.decodeBitmap(source)
-                                    mBinding?.fragmentDiaryWritePictureContainer3?.setImageBitmap(
-                                        bitmap
-                                    )
-                                    mBinding?.fragmentDiaryWritePicturePlus3?.visibility = View.GONE
-                                }
-                            } catch (e:IOException) {
-                                e.printStackTrace()
+                            if (Build.VERSION.SDK_INT < 28) {
+                                val bitmap = MediaStore.Images.Media.getBitmap(
+                                    requireActivity().contentResolver,
+                                    currentImageUri
+                                )
+                                mBinding?.fragmentDiaryWritePictureContainer3?.setImageBitmap(bitmap)
+                                mBinding?.fragmentDiaryWritePicturePlus3?.visibility=View.GONE
+                            } else {
+                                val source = ImageDecoder.createSource(
+                                    requireActivity().contentResolver,
+                                    currentImageUri
+                                )
+                                selectPhotoString.add(currentImageUri.toString())
+                                selectPhotoUri.add(currentImageUri)
+                                val bitmap = ImageDecoder.decodeBitmap(source)
+                                mBinding?.fragmentDiaryWritePictureContainer3?.setImageBitmap(bitmap)
+                                mBinding?.fragmentDiaryWritePicturePlus3?.visibility=View.GONE
                             }
                         }
 
                         if(selectPicNum==4) {
-                            try {
-                                if (Build.VERSION.SDK_INT < 28) {
-                                    val bitmap = MediaStore.Images.Media.getBitmap(
-                                        requireActivity().contentResolver,
-                                        currentImageUri
-                                    )
-                                    mBinding?.fragmentDiaryWritePictureContainer4?.setImageBitmap(
-                                        bitmap
-                                    )
-                                    mBinding?.fragmentDiaryWritePicturePlus4?.visibility = View.GONE
-                                } else {
-                                    val source = ImageDecoder.createSource(
-                                        requireActivity().contentResolver,
-                                        currentImageUri
-                                    )
-                                    val bitmap = ImageDecoder.decodeBitmap(source)
-                                    mBinding?.fragmentDiaryWritePictureContainer4?.setImageBitmap(
-                                        bitmap
-                                    )
-                                    mBinding?.fragmentDiaryWritePicturePlus4?.visibility = View.GONE
-                                }
-                            } catch (e:IOException) {
-                                e.printStackTrace()
+                            if (Build.VERSION.SDK_INT < 28) {
+                                val bitmap = MediaStore.Images.Media.getBitmap(
+                                    requireActivity().contentResolver,
+                                    currentImageUri
+                                )
+                                mBinding?.fragmentDiaryWritePictureContainer4?.setImageBitmap(bitmap)
+                                mBinding?.fragmentDiaryWritePicturePlus4?.visibility=View.GONE
+                            } else {
+                                val source = ImageDecoder.createSource(
+                                    requireActivity().contentResolver,
+                                    currentImageUri
+                                )
+                                val bitmap = ImageDecoder.decodeBitmap(source)
+                                mBinding?.fragmentDiaryWritePictureContainer4?.setImageBitmap(bitmap)
+                                mBinding?.fragmentDiaryWritePicturePlus4?.visibility=View.GONE
                             }
                         }
 
                         if(selectPicNum==5) {
-                            try {
-                                if (Build.VERSION.SDK_INT < 28) {
-                                    val bitmap = MediaStore.Images.Media.getBitmap(
-                                        requireActivity().contentResolver,
-                                        currentImageUri
-                                    )
-                                    mBinding?.fragmentDiaryWritePictureContainer5?.setImageBitmap(
-                                        bitmap
-                                    )
-                                    mBinding?.fragmentDiaryWritePicturePlus5?.visibility = View.GONE
-                                } else {
-                                    val source = ImageDecoder.createSource(
-                                        requireActivity().contentResolver,
-                                        currentImageUri
-                                    )
-                                    val bitmap = ImageDecoder.decodeBitmap(source)
-                                    mBinding?.fragmentDiaryWritePictureContainer5?.setImageBitmap(
-                                        bitmap
-                                    )
-                                    mBinding?.fragmentDiaryWritePicturePlus5?.visibility = View.GONE
-                                }
-                            } catch (e:IOException) {
-                                e.printStackTrace()
+                            if (Build.VERSION.SDK_INT < 28) {
+                                val bitmap = MediaStore.Images.Media.getBitmap(
+                                    requireActivity().contentResolver,
+                                    currentImageUri
+                                )
+                                mBinding?.fragmentDiaryWritePictureContainer5?.setImageBitmap(bitmap)
+                                mBinding?.fragmentDiaryWritePicturePlus5?.visibility=View.GONE
+                            } else {
+                                val source = ImageDecoder.createSource(
+                                    requireActivity().contentResolver,
+                                    currentImageUri
+                                )
+                                val bitmap = ImageDecoder.decodeBitmap(source)
+                                mBinding?.fragmentDiaryWritePictureContainer5?.setImageBitmap(bitmap)
+                                mBinding?.fragmentDiaryWritePicturePlus5?.visibility=View.GONE
                             }
                         }
 
                         if(selectPicNum==6) {
-                            try {
-                                if (Build.VERSION.SDK_INT < 28) {
-                                    val bitmap = MediaStore.Images.Media.getBitmap(
-                                        requireActivity().contentResolver,
-                                        currentImageUri
-                                    )
-                                    mBinding?.fragmentDiaryWritePictureContainer6?.setImageBitmap(
-                                        bitmap
-                                    )
-                                    mBinding?.fragmentDiaryWritePicturePlus6?.visibility = View.GONE
-                                } else {
-                                    val source = ImageDecoder.createSource(
-                                        requireActivity().contentResolver,
-                                        currentImageUri
-                                    )
-                                    val bitmap = ImageDecoder.decodeBitmap(source)
-                                    mBinding?.fragmentDiaryWritePictureContainer6?.setImageBitmap(
-                                        bitmap
-                                    )
-                                    mBinding?.fragmentDiaryWritePicturePlus6?.visibility = View.GONE
-                                }
-                            } catch (e:IOException) {
-                                e.printStackTrace()
+                            if (Build.VERSION.SDK_INT < 28) {
+                                val bitmap = MediaStore.Images.Media.getBitmap(
+                                    requireActivity().contentResolver,
+                                    currentImageUri
+                                )
+                                mBinding?.fragmentDiaryWritePictureContainer6?.setImageBitmap(bitmap)
+                                mBinding?.fragmentDiaryWritePicturePlus6?.visibility=View.GONE
+                            } else {
+                                val source = ImageDecoder.createSource(
+                                    requireActivity().contentResolver,
+                                    currentImageUri
+                                )
+                                val bitmap = ImageDecoder.decodeBitmap(source)
+                                mBinding?.fragmentDiaryWritePictureContainer6?.setImageBitmap(bitmap)
+                                mBinding?.fragmentDiaryWritePicturePlus6?.visibility=View.GONE
                             }
                         }
                         else {
@@ -684,7 +536,6 @@ class DiaryWritingFragment : Fragment() {
                 Toast.makeText(requireActivity(), "사진 선택 취소", Toast.LENGTH_LONG).show();
             }
         }
-
 
     }
 
