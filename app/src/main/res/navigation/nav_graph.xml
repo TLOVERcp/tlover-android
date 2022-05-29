@@ -213,9 +213,6 @@
         <action
             android:id="@+id/action_myInfoSettingFragment_to_myInfoVersionFragment"
             app:destination="@id/myInfoVersionFragment" />
-        <action
-            android:id="@+id/action_myInfoSettingFragment_to_webViewActivity"
-            app:destination="@id/webViewActivity" />
     </fragment>
     <fragment
         android:id="@+id/diaryLibraryFragment"
@@ -316,11 +313,6 @@
         android:name="com.cookandroid.teamproject1.myInfo.view.fragment.MyInfoScrapFragment"
         android:label="fragment_my_info_scrap"
         tools:layout="@layout/fragment_my_info_scrap" />
-    <activity
-        android:id="@+id/webViewActivity"
-        android:name="com.cookandroid.teamproject1.WebViewActivity"
-        android:label="activity_web_view"
-        tools:layout="@layout/activity_web_view" />
 
 
 </navigation>
