@@ -13,7 +13,7 @@
         android:layout_height="17dp"
         android:layout_marginLeft="18.5dp"
         android:layout_marginTop="43.5dp"
-        android:src="@drawable/back_btn"
+        android:src="@drawable/ic_back_button"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="34.5dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="28dp"
         android:textColor="#1D1D20"
         android:fontFamily="@font/notosans"
         android:text="설정"
@@ -42,17 +42,15 @@
         android:textColor="#1D1D20"
         android:fontFamily="@font/notosans"/>
 
-    <ImageView
+    <View
         android:id="@+id/setting_divider1"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_marginLeft="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E4E4E7"
         android:layout_marginTop="15dp"
-        android:src="@drawable/setting_divider1"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/setting_content_inquire"
-        android:textColor="#1D1D20"
-        android:fontFamily="@font/notosans" />
+        app:layout_constraintTop_toBottomOf="@+id/setting_content_inquire"/>
 
     <TextView
         android:id="@+id/setting_content_versinfo"
@@ -108,52 +106,51 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="13dp"
+        android:fontFamily="@font/notosans"
         android:text="회원탈퇴"
         android:textColor="#A2A2A8"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/setting_divider5" />
 
-    <ImageView
+    <View
         android:id="@+id/setting_divider2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/setting_divider1"
-        android:layout_marginLeft="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E4E4E7"
         android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/setting_content_versinfo" />
+        app:layout_constraintTop_toBottomOf="@+id/setting_content_versinfo"/>
 
-    <ImageView
+    <View
         android:id="@+id/setting_divider3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/setting_divider1"
-        android:layout_marginLeft="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E4E4E7"
         android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/setting_content_term_service"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/setting_content_term_service"/>
 
-    <ImageView
+    <View
         android:id="@+id/setting_divider4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/setting_divider1"
-        android:layout_marginLeft="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E4E4E7"
         android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/setting_content_privinfo" />
+        app:layout_constraintTop_toBottomOf="@+id/setting_content_privinfo"/>
 
-    <ImageView
+    <View
         android:id="@+id/setting_divider5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/setting_divider1"
-        android:layout_marginLeft="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E4E4E7"
         android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/setting_content_logout" />
-
+        app:layout_constraintTop_toBottomOf="@+id/setting_content_logout"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

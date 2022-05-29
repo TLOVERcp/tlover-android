@@ -28,7 +28,9 @@ data class ResponseMyDiaryData(
         @SerializedName("regionNames")
         val regionNames: String,
         @SerializedName("themaNames")
-        val themaNames: ArrayList<String>
+        val themaNames: ArrayList<String>,
+        @SerializedName("myFileKeys")
+        val myFileKeys: ArrayList<String>
 
     )
 }

@@ -28,7 +28,7 @@
                 android:id="@+id/item_library_view_rectangle_image"
                 android:layout_width="107dp"
                 android:layout_height="144dp"
-                app:srcCompat="@drawable/img1_item_home_random"
+                loadSearchImg="@{myDiaryItem.myFileKeys[0]}"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
