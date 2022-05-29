@@ -271,8 +271,8 @@
             android:id="@+id/action_myInfoSettingWithdrawalFragment_to_myInfoSettingFragment"
             app:destination="@id/myInfoSettingFragment" />
         <action
-            android:id="@+id/action_myInfoSettingWithdrawalFragment_to_firstTitleActivity"
-            app:destination="@id/firstTitleActivity" />
+            android:id="@+id/action_myInfoSettingWithdrawalFragment_to_signInActivity"
+            app:destination="@id/signInActivity" />
     </fragment>
     <fragment
         android:id="@+id/myInfoServiceFragment"

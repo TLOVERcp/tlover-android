@@ -37,7 +37,7 @@ class MyInfoSettingFragment : Fragment() {
         //회원탈퇴 버튼 클릭
         mBinding?.settingContentWithdrawal?.setOnClickListener {
             val action =
-                MyInfoSettingFragmentDirections.actionMyInfoSettingFragmentToSignInActivity()
+                MyInfoSettingFragmentDirections.actionMyInfoSettingFragmentToMyInfoSettingWithdrawalFragment()
             it.findNavController().navigate(action)
         }
 

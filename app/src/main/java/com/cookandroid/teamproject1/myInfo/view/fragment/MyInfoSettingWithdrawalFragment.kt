@@ -67,9 +67,12 @@ class MyInfoSettingWithdrawalFragment : Fragment(){
                             TloverApplication.prefs.setString("jwt", "null")
                             TloverApplication.prefs.setUserId("null")
 
-                            val action = MyInfoSettingWithdrawalFragmentDirections.actionMyInfoSettingWithdrawalFragmentToFirstTitleActivity()
+                            val action = MyInfoSettingWithdrawalFragmentDirections.actionMyInfoSettingWithdrawalFragmentToSignInActivity()
                             it.findNavController().navigate(action)
                             dialog.cancel()
+                        }
+                        else if(response.code() == 400){
+                            Toast.makeText(requireActivity(), "비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show()
                         }
                     }
 
