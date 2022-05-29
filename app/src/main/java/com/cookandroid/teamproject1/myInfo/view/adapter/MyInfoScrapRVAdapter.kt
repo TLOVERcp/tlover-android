@@ -21,7 +21,7 @@ class MyInfoScrapRVAdapter () : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             binding.scrapDiary = diaryScrapList
 
             itemView.setOnClickListener{
-                val action = MyInfoFragmentDirections.actionMyInfoFragmentToDiaryViewFragment(diaryId = diaryScrapList.id, start = 3)
+                val action = MyInfoFragmentDirections.actionMyInfoFragmentToDiaryViewFragment(diaryId = diaryScrapList.id, start = 31)
                 it.findNavController().navigate(action)
             }
         }

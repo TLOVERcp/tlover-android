@@ -1,6 +1,7 @@
 package com.cookandroid.teamproject1.diary.view.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import com.cookandroid.teamproject1.databinding.FragmentDiaryBinding
 import com.cookandroid.teamproject1.databinding.ItemHomeDiaryBinding
 import com.cookandroid.teamproject1.diary.view.adapter.DiaryVPAdapter
 import com.cookandroid.teamproject1.home.view.fragment.HomeFragmentDirections
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 /**

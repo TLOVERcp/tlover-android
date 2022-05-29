@@ -62,10 +62,19 @@ class DiaryViewFragment : Fragment(){
             }else if (startNum ==2){
                 it.findNavController().navigate(DiaryViewFragmentDirections.actionDiaryViewFragmentToHomeFragment())
 
-            }else if (startNum ==3){
+            }
+            // 탭 레이아웃
+            else if (startNum ==31){
                 it.findNavController().navigate(DiaryViewFragmentDirections.actionDiaryViewFragmentToMyInfoFragment())
 
-            }else if (startNum ==4){
+            }else if (startNum ==32){
+                it.findNavController().navigate(DiaryViewFragmentDirections.actionDiaryViewFragmentToMyInfoFragment())
+
+            }else if (startNum ==32){
+                it.findNavController().navigate(DiaryViewFragmentDirections.actionDiaryViewFragmentToMyInfoFragment())
+
+            }
+            else if (startNum ==4){
                 it.findNavController().navigate(DiaryViewFragmentDirections.actionDiaryViewFragmentToDiaryFragment())
 
             }
