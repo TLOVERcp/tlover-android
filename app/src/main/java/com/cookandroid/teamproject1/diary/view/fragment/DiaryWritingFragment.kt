@@ -362,6 +362,20 @@ class DiaryWritingFragment : Fragment() {
         return File(storageDir, "$fileName.$extension")
     }
 
+    private fun inputStreamToFile(inputStream: InputStream, outputFile: File) {
+        inputStream.use { input ->
+            val outputStream = FileOutputStream(outputFile)
+            outputStream.use { output ->
+                val buffer = ByteArray(4 * 1024) // buffer size
+                while (true) {
+                    val byteCount = input.read(buffer)
+                    if (byteCount < 0) break
+                    output.write(buffer, 0, byteCount)
+                }
+                output.flush()
+            }
+        }
+    }
 
     //사진 관련
     @RequiresApi(Build.VERSION_CODES.KITKAT)
@@ -372,6 +386,7 @@ class DiaryWritingFragment : Fragment() {
                 var currentImageUri = data?.data
                 requireActivity().contentResolver.openInputStream(currentImageUri!!)?.use { inputStream ->
                     val file = createFile(requireContext(), "temp", "jpg")
+                    inputStreamToFile(inputStream, file)
                     filePhoto.add(file)
                 }
 
