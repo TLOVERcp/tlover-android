@@ -2,6 +2,7 @@ package com.cookandroid.teamproject1.diary.view.fragment
 import android.app.Activity.RESULT_CANCELED
 import android.app.Activity.RESULT_OK
 import android.content.Intent
+import android.database.Cursor
 import android.graphics.Color
 import android.graphics.ImageDecoder
 import android.net.Uri
@@ -419,6 +420,7 @@ class DiaryWritingFragment : Fragment() {
                                 val bitmap = ImageDecoder.decodeBitmap(source)
                                 mBinding?.fragmentDiaryWritePictureContainer?.setImageBitmap(bitmap)
                                 mBinding?.fragmentDiaryWritePicturePlus?.visibility=View.GONE
+
                             }
                         }
 
