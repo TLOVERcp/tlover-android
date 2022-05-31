@@ -241,7 +241,7 @@ class DiaryWritingFragment : Fragment() {
                         "diaryContext",
                         mBinding?.fragmentDiaryContentTv?.text.toString()
                     ),
-                    photoList,
+                    photoList.toList(),
                     MultipartBody.Part.createFormData(
                         "diaryStartDate",
                         mBinding?.fragmentDiaryWriteDateEt?.text.toString() + " 00:00:00"
@@ -389,7 +389,6 @@ class DiaryWritingFragment : Fragment() {
                     inputStreamToFile(inputStream, file)
                     filePhoto.add(file)
                 }
-
 
                 try {
                     currentImageUri.let {
