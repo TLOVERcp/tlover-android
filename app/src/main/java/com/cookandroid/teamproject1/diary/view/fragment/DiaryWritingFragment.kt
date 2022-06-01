@@ -160,12 +160,10 @@ class DiaryWritingFragment : Fragment() {
 
 
         mBinding?.fragmentDiaryWriteSaveBt?.setOnClickListener() {
-            if(mBinding?.fragmentDiaryWriteTitleEdittext?.text == null || mBinding?.fragmentDiaryContentTv?.text == null ||
-                    arrB[0] == null){
+            if(mBinding?.fragmentDiaryWriteTitleEdittext?.text == null || mBinding?.fragmentDiaryContentTv?.text == null || arrB[0] == null){
                 Toast.makeText(requireActivity(), "제목, 내용, 테마를 모두 작성해주세요.", Toast.LENGTH_SHORT).show()
             }
             else {
-
                 Log.e("", list.toString())
                 Log.e("", selectdata.toString())
 
