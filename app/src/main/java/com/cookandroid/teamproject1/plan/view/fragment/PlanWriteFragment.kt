@@ -151,7 +151,6 @@ class PlanWriteFragment : Fragment() {
             }
         }
 
-
         // 지역 선택
         mBinding?.fragmentPlanWriteLocationEt?.setOnClickListener() {
             val exist = mBinding?.fragmentPlanWriteDateEt?.text.toString() + "/ " +
@@ -218,9 +217,41 @@ class PlanWriteFragment : Fragment() {
                     } else {
                         mdayOfMonth.toString()
                     }
-                    mBinding?.fragmentPlanWriteDateEt?.setText("$myear-$m-$d")
-                    issDate = true
-                    mBinding?.fragmentPlanWriteDateEt?.setTextColor(Color.BLACK)
+
+                    if (mBinding?.fragmentPlanWriteEndDateEt?.text.toString() != ""){
+                        val list = mBinding?.fragmentPlanWriteEndDateEt?.text.toString().split("-")
+                        Log.e("", list[0].toString())
+                        if (list[0].toInt()==myear.toInt()){
+                            if (list[1].toInt()==m.toInt()){
+                                if (list[2].toInt()>=d.toInt()){
+                                    mBinding?.fragmentPlanWriteDateEt?.setText("$myear-$m-$d")
+                                    mBinding?.fragmentPlanWriteDateEt?.setTextColor(Color.BLACK)
+                                    issDate = true
+
+                                }else{
+                                    Toast.makeText(requireActivity(), "날짜를 확인해주세요!", Toast.LENGTH_SHORT).show()
+                                }
+                            }else if(list[1].toInt()>m.toInt()){
+                                mBinding?.fragmentPlanWriteDateEt?.setText("$myear-$m-$d")
+                                mBinding?.fragmentPlanWriteDateEt?.setTextColor(Color.BLACK)
+                                issDate = true
+
+                            }else{
+                                Toast.makeText(requireActivity(), "날짜를 확인해주세요!", Toast.LENGTH_SHORT).show()
+                            }
+                        }else if (list[0].toInt()>myear.toInt()){
+                            mBinding?.fragmentPlanWriteDateEt?.setText("$myear-$m-$d")
+                            mBinding?.fragmentPlanWriteDateEt?.setTextColor(Color.BLACK)
+                            issDate = true
+
+                        }else{
+                            Toast.makeText(requireActivity(), "날짜를 확인해주세요!", Toast.LENGTH_SHORT).show()
+                        }
+                    }else {
+                        mBinding?.fragmentPlanWriteDateEt?.setText("$myear-$m-$d")
+                        mBinding?.fragmentPlanWriteDateEt?.setTextColor(Color.BLACK)
+                        issDate = true
+                    }
                 },
                 year,
                 month,
@@ -254,32 +285,40 @@ class PlanWriteFragment : Fragment() {
                         mdayOfMonth.toString()
                     }
 
-                    iseDate = true
-//                    if (mBinding?.fragmentPlanWriteDateEt?.toString().equals("")){
-//                        val list = mBinding?.fragmentPlanWriteDateEt?.text.toString().split("-")
-//                        if (list[0].toInt()==myear.toInt()){
-//                            if (list[1].toInt()==m.toInt()){
-//                                if (list[2].toInt()<=d.toInt()){
-//                                    mBinding?.fragmentPlanWriteEndDateEt?.setText("" + myear + "-" + m + "-" + d)
-//                                    mBinding?.fragmentPlanWriteEndDateEt?.setTextColor(Color.BLACK)
-//                                }else{
-//                                    Toast.makeText(requireActivity(), "선택하신 날짜가 시작 일자보다 빠릅니다.", Toast.LENGTH_SHORT).show()
-//                                }
-//                            }else if(list[1].toInt()<m.toInt()){
-//                                mBinding?.fragmentPlanWriteEndDateEt?.setText("" + myear + "-" + m + "-" + d)
-//                                mBinding?.fragmentPlanWriteEndDateEt?.setTextColor(Color.BLACK)
-//                            }else{
-//                                Toast.makeText(requireActivity(), "선택하신 날짜가 시작 일자보다 빠릅니다.", Toast.LENGTH_SHORT).show()
-//                            }
-//                        }else if (list[0].toInt()<myear.toInt()){
-//                            mBinding?.fragmentPlanWriteEndDateEt?.setText("" + myear + "-" + m + "-" + d)
-//                            mBinding?.fragmentPlanWriteEndDateEt?.setTextColor(Color.BLACK)
-//                        }else{
-//                            Toast.makeText(requireActivity(), "선택하신 날짜가 시작 일자보다 빠릅니다.", Toast.LENGTH_SHORT).show()
-//                        }
-//                    }
-                    mBinding?.fragmentPlanWriteEndDateEt?.setText("" + myear + "-" + m + "-" + d)
-                    mBinding?.fragmentPlanWriteEndDateEt?.setTextColor(Color.BLACK)
+                    if (mBinding?.fragmentPlanWriteDateEt?.text.toString() != ""){
+                        val list = mBinding?.fragmentPlanWriteDateEt?.text.toString().split("-")
+                        Log.e("", list[0].toString())
+                        if (list[0].toInt()==myear.toInt()){
+                            if (list[1].toInt()==m.toInt()){
+                                if (list[2].toInt()<=d.toInt()){
+                                    mBinding?.fragmentPlanWriteEndDateEt?.setText("" + myear + "-" + m + "-" + d)
+                                    mBinding?.fragmentPlanWriteEndDateEt?.setTextColor(Color.BLACK)
+                                    iseDate = true
+
+                                }else{
+                                    Toast.makeText(requireActivity(), "날짜를 확인해주세요!", Toast.LENGTH_SHORT).show()
+                                }
+                            }else if(list[1].toInt()<m.toInt()){
+                                mBinding?.fragmentPlanWriteEndDateEt?.setText("" + myear + "-" + m + "-" + d)
+                                mBinding?.fragmentPlanWriteEndDateEt?.setTextColor(Color.BLACK)
+                                iseDate = true
+
+                            }else{
+                                Toast.makeText(requireActivity(), "날짜를 확인해주세요!", Toast.LENGTH_SHORT).show()
+                            }
+                        }else if (list[0].toInt()<myear.toInt()){
+                            mBinding?.fragmentPlanWriteEndDateEt?.setText("" + myear + "-" + m + "-" + d)
+                            mBinding?.fragmentPlanWriteEndDateEt?.setTextColor(Color.BLACK)
+                            iseDate = true
+
+                        }else{
+                            Toast.makeText(requireActivity(), "날짜를 확인해주세요!", Toast.LENGTH_SHORT).show()
+                        }
+                    }else {
+                        mBinding?.fragmentPlanWriteEndDateEt?.setText("$myear-$m-$d")
+                        mBinding?.fragmentPlanWriteEndDateEt?.setTextColor(Color.BLACK)
+                        iseDate = true
+                    }
 
 
                 },
@@ -289,7 +328,6 @@ class PlanWriteFragment : Fragment() {
             )
             datePickerDialog.show()
         }
-
 
 //        mBinding?.signUpingBackImg?.setOnClickListener(){
 //            it.findNavController().navigate(R.id.action_planWriteFragment_to_diaryFragment)

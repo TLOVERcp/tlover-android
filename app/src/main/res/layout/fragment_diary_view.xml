@@ -211,7 +211,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:fontFamily="@font/notosans"
-                android:text="@{diaryViewList.diaryThema[0]}"
+                android:text="@{diaryViewList.diaryThema.toString()}"
                 android:textColor="#52525A"
                 android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@+id/fragment_plan_view_theme_tv"
