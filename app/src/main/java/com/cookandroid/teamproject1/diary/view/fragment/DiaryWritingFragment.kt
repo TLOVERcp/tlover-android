@@ -76,6 +76,7 @@ class DiaryWritingFragment : Fragment() {
     ): View? {
         val binding = FragmentDiaryWritingBinding.inflate(inflater, container, false)
         mBinding = binding
+        Log.e("", filePhoto.size.toString())
         return mBinding?.root
     }
 
