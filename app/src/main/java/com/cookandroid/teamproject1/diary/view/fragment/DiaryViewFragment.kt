@@ -58,6 +58,7 @@ class DiaryViewFragment : Fragment(){
         val startNum = args.start
         Log.d(SignUpViewModel.TAG, "onViewCreated: $diaryId")
 
+        dataList.clear()
         planAcceptRVAdapter = PlanAcceptRVAdapter(requireContext())
         mBinding?.fragmentDiaryViewFrRv?.layoutManager = GridLayoutManager(requireContext(), 4)
         mBinding?.fragmentDiaryViewFrRv?.adapter = planAcceptRVAdapter
@@ -110,20 +111,25 @@ class DiaryViewFragment : Fragment(){
                     ServiceCreator.planService.getDiaryPlanView(
                         TloverApplication.prefs.getString("jwt", "null"),
                         TloverApplication.prefs.getString("refreshToken", "null").toInt(),
-                        planId.toInt()
+                        response.body()?.data?.planId.toString().toInt()
                     ).enqueue(object: Callback<ResponsePlanViewData> {
                         override fun onResponse(
                             call: Call<ResponsePlanViewData>,
                             response: Response<ResponsePlanViewData>
                         ) {
                             if(response.code() == 200){
-                                Log.e("reponse", "200!!~~~")
+                                Log.e("reponse", "rvsucccccccc")
+                                Log.e("", response.body()?.data?.users?.size?.toString()!!)
+                                Log.e("", response.body()?.data?.users!![0])
+
                                 for (i in 0 until response.body()?.data?.users?.size!!){
                                     dataList.add(PlanAcceptDataModel(response.body()?.data?.users!![i]))
                                 }
                                 planAcceptRVAdapter.setDataList(dataList)
 
                             }
+                            planAcceptRVAdapter.notifyDataSetChanged()
+
 
                         }
 
