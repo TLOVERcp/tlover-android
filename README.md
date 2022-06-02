@@ -7,12 +7,32 @@
 
 
 ## <p align="center"> 실행 화면 </p>
+<p align="center">
+<img src="https://i.esdrop.com/d/f/4aTmHoKpdK/e1XUIKy6Fw.png" width="20%" height="30%">
+<img src="https://i.esdrop.com/d/f/4aTmHoKpdK/fi5zj22hhM.png" width="20%" height="30%">
+<img src="https://i.esdrop.com/d/f/4aTmHoKpdK/2derXfr5UX.png" width="20%" height="30%">
+<img src="https://i.esdrop.com/d/f/4aTmHoKpdK/KymaPe8DMn.png" width="20%" height="30%">
+<img src="https://i.esdrop.com/d/f/4aTmHoKpdK/RgQmzMcU4E.png" width="20%" height="30%">
+<img src="https://i.esdrop.com/d/f/4aTmHoKpdK/oauVvGBsrp.png" width="20%" height="30%">
+<img src="https://i.esdrop.com/d/f/4aTmHoKpdK/k4D09tHGe5.png" width="20%" height="30%">
+</p>
+
+## <p align="center"> 기술 스택 </p>
 
 
-## <p align="center"> Tech Stack </p>
+<p> -TargetSDK 32<p>
+<p> -MinSDK 17<p>
+<p> -Kotlin 1.3.50<p>
+<br>
+  
+### 라이브러리
+  <p> Android JetPack (ViewModel, LiveData, Navigation, RecyclerView, Fragment)
+  <p> View Binding
+  <p> Data Binding
+  <p> Retrofit2
+  <p> OKHttp3
 
-
-## <p align="center"> 🌈 Member</p>
+## <p align="center"> Member </p>
 
 ### Frontend
 
