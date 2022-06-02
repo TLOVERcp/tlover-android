@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
+import com.bumptech.glide.Glide
 import com.cookandroid.teamproject1.R
 import com.cookandroid.teamproject1.databinding.FragmentDiaryViewBinding
 import com.cookandroid.teamproject1.diary.model.*
@@ -20,6 +21,7 @@ import com.cookandroid.teamproject1.plan.model.ResponsePlanViewData
 import com.cookandroid.teamproject1.plan.view.adapter.PlanAcceptRVAdapter
 import com.cookandroid.teamproject1.plan.view.fragment.PlanAuthListFragmentDirections
 import com.cookandroid.teamproject1.plan.view.fragment.SelectFragment
+import com.cookandroid.teamproject1.util.BaseFragment
 import com.cookandroid.teamproject1.util.ServiceCreator
 import com.cookandroid.teamproject1.util.TloverApplication
 import retrofit2.Call
@@ -30,8 +32,7 @@ import retrofit2.Response
  * diary 상세보기 프래그먼트
  */
 
-class DiaryViewFragment : Fragment(){
-    private var mBinding : FragmentDiaryViewBinding?=null
+class DiaryViewFragment : BaseFragment<FragmentDiaryViewBinding>(R.layout.fragment_diary_view){
     private lateinit var planAcceptRVAdapter : PlanAcceptRVAdapter
     private var dataList = mutableListOf<PlanAcceptDataModel>()
 
@@ -41,35 +42,30 @@ class DiaryViewFragment : Fragment(){
     private var planId : String = ""
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val binding = FragmentDiaryViewBinding.inflate(inflater, container, false)
-        mBinding = binding
-        dataList.clear()
-        return mBinding?.root
+    override fun FragmentDiaryViewBinding.onCreateView() {
+
+
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun FragmentDiaryViewBinding.onViewCreated() {
         val args : DiaryViewFragmentArgs by navArgs()
         val diaryId = args.diaryId
         val startNum = args.start
         Log.d(SignUpViewModel.TAG, "onViewCreated: $diaryId")
 
+
         dataList.clear()
         planAcceptRVAdapter = PlanAcceptRVAdapter(requireContext())
-        mBinding?.fragmentDiaryViewFrRv?.layoutManager = GridLayoutManager(requireContext(), 4)
-        mBinding?.fragmentDiaryViewFrRv?.adapter = planAcceptRVAdapter
+        binding.fragmentDiaryViewFrRv.layoutManager = GridLayoutManager(requireContext(), 4)
+        binding.fragmentDiaryViewFrRv.adapter = planAcceptRVAdapter
 
         planAcceptRVAdapter = PlanAcceptRVAdapter(requireContext())
-        mBinding?.fragmentDiaryViewFrRv?.layoutManager = GridLayoutManager(requireContext(), 4)
-        mBinding?.fragmentDiaryViewFrRv?.adapter = planAcceptRVAdapter
+        binding.fragmentDiaryViewFrRv.layoutManager = GridLayoutManager(requireContext(), 4)
+        binding.fragmentDiaryViewFrRv.adapter = planAcceptRVAdapter
 
 
         // x버튼 - 번호 받아와서 해보자 or fragmentListener finish X
-        mBinding?.signUpingBackImg?.setOnClickListener(){
+        binding.signUpingBackImg.setOnClickListener(){
             if (startNum ==1){
                 it.findNavController().navigate(DiaryViewFragmentDirections.actionDiaryViewFragmentToSearchFragment())
 
@@ -175,7 +171,15 @@ class DiaryViewFragment : Fragment(){
             ) {
                 if (response.code() == 200) {
                     Log.e("reponse!!!!!!!", "200~!!gg")
-                    mBinding?.diaryViewList = response.body()?.data
+                    binding.diaryViewList = response.body()?.data
+                    val img = binding.diaryViewList!!.myFileKeys[0]
+//                    "https://d1mwr8154tagzz.cloudfront.net/$url"
+                    binding.imageView.let{
+                        Glide.with(requireActivity())
+                            .load("https://d1mwr8154tagzz.cloudfront.net/$img?w=360&h=270&qq=50")
+                            .error(R.drawable.tlover_nlogo)
+                            .into(it)
+                    }
                 }
             }
 
@@ -199,7 +203,7 @@ class DiaryViewFragment : Fragment(){
             ) {
                 if(response.code()==200) {
                     Log.e("response!!","200 scrapcount")
-                    mBinding?.diaryScrap = response.body()?.data
+                    binding.diaryScrap = response.body()?.data
                 }
             }
 
@@ -223,7 +227,7 @@ class DiaryViewFragment : Fragment(){
             ) {
                 if(response.code()==200) {
                     Log.e("response!!!", "200 likeCount")
-                    mBinding?.diaryLike = response.body()?.data
+                    binding.diaryLike = response.body()?.data
 
                 }
 
@@ -296,7 +300,7 @@ class DiaryViewFragment : Fragment(){
         })
 
 
-        mBinding?.itemSearchViewHeartIcon?.setOnClickListener {
+        binding.itemSearchViewHeartIcon.setOnClickListener {
             //좋아요 API 연동
             val callLike: Call<ResponseLikeData> = ServiceCreator.diaryService.getLike(
                 TloverApplication.prefs.getString("jwt","null"),
@@ -332,7 +336,7 @@ class DiaryViewFragment : Fragment(){
                             ) {
                                 if(response.code()==200) {
                                     Log.e("response!!!", "200 likeCount")
-                                    mBinding?.diaryLike = response.body()?.data
+                                    binding.diaryLike = response.body()?.data
 
                                 }
 
@@ -356,7 +360,7 @@ class DiaryViewFragment : Fragment(){
 
         }
         //스크랩 api 연동
-        mBinding?.itemSearchViewScrapIcon?.setOnClickListener {
+        binding.itemSearchViewScrapIcon.setOnClickListener {
             val callScrap : Call<ResponseScrapData> = ServiceCreator.diaryService.getScrap(
                 TloverApplication.prefs.getString("jwt","null"),
                 TloverApplication.prefs.getString("refreshToken","null").toInt(),
@@ -385,7 +389,7 @@ class DiaryViewFragment : Fragment(){
                             ) {
                                 if(response.code()==200) {
                                     Log.e("response!!","200 scrapcount")
-                                    mBinding?.diaryScrap = response.body()?.data
+                                    binding.diaryScrap = response.body()?.data
                                 }
                             }
 
@@ -446,7 +450,7 @@ class DiaryViewFragment : Fragment(){
                             ) {
                                 if(response.code()==200) {
                                     Log.e("response!!","200 scrapcount")
-                                    mBinding?.diaryScrap = response.body()?.data
+                                    binding.diaryScrap = response.body()?.data
                                 }
                             }
 
@@ -501,23 +505,23 @@ class DiaryViewFragment : Fragment(){
 
 
         }
-        super.onViewCreated(view, savedInstanceState)
+
     }
     private fun heartShape() {
         if(heartShape==true) {
-            mBinding?.itemSearchViewHeartIcon?.setImageResource(R.drawable.ic_colored_heart)
+            binding.itemSearchViewHeartIcon.setImageResource(R.drawable.ic_colored_heart)
         }
         else if(heartShape==false) {
-            mBinding?.itemSearchViewHeartIcon?.setImageResource(R.drawable.diary_search_heart)
+            binding.itemSearchViewHeartIcon.setImageResource(R.drawable.diary_search_heart)
         }
     }
 
     private fun scrapShape() {
         if(scrapShape==true) {
-            mBinding?.itemSearchViewScrapIcon?.setImageResource(R.drawable.ic_colored_scrap)
+            binding.itemSearchViewScrapIcon.setImageResource(R.drawable.ic_colored_scrap)
         }
         else if(scrapShape==false) {
-            mBinding?.itemSearchViewScrapIcon?.setImageResource(R.drawable.diary_search_scrap)
+            binding.itemSearchViewScrapIcon.setImageResource(R.drawable.diary_search_scrap)
         }
     }
 
