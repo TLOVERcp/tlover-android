@@ -1,6 +1,4 @@
 # <p align="center">TLOVER<p>
-<p align="center"><img src="https://user-images.githubusercontent.com/61726631/168746638-4f9c02ca-c42e-4ed7-8247-a65e7d7d7892.jpg"/><p>
-  
 <div align="center"><h2>나만의 여행 다이어리, <br>
                                    너와 나의 여행 다이어리, <br>
                                     내가 기록하고, 너와 공유하는 여행 다이어리 <br></h2></div>
